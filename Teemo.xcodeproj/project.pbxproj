@@ -1100,12 +1100,12 @@
 				BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */,
 				BC5EE2F3182A1FAC007D5DE6 /* TMSubscriptionHandler.h */,
 				BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */,
+				BC5EE2F7182A1FAC007D5DE6 /* TMVCardHandler.h */,
+				BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */,
 				BC5EE2E7182A1FAC007D5DE6 /* TMIqHandler.h */,
 				BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */,
 				BC5EE2F5182A1FAC007D5DE6 /* TMTagHandler.h */,
 				BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */,
-				BC5EE2F7182A1FAC007D5DE6 /* TMVCardHandler.h */,
-				BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */,
 			);
 			path = Teemo;
 			sourceTree = "<group>";

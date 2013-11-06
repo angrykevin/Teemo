@@ -11,12 +11,14 @@
 #import "TMConfig.h"
 
 #include <gloox/client.h>
+#include <gloox/vcardmanager.h>
 
 using namespace gloox;
 
 
 @interface TMEngine : NSObject {
   Client *_client;
+  VCardManager *_vcardManager;
   
   
   

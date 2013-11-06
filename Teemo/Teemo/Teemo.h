@@ -26,9 +26,9 @@
 
 #import "TMSubscriptionHandler.h"
 
+#import "TMVCardHandler.h"
+
 
 #import "TMIqHandler.h"
 
 #import "TMTagHandler.h"
-
-#import "TMVCardHandler.h"

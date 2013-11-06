@@ -17,6 +17,20 @@
 
 #import "TMCommon.h"
 
+
+#import "TMConnectionListener.h"
+
+#import "TMMessageHandler.h"
+#import "TMMessageSessionHandler.h"
+
+#import "TMPresenceHandler.h"
+
+#import "TMRosterListener.h"
+
+#import "TMStatisticsHandler.h"
+
+#import "TMSubscriptionHandler.h"
+
 using namespace std;
 using namespace gloox;
 
@@ -37,6 +51,29 @@ using namespace gloox;
   _client = new Client( JID( jid ), pwd );
   _client->setServer( svr );
   _client->setPort( prt );
+  
+  
+  TMConnectionListener *connectionListener = new TMConnectionListener;
+  _client->registerConnectionListener( connectionListener );
+  
+  TMMessageSessionHandler *messageSessionHandler = new TMMessageSessionHandler;
+  _client->registerMessageSessionHandler( messageSessionHandler );
+  
+  TMPresenceHandler *presenceHandler = new TMPresenceHandler;
+  _client->registerPresenceHandler( presenceHandler );
+  
+  TMRosterListener *rosterListener = new TMRosterListener;
+  _client->rosterManager()->registerRosterListener( rosterListener );
+  
+  TMStatisticsHandler *statisticsHandler = new TMStatisticsHandler;
+  _client->registerStatisticsHandler( statisticsHandler );
+  
+  TMSubscriptionHandler *subscriptionHandler = new TMSubscriptionHandler;
+  _client->registerSubscriptionHandler( subscriptionHandler );
+  
+  
+  _vcardManager = new VCardManager( _client );
+  
 }
 
 - (BOOL)connect
