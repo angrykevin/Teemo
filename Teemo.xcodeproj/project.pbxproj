@@ -136,6 +136,31 @@
 		BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */; };
 		BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */; };
 		BC5EE304182A1FAC007D5DE6 /* TMVCardHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */; };
+		BC5EE307182A209D007D5DE6 /* RSSigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */; };
+		BC5EE30A182A20D7007D5DE6 /* RSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE309182A20D7007D5DE6 /* RSMainViewController.m */; };
+		BC5EE347182A226C007D5DE6 /* NSArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE30F182A226C007D5DE6 /* NSArrayAdditions.m */; };
+		BC5EE348182A226C007D5DE6 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE311182A226C007D5DE6 /* NSDataAdditions.m */; };
+		BC5EE349182A226C007D5DE6 /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE313182A226C007D5DE6 /* NSDateAdditions.m */; };
+		BC5EE34A182A226C007D5DE6 /* NSDictionaryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE315182A226C007D5DE6 /* NSDictionaryAdditions.m */; };
+		BC5EE34B182A226C007D5DE6 /* NSObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE317182A226C007D5DE6 /* NSObjectAdditions.m */; };
+		BC5EE34C182A226C007D5DE6 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE319182A226C007D5DE6 /* NSStringAdditions.m */; };
+		BC5EE34D182A226C007D5DE6 /* UIButtonAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE31B182A226C007D5DE6 /* UIButtonAdditions.m */; };
+		BC5EE34E182A226C007D5DE6 /* UIImageViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE31D182A226C007D5DE6 /* UIImageViewAdditions.m */; };
+		BC5EE34F182A226C007D5DE6 /* UIScrollViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE31F182A226C007D5DE6 /* UIScrollViewAdditions.m */; };
+		BC5EE350182A226C007D5DE6 /* UITableViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE321182A226C007D5DE6 /* UITableViewAdditions.m */; };
+		BC5EE351182A226C007D5DE6 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE323182A226C007D5DE6 /* UIViewAdditions.m */; };
+		BC5EE352182A226C007D5DE6 /* TKCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE327182A226C007D5DE6 /* TKCache.m */; };
+		BC5EE353182A226C007D5DE6 /* TKOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE32A182A226C007D5DE6 /* TKOperation.m */; };
+		BC5EE354182A226C007D5DE6 /* TKSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE32C182A226C007D5DE6 /* TKSettings.m */; };
+		BC5EE355182A226C007D5DE6 /* TKCoreBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE330182A226C007D5DE6 /* TKCoreBase64.m */; };
+		BC5EE356182A226C007D5DE6 /* TKCoreCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE332182A226C007D5DE6 /* TKCoreCommon.m */; };
+		BC5EE357182A226C007D5DE6 /* TKCoreCompatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE334182A226C007D5DE6 /* TKCoreCompatibility.m */; };
+		BC5EE358182A226C007D5DE6 /* TKCoreUI.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE336182A226C007D5DE6 /* TKCoreUI.m */; };
+		BC5EE359182A226C007D5DE6 /* TKDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE33C182A226C007D5DE6 /* TKDatabase.m */; };
+		BC5EE35A182A226C007D5DE6 /* TKDatabaseRow.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE33E182A226C007D5DE6 /* TKDatabaseRow.m */; };
+		BC5EE35B182A226C007D5DE6 /* TKNAIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE342182A226C007D5DE6 /* TKNAIManager.m */; };
+		BC5EE35C182A226C007D5DE6 /* TKURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE344182A226C007D5DE6 /* TKURLConnectionOperation.m */; };
+		BC5EE35E182A230E007D5DE6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -525,6 +550,65 @@
 		BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMTagHandler.mm; sourceTree = "<group>"; };
 		BC5EE2F7182A1FAC007D5DE6 /* TMVCardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVCardHandler.h; sourceTree = "<group>"; };
 		BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMVCardHandler.mm; sourceTree = "<group>"; };
+		BC5EE305182A209D007D5DE6 /* RSSigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSigninViewController.h; sourceTree = "<group>"; };
+		BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSigninViewController.m; sourceTree = "<group>"; };
+		BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainViewController.h; sourceTree = "<group>"; };
+		BC5EE309182A20D7007D5DE6 /* RSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMainViewController.m; sourceTree = "<group>"; };
+		BC5EE30D182A226C007D5DE6 /* Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Additions.h; sourceTree = "<group>"; };
+		BC5EE30E182A226C007D5DE6 /* NSArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayAdditions.h; sourceTree = "<group>"; };
+		BC5EE30F182A226C007D5DE6 /* NSArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayAdditions.m; sourceTree = "<group>"; };
+		BC5EE310182A226C007D5DE6 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
+		BC5EE311182A226C007D5DE6 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		BC5EE312182A226C007D5DE6 /* NSDateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateAdditions.h; sourceTree = "<group>"; };
+		BC5EE313182A226C007D5DE6 /* NSDateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateAdditions.m; sourceTree = "<group>"; };
+		BC5EE314182A226C007D5DE6 /* NSDictionaryAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionaryAdditions.h; sourceTree = "<group>"; };
+		BC5EE315182A226C007D5DE6 /* NSDictionaryAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryAdditions.m; sourceTree = "<group>"; };
+		BC5EE316182A226C007D5DE6 /* NSObjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectAdditions.h; sourceTree = "<group>"; };
+		BC5EE317182A226C007D5DE6 /* NSObjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectAdditions.m; sourceTree = "<group>"; };
+		BC5EE318182A226C007D5DE6 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
+		BC5EE319182A226C007D5DE6 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
+		BC5EE31A182A226C007D5DE6 /* UIButtonAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonAdditions.h; sourceTree = "<group>"; };
+		BC5EE31B182A226C007D5DE6 /* UIButtonAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonAdditions.m; sourceTree = "<group>"; };
+		BC5EE31C182A226C007D5DE6 /* UIImageViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageViewAdditions.h; sourceTree = "<group>"; };
+		BC5EE31D182A226C007D5DE6 /* UIImageViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageViewAdditions.m; sourceTree = "<group>"; };
+		BC5EE31E182A226C007D5DE6 /* UIScrollViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAdditions.h; sourceTree = "<group>"; };
+		BC5EE31F182A226C007D5DE6 /* UIScrollViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewAdditions.m; sourceTree = "<group>"; };
+		BC5EE320182A226C007D5DE6 /* UITableViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewAdditions.h; sourceTree = "<group>"; };
+		BC5EE321182A226C007D5DE6 /* UITableViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewAdditions.m; sourceTree = "<group>"; };
+		BC5EE322182A226C007D5DE6 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
+		BC5EE323182A226C007D5DE6 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
+		BC5EE325182A226C007D5DE6 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		BC5EE326182A226C007D5DE6 /* TKCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCache.h; sourceTree = "<group>"; };
+		BC5EE327182A226C007D5DE6 /* TKCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCache.m; sourceTree = "<group>"; };
+		BC5EE328182A226C007D5DE6 /* TKObserverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKObserverProtocol.h; sourceTree = "<group>"; };
+		BC5EE329182A226C007D5DE6 /* TKOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKOperation.h; sourceTree = "<group>"; };
+		BC5EE32A182A226C007D5DE6 /* TKOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKOperation.m; sourceTree = "<group>"; };
+		BC5EE32B182A226C007D5DE6 /* TKSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSettings.h; sourceTree = "<group>"; };
+		BC5EE32C182A226C007D5DE6 /* TKSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSettings.m; sourceTree = "<group>"; };
+		BC5EE32E182A226C007D5DE6 /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
+		BC5EE32F182A226C007D5DE6 /* TKCoreBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCoreBase64.h; sourceTree = "<group>"; };
+		BC5EE330182A226C007D5DE6 /* TKCoreBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCoreBase64.m; sourceTree = "<group>"; };
+		BC5EE331182A226C007D5DE6 /* TKCoreCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCoreCommon.h; sourceTree = "<group>"; };
+		BC5EE332182A226C007D5DE6 /* TKCoreCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCoreCommon.m; sourceTree = "<group>"; };
+		BC5EE333182A226C007D5DE6 /* TKCoreCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCoreCompatibility.h; sourceTree = "<group>"; };
+		BC5EE334182A226C007D5DE6 /* TKCoreCompatibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCoreCompatibility.m; sourceTree = "<group>"; };
+		BC5EE335182A226C007D5DE6 /* TKCoreUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCoreUI.h; sourceTree = "<group>"; };
+		BC5EE336182A226C007D5DE6 /* TKCoreUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCoreUI.m; sourceTree = "<group>"; };
+		BC5EE337182A226C007D5DE6 /* TKDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDebug.h; sourceTree = "<group>"; };
+		BC5EE338182A226C007D5DE6 /* TKMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKMacro.h; sourceTree = "<group>"; };
+		BC5EE33A182A226C007D5DE6 /* DB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB.h; sourceTree = "<group>"; };
+		BC5EE33B182A226C007D5DE6 /* TKDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDatabase.h; sourceTree = "<group>"; };
+		BC5EE33C182A226C007D5DE6 /* TKDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDatabase.m; sourceTree = "<group>"; };
+		BC5EE33D182A226C007D5DE6 /* TKDatabaseRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDatabaseRow.h; sourceTree = "<group>"; };
+		BC5EE33E182A226C007D5DE6 /* TKDatabaseRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDatabaseRow.m; sourceTree = "<group>"; };
+		BC5EE340182A226C007D5DE6 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		BC5EE341182A226C007D5DE6 /* TKNAIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNAIManager.h; sourceTree = "<group>"; };
+		BC5EE342182A226C007D5DE6 /* TKNAIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNAIManager.m; sourceTree = "<group>"; };
+		BC5EE343182A226C007D5DE6 /* TKURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKURLConnectionOperation.h; sourceTree = "<group>"; };
+		BC5EE344182A226C007D5DE6 /* TKURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKURLConnectionOperation.m; sourceTree = "<group>"; };
+		BC5EE345182A226C007D5DE6 /* TapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapKit.h; sourceTree = "<group>"; };
+		BC5EE346182A226C007D5DE6 /* TKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKConfig.h; sourceTree = "<group>"; };
+		BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,6 +616,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC5EE35E182A230E007D5DE6 /* libsqlite3.dylib in Frameworks */,
 				BC5EE2DC182A1C6B007D5DE6 /* libz.dylib in Frameworks */,
 				BC5EE2DA182A1C19007D5DE6 /* libssl.a in Frameworks */,
 				BC5EE0DF182A196A007D5DE6 /* CoreGraphics.framework in Frameworks */,
@@ -564,6 +649,7 @@
 		BC5EE0DB182A196A007D5DE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */,
 				BC5EE2DB182A1C6B007D5DE6 /* libz.dylib */,
 				BC5EE0DC182A196A007D5DE6 /* Foundation.framework */,
 				BC5EE0DE182A196A007D5DE6 /* CoreGraphics.framework */,
@@ -581,7 +667,12 @@
 				BC5EE0E8182A196A007D5DE6 /* main.m */,
 				BC5EE0EB182A196A007D5DE6 /* AppDelegate.h */,
 				BC5EE0EC182A196A007D5DE6 /* AppDelegate.m */,
+				BC5EE305182A209D007D5DE6 /* RSSigninViewController.h */,
+				BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */,
+				BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */,
+				BC5EE309182A20D7007D5DE6 /* RSMainViewController.m */,
 				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
+				BC5EE30B182A226C007D5DE6 /* TapKit */,
 				BC5EE10B182A1BFC007D5DE6 /* gloox */,
 				BC5EE288182A1C18007D5DE6 /* openssl */,
 			);
@@ -1008,6 +1099,107 @@
 			path = Teemo;
 			sourceTree = "<group>";
 		};
+		BC5EE30B182A226C007D5DE6 /* TapKit */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE30C182A226C007D5DE6 /* Additions */,
+				BC5EE324182A226C007D5DE6 /* Common */,
+				BC5EE32D182A226C007D5DE6 /* Core */,
+				BC5EE339182A226C007D5DE6 /* DB */,
+				BC5EE33F182A226C007D5DE6 /* Network */,
+				BC5EE345182A226C007D5DE6 /* TapKit.h */,
+				BC5EE346182A226C007D5DE6 /* TKConfig.h */,
+			);
+			path = TapKit;
+			sourceTree = "<group>";
+		};
+		BC5EE30C182A226C007D5DE6 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE30D182A226C007D5DE6 /* Additions.h */,
+				BC5EE30E182A226C007D5DE6 /* NSArrayAdditions.h */,
+				BC5EE30F182A226C007D5DE6 /* NSArrayAdditions.m */,
+				BC5EE310182A226C007D5DE6 /* NSDataAdditions.h */,
+				BC5EE311182A226C007D5DE6 /* NSDataAdditions.m */,
+				BC5EE312182A226C007D5DE6 /* NSDateAdditions.h */,
+				BC5EE313182A226C007D5DE6 /* NSDateAdditions.m */,
+				BC5EE314182A226C007D5DE6 /* NSDictionaryAdditions.h */,
+				BC5EE315182A226C007D5DE6 /* NSDictionaryAdditions.m */,
+				BC5EE316182A226C007D5DE6 /* NSObjectAdditions.h */,
+				BC5EE317182A226C007D5DE6 /* NSObjectAdditions.m */,
+				BC5EE318182A226C007D5DE6 /* NSStringAdditions.h */,
+				BC5EE319182A226C007D5DE6 /* NSStringAdditions.m */,
+				BC5EE31A182A226C007D5DE6 /* UIButtonAdditions.h */,
+				BC5EE31B182A226C007D5DE6 /* UIButtonAdditions.m */,
+				BC5EE31C182A226C007D5DE6 /* UIImageViewAdditions.h */,
+				BC5EE31D182A226C007D5DE6 /* UIImageViewAdditions.m */,
+				BC5EE31E182A226C007D5DE6 /* UIScrollViewAdditions.h */,
+				BC5EE31F182A226C007D5DE6 /* UIScrollViewAdditions.m */,
+				BC5EE320182A226C007D5DE6 /* UITableViewAdditions.h */,
+				BC5EE321182A226C007D5DE6 /* UITableViewAdditions.m */,
+				BC5EE322182A226C007D5DE6 /* UIViewAdditions.h */,
+				BC5EE323182A226C007D5DE6 /* UIViewAdditions.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		BC5EE324182A226C007D5DE6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE325182A226C007D5DE6 /* Common.h */,
+				BC5EE326182A226C007D5DE6 /* TKCache.h */,
+				BC5EE327182A226C007D5DE6 /* TKCache.m */,
+				BC5EE328182A226C007D5DE6 /* TKObserverProtocol.h */,
+				BC5EE329182A226C007D5DE6 /* TKOperation.h */,
+				BC5EE32A182A226C007D5DE6 /* TKOperation.m */,
+				BC5EE32B182A226C007D5DE6 /* TKSettings.h */,
+				BC5EE32C182A226C007D5DE6 /* TKSettings.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BC5EE32D182A226C007D5DE6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE32E182A226C007D5DE6 /* Core.h */,
+				BC5EE32F182A226C007D5DE6 /* TKCoreBase64.h */,
+				BC5EE330182A226C007D5DE6 /* TKCoreBase64.m */,
+				BC5EE331182A226C007D5DE6 /* TKCoreCommon.h */,
+				BC5EE332182A226C007D5DE6 /* TKCoreCommon.m */,
+				BC5EE333182A226C007D5DE6 /* TKCoreCompatibility.h */,
+				BC5EE334182A226C007D5DE6 /* TKCoreCompatibility.m */,
+				BC5EE335182A226C007D5DE6 /* TKCoreUI.h */,
+				BC5EE336182A226C007D5DE6 /* TKCoreUI.m */,
+				BC5EE337182A226C007D5DE6 /* TKDebug.h */,
+				BC5EE338182A226C007D5DE6 /* TKMacro.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		BC5EE339182A226C007D5DE6 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE33A182A226C007D5DE6 /* DB.h */,
+				BC5EE33B182A226C007D5DE6 /* TKDatabase.h */,
+				BC5EE33C182A226C007D5DE6 /* TKDatabase.m */,
+				BC5EE33D182A226C007D5DE6 /* TKDatabaseRow.h */,
+				BC5EE33E182A226C007D5DE6 /* TKDatabaseRow.m */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		BC5EE33F182A226C007D5DE6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE340182A226C007D5DE6 /* Network.h */,
+				BC5EE341182A226C007D5DE6 /* TKNAIManager.h */,
+				BC5EE342182A226C007D5DE6 /* TKNAIManager.m */,
+				BC5EE343182A226C007D5DE6 /* TKURLConnectionOperation.h */,
+				BC5EE344182A226C007D5DE6 /* TKURLConnectionOperation.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1073,11 +1265,16 @@
 				BC5EE25F182A1BFD007D5DE6 /* parser.cpp in Sources */,
 				BC5EE239182A1BFD007D5DE6 /* delayeddelivery.cpp in Sources */,
 				BC5EE261182A1BFD007D5DE6 /* presence.cpp in Sources */,
+				BC5EE35B182A226C007D5DE6 /* TKNAIManager.m in Sources */,
+				BC5EE358182A226C007D5DE6 /* TKCoreUI.m in Sources */,
 				BC5EE221182A1BFD007D5DE6 /* base64.cpp in Sources */,
 				BC5EE278182A1BFD007D5DE6 /* tag.cpp in Sources */,
 				BC5EE232182A1BFD007D5DE6 /* connectiontls.cpp in Sources */,
+				BC5EE35C182A226C007D5DE6 /* TKURLConnectionOperation.m in Sources */,
 				BC5EE271182A1BFD007D5DE6 /* socks5bytestream.cpp in Sources */,
+				BC5EE359182A226C007D5DE6 /* TKDatabase.m in Sources */,
 				BC5EE229182A1BFD007D5DE6 /* component.cpp in Sources */,
+				BC5EE34A182A226C007D5DE6 /* NSDictionaryAdditions.m in Sources */,
 				BC5EE272182A1BFD007D5DE6 /* socks5bytestreammanager.cpp in Sources */,
 				BC5EE23E182A1BFD007D5DE6 /* featureneg.cpp in Sources */,
 				BC5EE304182A1FAC007D5DE6 /* TMVCardHandler.mm in Sources */,
@@ -1086,6 +1283,7 @@
 				BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */,
 				BC5EE22C182A1BFD007D5DE6 /* connectionbosh.cpp in Sources */,
 				BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */,
+				BC5EE353182A226C007D5DE6 /* TKOperation.m in Sources */,
 				BC5EE282182A1BFD007D5DE6 /* uniquemucroom.cpp in Sources */,
 				BC5EE300182A1FAC007D5DE6 /* TMRosterListener.mm in Sources */,
 				BC5EE24C182A1BFD007D5DE6 /* jinglesession.cpp in Sources */,
@@ -1100,13 +1298,17 @@
 				BC5EE2FB182A1FAC007D5DE6 /* TMEngine.mm in Sources */,
 				BC5EE237182A1BFD007D5DE6 /* dataformitem.cpp in Sources */,
 				BC5EE255182A1BFD007D5DE6 /* messageeventfilter.cpp in Sources */,
+				BC5EE352182A226C007D5DE6 /* TKCache.m in Sources */,
 				BC5EE247182A1BFD007D5DE6 /* jid.cpp in Sources */,
 				BC5EE285182A1BFD007D5DE6 /* vcardmanager.cpp in Sources */,
+				BC5EE347182A226C007D5DE6 /* NSArrayAdditions.m in Sources */,
 				BC5EE25E182A1BFD007D5DE6 /* oob.cpp in Sources */,
 				BC5EE21E182A1BFD007D5DE6 /* annotations.cpp in Sources */,
 				BC5EE2FD182A1FAC007D5DE6 /* TMMessageHandler.mm in Sources */,
+				BC5EE357182A226C007D5DE6 /* TKCoreCompatibility.m in Sources */,
 				BC5EE266182A1BFD007D5DE6 /* pubsubitem.cpp in Sources */,
 				BC5EE242182A1BFD007D5DE6 /* gpgencrypted.cpp in Sources */,
+				BC5EE34C182A226C007D5DE6 /* NSStringAdditions.m in Sources */,
 				BC5EE248182A1BFD007D5DE6 /* jinglecontent.cpp in Sources */,
 				BC5EE250182A1BFD007D5DE6 /* linklocalmanager.cpp in Sources */,
 				BC5EE27A182A1BFD007D5DE6 /* tlsgnutlsbase.cpp in Sources */,
@@ -1114,6 +1316,7 @@
 				BC5EE222182A1BFD007D5DE6 /* bookmarkstorage.cpp in Sources */,
 				BC5EE251182A1BFD007D5DE6 /* logsink.cpp in Sources */,
 				BC5EE280182A1BFD007D5DE6 /* tlsopensslserver.cpp in Sources */,
+				BC5EE354182A226C007D5DE6 /* TKSettings.m in Sources */,
 				BC5EE243182A1BFD007D5DE6 /* gpgsigned.cpp in Sources */,
 				BC5EE26E182A1BFD007D5DE6 /* shim.cpp in Sources */,
 				BC5EE24A182A1BFD007D5DE6 /* jingleiceudp.cpp in Sources */,
@@ -1123,12 +1326,15 @@
 				BC5EE27D182A1BFD007D5DE6 /* tlsgnutlsserveranon.cpp in Sources */,
 				BC5EE0ED182A196A007D5DE6 /* AppDelegate.m in Sources */,
 				BC5EE23F182A1BFD007D5DE6 /* flexoff.cpp in Sources */,
+				BC5EE351182A226C007D5DE6 /* UIViewAdditions.m in Sources */,
 				BC5EE262182A1BFD007D5DE6 /* privacyitem.cpp in Sources */,
 				BC5EE263182A1BFD007D5DE6 /* privacymanager.cpp in Sources */,
 				BC5EE25D182A1BFD007D5DE6 /* nonsaslauth.cpp in Sources */,
 				BC5EE26D182A1BFD007D5DE6 /* sha.cpp in Sources */,
 				BC5EE281182A1BFD007D5DE6 /* tlsschannel.cpp in Sources */,
 				BC5EE273182A1BFD007D5DE6 /* socks5bytestreamserver.cpp in Sources */,
+				BC5EE307182A209D007D5DE6 /* RSSigninViewController.m in Sources */,
+				BC5EE35A182A226C007D5DE6 /* TKDatabaseRow.m in Sources */,
 				BC5EE22D182A1BFD007D5DE6 /* connectionhttpproxy.cpp in Sources */,
 				BC5EE0E9182A196A007D5DE6 /* main.m in Sources */,
 				BC5EE287182A1BFD007D5DE6 /* xhtmlim.cpp in Sources */,
@@ -1147,6 +1353,7 @@
 				BC5EE284182A1BFD007D5DE6 /* vcard.cpp in Sources */,
 				BC5EE233182A1BFD007D5DE6 /* connectiontlsserver.cpp in Sources */,
 				BC5EE27C182A1BFD007D5DE6 /* tlsgnutlsclientanon.cpp in Sources */,
+				BC5EE30A182A20D7007D5DE6 /* RSMainViewController.m in Sources */,
 				BC5EE265182A1BFD007D5DE6 /* pubsubevent.cpp in Sources */,
 				BC5EE26C182A1BFD007D5DE6 /* search.cpp in Sources */,
 				BC5EE22A182A1BFD007D5DE6 /* compressiondefault.cpp in Sources */,
@@ -1154,11 +1361,13 @@
 				BC5EE25A182A1BFD007D5DE6 /* mucroom.cpp in Sources */,
 				BC5EE256182A1BFD007D5DE6 /* messagefilter.cpp in Sources */,
 				BC5EE22F182A1BFD007D5DE6 /* connectiontcpbase.cpp in Sources */,
+				BC5EE34D182A226C007D5DE6 /* UIButtonAdditions.m in Sources */,
 				BC5EE275182A1BFD007D5DE6 /* stanza.cpp in Sources */,
 				BC5EE26A182A1BFD007D5DE6 /* rosteritem.cpp in Sources */,
 				BC5EE264182A1BFD007D5DE6 /* privatexml.cpp in Sources */,
 				BC5EE21D182A1BFD007D5DE6 /* amp.cpp in Sources */,
 				BC5EE286182A1BFD007D5DE6 /* vcardupdate.cpp in Sources */,
+				BC5EE355182A226C007D5DE6 /* TKCoreBase64.m in Sources */,
 				BC5EE225182A1BFD007D5DE6 /* chatstate.cpp in Sources */,
 				BC5EE260182A1BFD007D5DE6 /* prep.cpp in Sources */,
 				BC5EE23C182A1BFD007D5DE6 /* error.cpp in Sources */,
@@ -1169,8 +1378,10 @@
 				BC5EE21F182A1BFD007D5DE6 /* atomicrefcount.cpp in Sources */,
 				BC5EE25C182A1BFD007D5DE6 /* nickname.cpp in Sources */,
 				BC5EE238182A1BFD007D5DE6 /* dataformreported.cpp in Sources */,
+				BC5EE356182A226C007D5DE6 /* TKCoreCommon.m in Sources */,
 				BC5EE227182A1BFD007D5DE6 /* client.cpp in Sources */,
 				BC5EE301182A1FAC007D5DE6 /* TMStatisticsHandler.mm in Sources */,
+				BC5EE350182A226C007D5DE6 /* UITableViewAdditions.m in Sources */,
 				BC5EE235182A1BFD007D5DE6 /* dataformfield.cpp in Sources */,
 				BC5EE258182A1BFD007D5DE6 /* mucinvitationhandler.cpp in Sources */,
 				BC5EE22E182A1BFD007D5DE6 /* connectionsocks5proxy.cpp in Sources */,
@@ -1183,14 +1394,19 @@
 				BC5EE228182A1BFD007D5DE6 /* clientbase.cpp in Sources */,
 				BC5EE252182A1BFD007D5DE6 /* md5.cpp in Sources */,
 				BC5EE2FA182A1FAC007D5DE6 /* TMConnectionListener.mm in Sources */,
+				BC5EE34F182A226C007D5DE6 /* UIScrollViewAdditions.m in Sources */,
 				BC5EE27F182A1BFD007D5DE6 /* tlsopensslclient.cpp in Sources */,
+				BC5EE349182A226C007D5DE6 /* NSDateAdditions.m in Sources */,
 				BC5EE267182A1BFD007D5DE6 /* pubsubmanager.cpp in Sources */,
 				BC5EE241182A1BFD007D5DE6 /* gloox.cpp in Sources */,
 				BC5EE224182A1BFD007D5DE6 /* carbons.cpp in Sources */,
+				BC5EE34E182A226C007D5DE6 /* UIImageViewAdditions.m in Sources */,
+				BC5EE348182A226C007D5DE6 /* NSDataAdditions.m in Sources */,
 				BC5EE269182A1BFD007D5DE6 /* registration.cpp in Sources */,
 				BC5EE23B182A1BFD007D5DE6 /* dns.cpp in Sources */,
 				BC5EE26F182A1BFD007D5DE6 /* simanager.cpp in Sources */,
 				BC5EE231182A1BFD007D5DE6 /* connectiontcpserver.cpp in Sources */,
+				BC5EE34B182A226C007D5DE6 /* NSObjectAdditions.m in Sources */,
 				BC5EE226182A1BFD007D5DE6 /* chatstatefilter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1290,6 +1506,7 @@
 				);
 				OTHER_LDFLAGS = "-lresolv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = $SRCROOT/$PRODUCT_NAME/TapKit;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1314,6 +1531,7 @@
 				);
 				OTHER_LDFLAGS = "-lresolv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = $SRCROOT/$PRODUCT_NAME/TapKit;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
