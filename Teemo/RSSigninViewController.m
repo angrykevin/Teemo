@@ -8,6 +8,7 @@
 
 #import "RSSigninViewController.h"
 
+
 @implementation RSSigninViewController
 
 - (id)init
@@ -21,6 +22,11 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+//  _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+//  _tableView.dataSource = self;
+//  _tableView.delegate = self;
+  
 }
 
 @end

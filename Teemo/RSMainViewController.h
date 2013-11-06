@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RSViewController.h"
 
-@interface RSMainViewController : UIViewController {
+@interface RSMainViewController : RSViewController {
 }
 
 @end

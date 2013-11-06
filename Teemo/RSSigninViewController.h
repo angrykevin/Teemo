@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RSViewController.h"
 
-@interface RSSigninViewController : UIViewController {
+@interface RSSigninViewController : RSViewController<
+    UITableViewDataSource,
+    UITableViewDelegate
+> {
+  UITableView *_tableView;
 }
 
 @end
