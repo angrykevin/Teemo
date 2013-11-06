@@ -124,6 +124,18 @@
 		BC5EE2D9182A1C19007D5DE6 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE2D7182A1C19007D5DE6 /* libcrypto.a */; };
 		BC5EE2DA182A1C19007D5DE6 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE2D8182A1C19007D5DE6 /* libssl.a */; };
 		BC5EE2DC182A1C6B007D5DE6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE2DB182A1C6B007D5DE6 /* libz.dylib */; };
+		BC5EE2F9182A1FAC007D5DE6 /* TMCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */; };
+		BC5EE2FA182A1FAC007D5DE6 /* TMConnectionListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E3182A1FAC007D5DE6 /* TMConnectionListener.mm */; };
+		BC5EE2FB182A1FAC007D5DE6 /* TMEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */; };
+		BC5EE2FC182A1FAC007D5DE6 /* TMIqHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */; };
+		BC5EE2FD182A1FAC007D5DE6 /* TMMessageHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */; };
+		BC5EE2FE182A1FAC007D5DE6 /* TMMessageSessionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */; };
+		BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EE182A1FAC007D5DE6 /* TMPresenceHandler.mm */; };
+		BC5EE300182A1FAC007D5DE6 /* TMRosterListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F0182A1FAC007D5DE6 /* TMRosterListener.mm */; };
+		BC5EE301182A1FAC007D5DE6 /* TMStatisticsHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */; };
+		BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */; };
+		BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */; };
+		BC5EE304182A1FAC007D5DE6 /* TMVCardHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -487,6 +499,32 @@
 		BC5EE2D7182A1C19007D5DE6 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		BC5EE2D8182A1C19007D5DE6 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		BC5EE2DB182A1C6B007D5DE6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMCommon.h; sourceTree = "<group>"; };
+		BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMCommon.mm; sourceTree = "<group>"; };
+		BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConfig.h; sourceTree = "<group>"; };
+		BC5EE2E2182A1FAC007D5DE6 /* TMConnectionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConnectionListener.h; sourceTree = "<group>"; };
+		BC5EE2E3182A1FAC007D5DE6 /* TMConnectionListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMConnectionListener.mm; sourceTree = "<group>"; };
+		BC5EE2E4182A1FAC007D5DE6 /* TMDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDebug.h; sourceTree = "<group>"; };
+		BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEngine.h; sourceTree = "<group>"; };
+		BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMEngine.mm; sourceTree = "<group>"; };
+		BC5EE2E7182A1FAC007D5DE6 /* TMIqHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMIqHandler.h; sourceTree = "<group>"; };
+		BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMIqHandler.mm; sourceTree = "<group>"; };
+		BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMessageHandler.h; sourceTree = "<group>"; };
+		BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMMessageHandler.mm; sourceTree = "<group>"; };
+		BC5EE2EB182A1FAC007D5DE6 /* TMMessageSessionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMessageSessionHandler.h; sourceTree = "<group>"; };
+		BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMMessageSessionHandler.mm; sourceTree = "<group>"; };
+		BC5EE2ED182A1FAC007D5DE6 /* TMPresenceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPresenceHandler.h; sourceTree = "<group>"; };
+		BC5EE2EE182A1FAC007D5DE6 /* TMPresenceHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMPresenceHandler.mm; sourceTree = "<group>"; };
+		BC5EE2EF182A1FAC007D5DE6 /* TMRosterListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMRosterListener.h; sourceTree = "<group>"; };
+		BC5EE2F0182A1FAC007D5DE6 /* TMRosterListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRosterListener.mm; sourceTree = "<group>"; };
+		BC5EE2F1182A1FAC007D5DE6 /* TMStatisticsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMStatisticsHandler.h; sourceTree = "<group>"; };
+		BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMStatisticsHandler.mm; sourceTree = "<group>"; };
+		BC5EE2F3182A1FAC007D5DE6 /* TMSubscriptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSubscriptionHandler.h; sourceTree = "<group>"; };
+		BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMSubscriptionHandler.mm; sourceTree = "<group>"; };
+		BC5EE2F5182A1FAC007D5DE6 /* TMTagHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTagHandler.h; sourceTree = "<group>"; };
+		BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMTagHandler.mm; sourceTree = "<group>"; };
+		BC5EE2F7182A1FAC007D5DE6 /* TMVCardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVCardHandler.h; sourceTree = "<group>"; };
+		BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMVCardHandler.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,6 +581,7 @@
 				BC5EE0E8182A196A007D5DE6 /* main.m */,
 				BC5EE0EB182A196A007D5DE6 /* AppDelegate.h */,
 				BC5EE0EC182A196A007D5DE6 /* AppDelegate.m */,
+				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
 				BC5EE10B182A1BFC007D5DE6 /* gloox */,
 				BC5EE288182A1C18007D5DE6 /* openssl */,
 			);
@@ -936,6 +975,39 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		BC5EE2DE182A1FAC007D5DE6 /* Teemo */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */,
+				BC5EE2E4182A1FAC007D5DE6 /* TMDebug.h */,
+				BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */,
+				BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */,
+				BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */,
+				BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */,
+				BC5EE2E2182A1FAC007D5DE6 /* TMConnectionListener.h */,
+				BC5EE2E3182A1FAC007D5DE6 /* TMConnectionListener.mm */,
+				BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */,
+				BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */,
+				BC5EE2EB182A1FAC007D5DE6 /* TMMessageSessionHandler.h */,
+				BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */,
+				BC5EE2ED182A1FAC007D5DE6 /* TMPresenceHandler.h */,
+				BC5EE2EE182A1FAC007D5DE6 /* TMPresenceHandler.mm */,
+				BC5EE2EF182A1FAC007D5DE6 /* TMRosterListener.h */,
+				BC5EE2F0182A1FAC007D5DE6 /* TMRosterListener.mm */,
+				BC5EE2F1182A1FAC007D5DE6 /* TMStatisticsHandler.h */,
+				BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */,
+				BC5EE2F3182A1FAC007D5DE6 /* TMSubscriptionHandler.h */,
+				BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */,
+				BC5EE2E7182A1FAC007D5DE6 /* TMIqHandler.h */,
+				BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */,
+				BC5EE2F5182A1FAC007D5DE6 /* TMTagHandler.h */,
+				BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */,
+				BC5EE2F7182A1FAC007D5DE6 /* TMVCardHandler.h */,
+				BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */,
+			);
+			path = Teemo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1008,23 +1080,31 @@
 				BC5EE229182A1BFD007D5DE6 /* component.cpp in Sources */,
 				BC5EE272182A1BFD007D5DE6 /* socks5bytestreammanager.cpp in Sources */,
 				BC5EE23E182A1BFD007D5DE6 /* featureneg.cpp in Sources */,
+				BC5EE304182A1FAC007D5DE6 /* TMVCardHandler.mm in Sources */,
 				BC5EE249182A1BFD007D5DE6 /* jinglefiletransfer.cpp in Sources */,
 				BC5EE277182A1BFD007D5DE6 /* subscription.cpp in Sources */,
+				BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */,
 				BC5EE22C182A1BFD007D5DE6 /* connectionbosh.cpp in Sources */,
+				BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */,
 				BC5EE282182A1BFD007D5DE6 /* uniquemucroom.cpp in Sources */,
+				BC5EE300182A1FAC007D5DE6 /* TMRosterListener.mm in Sources */,
 				BC5EE24C182A1BFD007D5DE6 /* jinglesession.cpp in Sources */,
+				BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */,
 				BC5EE26B182A1BFD007D5DE6 /* rostermanager.cpp in Sources */,
 				BC5EE245182A1BFD007D5DE6 /* instantmucroom.cpp in Sources */,
+				BC5EE2F9182A1FAC007D5DE6 /* TMCommon.mm in Sources */,
 				BC5EE276182A1BFD007D5DE6 /* stanzaextensionfactory.cpp in Sources */,
 				BC5EE24D182A1BFD007D5DE6 /* jinglesessionmanager.cpp in Sources */,
 				BC5EE23D182A1BFD007D5DE6 /* eventdispatcher.cpp in Sources */,
 				BC5EE25B182A1BFD007D5DE6 /* mutex.cpp in Sources */,
+				BC5EE2FB182A1FAC007D5DE6 /* TMEngine.mm in Sources */,
 				BC5EE237182A1BFD007D5DE6 /* dataformitem.cpp in Sources */,
 				BC5EE255182A1BFD007D5DE6 /* messageeventfilter.cpp in Sources */,
 				BC5EE247182A1BFD007D5DE6 /* jid.cpp in Sources */,
 				BC5EE285182A1BFD007D5DE6 /* vcardmanager.cpp in Sources */,
 				BC5EE25E182A1BFD007D5DE6 /* oob.cpp in Sources */,
 				BC5EE21E182A1BFD007D5DE6 /* annotations.cpp in Sources */,
+				BC5EE2FD182A1FAC007D5DE6 /* TMMessageHandler.mm in Sources */,
 				BC5EE266182A1BFD007D5DE6 /* pubsubitem.cpp in Sources */,
 				BC5EE242182A1BFD007D5DE6 /* gpgencrypted.cpp in Sources */,
 				BC5EE248182A1BFD007D5DE6 /* jinglecontent.cpp in Sources */,
@@ -1059,7 +1139,9 @@
 				BC5EE270182A1BFD007D5DE6 /* siprofileft.cpp in Sources */,
 				BC5EE257182A1BFD007D5DE6 /* messagesession.cpp in Sources */,
 				BC5EE24F182A1BFD007D5DE6 /* linklocalclient.cpp in Sources */,
+				BC5EE2FC182A1FAC007D5DE6 /* TMIqHandler.mm in Sources */,
 				BC5EE283182A1BFD007D5DE6 /* util.cpp in Sources */,
+				BC5EE2FE182A1FAC007D5DE6 /* TMMessageSessionHandler.mm in Sources */,
 				BC5EE234182A1BFD007D5DE6 /* dataform.cpp in Sources */,
 				BC5EE279182A1BFD007D5DE6 /* tlsdefault.cpp in Sources */,
 				BC5EE284182A1BFD007D5DE6 /* vcard.cpp in Sources */,
@@ -1088,6 +1170,7 @@
 				BC5EE25C182A1BFD007D5DE6 /* nickname.cpp in Sources */,
 				BC5EE238182A1BFD007D5DE6 /* dataformreported.cpp in Sources */,
 				BC5EE227182A1BFD007D5DE6 /* client.cpp in Sources */,
+				BC5EE301182A1FAC007D5DE6 /* TMStatisticsHandler.mm in Sources */,
 				BC5EE235182A1BFD007D5DE6 /* dataformfield.cpp in Sources */,
 				BC5EE258182A1BFD007D5DE6 /* mucinvitationhandler.cpp in Sources */,
 				BC5EE22E182A1BFD007D5DE6 /* connectionsocks5proxy.cpp in Sources */,
@@ -1099,6 +1182,7 @@
 				BC5EE27B182A1BFD007D5DE6 /* tlsgnutlsclient.cpp in Sources */,
 				BC5EE228182A1BFD007D5DE6 /* clientbase.cpp in Sources */,
 				BC5EE252182A1BFD007D5DE6 /* md5.cpp in Sources */,
+				BC5EE2FA182A1FAC007D5DE6 /* TMConnectionListener.mm in Sources */,
 				BC5EE27F182A1BFD007D5DE6 /* tlsopensslclient.cpp in Sources */,
 				BC5EE267182A1BFD007D5DE6 /* pubsubmanager.cpp in Sources */,
 				BC5EE241182A1BFD007D5DE6 /* gloox.cpp in Sources */,
