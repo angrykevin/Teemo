@@ -28,7 +28,7 @@
 
 #import "TMVCardHandler.h"
 
+#import "TMTagHandler.h"
+
 
 #import "TMIqHandler.h"
-
-#import "TMTagHandler.h"
