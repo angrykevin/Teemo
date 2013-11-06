@@ -616,6 +616,7 @@
 		BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelAdditions.h; sourceTree = "<group>"; };
 		BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelAdditions.m; sourceTree = "<group>"; };
 		BC5EE366182A2674007D5DE6 /* RSAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSAdditions.h; sourceTree = "<group>"; };
+		BC5EE367182A3C8F007D5DE6 /* Teemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Teemo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1079,12 +1080,13 @@
 		BC5EE2DE182A1FAC007D5DE6 /* Teemo */ = {
 			isa = PBXGroup;
 			children = (
+				BC5EE367182A3C8F007D5DE6 /* Teemo.h */,
 				BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */,
 				BC5EE2E4182A1FAC007D5DE6 /* TMDebug.h */,
-				BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */,
-				BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */,
 				BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */,
 				BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */,
+				BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */,
+				BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */,
 				BC5EE2E2182A1FAC007D5DE6 /* TMConnectionListener.h */,
 				BC5EE2E3182A1FAC007D5DE6 /* TMConnectionListener.mm */,
 				BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */,
