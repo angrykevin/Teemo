@@ -137,7 +137,7 @@
 		BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */; };
 		BC5EE304182A1FAC007D5DE6 /* TMVCardHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */; };
 		BC5EE307182A209D007D5DE6 /* RSSigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */; };
-		BC5EE30A182A20D7007D5DE6 /* RSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE309182A20D7007D5DE6 /* RSMainViewController.m */; };
+		BC5EE30A182A20D7007D5DE6 /* RSMainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */; };
 		BC5EE347182A226C007D5DE6 /* NSArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE30F182A226C007D5DE6 /* NSArrayAdditions.m */; };
 		BC5EE348182A226C007D5DE6 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE311182A226C007D5DE6 /* NSDataAdditions.m */; };
 		BC5EE349182A226C007D5DE6 /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE313182A226C007D5DE6 /* NSDateAdditions.m */; };
@@ -555,7 +555,7 @@
 		BC5EE305182A209D007D5DE6 /* RSSigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSigninViewController.h; sourceTree = "<group>"; };
 		BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSigninViewController.m; sourceTree = "<group>"; };
 		BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainViewController.h; sourceTree = "<group>"; };
-		BC5EE309182A20D7007D5DE6 /* RSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMainViewController.m; sourceTree = "<group>"; };
+		BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSMainViewController.mm; sourceTree = "<group>"; };
 		BC5EE30D182A226C007D5DE6 /* Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Additions.h; sourceTree = "<group>"; };
 		BC5EE30E182A226C007D5DE6 /* NSArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayAdditions.h; sourceTree = "<group>"; };
 		BC5EE30F182A226C007D5DE6 /* NSArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayAdditions.m; sourceTree = "<group>"; };
@@ -678,9 +678,8 @@
 				BC5EE305182A209D007D5DE6 /* RSSigninViewController.h */,
 				BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */,
 				BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */,
-				BC5EE309182A20D7007D5DE6 /* RSMainViewController.m */,
-				BC5EE35F182A2429007D5DE6 /* RSViewController.h */,
-				BC5EE360182A2429007D5DE6 /* RSViewController.m */,
+				BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */,
+				BC5EE368182A3E17007D5DE6 /* Common */,
 				BC5EE365182A2604007D5DE6 /* Additions */,
 				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
 				BC5EE30B182A226C007D5DE6 /* TapKit */,
@@ -1222,6 +1221,15 @@
 			name = Additions;
 			sourceTree = "<group>";
 		};
+		BC5EE368182A3E17007D5DE6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE35F182A2429007D5DE6 /* RSViewController.h */,
+				BC5EE360182A2429007D5DE6 /* RSViewController.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1377,7 +1385,7 @@
 				BC5EE284182A1BFD007D5DE6 /* vcard.cpp in Sources */,
 				BC5EE233182A1BFD007D5DE6 /* connectiontlsserver.cpp in Sources */,
 				BC5EE27C182A1BFD007D5DE6 /* tlsgnutlsclientanon.cpp in Sources */,
-				BC5EE30A182A20D7007D5DE6 /* RSMainViewController.m in Sources */,
+				BC5EE30A182A20D7007D5DE6 /* RSMainViewController.mm in Sources */,
 				BC5EE265182A1BFD007D5DE6 /* pubsubevent.cpp in Sources */,
 				BC5EE26C182A1BFD007D5DE6 /* search.cpp in Sources */,
 				BC5EE22A182A1BFD007D5DE6 /* compressiondefault.cpp in Sources */,
