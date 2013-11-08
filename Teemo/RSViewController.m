@@ -54,11 +54,15 @@
 
 - (void)layoutViews
 {
+  
   [_navigationView sizeToFit];
   _navigationView.frame = CGRectMake(0.0, 20.0, _navigationView.width, _navigationView.height);
   
-  _contentView.frame = CGRectMake(0.0, _navigationView.bottomY, self.view.width, self.view.height - _navigationView.bottomY);
-  
+  if ( _navigationView.hidden ) {
+    _contentView.frame = self.view.bounds;
+  } else {
+    _contentView.frame = CGRectMake(0.0, _navigationView.bottomY, self.view.width, self.view.height - _navigationView.bottomY);
+  }
 }
 
 

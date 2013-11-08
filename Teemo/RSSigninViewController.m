@@ -47,6 +47,7 @@
   [_scrollView addSubview:_passportLine];
   
   _passwordLine = [[RSBoxViewLine alloc] init];
+  _passwordLine.textField.secureTextEntry = YES;
   _passwordLine.backgroundImageView.image = RSCreateImage(@"box_bottom.png");
   _passwordLine.label.text = NSLocalizedString(@"密  码", @"");
   [_scrollView addSubview:_passwordLine];
@@ -61,6 +62,11 @@
                                                                                          action:@selector(tap:)];
   tapGestureRecognizer.cancelsTouchesInView = NO;
   [_scrollView addGestureRecognizer:tapGestureRecognizer];
+  
+#ifdef DEBUG
+  _passportLine.textField.text = @"roselet1321";
+  _passwordLine.textField.text = @"55793219";
+#endif
   
 }
 
