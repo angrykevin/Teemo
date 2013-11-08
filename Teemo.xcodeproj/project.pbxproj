@@ -236,7 +236,6 @@
 		BC5EE360182A2429007D5DE6 /* RSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSViewController.m; sourceTree = "<group>"; };
 		BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelAdditions.h; sourceTree = "<group>"; };
 		BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelAdditions.m; sourceTree = "<group>"; };
-		BC5EE366182A2674007D5DE6 /* RSAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSAdditions.h; sourceTree = "<group>"; };
 		BC5EE367182A3C8F007D5DE6 /* Teemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Teemo.h; sourceTree = "<group>"; };
 		BC840427182CADA40058EBDC /* RSBoxViewLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoxViewLine.h; sourceTree = "<group>"; };
 		BC840428182CADA40058EBDC /* RSBoxViewLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBoxViewLine.m; sourceTree = "<group>"; };
@@ -672,6 +671,7 @@
 		BC840703182CC5200058EBDC /* x509.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
 		BC840704182CC5200058EBDC /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
 		BC840705182CC5200058EBDC /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
+		BC840709182CC73A0058EBDC /* RSUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSUtils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -734,13 +734,9 @@
 				BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */,
 				BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */,
 				BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */,
-				BC5EE35F182A2429007D5DE6 /* RSViewController.h */,
-				BC5EE360182A2429007D5DE6 /* RSViewController.m */,
-				BC840427182CADA40058EBDC /* RSBoxViewLine.h */,
-				BC840428182CADA40058EBDC /* RSBoxViewLine.m */,
 				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
 				BC5EE368182A3E17007D5DE6 /* Common */,
-				BC5EE365182A2604007D5DE6 /* Additions */,
+				BC840708182CC6FF0058EBDC /* Utils */,
 			);
 			path = Teemo;
 			sourceTree = "<group>";
@@ -779,22 +775,14 @@
 			path = Teemo;
 			sourceTree = "<group>";
 		};
-		BC5EE365182A2604007D5DE6 /* Additions */ = {
-			isa = PBXGroup;
-			children = (
-				BC5EE366182A2674007D5DE6 /* RSAdditions.h */,
-				BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */,
-				BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */,
-			);
-			name = Additions;
-			sourceTree = "<group>";
-		};
 		BC5EE368182A3E17007D5DE6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				BC84042D182CB30B0058EBDC /* RSCommon.h */,
 				BC84042A182CB2A40058EBDC /* RSRoutines.h */,
 				BC84042B182CB2A40058EBDC /* RSRoutines.m */,
+				BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */,
+				BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1312,6 +1300,18 @@
 				BC840705182CC5200058EBDC /* x509v3.h */,
 			);
 			path = openssl;
+			sourceTree = "<group>";
+		};
+		BC840708182CC6FF0058EBDC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BC840709182CC73A0058EBDC /* RSUtils.h */,
+				BC840427182CADA40058EBDC /* RSBoxViewLine.h */,
+				BC840428182CADA40058EBDC /* RSBoxViewLine.m */,
+				BC5EE35F182A2429007D5DE6 /* RSViewController.h */,
+				BC5EE360182A2429007D5DE6 /* RSViewController.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

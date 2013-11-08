@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RSViewController.h"
-#import "RSBoxViewLine.h"
 
 
 @interface RSSigninViewController : RSViewController {
