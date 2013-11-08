@@ -189,6 +189,8 @@
 		BC8406B6182CC3870058EBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC84069C182CC3870058EBDC /* Images.xcassets */; };
 		BC840706182CC5200058EBDC /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DC182CC5200058EBDC /* libcrypto.a */; };
 		BC840707182CC5200058EBDC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DD182CC5200058EBDC /* libssl.a */; };
+		BC84070C182CCB090058EBDC /* RSTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* RSTabViewController.m */; };
+		BC840710182CCCB20058EBDC /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -672,6 +674,10 @@
 		BC840704182CC5200058EBDC /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
 		BC840705182CC5200058EBDC /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
 		BC840709182CC73A0058EBDC /* RSUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSUtils.h; sourceTree = "<group>"; };
+		BC84070A182CCB090058EBDC /* RSTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTabViewController.h; sourceTree = "<group>"; };
+		BC84070B182CCB090058EBDC /* RSTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTabViewController.m; sourceTree = "<group>"; };
+		BC84070E182CCCB20058EBDC /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
+		BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerAdditions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -783,6 +789,8 @@
 				BC84042B182CB2A40058EBDC /* RSRoutines.m */,
 				BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */,
 				BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */,
+				BC84070E182CCCB20058EBDC /* UIViewControllerAdditions.h */,
+				BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1310,6 +1318,8 @@
 				BC840428182CADA40058EBDC /* RSBoxViewLine.m */,
 				BC5EE35F182A2429007D5DE6 /* RSViewController.h */,
 				BC5EE360182A2429007D5DE6 /* RSViewController.m */,
+				BC84070A182CCB090058EBDC /* RSTabViewController.h */,
+				BC84070B182CCB090058EBDC /* RSTabViewController.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1508,6 +1518,7 @@
 				BC840616182CC2F00058EBDC /* dataform.cpp in Sources */,
 				BC840625182CC2F00058EBDC /* gpgsigned.cpp in Sources */,
 				BC840652182CC2F00058EBDC /* siprofileft.cpp in Sources */,
+				BC84070C182CCB090058EBDC /* RSTabViewController.m in Sources */,
 				BC840651182CC2F00058EBDC /* simanager.cpp in Sources */,
 				BC840624182CC2F00058EBDC /* gpgencrypted.cpp in Sources */,
 				BC840614182CC2F00058EBDC /* connectiontls.cpp in Sources */,
@@ -1529,6 +1540,7 @@
 				BC840640182CC2F00058EBDC /* oob.cpp in Sources */,
 				BC84063D182CC2F00058EBDC /* mutex.cpp in Sources */,
 				BC84062B182CC2F00058EBDC /* jinglefiletransfer.cpp in Sources */,
+				BC840710182CCCB20058EBDC /* UIViewControllerAdditions.m in Sources */,
 				BC84062C182CC2F00058EBDC /* jingleiceudp.cpp in Sources */,
 				BC840628182CC2F00058EBDC /* iq.cpp in Sources */,
 				BC840638182CC2F00058EBDC /* messagefilter.cpp in Sources */,
