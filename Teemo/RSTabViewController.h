@@ -11,11 +11,17 @@
 @class RSTabView;
 
 
-@interface RSTabViewController : RSViewController {
+@interface RSTabViewController : UIViewController {
+  NSArray *_viewControllers;
   RSTabView *_tabView;
   
-  NSArray *_viewControllers;
+  BOOL _viewAppeared;
+  NSUInteger _appearedTimes;
 }
+
+- (void)layoutViews;
+
+- (RSTabView *)tabViewWithItems:(NSArray *)items;
 
 @end
 

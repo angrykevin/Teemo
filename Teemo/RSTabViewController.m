@@ -14,19 +14,15 @@
 {
   self = [super init];
   if (self) {
+    self.wantsFullScreenLayout = YES;
   }
   return self;
 }
 
-- (void)viewDidLoad
-{
-  [super viewDidLoad];
-  
-  _navigationView.hidden = YES;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
+  [super viewWillAppear:animated];
+  
   NSAssert((_tabView != nil), @"");
   NSAssert((_viewControllers != nil), @"");
   NSAssert(([_tabView.items count] == [_viewControllers count]), @"");
@@ -37,13 +33,26 @@
     [_tabView selectItemAtIndex:0];
   }
   
-  [super viewWillAppear:animated];
+  [self layoutViews];
+  
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+  [super viewDidAppear:animated];
+  _viewAppeared = YES;
+  _appearedTimes++;
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+  [super viewDidDisappear:animated];
+  _viewAppeared = NO;
 }
 
 
 - (void)layoutViews
 {
-  [super layoutViews];
   
   [_tabView sizeToFit];
   _tabView.frame = CGRectMake(0.0, self.view.height - _tabView.height, self.view.width, _tabView.height);
@@ -51,8 +60,41 @@
   UIViewController *vc = [self.childViewControllers firstObject];
   vc.view.frame = CGRectMake(0.0, 0.0, self.view.width, self.view.height - _tabView.height);
   
+  
   [_tabView bringToFront];
   
+}
+
+
+- (RSTabView *)tabViewWithItems:(NSArray *)items
+{
+  RSTabView *tabView = [[RSTabView alloc] initWithItems:items];
+  
+  tabView.repeatedlyNotify = NO;
+  
+  
+  
+  __weak RSTabViewController *weakSelf = self;
+  __weak NSArray *viewControllers = _viewControllers;
+  
+  tabView.block = ^(NSUInteger index, RSTabViewItem *item) {
+    
+    UIViewController *currentVC = [weakSelf.childViewControllers firstObject];
+    UIViewController *newVC = [viewControllers objectOrNilAtIndex:index];
+    
+    if ( currentVC != newVC ) {
+      
+      [weakSelf containerAddChildViewController:newVC];
+      [weakSelf containerRemoveChildViewController:currentVC];
+      
+    }
+    
+    [weakSelf layoutViews];
+    
+  };
+  
+  
+  return tabView;
 }
 
 @end
