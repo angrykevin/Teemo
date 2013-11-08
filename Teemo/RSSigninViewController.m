@@ -7,6 +7,7 @@
 //
 
 #import "RSSigninViewController.h"
+#import "RSMainViewController.h"
 
 
 @implementation RSSigninViewController
@@ -55,6 +56,9 @@
   _signinButton = [[UIButton alloc] init];
   _signinButton.normalTitle = NSLocalizedString(@"登    录", @"");
   _signinButton.normalBackgroundImage = [RSCreateImage(@"button_large_black.png") resizableImageWithCapInsets:UIEdgeInsetsMake(10.0, 5.0, 10.0, 5.0)];
+  [_signinButton addTarget:self
+                    action:@selector(signinButtonClicked:)
+          forControlEvents:UIControlEventTouchUpInside];
   [_scrollView addSubview:_signinButton];
   
   
@@ -93,6 +97,8 @@
 
 - (void)signinButtonClicked:(id)sender
 {
+  UIViewController *vc = [[RSMainViewController alloc] init];
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -13,6 +13,8 @@
 
 @interface RSTabViewController : RSViewController {
   RSTabView *_tabView;
+  
+  NSArray *_viewControllers;
 }
 
 @end

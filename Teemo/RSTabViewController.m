@@ -25,6 +25,36 @@
   _navigationView.hidden = YES;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+  NSAssert((_tabView != nil), @"");
+  NSAssert((_viewControllers != nil), @"");
+  NSAssert(([_tabView.items count] == [_viewControllers count]), @"");
+  
+  if ( _appearedTimes == 0 ) {
+    UIViewController *vc = [_viewControllers firstObject];
+    [self containerAddChildViewController:vc];
+    [_tabView selectItemAtIndex:0];
+  }
+  
+  [super viewWillAppear:animated];
+}
+
+
+- (void)layoutViews
+{
+  [super layoutViews];
+  
+  [_tabView sizeToFit];
+  _tabView.frame = CGRectMake(0.0, self.view.height - _tabView.height, self.view.width, _tabView.height);
+  
+  UIViewController *vc = [self.childViewControllers firstObject];
+  vc.view.frame = CGRectMake(0.0, 0.0, self.view.width, self.view.height - _tabView.height);
+  
+  [_tabView bringToFront];
+  
+}
+
 @end
 
 
@@ -98,6 +128,11 @@
   
 }
 
+- (CGSize)sizeThatFits:(CGSize)size
+{
+  return CGSizeMake(320.0, 50.0);
+}
+
 
 - (void)buttonClicked:(id)sender
 {
@@ -168,5 +203,10 @@
   }
   
 }
+
+@end
+
+
+@implementation RSTabViewItem
 
 @end

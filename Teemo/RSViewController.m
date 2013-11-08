@@ -51,6 +51,19 @@
   
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+  [super viewDidAppear:animated];
+  _viewAppeared = YES;
+  _appearedTimes++;
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+  [super viewDidDisappear:animated];
+  _viewAppeared = NO;
+}
+
 
 - (void)layoutViews
 {
