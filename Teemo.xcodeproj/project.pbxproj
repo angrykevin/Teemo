@@ -187,6 +187,8 @@
 		BC840421182CACDD0058EBDC /* box_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = BC84041B182CACDD0058EBDC /* box_bottom.png */; };
 		BC840422182CACDD0058EBDC /* box_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = BC84041C182CACDD0058EBDC /* box_middle.png */; };
 		BC840423182CACDD0058EBDC /* box_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC84041D182CACDD0058EBDC /* box_top@2x.png */; };
+		BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */ = {isa = PBXBuildFile; fileRef = BC840428182CADA40058EBDC /* RSBoxViewLine.m */; };
+		BC84042C182CB2A40058EBDC /* RSRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84042B182CB2A40058EBDC /* RSRoutines.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -665,6 +667,11 @@
 		BC84041B182CACDD0058EBDC /* box_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_bottom.png; sourceTree = "<group>"; };
 		BC84041C182CACDD0058EBDC /* box_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_middle.png; sourceTree = "<group>"; };
 		BC84041D182CACDD0058EBDC /* box_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_top@2x.png"; sourceTree = "<group>"; };
+		BC840427182CADA40058EBDC /* RSBoxViewLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoxViewLine.h; sourceTree = "<group>"; };
+		BC840428182CADA40058EBDC /* RSBoxViewLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBoxViewLine.m; sourceTree = "<group>"; };
+		BC84042A182CB2A40058EBDC /* RSRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRoutines.h; sourceTree = "<group>"; };
+		BC84042B182CB2A40058EBDC /* RSRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSRoutines.m; sourceTree = "<group>"; };
+		BC84042D182CB30B0058EBDC /* RSCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -727,6 +734,10 @@
 				BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */,
 				BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */,
 				BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */,
+				BC5EE35F182A2429007D5DE6 /* RSViewController.h */,
+				BC5EE360182A2429007D5DE6 /* RSViewController.m */,
+				BC840427182CADA40058EBDC /* RSBoxViewLine.h */,
+				BC840428182CADA40058EBDC /* RSBoxViewLine.m */,
 				BC5EE368182A3E17007D5DE6 /* Common */,
 				BC5EE365182A2604007D5DE6 /* Additions */,
 				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
@@ -1273,8 +1284,9 @@
 		BC5EE368182A3E17007D5DE6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				BC5EE35F182A2429007D5DE6 /* RSViewController.h */,
-				BC5EE360182A2429007D5DE6 /* RSViewController.m */,
+				BC84042D182CB30B0058EBDC /* RSCommon.h */,
+				BC84042A182CB2A40058EBDC /* RSRoutines.h */,
+				BC84042B182CB2A40058EBDC /* RSRoutines.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1403,6 +1415,7 @@
 				BC5EE358182A226C007D5DE6 /* TKCoreUI.m in Sources */,
 				BC5EE221182A1BFD007D5DE6 /* base64.cpp in Sources */,
 				BC5EE278182A1BFD007D5DE6 /* tag.cpp in Sources */,
+				BC84042C182CB2A40058EBDC /* RSRoutines.m in Sources */,
 				BC5EE232182A1BFD007D5DE6 /* connectiontls.cpp in Sources */,
 				BC5EE35C182A226C007D5DE6 /* TKURLConnectionOperation.m in Sources */,
 				BC5EE271182A1BFD007D5DE6 /* socks5bytestream.cpp in Sources */,
@@ -1544,6 +1557,7 @@
 				BC5EE231182A1BFD007D5DE6 /* connectiontcpserver.cpp in Sources */,
 				BC5EE34B182A226C007D5DE6 /* NSObjectAdditions.m in Sources */,
 				BC5EE226182A1BFD007D5DE6 /* chatstatefilter.cpp in Sources */,
+				BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

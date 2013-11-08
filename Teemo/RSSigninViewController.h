@@ -8,12 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "RSViewController.h"
+#import "RSBoxViewLine.h"
 
-@interface RSSigninViewController : RSViewController<
-    UITableViewDataSource,
-    UITableViewDelegate
-> {
-  UITableView *_tableView;
+
+@interface RSSigninViewController : RSViewController {
+  
+  UIScrollView *_scrollView;
+  
+  UILabel *_titleLabel;
+  RSBoxViewLine *_passportLine;
+  RSBoxViewLine *_passwordLine;
+  UIButton *_signinButton;
+  
 }
 
 @end

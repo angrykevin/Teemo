@@ -15,6 +15,7 @@
 {
   self = [super init];
   if (self) {
+    self.wantsFullScreenLayout = YES;
   }
   return self;
 }
@@ -24,7 +25,9 @@
   [super viewDidLoad];
   
   _navigationView = [[RSNavigationView alloc] init];
-  _navigationView.leftButton.normalTitle = NSLocalizedString(@"返回", @"");
+  [_navigationView.backButton addTarget:self
+                                 action:@selector(backButtonClicked:)
+                       forControlEvents:UIControlEventTouchUpInside];
   [_navigationView.leftButton addTarget:self
                                  action:@selector(leftButtonClicked:)
                        forControlEvents:UIControlEventTouchUpInside];
@@ -59,10 +62,15 @@
 }
 
 
-- (void)leftButtonClicked:(id)sender
+- (void)backButtonClicked:(id)sender
 {
   TKPRINTMETHOD();
   [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)leftButtonClicked:(id)sender
+{
+  TKPRINTMETHOD();
 }
 
 - (void)rightButtonClicked:(id)sender
@@ -73,6 +81,7 @@
 @end
 
 
+
 @implementation RSNavigationView
 
 - (id)init
@@ -80,19 +89,33 @@
   self = [super init];
   if (self) {
     
-    self.backgroundColor = [UIColor lightGrayColor];
+    _backgroundImageView = [[UIImageView alloc] init];
+    _backgroundImageView.image = RSCreateImage(@"navbar_bg.png");
+    [self addSubview:_backgroundImageView];
     
     
     UIButton *button = [[UIButton alloc] init];
-    button.backgroundColor = [UIColor darkGrayColor];
+    button.normalBackgroundImage = [RSCreateImage(@"navbar_bt_back.png") resizableImageWithCapInsets:UIEdgeInsetsMake(0.0, 13.0, 0.0, 5.0)];
+    button.titleLabel.font = [UIFont systemFontOfSize:12.0];
     button.exclusiveTouch = YES;
+    button.hidden = YES;
+    [self addSubview:button];
+    _backButton = button;
+    _backButton.normalTitle = NSLocalizedString(@"返回", @"");
+    
+    
+    button = [[UIButton alloc] init];
+    button.normalBackgroundImage = [RSCreateImage(@"navbar_bt_normal.png") resizableImageWithCapInsets:UIEdgeInsetsMake(14.0, 6.0, 14.0, 6.0)];
+    button.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    button.exclusiveTouch = YES;
+    button.hidden = YES;
     [self addSubview:button];
     _leftButton = button;
     
     
-    _titleLabel = [UILabel labelWithFont:[UIFont boldSystemFontOfSize:16.0]
-                               textColor:[UIColor blackColor]
-                         backgroundColor:[UIColor darkGrayColor]
+    _titleLabel = [UILabel labelWithFont:[UIFont boldSystemFontOfSize:20.0]
+                               textColor:[UIColor whiteColor]
+                         backgroundColor:[UIColor clearColor]
                            textAlignment:NSTextAlignmentCenter
                            lineBreakMode:NSLineBreakByTruncatingMiddle
                adjustsFontSizeToFitWidth:NO
@@ -101,8 +124,10 @@
     
     
     button = [[UIButton alloc] init];
-    button.backgroundColor = [UIColor darkGrayColor];
+    button.normalBackgroundImage = [RSCreateImage(@"navbar_bt_normal.png") resizableImageWithCapInsets:UIEdgeInsetsMake(14.0, 6.0, 14.0, 6.0)];
+    button.titleLabel.font = [UIFont systemFontOfSize:12.0];
     button.exclusiveTouch = YES;
+    button.hidden = YES;
     [self addSubview:button];
     _rightButton = button;
     
@@ -114,15 +139,37 @@
 {
   [super layoutSubviews];
   
-  _leftButton.frame = CGRectMake(5.0, 2.0, 50.0, 40.0);
+  _backgroundImageView.frame = self.bounds;
+  
+  _backButton.frame = CGRectMake(5.0, 7.0, 50.0, 30.0);
+  _leftButton.frame = CGRectMake(5.0, 7.0, 50.0, 30.0);
   _titleLabel.frame = CGRectMake(60.0, 2.0, 200.0, 40.0);
-  _rightButton.frame = CGRectMake(265.0, 2.0, 50.0, 40.0);
+  _rightButton.frame = CGRectMake(265.0, 7.0, 50.0, 30.0);
   
 }
 
 - (CGSize)sizeThatFits:(CGSize)size
 {
   return CGSizeMake(320.0, 44.0);
+}
+
+
+
+- (void)showBackButton
+{
+  _backButton.hidden = NO;
+  _leftButton.hidden = YES;
+}
+
+- (void)showLeftButton
+{
+  _leftButton.hidden = NO;
+  _backButton.hidden = YES;
+}
+
+- (void)showRightButton
+{
+  _rightButton.hidden = NO;
 }
 
 @end

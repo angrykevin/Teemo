@@ -17,6 +17,7 @@
 
   #import "TapKit.h"
   #import "RSAdditions.h"
+  #import "RSCommon.h"
 
 #endif
 
