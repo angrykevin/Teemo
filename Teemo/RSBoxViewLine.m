@@ -25,7 +25,7 @@
     [self addSubview:_imageView];
     
     _label = [UILabel labelWithFont:[UIFont boldSystemFontOfSize:14.0]
-                          textColor:[UIColor brownColor]
+                          textColor:[UIColor blackColor]
                     backgroundColor:[UIColor clearColor]
                       textAlignment:NSTextAlignmentRight
                       lineBreakMode:NSLineBreakByClipping
