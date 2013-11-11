@@ -14,6 +14,8 @@
 
 
 #import "TMConnectionListener.h"
+#import "TMConnectionDelegate.h"
+
 
 #import "TMMessageHandler.h"
 #import "TMMessageSessionHandler.h"
@@ -32,3 +34,9 @@
 
 
 #import "TMIqHandler.h"
+
+
+
+
+
+

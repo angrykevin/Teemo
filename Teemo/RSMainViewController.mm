@@ -7,7 +7,6 @@
 //
 
 #import "RSMainViewController.h"
-#import "Teemo.h"
 
 @implementation RSMainViewController
 

@@ -9,3 +9,5 @@
 #import <Foundation/Foundation.h>
 
 UIImage *TTCreateImage(NSString *name);
+
+void TTDisplayMessage(NSString *message);

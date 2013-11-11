@@ -245,6 +245,7 @@
 		BC675CC818308252003E1516 /* TMHandlerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMHandlerBase.cpp; sourceTree = "<group>"; };
 		BC675D48183093E3003E1516 /* CATransitionAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATransitionAdditions.h; sourceTree = "<group>"; };
 		BC675D49183093E3003E1516 /* CATransitionAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATransitionAdditions.m; sourceTree = "<group>"; };
+		BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMConnectionDelegate.h; sourceTree = "<group>"; };
 		BC840427182CADA40058EBDC /* RSBoxViewLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoxViewLine.h; sourceTree = "<group>"; };
 		BC840428182CADA40058EBDC /* RSBoxViewLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBoxViewLine.m; sourceTree = "<group>"; };
 		BC84042A182CB2A40058EBDC /* TTRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRoutines.h; sourceTree = "<group>"; };
@@ -766,6 +767,7 @@
 				BC675CC818308252003E1516 /* TMHandlerBase.cpp */,
 				BC5EE2E2182A1FAC007D5DE6 /* TMConnectionListener.h */,
 				BC5EE2E3182A1FAC007D5DE6 /* TMConnectionListener.mm */,
+				BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */,
 				BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */,
 				BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */,
 				BC5EE2EB182A1FAC007D5DE6 /* TMMessageSessionHandler.h */,

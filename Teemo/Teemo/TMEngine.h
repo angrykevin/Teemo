@@ -25,6 +25,10 @@ using namespace gloox;
   BOOL _cancelled;
 }
 
++ (TMEngine *)sharedEngine;
++ (void)storeEngine:(TMEngine *)engine;
+
+
 - (void)setUpWithUID:(NSString *)uid password:(NSString *)password;
 - (BOOL)connect;
 - (void)disConnect;

@@ -9,16 +9,13 @@
 #import "RSSigninViewController.h"
 #import "RSMainViewController.h"
 
+//#import "TapKit.h"
+//#import "TTCommon.h"
+//#import "Teemo.h"
+
 
 @implementation RSSigninViewController
 
-- (id)init
-{
-  self = [super init];
-  if (self) {
-  }
-  return self;
-}
 
 - (void)viewDidLoad
 {
@@ -92,13 +89,22 @@
 
 - (void)tap:(UITapGestureRecognizer *)recognizer
 {
-  [TKFindFirstResponderInView(_contentView) resignFirstResponder];
+  //[TKFindFirstResponderInView(_contentView) resignFirstResponder];
 }
 
 - (void)signinButtonClicked:(id)sender
 {
-  UIViewController *vc = [[RSMainViewController alloc] init];
-  [self.navigationController pushViewController:vc animated:YES];
+//  NSString *passport = [_passportLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//  //NSString *password = [_passwordLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//  
+//  if ( !TKIsStringWithText(passport) ) {
+//    TTDisplayMessage(@"alksdfjlaskdfj");
+//  }
+  
+//  if ( !TKIsStringWithText(passport) ) {
+//  }
+  
+//  TMEngine *engine = [[TMEngine alloc] init];
 }
 
 @end

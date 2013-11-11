@@ -35,7 +35,22 @@ using namespace std;
 using namespace gloox;
 
 
+static TMEngine *CurrentEngine = nil;
+
+
 @implementation TMEngine
+
++ (TMEngine *)sharedEngine
+{
+  return CurrentEngine;
+}
+
++ (void)storeEngine:(TMEngine *)engine
+{
+  CurrentEngine = engine;
+}
+
+
 
 - (void)setUpWithUID:(NSString *)uid password:(NSString *)password
 {
