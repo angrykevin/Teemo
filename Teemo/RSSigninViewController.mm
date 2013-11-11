@@ -106,7 +106,49 @@
   }
   
   TMEngine *engine = [[TMEngine alloc] init];
+  [TMEngine storeEngine:engine];
+  [engine setUpWithUID:passport password:password];
+  [engine connectionListener]->addObserver((__bridge void *)self);
+  [engine connect];
   
+}
+
+
+
+- (void)connectionOnConnect
+{
+  TKPRINTMETHOD();
+}
+
+- (void)connectionOnDisconnect:(ConnectionError)error
+{
+  TKPRINTMETHOD();
+}
+
+- (void)connectionOnResourceBind:(const std::string &)resource
+{
+  TKPRINTMETHOD();
+}
+
+- (void)connectionOnResourceBindError:(const Error *)error
+{
+  TKPRINTMETHOD();
+}
+
+- (void)connectionOnSessionCreateError:(const Error *)error
+{
+  TKPRINTMETHOD();
+}
+
+- (bool)connectionOnTLSConnect:(const CertInfo &)info
+{
+  TKPRINTMETHOD();
+  return true;
+}
+
+- (void)connectionOnStreamEvent:(StreamEvent)event
+{
+  TKPRINTMETHOD();
 }
 
 @end
