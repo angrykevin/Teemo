@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 ///-------------------------------
 /// Autoresizing mask
 ///-------------------------------
@@ -56,3 +61,8 @@ BOOL TKIsSupportedOrientation(UIInterfaceOrientation orientation);
 CGAffineTransform TKRotateTransformForOrientation(UIInterfaceOrientation orientation);
 
 CGAffineTransform TKSupportedRotateTransformForOrientation(UIInterfaceOrientation orientation);
+
+
+#ifdef __cplusplus
+}
+#endif

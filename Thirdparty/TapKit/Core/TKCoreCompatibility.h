@@ -48,6 +48,11 @@
  
  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 ///-------------------------------
 /// Device compatibility
 ///-------------------------------
@@ -68,3 +73,8 @@ BOOL TKIsRetina();
 BOOL TKIsPad();
 
 BOOL TKIsPhone();
+
+
+#ifdef __cplusplus
+}
+#endif

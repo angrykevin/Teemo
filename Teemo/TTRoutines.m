@@ -7,7 +7,7 @@
 //
 
 #import "TTRoutines.h"
-#import "TapKit.h"
+
 
 UIImage *TTCreateImage(NSString *name)
 {
@@ -17,10 +17,10 @@ UIImage *TTCreateImage(NSString *name)
 
 void TTDisplayMessage(NSString *message)
 {
-  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ttl"
-                                                      message:message
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:message
+                                                      message:nil
                                                      delegate:nil
-                                            cancelButtonTitle:@"ccl"
-                                            otherButtonTitles:@"oth", nil];
+                                            cancelButtonTitle:NSLocalizedString(@"确定", @"")
+                                            otherButtonTitles:nil];
   [alertView show];
 }

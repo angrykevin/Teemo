@@ -8,7 +8,7 @@
 
 #import "RSSigninViewController.h"
 #import "RSMainViewController.h"
-
+#import "Teemo.h"
 
 @implementation RSSigninViewController
 
@@ -38,12 +38,14 @@
   _passportLine = [[RSBoxViewLine alloc] init];
   _passportLine.backgroundImageView.image = TTCreateImage(@"box_top.png");
   _passportLine.label.text = NSLocalizedString(@"帐  号", @"");
+  _passportLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   [_scrollView addSubview:_passportLine];
   
   _passwordLine = [[RSBoxViewLine alloc] init];
   _passwordLine.textField.secureTextEntry = YES;
   _passwordLine.backgroundImageView.image = TTCreateImage(@"box_bottom.png");
   _passwordLine.label.text = NSLocalizedString(@"密  码", @"");
+  _passwordLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   [_scrollView addSubview:_passwordLine];
   
   _signinButton = [[UIButton alloc] init];
@@ -63,15 +65,6 @@
 #ifdef DEBUG
   _passportLine.textField.text = @"roselet1321";
   _passwordLine.textField.text = @"55793219";
-#endif
-  
-  
-#ifdef __OBJC__
-  NSLog(@"GG: OBJC");
-#endif
-  
-#ifdef __cplusplus
-  printf("GG: cplusplus");
 #endif
   
 }
@@ -94,27 +87,25 @@
 
 - (void)tap:(UITapGestureRecognizer *)recognizer
 {
-  //[TKFindFirstResponderInView(_contentView) resignFirstResponder];
+  [TKFindFirstResponderInView(_contentView) resignFirstResponder];
 }
 
 - (void)signinButtonClicked:(id)sender
 {
-//  NSString *passport = [_passportLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//  //NSString *password = [_passwordLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//  
-//  if ( !TKIsStringWithText(passport) ) {
-//    TTDisplayMessage(@"alksdfjlaskdfj");
-//  }
+  NSString *passport = [_passportLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+  NSString *password = [_passwordLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   
-//  if ( !TKIsStringWithText(passport) ) {
-//  }
+  if ( !TKIsStringWithText(passport) ) {
+    TTDisplayMessage(@"帐号不能为空！");
+    return;
+  }
   
-//  TMEngine *engine = [[TMEngine alloc] init];
+  if ( !TKIsStringWithText(password) ) {
+    TTDisplayMessage(@"密码不能为空！");
+    return;
+  }
   
-  
-  
-  RSMainViewController *vc = [[RSMainViewController alloc] init];
-  [self.navigationController pushViewController:vc animated:YES];
+  TMEngine *engine = [[TMEngine alloc] init];
   
 }
 

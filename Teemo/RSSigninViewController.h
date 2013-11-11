@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TapKit.h"
-#import "TTCommon.h"
 #import "RSBoxViewLine.h"
 
 

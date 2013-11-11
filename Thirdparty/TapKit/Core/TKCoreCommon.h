@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 ///-------------------------------
 /// Version
 ///-------------------------------
@@ -72,3 +77,8 @@ NSDateFormatter *TKInternetDateFormatter();
 NSDate *TKDateFromInternetDateString(NSString *string);
 
 NSString *TKInternetDateStringFromDate(NSDate *date);
+
+
+#ifdef __cplusplus
+}
+#endif

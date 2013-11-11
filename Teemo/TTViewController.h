@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TapKit.h"
+
 
 @class TTNavigationView;
 

@@ -15,5 +15,8 @@
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
 
+  #import "TapKit.h"
+  #import "TTCommon.h"
+
 #endif
 

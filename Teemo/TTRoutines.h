@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 UIImage *TTCreateImage(NSString *name);
 
 void TTDisplayMessage(NSString *message);
+
+
+#ifdef __cplusplus
+}
+#endif
