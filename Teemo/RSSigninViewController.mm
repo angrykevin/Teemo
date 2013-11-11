@@ -9,10 +9,6 @@
 #import "RSSigninViewController.h"
 #import "RSMainViewController.h"
 
-//#import "TapKit.h"
-//#import "TTCommon.h"
-//#import "Teemo.h"
-
 
 @implementation RSSigninViewController
 
@@ -69,6 +65,15 @@
   _passwordLine.textField.text = @"55793219";
 #endif
   
+  
+#ifdef __OBJC__
+  NSLog(@"GG: OBJC");
+#endif
+  
+#ifdef __cplusplus
+  printf("GG: cplusplus");
+#endif
+  
 }
 
 - (void)layoutViews
@@ -105,6 +110,12 @@
 //  }
   
 //  TMEngine *engine = [[TMEngine alloc] init];
+  
+  
+  
+  RSMainViewController *vc = [[RSMainViewController alloc] init];
+  [self.navigationController pushViewController:vc animated:YES];
+  
 }
 
 @end

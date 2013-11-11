@@ -25,7 +25,7 @@
 		BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */; };
 		BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */; };
 		BC5EE304182A1FAC007D5DE6 /* TMVCardHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */; };
-		BC5EE307182A209D007D5DE6 /* RSSigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */; };
+		BC5EE307182A209D007D5DE6 /* RSSigninViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE306182A209D007D5DE6 /* RSSigninViewController.mm */; };
 		BC5EE30A182A20D7007D5DE6 /* RSMainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */; };
 		BC5EE35E182A230E007D5DE6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */; };
 		BC5EE361182A2429007D5DE6 /* TTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE360182A2429007D5DE6 /* TTViewController.m */; };
@@ -232,7 +232,7 @@
 		BC5EE2F7182A1FAC007D5DE6 /* TMVCardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVCardHandler.h; sourceTree = "<group>"; };
 		BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMVCardHandler.mm; sourceTree = "<group>"; };
 		BC5EE305182A209D007D5DE6 /* RSSigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSigninViewController.h; sourceTree = "<group>"; };
-		BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSigninViewController.m; sourceTree = "<group>"; };
+		BC5EE306182A209D007D5DE6 /* RSSigninViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSSigninViewController.mm; sourceTree = "<group>"; };
 		BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainViewController.h; sourceTree = "<group>"; };
 		BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSMainViewController.mm; sourceTree = "<group>"; };
 		BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -743,7 +743,7 @@
 				BC5EE0EB182A196A007D5DE6 /* AppDelegate.h */,
 				BC5EE0EC182A196A007D5DE6 /* AppDelegate.m */,
 				BC5EE305182A209D007D5DE6 /* RSSigninViewController.h */,
-				BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */,
+				BC5EE306182A209D007D5DE6 /* RSSigninViewController.mm */,
 				BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */,
 				BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */,
 				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
@@ -1501,7 +1501,7 @@
 				BC84064D182CC2F00058EBDC /* rostermanager.cpp in Sources */,
 				BC84063A182CC2F00058EBDC /* mucinvitationhandler.cpp in Sources */,
 				BC8405FE182CC2F00058EBDC /* adhoc.cpp in Sources */,
-				BC5EE307182A209D007D5DE6 /* RSSigninViewController.m in Sources */,
+				BC5EE307182A209D007D5DE6 /* RSSigninViewController.mm in Sources */,
 				BC840657182CC2F00058EBDC /* stanza.cpp in Sources */,
 				BC5EE364182A2600007D5DE6 /* UILabelAdditions.m in Sources */,
 				BC5EE361182A2429007D5DE6 /* TTViewController.m in Sources */,

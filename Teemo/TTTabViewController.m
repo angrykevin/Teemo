@@ -7,6 +7,9 @@
 //
 
 #import "TTTabViewController.h"
+#import "TTRoutines.h"
+#import "UIViewControllerAdditions.h"
+
 
 @implementation TTTabViewController
 

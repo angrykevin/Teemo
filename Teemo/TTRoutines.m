@@ -7,6 +7,7 @@
 //
 
 #import "TTRoutines.h"
+#import "TapKit.h"
 
 UIImage *TTCreateImage(NSString *name)
 {

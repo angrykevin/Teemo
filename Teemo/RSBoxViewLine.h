@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TapKit.h"
+#import "TTCommon.h"
 
 @interface RSBoxViewLine : UIView {
   UIImageView *_backgroundImageView;
