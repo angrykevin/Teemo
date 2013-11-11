@@ -29,8 +29,6 @@
 
 
 @interface RSNavigationView : UIView {
-  UIImageView *_backgroundImageView;
-  
   UIButton *_backButton;
   UIButton *_leftButton;
   UILabel *_titleLabel;

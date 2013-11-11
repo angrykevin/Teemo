@@ -109,6 +109,9 @@
   self = [super init];
   if (self) {
     
+    self.backgroundColor = [UIColor colorWithPatternImage:RSCreateImage(@"tabbar_bg.png")];
+    
+    
     _items = items;
     
     for ( int i=0; i<[_items count]; ++i ) {

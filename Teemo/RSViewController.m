@@ -106,9 +106,7 @@
   self = [super init];
   if (self) {
     
-    _backgroundImageView = [[UIImageView alloc] init];
-    _backgroundImageView.image = RSCreateImage(@"navbar_bg.png");
-    [self addSubview:_backgroundImageView];
+    self.backgroundColor = [UIColor colorWithPatternImage:RSCreateImage(@"navbar_bg.png")];
     
     
     UIButton *button = [[UIButton alloc] init];
@@ -155,8 +153,6 @@
 - (void)layoutSubviews
 {
   [super layoutSubviews];
-  
-  _backgroundImageView.frame = self.bounds;
   
   _backButton.frame = CGRectMake(5.0, 7.0, 50.0, 30.0);
   _leftButton.frame = CGRectMake(5.0, 7.0, 50.0, 30.0);
