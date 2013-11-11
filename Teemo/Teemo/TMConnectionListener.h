@@ -13,10 +13,12 @@
 
 #include <gloox/connectionlistener.h>
 
+#include "TMHandlerBase.h"
+
 using namespace gloox;
 
 
-class TMConnectionListener : public ConnectionListener {
+class TMConnectionListener : public ConnectionListener, public TMHandlerBase {
   
 public:
   

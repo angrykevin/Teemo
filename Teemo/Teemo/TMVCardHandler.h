@@ -13,10 +13,12 @@
 
 #include <gloox/vcardhandler.h>
 
+#include "TMHandlerBase.h"
+
 using namespace gloox;
 
 
-class TMVCardHandler : public VCardHandler {
+class TMVCardHandler : public VCardHandler, public TMHandlerBase {
   
 public:
   /**

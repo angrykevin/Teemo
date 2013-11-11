@@ -84,4 +84,13 @@ typedef void(^RSTabViewBlock)(NSUInteger index, RSTabViewItem *item);
 @property (nonatomic, strong) UIImage *normalBackgroundImage;
 @property (nonatomic, strong) UIImage *highlightedBackgroundImage;
 
++ (RSTabViewItem *)itemWithNormalTitle:(NSString *)normalTitle
+                      highlightedTitle:(NSString *)highlightedTitle
+                      normalTitleColor:(UIColor *)normalTitleColor
+                 highlightedTitleColor:(UIColor *)highlightedTitleColor
+                           normalImage:(UIImage *)normalImage
+                      highlightedImage:(UIImage *)highlightedImage
+                 normalBackgroundImage:(UIImage *)normalBackgroundImage
+            highlightedBackgroundImage:(UIImage *)highlightedBackgroundImage;
+
 @end

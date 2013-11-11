@@ -13,10 +13,12 @@
 
 #include <gloox/presencehandler.h>
 
+#include "TMHandlerBase.h"
+
 using namespace gloox;
 
 
-class TMPresenceHandler : public PresenceHandler {
+class TMPresenceHandler : public PresenceHandler, public TMHandlerBase {
   
 public:
   /**

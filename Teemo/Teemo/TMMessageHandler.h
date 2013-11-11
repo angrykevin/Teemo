@@ -13,10 +13,12 @@
 
 #include <gloox/messagehandler.h>
 
+#include "TMHandlerBase.h"
+
 using namespace gloox;
 
 
-class TMMessageHandler : public MessageHandler {
+class TMMessageHandler : public MessageHandler, public TMHandlerBase {
   
 public:
   /**

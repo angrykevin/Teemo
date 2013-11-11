@@ -13,10 +13,12 @@
 
 #include <gloox/statisticshandler.h>
 
+#include "TMHandlerBase.h"
+
 using namespace gloox;
 
 
-class TMStatisticsHandler : public StatisticsHandler {
+class TMStatisticsHandler : public StatisticsHandler, TMHandlerBase {
   
 public:
   /**

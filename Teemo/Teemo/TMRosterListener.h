@@ -14,10 +14,12 @@
 #include <gloox/rosterlistener.h>
 #include <gloox/rostermanager.h>
 
+#include "TMHandlerBase.h"
+
 using namespace gloox;
 
 
-class TMRosterListener : public RosterListener {
+class TMRosterListener : public RosterListener, TMHandlerBase {
   
 public:
   /**

@@ -13,10 +13,12 @@
 
 #include <gloox/taghandler.h>
 
+#include "TMHandlerBase.h"
+
 using namespace gloox;
 
 
-class TMTagHandler : public TagHandler {
+class TMTagHandler : public TagHandler, public TMHandlerBase {
   
 public:
   /**

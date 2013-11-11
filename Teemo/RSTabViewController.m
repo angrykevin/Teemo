@@ -251,4 +251,30 @@
 
 @implementation RSTabViewItem
 
++ (RSTabViewItem *)itemWithNormalTitle:(NSString *)normalTitle
+                      highlightedTitle:(NSString *)highlightedTitle
+                      normalTitleColor:(UIColor *)normalTitleColor
+                 highlightedTitleColor:(UIColor *)highlightedTitleColor
+                           normalImage:(UIImage *)normalImage
+                      highlightedImage:(UIImage *)highlightedImage
+                 normalBackgroundImage:(UIImage *)normalBackgroundImage
+            highlightedBackgroundImage:(UIImage *)highlightedBackgroundImage
+{
+  RSTabViewItem *item = [[RSTabViewItem alloc] init];
+  
+  item.normalTitle = normalTitle;
+  item.highlightedTitle = highlightedTitle;
+  
+  item.normalTitleColor = normalTitleColor;
+  item.highlightedTitleColor = highlightedTitleColor;
+  
+  item.normalImage = normalImage;
+  item.highlightedImage = highlightedImage;
+  
+  item.normalBackgroundImage = normalBackgroundImage;
+  item.highlightedBackgroundImage = highlightedBackgroundImage;
+  
+  return item;
+}
+
 @end

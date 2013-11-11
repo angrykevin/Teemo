@@ -13,10 +13,12 @@
 
 #include <gloox/iqhandler.h>
 
+#include "TMHandlerBase.h"
+
 using namespace gloox;
 
 
-class TMIqHandler : public IqHandler {
+class TMIqHandler : public IqHandler, public TMHandlerBase {
   
 public:
   /**

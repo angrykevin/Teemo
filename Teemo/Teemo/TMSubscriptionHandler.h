@@ -13,10 +13,12 @@
 
 #include <gloox/subscriptionhandler.h>
 
+#include "TMHandlerBase.h"
+
 using namespace gloox;
 
 
-class TMSubscriptionHandler : public SubscriptionHandler {
+class TMSubscriptionHandler : public SubscriptionHandler, TMHandlerBase {
   
 public:
   /**

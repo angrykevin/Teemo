@@ -13,10 +13,12 @@
 
 #include <gloox/messagesessionhandler.h>
 
+#include "TMHandlerBase.h"
+
 using namespace gloox;
 
 
-class TMMessageSessionHandler : public MessageSessionHandler {
+class TMMessageSessionHandler : public MessageSessionHandler, public TMHandlerBase {
   
 public:
   /**
