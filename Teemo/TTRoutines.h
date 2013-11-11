@@ -1,5 +1,5 @@
 //
-//  RSRoutines.h
+//  TTRoutines.h
 //  Teemo
 //
 //  Created by Wu Kevin on 11/8/13.
@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-UIImage *RSCreateImage(NSString *name);
+UIImage *TTCreateImage(NSString *name);

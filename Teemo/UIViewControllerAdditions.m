@@ -10,7 +10,7 @@
 
 @implementation UIViewController (Container)
 
-- (void)containerAddChildViewController:(UIViewController *)childViewController
+- (void)presentChildViewController:(UIViewController *)childViewController
 {
   
   [self addChildViewController:childViewController];
@@ -19,7 +19,7 @@
   
 }
 
-- (void)containerRemoveChildViewController:(UIViewController *)childViewController
+- (void)dismissChildViewController:(UIViewController *)childViewController
 {
   
   [childViewController willMoveToParentViewController:nil];

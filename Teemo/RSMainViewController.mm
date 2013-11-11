@@ -28,13 +28,13 @@
   
   
   
-  RSTabViewItem *item1 = [[RSTabViewItem alloc] init];
+  TTTabViewItem *item1 = [[TTTabViewItem alloc] init];
   item1.normalTitle = @"11";
   
-  RSTabViewItem *item2 = [[RSTabViewItem alloc] init];
+  TTTabViewItem *item2 = [[TTTabViewItem alloc] init];
   item2.normalTitle = @"22";
   
-  RSTabViewItem *item3 = [[RSTabViewItem alloc] init];
+  TTTabViewItem *item3 = [[TTTabViewItem alloc] init];
   item3.normalTitle = @"33";
   
   

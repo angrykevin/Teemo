@@ -1,14 +1,14 @@
 //
-//  RSTabViewController.m
+//  TTTabViewController.m
 //  Teemo
 //
 //  Created by Wu Kevin on 11/8/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "RSTabViewController.h"
+#import "TTTabViewController.h"
 
-@implementation RSTabViewController
+@implementation TTTabViewController
 
 - (id)init
 {
@@ -29,7 +29,7 @@
   
   if ( _appearedTimes == 0 ) {
     UIViewController *vc = [_viewControllers firstObject];
-    [self containerAddChildViewController:vc];
+    [self presentChildViewController:vc];
     [_tabView selectItemAtIndex:0];
   }
   
@@ -66,26 +66,26 @@
 }
 
 
-- (RSTabView *)tabViewWithItems:(NSArray *)items
+- (TTTabView *)tabViewWithItems:(NSArray *)items
 {
-  RSTabView *tabView = [[RSTabView alloc] initWithItems:items];
+  TTTabView *tabView = [[TTTabView alloc] initWithItems:items];
   
   tabView.repeatedlyNotify = NO;
   
   
   
-  __weak RSTabViewController *weakSelf = self;
+  __weak TTTabViewController *weakSelf = self;
   __weak NSArray *viewControllers = _viewControllers;
   
-  tabView.block = ^(NSUInteger index, RSTabViewItem *item) {
+  tabView.block = ^(NSUInteger index, TTTabViewItem *item) {
     
     UIViewController *currentVC = [weakSelf.childViewControllers firstObject];
     UIViewController *newVC = [viewControllers objectOrNilAtIndex:index];
     
     if ( currentVC != newVC ) {
       
-      [weakSelf containerAddChildViewController:newVC];
-      [weakSelf containerRemoveChildViewController:currentVC];
+      [weakSelf presentChildViewController:newVC];
+      [weakSelf dismissChildViewController:currentVC];
       
     }
     
@@ -102,21 +102,21 @@
 
 
 
-@implementation RSTabView
+@implementation TTTabView
 
 - (id)initWithItems:(NSArray *)items
 {
   self = [super init];
   if (self) {
     
-    self.backgroundColor = [UIColor colorWithPatternImage:RSCreateImage(@"tabbar_bg.png")];
+    self.backgroundColor = [UIColor colorWithPatternImage:TTCreateImage(@"tabbar_bg.png")];
     
     
     _items = items;
     
     for ( int i=0; i<[_items count]; ++i ) {
       
-      RSTabViewItem *item = [_items objectAtIndex:i];
+      TTTabViewItem *item = [_items objectAtIndex:i];
       
       UIButton *button = [[UIButton alloc] init];
       item.button = button;
@@ -160,7 +160,7 @@
   
   for ( int i=0; i<[_items count]; ++i ) {
     
-    RSTabViewItem *item = [_items objectAtIndex:i];
+    TTTabViewItem *item = [_items objectAtIndex:i];
     UIButton *button = item.button;
     button.frame = CGRectMake(button.tag * itemWidth, 0.0, itemWidth, self.height);
     
@@ -192,7 +192,7 @@
   [self updateTabView];
   
   if ( _block ) {
-    RSTabViewItem *item = [_items objectOrNilAtIndex:tag];
+    TTTabViewItem *item = [_items objectOrNilAtIndex:tag];
     _block(tag, item);
   }
 }
@@ -209,7 +209,7 @@
 {
   
   for ( int i=0; i<[_items count]; ++i ) {
-    RSTabViewItem *item = [_items objectAtIndex:i];
+    TTTabViewItem *item = [_items objectAtIndex:i];
     UIButton *button = item.button;
     
     //button.normalTitle = item.normalTitle;
@@ -252,9 +252,9 @@
 @end
 
 
-@implementation RSTabViewItem
+@implementation TTTabViewItem
 
-+ (RSTabViewItem *)itemWithNormalTitle:(NSString *)normalTitle
++ (TTTabViewItem *)itemWithNormalTitle:(NSString *)normalTitle
                       highlightedTitle:(NSString *)highlightedTitle
                       normalTitleColor:(UIColor *)normalTitleColor
                  highlightedTitleColor:(UIColor *)highlightedTitleColor
@@ -263,7 +263,7 @@
                  normalBackgroundImage:(UIImage *)normalBackgroundImage
             highlightedBackgroundImage:(UIImage *)highlightedBackgroundImage
 {
-  RSTabViewItem *item = [[RSTabViewItem alloc] init];
+  TTTabViewItem *item = [[TTTabViewItem alloc] init];
   
   item.normalTitle = normalTitle;
   item.highlightedTitle = highlightedTitle;

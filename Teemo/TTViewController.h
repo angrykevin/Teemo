@@ -1,5 +1,5 @@
 //
-//  RSViewController.h
+//  TTViewController.h
 //  Teemo
 //
 //  Created by Wu Kevin on 11/6/13.
@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class RSNavigationView;
+@class TTNavigationView;
 
 
-@interface RSViewController : UIViewController {
-  RSNavigationView *_navigationView;
+@interface TTViewController : UIViewController {
+  TTNavigationView *_navigationView;
   UIView *_contentView;
   
   BOOL _viewAppeared;
@@ -28,7 +28,7 @@
 @end
 
 
-@interface RSNavigationView : UIView {
+@interface TTNavigationView : UIView {
   UIButton *_backButton;
   UIButton *_leftButton;
   UILabel *_titleLabel;

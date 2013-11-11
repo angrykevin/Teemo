@@ -1,15 +1,15 @@
 //
-//  RSViewController.m
+//  TTViewController.m
 //  Teemo
 //
 //  Created by Wu Kevin on 11/6/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "RSViewController.h"
+#import "TTViewController.h"
 
 
-@implementation RSViewController
+@implementation TTViewController
 
 - (id)init
 {
@@ -24,7 +24,7 @@
 {
   [super viewDidLoad];
   
-  _navigationView = [[RSNavigationView alloc] init];
+  _navigationView = [[TTNavigationView alloc] init];
   [_navigationView.backButton addTarget:self
                                  action:@selector(backButtonClicked:)
                        forControlEvents:UIControlEventTouchUpInside];
@@ -99,18 +99,18 @@
 
 
 
-@implementation RSNavigationView
+@implementation TTNavigationView
 
 - (id)init
 {
   self = [super init];
   if (self) {
     
-    self.backgroundColor = [UIColor colorWithPatternImage:RSCreateImage(@"navbar_bg.png")];
+    self.backgroundColor = [UIColor colorWithPatternImage:TTCreateImage(@"navbar_bg.png")];
     
     
     UIButton *button = [[UIButton alloc] init];
-    button.normalBackgroundImage = [RSCreateImage(@"navbar_bt_back.png") resizableImageWithCapInsets:UIEdgeInsetsMake(0.0, 13.0, 0.0, 5.0)];
+    button.normalBackgroundImage = [TTCreateImage(@"navbar_bt_back.png") resizableImageWithCapInsets:UIEdgeInsetsMake(0.0, 13.0, 0.0, 5.0)];
     button.titleLabel.font = [UIFont systemFontOfSize:12.0];
     button.exclusiveTouch = YES;
     button.hidden = YES;
@@ -120,7 +120,7 @@
     
     
     button = [[UIButton alloc] init];
-    button.normalBackgroundImage = [RSCreateImage(@"navbar_bt_normal.png") resizableImageWithCapInsets:UIEdgeInsetsMake(14.0, 6.0, 14.0, 6.0)];
+    button.normalBackgroundImage = [TTCreateImage(@"navbar_bt_normal.png") resizableImageWithCapInsets:UIEdgeInsetsMake(14.0, 6.0, 14.0, 6.0)];
     button.titleLabel.font = [UIFont systemFontOfSize:12.0];
     button.exclusiveTouch = YES;
     button.hidden = YES;
@@ -139,7 +139,7 @@
     
     
     button = [[UIButton alloc] init];
-    button.normalBackgroundImage = [RSCreateImage(@"navbar_bt_normal.png") resizableImageWithCapInsets:UIEdgeInsetsMake(14.0, 6.0, 14.0, 6.0)];
+    button.normalBackgroundImage = [TTCreateImage(@"navbar_bt_normal.png") resizableImageWithCapInsets:UIEdgeInsetsMake(14.0, 6.0, 14.0, 6.0)];
     button.titleLabel.font = [UIFont systemFontOfSize:12.0];
     button.exclusiveTouch = YES;
     button.hidden = YES;

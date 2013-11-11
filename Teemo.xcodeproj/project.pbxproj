@@ -28,11 +28,11 @@
 		BC5EE307182A209D007D5DE6 /* RSSigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */; };
 		BC5EE30A182A20D7007D5DE6 /* RSMainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */; };
 		BC5EE35E182A230E007D5DE6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */; };
-		BC5EE361182A2429007D5DE6 /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE360182A2429007D5DE6 /* RSViewController.m */; };
+		BC5EE361182A2429007D5DE6 /* TTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE360182A2429007D5DE6 /* TTViewController.m */; };
 		BC5EE364182A2600007D5DE6 /* UILabelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */; };
 		BC675CC918308252003E1516 /* TMHandlerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC675CC818308252003E1516 /* TMHandlerBase.cpp */; };
 		BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */ = {isa = PBXBuildFile; fileRef = BC840428182CADA40058EBDC /* RSBoxViewLine.m */; };
-		BC84042C182CB2A40058EBDC /* RSRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84042B182CB2A40058EBDC /* RSRoutines.m */; };
+		BC84042C182CB2A40058EBDC /* TTRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84042B182CB2A40058EBDC /* TTRoutines.m */; };
 		BC8405FE182CC2F00058EBDC /* adhoc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840461182CC2EF0058EBDC /* adhoc.cpp */; };
 		BC8405FF182CC2F00058EBDC /* amp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840465182CC2EF0058EBDC /* amp.cpp */; };
 		BC840600182CC2F00058EBDC /* annotations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840467182CC2EF0058EBDC /* annotations.cpp */; };
@@ -190,7 +190,7 @@
 		BC8406B6182CC3870058EBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC84069C182CC3870058EBDC /* Images.xcassets */; };
 		BC840706182CC5200058EBDC /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DC182CC5200058EBDC /* libcrypto.a */; };
 		BC840707182CC5200058EBDC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DD182CC5200058EBDC /* libssl.a */; };
-		BC84070C182CCB090058EBDC /* RSTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* RSTabViewController.m */; };
+		BC84070C182CCB090058EBDC /* TTTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* TTTabViewController.m */; };
 		BC840710182CCCB20058EBDC /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */; };
 /* End PBXBuildFile section */
 
@@ -235,8 +235,8 @@
 		BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainViewController.h; sourceTree = "<group>"; };
 		BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSMainViewController.mm; sourceTree = "<group>"; };
 		BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		BC5EE35F182A2429007D5DE6 /* RSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSViewController.h; sourceTree = "<group>"; };
-		BC5EE360182A2429007D5DE6 /* RSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSViewController.m; sourceTree = "<group>"; };
+		BC5EE35F182A2429007D5DE6 /* TTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTViewController.h; sourceTree = "<group>"; };
+		BC5EE360182A2429007D5DE6 /* TTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTViewController.m; sourceTree = "<group>"; };
 		BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelAdditions.h; sourceTree = "<group>"; };
 		BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelAdditions.m; sourceTree = "<group>"; };
 		BC5EE367182A3C8F007D5DE6 /* Teemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Teemo.h; sourceTree = "<group>"; };
@@ -244,9 +244,9 @@
 		BC675CC818308252003E1516 /* TMHandlerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMHandlerBase.cpp; sourceTree = "<group>"; };
 		BC840427182CADA40058EBDC /* RSBoxViewLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoxViewLine.h; sourceTree = "<group>"; };
 		BC840428182CADA40058EBDC /* RSBoxViewLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBoxViewLine.m; sourceTree = "<group>"; };
-		BC84042A182CB2A40058EBDC /* RSRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRoutines.h; sourceTree = "<group>"; };
-		BC84042B182CB2A40058EBDC /* RSRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSRoutines.m; sourceTree = "<group>"; };
-		BC84042D182CB30B0058EBDC /* RSCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCommon.h; sourceTree = "<group>"; };
+		BC84042A182CB2A40058EBDC /* TTRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRoutines.h; sourceTree = "<group>"; };
+		BC84042B182CB2A40058EBDC /* TTRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRoutines.m; sourceTree = "<group>"; };
+		BC84042D182CB30B0058EBDC /* TTCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCommon.h; sourceTree = "<group>"; };
 		BC840461182CC2EF0058EBDC /* adhoc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = adhoc.cpp; sourceTree = "<group>"; };
 		BC840462182CC2EF0058EBDC /* adhoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhoc.h; sourceTree = "<group>"; };
 		BC840463182CC2EF0058EBDC /* adhoccommandprovider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhoccommandprovider.h; sourceTree = "<group>"; };
@@ -676,9 +676,8 @@
 		BC840703182CC5200058EBDC /* x509.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
 		BC840704182CC5200058EBDC /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
 		BC840705182CC5200058EBDC /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
-		BC840709182CC73A0058EBDC /* RSUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSUtils.h; sourceTree = "<group>"; };
-		BC84070A182CCB090058EBDC /* RSTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTabViewController.h; sourceTree = "<group>"; };
-		BC84070B182CCB090058EBDC /* RSTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTabViewController.m; sourceTree = "<group>"; };
+		BC84070A182CCB090058EBDC /* TTTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTabViewController.h; sourceTree = "<group>"; };
+		BC84070B182CCB090058EBDC /* TTTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabViewController.m; sourceTree = "<group>"; };
 		BC84070E182CCCB20058EBDC /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
 		BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerAdditions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -745,7 +744,7 @@
 				BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */,
 				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
 				BC5EE368182A3E17007D5DE6 /* Common */,
-				BC840708182CC6FF0058EBDC /* Utils */,
+				BC840708182CC6FF0058EBDC /* Views */,
 			);
 			path = Teemo;
 			sourceTree = "<group>";
@@ -789,9 +788,13 @@
 		BC5EE368182A3E17007D5DE6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				BC84042D182CB30B0058EBDC /* RSCommon.h */,
-				BC84042A182CB2A40058EBDC /* RSRoutines.h */,
-				BC84042B182CB2A40058EBDC /* RSRoutines.m */,
+				BC84042D182CB30B0058EBDC /* TTCommon.h */,
+				BC84042A182CB2A40058EBDC /* TTRoutines.h */,
+				BC84042B182CB2A40058EBDC /* TTRoutines.m */,
+				BC5EE35F182A2429007D5DE6 /* TTViewController.h */,
+				BC5EE360182A2429007D5DE6 /* TTViewController.m */,
+				BC84070A182CCB090058EBDC /* TTTabViewController.h */,
+				BC84070B182CCB090058EBDC /* TTTabViewController.m */,
 				BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */,
 				BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */,
 				BC84070E182CCCB20058EBDC /* UIViewControllerAdditions.h */,
@@ -1315,18 +1318,13 @@
 			path = openssl;
 			sourceTree = "<group>";
 		};
-		BC840708182CC6FF0058EBDC /* Utils */ = {
+		BC840708182CC6FF0058EBDC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BC840709182CC73A0058EBDC /* RSUtils.h */,
 				BC840427182CADA40058EBDC /* RSBoxViewLine.h */,
 				BC840428182CADA40058EBDC /* RSBoxViewLine.m */,
-				BC5EE35F182A2429007D5DE6 /* RSViewController.h */,
-				BC5EE360182A2429007D5DE6 /* RSViewController.m */,
-				BC84070A182CCB090058EBDC /* RSTabViewController.h */,
-				BC84070B182CCB090058EBDC /* RSTabViewController.m */,
 			);
-			name = Utils;
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1428,7 +1426,7 @@
 				BC840627182CC2F00058EBDC /* instantmucroom.cpp in Sources */,
 				BC840678182CC2F00058EBDC /* TKOperation.m in Sources */,
 				BC84062E182CC2F00058EBDC /* jinglesession.cpp in Sources */,
-				BC84042C182CB2A40058EBDC /* RSRoutines.m in Sources */,
+				BC84042C182CB2A40058EBDC /* TTRoutines.m in Sources */,
 				BC840603182CC2F00058EBDC /* base64.cpp in Sources */,
 				BC840606182CC2F00058EBDC /* carbons.cpp in Sources */,
 				BC84061C182CC2F00058EBDC /* disco.cpp in Sources */,
@@ -1499,7 +1497,7 @@
 				BC5EE307182A209D007D5DE6 /* RSSigninViewController.m in Sources */,
 				BC840657182CC2F00058EBDC /* stanza.cpp in Sources */,
 				BC5EE364182A2600007D5DE6 /* UILabelAdditions.m in Sources */,
-				BC5EE361182A2429007D5DE6 /* RSViewController.m in Sources */,
+				BC5EE361182A2429007D5DE6 /* TTViewController.m in Sources */,
 				BC840632182CC2F00058EBDC /* linklocalmanager.cpp in Sources */,
 				BC84060B182CC2F00058EBDC /* component.cpp in Sources */,
 				BC5EE0E9182A196A007D5DE6 /* main.m in Sources */,
@@ -1523,7 +1521,7 @@
 				BC840616182CC2F00058EBDC /* dataform.cpp in Sources */,
 				BC840625182CC2F00058EBDC /* gpgsigned.cpp in Sources */,
 				BC840652182CC2F00058EBDC /* siprofileft.cpp in Sources */,
-				BC84070C182CCB090058EBDC /* RSTabViewController.m in Sources */,
+				BC84070C182CCB090058EBDC /* TTTabViewController.m in Sources */,
 				BC840651182CC2F00058EBDC /* simanager.cpp in Sources */,
 				BC840624182CC2F00058EBDC /* gpgencrypted.cpp in Sources */,
 				BC840614182CC2F00058EBDC /* connectiontls.cpp in Sources */,

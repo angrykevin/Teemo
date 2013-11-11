@@ -1,13 +1,15 @@
 //
-//  RSCommon.h
+//  TTCommon.h
 //  Teemo
 //
 //  Created by Wu Kevin on 11/8/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "RSRoutines.h"
+#import "TTRoutines.h"
 
+#import "TTViewController.h"
+#import "TTTabViewController.h"
 
 
 #import "UILabelAdditions.h"

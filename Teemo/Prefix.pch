@@ -16,8 +16,7 @@
   #import <Foundation/Foundation.h>
 
   #import "TapKit.h"
-  #import "RSCommon.h"
-  #import "RSUtils.h"
+  #import "TTCommon.h"
 
 #endif
 

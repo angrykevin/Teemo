@@ -1,5 +1,5 @@
 //
-//  RSTabViewController.h
+//  TTTabViewController.h
 //  Teemo
 //
 //  Created by Wu Kevin on 11/8/13.
@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class RSTabView;
+@class TTTabView;
 
 
-@interface RSTabViewController : UIViewController {
+@interface TTTabViewController : UIViewController {
   NSArray *_viewControllers;
-  RSTabView *_tabView;
+  TTTabView *_tabView;
   
   BOOL _viewAppeared;
   NSUInteger _appearedTimes;
@@ -21,7 +21,7 @@
 
 - (void)layoutViews;
 
-- (RSTabView *)tabViewWithItems:(NSArray *)items;
+- (TTTabView *)tabViewWithItems:(NSArray *)items;
 
 @end
 
@@ -29,22 +29,22 @@
 
 
 
-@class RSTabViewItem;
+@class TTTabViewItem;
 
-typedef void(^RSTabViewBlock)(NSUInteger index, RSTabViewItem *item);
+typedef void(^TTTabViewBlock)(NSUInteger index, TTTabViewItem *item);
 
-@interface RSTabView : UIView {
+@interface TTTabView : UIView {
   NSArray *_items;
   
   BOOL _repeatedlyNotify;
-  RSTabViewBlock _block;
+  TTTabViewBlock _block;
   NSUInteger _selectedIndex;
 }
 
 @property (nonatomic, strong, readonly) NSArray *items;
 
 @property (nonatomic, assign) BOOL repeatedlyNotify;
-@property (nonatomic, copy) RSTabViewBlock block;
+@property (nonatomic, copy) TTTabViewBlock block;
 @property (nonatomic, assign, readonly) NSUInteger selectedIndex;
 
 - (id)initWithItems:(NSArray *)items;
@@ -53,7 +53,7 @@ typedef void(^RSTabViewBlock)(NSUInteger index, RSTabViewItem *item);
 
 @end
 
-@interface RSTabViewItem : NSObject {
+@interface TTTabViewItem : NSObject {
   
   UIButton *_button;
   
@@ -84,7 +84,7 @@ typedef void(^RSTabViewBlock)(NSUInteger index, RSTabViewItem *item);
 @property (nonatomic, strong) UIImage *normalBackgroundImage;
 @property (nonatomic, strong) UIImage *highlightedBackgroundImage;
 
-+ (RSTabViewItem *)itemWithNormalTitle:(NSString *)normalTitle
++ (TTTabViewItem *)itemWithNormalTitle:(NSString *)normalTitle
                       highlightedTitle:(NSString *)highlightedTitle
                       normalTitleColor:(UIColor *)normalTitleColor
                  highlightedTitleColor:(UIColor *)highlightedTitleColor
