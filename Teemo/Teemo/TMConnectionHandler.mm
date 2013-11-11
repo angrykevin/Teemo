@@ -1,17 +1,17 @@
 //
-//  TMConnectionListener.mm
+//  TMConnectionHandler.m
 //  Teemo
 //
-//  Created by Wu Kevin on 11/5/13.
+//  Created by Wu Kevin on 11/11/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#include "TMConnectionListener.h"
+#import "TMConnectionHandler.h"
 #include "TMDebug.h"
 #import "TMConnectionDelegate.h"
 
 
-void TMConnectionListener::onConnect()
+void TMConnectionHandler::onConnect()
 {
   TMPRINTMETHOD();
   
@@ -26,7 +26,7 @@ void TMConnectionListener::onConnect()
   
 }
 
-void TMConnectionListener::onDisconnect( ConnectionError e )
+void TMConnectionHandler::onDisconnect( ConnectionError e )
 {
   TMPRINTMETHOD();
   
@@ -41,7 +41,7 @@ void TMConnectionListener::onDisconnect( ConnectionError e )
   
 }
 
-void TMConnectionListener::onResourceBind( const std::string& resource )
+void TMConnectionHandler::onResourceBind( const std::string& resource )
 {
   TMPRINTMETHOD();
   
@@ -56,7 +56,7 @@ void TMConnectionListener::onResourceBind( const std::string& resource )
   
 }
 
-void TMConnectionListener::onResourceBindError( const Error* error )
+void TMConnectionHandler::onResourceBindError( const Error* error )
 {
   TMPRINTMETHOD();
   
@@ -71,7 +71,7 @@ void TMConnectionListener::onResourceBindError( const Error* error )
   
 }
 
-void TMConnectionListener::onSessionCreateError( const Error* error )
+void TMConnectionHandler::onSessionCreateError( const Error* error )
 {
   TMPRINTMETHOD();
   
@@ -86,7 +86,7 @@ void TMConnectionListener::onSessionCreateError( const Error* error )
   
 }
 
-bool TMConnectionListener::onTLSConnect( const CertInfo& info )
+bool TMConnectionHandler::onTLSConnect( const CertInfo& info )
 {
   TMPRINTMETHOD();
   
@@ -102,7 +102,7 @@ bool TMConnectionListener::onTLSConnect( const CertInfo& info )
   return true;
 }
 
-void TMConnectionListener::onStreamEvent( StreamEvent event )
+void TMConnectionHandler::onStreamEvent( StreamEvent event )
 {
   TMPRINTMETHOD();
   

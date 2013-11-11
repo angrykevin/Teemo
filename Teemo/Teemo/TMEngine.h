@@ -13,14 +13,15 @@
 #include <gloox/client.h>
 #include <gloox/vcardmanager.h>
 
-#import "TMConnectionListener.h"
+
+#import "TMConnectionHandler.h"
 
 using namespace gloox;
 
 
 @interface TMEngine : NSObject {
   Client *_client;
-  TMConnectionListener *_connectionListener;
+  TMConnectionHandler *_connectionHandler;
   
   
   VCardManager *_vcardManager;
@@ -39,6 +40,6 @@ using namespace gloox;
 - (void)disConnect;
 
 - (Client *)client;
-- (TMConnectionListener *)connectionListener;
+- (TMConnectionHandler *)connectionHandler;
 
 @end

@@ -18,6 +18,7 @@
 #import "TMCommon.h"
 
 
+
 #import "TMMessageHandler.h"
 #import "TMMessageSessionHandler.h"
 
@@ -66,8 +67,10 @@ static TMEngine *CurrentEngine = nil;
   _client->setPort( prt );
   
   
-  _connectionListener = new TMConnectionListener;
-  _client->registerConnectionListener( _connectionListener );
+  _connectionHandler = new TMConnectionHandler;
+  _client->registerConnectionListener( _connectionHandler );
+  
+  
   
   TMMessageSessionHandler *messageSessionHandler = new TMMessageSessionHandler;
   _client->registerMessageSessionHandler( messageSessionHandler );
@@ -124,9 +127,9 @@ static TMEngine *CurrentEngine = nil;
   return _client;
 }
 
-- (TMConnectionListener *)connectionListener
+- (TMConnectionHandler *)connectionHandler
 {
-  return _connectionListener;
+  return _connectionHandler;
 }
 
 

@@ -1,13 +1,13 @@
 //
-//  TMConnectionListener.h
+//  TMConnectionHandler.h
 //  Teemo
 //
-//  Created by Wu Kevin on 11/5/13.
+//  Created by Wu Kevin on 11/11/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#ifndef __TMConnectionListener__
-#define __TMConnectionListener__
+#ifndef __TMConnectionHandler__
+#define __TMConnectionHandler__
 
 #include <iostream>
 
@@ -18,7 +18,7 @@
 using namespace gloox;
 
 
-class TMConnectionListener : public ConnectionListener, public TMHandlerBase {
+class TMConnectionHandler : public ConnectionListener, public TMHandlerBase {
   
 public:
   

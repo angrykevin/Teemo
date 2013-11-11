@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC4D139D1830E77300572F67 /* TMConnectionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */; };
 		BC5EE0DD182A196A007D5DE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE0DC182A196A007D5DE6 /* Foundation.framework */; };
 		BC5EE0DF182A196A007D5DE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE0DE182A196A007D5DE6 /* CoreGraphics.framework */; };
 		BC5EE0E1182A196A007D5DE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE0E0182A196A007D5DE6 /* UIKit.framework */; };
@@ -14,7 +15,6 @@
 		BC5EE0ED182A196A007D5DE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE0EC182A196A007D5DE6 /* AppDelegate.m */; };
 		BC5EE2DC182A1C6B007D5DE6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE2DB182A1C6B007D5DE6 /* libz.dylib */; };
 		BC5EE2F9182A1FAC007D5DE6 /* TMCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */; };
-		BC5EE2FA182A1FAC007D5DE6 /* TMConnectionListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E3182A1FAC007D5DE6 /* TMConnectionListener.mm */; };
 		BC5EE2FB182A1FAC007D5DE6 /* TMEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */; };
 		BC5EE2FC182A1FAC007D5DE6 /* TMIqHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */; };
 		BC5EE2FD182A1FAC007D5DE6 /* TMMessageHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */; };
@@ -196,6 +196,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC4D139B1830E77300572F67 /* TMConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConnectionHandler.h; sourceTree = "<group>"; };
+		BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMConnectionHandler.mm; sourceTree = "<group>"; };
 		BC5EE0D9182A196A007D5DE6 /* Teemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5EE0DC182A196A007D5DE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BC5EE0DE182A196A007D5DE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -208,8 +210,6 @@
 		BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMCommon.h; sourceTree = "<group>"; };
 		BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMCommon.mm; sourceTree = "<group>"; };
 		BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConfig.h; sourceTree = "<group>"; };
-		BC5EE2E2182A1FAC007D5DE6 /* TMConnectionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConnectionListener.h; sourceTree = "<group>"; };
-		BC5EE2E3182A1FAC007D5DE6 /* TMConnectionListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMConnectionListener.mm; sourceTree = "<group>"; };
 		BC5EE2E4182A1FAC007D5DE6 /* TMDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDebug.h; sourceTree = "<group>"; };
 		BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEngine.h; sourceTree = "<group>"; };
 		BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMEngine.mm; sourceTree = "<group>"; };
@@ -765,8 +765,8 @@
 				BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */,
 				BC675C8218306E22003E1516 /* TMHandlerBase.h */,
 				BC675CC818308252003E1516 /* TMHandlerBase.cpp */,
-				BC5EE2E2182A1FAC007D5DE6 /* TMConnectionListener.h */,
-				BC5EE2E3182A1FAC007D5DE6 /* TMConnectionListener.mm */,
+				BC4D139B1830E77300572F67 /* TMConnectionHandler.h */,
+				BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */,
 				BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */,
 				BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */,
 				BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */,
@@ -1447,6 +1447,7 @@
 				BC840665182CC2F00058EBDC /* util.cpp in Sources */,
 				BC840600182CC2F00058EBDC /* annotations.cpp in Sources */,
 				BC840655182CC2F00058EBDC /* socks5bytestreamserver.cpp in Sources */,
+				BC4D139D1830E77300572F67 /* TMConnectionHandler.mm in Sources */,
 				BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */,
 				BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */,
 				BC840669182CC2F00058EBDC /* xhtmlim.cpp in Sources */,
@@ -1558,7 +1559,6 @@
 				BC84067F182CC2F00058EBDC /* TKDatabaseRow.m in Sources */,
 				BC840671182CC2F00058EBDC /* NSStringAdditions.m in Sources */,
 				BC840675182CC2F00058EBDC /* UITableViewAdditions.m in Sources */,
-				BC5EE2FA182A1FAC007D5DE6 /* TMConnectionListener.mm in Sources */,
 				BC840615182CC2F00058EBDC /* connectiontlsserver.cpp in Sources */,
 				BC840658182CC2F00058EBDC /* stanzaextensionfactory.cpp in Sources */,
 				BC84067C182CC2F00058EBDC /* TKCoreCompatibility.m in Sources */,

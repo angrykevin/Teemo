@@ -108,7 +108,7 @@
   TMEngine *engine = [[TMEngine alloc] init];
   [TMEngine storeEngine:engine];
   [engine setUpWithUID:passport password:password];
-  [engine connectionListener]->addObserver((__bridge void *)self);
+  [engine connectionHandler]->addObserver((__bridge void *)self);
   [engine connect];
   
 }
