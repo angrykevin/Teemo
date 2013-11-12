@@ -21,6 +21,15 @@
   root.navigationBarHidden = YES;
   _window.rootViewController = root;
   
+  
+  TKDatabase *db = [TKDatabase sharedObject];
+  db.path = TKPathForDocumentsResource(@"Teemo.db");
+  [db open];
+  
+  if ( ![db hasTableNamed:@"tBuddy"] ) {
+    [db executeUpdate:@"CREATE TABLE tBuddy(pk INTEGER);"];
+  }
+  
   _window.backgroundColor = [UIColor whiteColor];
   [_window makeKeyAndVisible];
   return YES;
