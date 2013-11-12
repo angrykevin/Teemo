@@ -1,13 +1,13 @@
 //
-//  TMRosterListener.h
+//  TMRosterHandler.h
 //  Teemo
 //
-//  Created by Wu Kevin on 11/6/13.
+//  Created by Wu Kevin on 11/12/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#ifndef __TMRosterListener__
-#define __TMRosterListener__
+#ifndef __TMRosterHandler__
+#define __TMRosterHandler__
 
 #include <iostream>
 
@@ -19,7 +19,7 @@
 using namespace gloox;
 
 
-class TMRosterListener : public RosterListener, TMHandlerBase {
+class TMRosterHandler : public RosterListener, TMHandlerBase {
   
 public:
   /**

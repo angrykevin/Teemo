@@ -24,7 +24,7 @@
 
 #import "TMPresenceHandler.h"
 
-#import "TMRosterListener.h"
+#import "TMRosterHandler.h"
 
 #import "TMStatisticsHandler.h"
 

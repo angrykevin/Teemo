@@ -12,6 +12,11 @@
 
 @implementation RSSigninViewController
 
+- (void)dealloc
+{
+  TMConnectionHandler *connectionHandler = [[TMEngine sharedEngine] connectionHandler];
+  connectionHandler->removeObserver((__bridge void *)self);
+}
 
 - (void)viewDidLoad
 {
@@ -118,37 +123,50 @@
 - (void)connectionOnConnect
 {
   TKPRINTMETHOD();
+  
+  RSMainViewController *vc = [[RSMainViewController alloc] init];
+  CATransition *transition = [CATransition pushTransition];
+  [self.navigationController.view.layer addAnimation:transition forKey:nil];
+  [self.navigationController setViewControllers:@[ vc ] animated:NO];
+  
 }
 
 - (void)connectionOnDisconnect:(ConnectionError)error
 {
   TKPRINTMETHOD();
+  
+  TTDisplayMessage(@"登录失败！");
+  
+  TMConnectionHandler *connectionHandler = [[TMEngine sharedEngine] connectionHandler];
+  connectionHandler->removeObserver((__bridge void *)self);
+  [TMEngine clearStoredEngine];
+  
 }
 
-- (void)connectionOnResourceBind:(const std::string &)resource
-{
-  TKPRINTMETHOD();
-}
-
-- (void)connectionOnResourceBindError:(const Error *)error
-{
-  TKPRINTMETHOD();
-}
-
-- (void)connectionOnSessionCreateError:(const Error *)error
-{
-  TKPRINTMETHOD();
-}
-
-- (bool)connectionOnTLSConnect:(const CertInfo &)info
-{
-  TKPRINTMETHOD();
-  return true;
-}
-
-- (void)connectionOnStreamEvent:(StreamEvent)event
-{
-  TKPRINTMETHOD();
-}
+//- (void)connectionOnResourceBind:(const std::string &)resource
+//{
+//  TKPRINTMETHOD();
+//}
+//
+//- (void)connectionOnResourceBindError:(const Error *)error
+//{
+//  TKPRINTMETHOD();
+//}
+//
+//- (void)connectionOnSessionCreateError:(const Error *)error
+//{
+//  TKPRINTMETHOD();
+//}
+//
+//- (bool)connectionOnTLSConnect:(const CertInfo &)info
+//{
+//  TKPRINTMETHOD();
+//  return true;
+//}
+//
+//- (void)connectionOnStreamEvent:(StreamEvent)event
+//{
+//  TKPRINTMETHOD();
+//}
 
 @end

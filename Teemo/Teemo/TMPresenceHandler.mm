@@ -14,13 +14,17 @@ void TMPresenceHandler::handlePresence( const Presence& presence )
 {
   TMPRINTMETHOD();
   
-  list<void *>::const_iterator it = m_observers.begin();
-  
-  for( ; it != m_observers.end(); ++it ) {
-    id<TMPresenceDelegate> delegate = (__bridge id<TMPresenceDelegate>)(*it);
-    if ( [delegate respondsToSelector:@selector(presenceOnReceived:)] ) {
-      [delegate presenceOnReceived:presence];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    
+    list<void *>::const_iterator it = m_observers.begin();
+    
+    for( ; it != m_observers.end(); ++it ) {
+      id<TMPresenceDelegate> delegate = (__bridge id<TMPresenceDelegate>)(*it);
+      if ( [delegate respondsToSelector:@selector(presenceOnReceived:)] ) {
+        [delegate presenceOnReceived:presence];
+      }
     }
-  }
+    
+  });
   
 }

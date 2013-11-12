@@ -20,7 +20,6 @@
 		BC5EE2FD182A1FAC007D5DE6 /* TMMessageHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */; };
 		BC5EE2FE182A1FAC007D5DE6 /* TMMessageSessionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */; };
 		BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EE182A1FAC007D5DE6 /* TMPresenceHandler.mm */; };
-		BC5EE300182A1FAC007D5DE6 /* TMRosterListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F0182A1FAC007D5DE6 /* TMRosterListener.mm */; };
 		BC5EE301182A1FAC007D5DE6 /* TMStatisticsHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */; };
 		BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */; };
 		BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */; };
@@ -193,6 +192,7 @@
 		BC840707182CC5200058EBDC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DD182CC5200058EBDC /* libssl.a */; };
 		BC84070C182CCB090058EBDC /* TTTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* TTTabViewController.m */; };
 		BC840710182CCCB20058EBDC /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */; };
+		BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D351831E16B00E93718 /* TMRosterHandler.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,8 +221,6 @@
 		BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMMessageSessionHandler.mm; sourceTree = "<group>"; };
 		BC5EE2ED182A1FAC007D5DE6 /* TMPresenceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPresenceHandler.h; sourceTree = "<group>"; };
 		BC5EE2EE182A1FAC007D5DE6 /* TMPresenceHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMPresenceHandler.mm; sourceTree = "<group>"; };
-		BC5EE2EF182A1FAC007D5DE6 /* TMRosterListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMRosterListener.h; sourceTree = "<group>"; };
-		BC5EE2F0182A1FAC007D5DE6 /* TMRosterListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRosterListener.mm; sourceTree = "<group>"; };
 		BC5EE2F1182A1FAC007D5DE6 /* TMStatisticsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMStatisticsHandler.h; sourceTree = "<group>"; };
 		BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMStatisticsHandler.mm; sourceTree = "<group>"; };
 		BC5EE2F3182A1FAC007D5DE6 /* TMSubscriptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSubscriptionHandler.h; sourceTree = "<group>"; };
@@ -685,6 +683,10 @@
 		BC84070E182CCCB20058EBDC /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
 		BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerAdditions.m; sourceTree = "<group>"; };
 		BCA23D211831C34100E93718 /* TMPresenceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMPresenceDelegate.h; sourceTree = "<group>"; };
+		BCA23D251831CC8E00E93718 /* TMVCardDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMVCardDelegate.h; sourceTree = "<group>"; };
+		BCA23D351831E16B00E93718 /* TMRosterHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRosterHandler.mm; sourceTree = "<group>"; };
+		BCA23D361831E16B00E93718 /* TMRosterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMRosterHandler.h; sourceTree = "<group>"; };
+		BCA23D381831E1E800E93718 /* TMRosterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMRosterDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -768,18 +770,16 @@
 				BC675CC818308252003E1516 /* TMHandlerBase.cpp */,
 				BCA23D221831C3EF00E93718 /* ConnectionHandler */,
 				BCA23D231831C3FB00E93718 /* PresenceHandler */,
+				BCA23D261831D2BC00E93718 /* VCardHandler */,
+				BCA23D391831E21200E93718 /* RosterHandler */,
 				BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */,
 				BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */,
 				BC5EE2EB182A1FAC007D5DE6 /* TMMessageSessionHandler.h */,
 				BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */,
-				BC5EE2EF182A1FAC007D5DE6 /* TMRosterListener.h */,
-				BC5EE2F0182A1FAC007D5DE6 /* TMRosterListener.mm */,
 				BC5EE2F1182A1FAC007D5DE6 /* TMStatisticsHandler.h */,
 				BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */,
 				BC5EE2F3182A1FAC007D5DE6 /* TMSubscriptionHandler.h */,
 				BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */,
-				BC5EE2F7182A1FAC007D5DE6 /* TMVCardHandler.h */,
-				BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */,
 				BC5EE2F5182A1FAC007D5DE6 /* TMTagHandler.h */,
 				BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */,
 				BC5EE2E7182A1FAC007D5DE6 /* TMIqHandler.h */,
@@ -1352,6 +1352,26 @@
 			name = PresenceHandler;
 			sourceTree = "<group>";
 		};
+		BCA23D261831D2BC00E93718 /* VCardHandler */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE2F7182A1FAC007D5DE6 /* TMVCardHandler.h */,
+				BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */,
+				BCA23D251831CC8E00E93718 /* TMVCardDelegate.h */,
+			);
+			name = VCardHandler;
+			sourceTree = "<group>";
+		};
+		BCA23D391831E21200E93718 /* RosterHandler */ = {
+			isa = PBXGroup;
+			children = (
+				BCA23D361831E16B00E93718 /* TMRosterHandler.h */,
+				BCA23D351831E16B00E93718 /* TMRosterHandler.mm */,
+				BCA23D381831E1E800E93718 /* TMRosterDelegate.h */,
+			);
+			name = RosterHandler;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1470,7 +1490,6 @@
 				BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */,
 				BC840669182CC2F00058EBDC /* xhtmlim.cpp in Sources */,
 				BC84060C182CC2F00058EBDC /* compressiondefault.cpp in Sources */,
-				BC5EE300182A1FAC007D5DE6 /* TMRosterListener.mm in Sources */,
 				BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */,
 				BC84063C182CC2F00058EBDC /* mucroom.cpp in Sources */,
 				BC840617182CC2F00058EBDC /* dataformfield.cpp in Sources */,
@@ -1568,6 +1587,7 @@
 				BC675D4A183093E3003E1516 /* CATransitionAdditions.m in Sources */,
 				BC840644182CC2F00058EBDC /* privacyitem.cpp in Sources */,
 				BC840640182CC2F00058EBDC /* oob.cpp in Sources */,
+				BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */,
 				BC84063D182CC2F00058EBDC /* mutex.cpp in Sources */,
 				BC84062B182CC2F00058EBDC /* jinglefiletransfer.cpp in Sources */,
 				BC840710182CCCB20058EBDC /* UIViewControllerAdditions.m in Sources */,

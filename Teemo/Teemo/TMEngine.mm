@@ -19,14 +19,12 @@
 
 
 
-#import "TMMessageHandler.h"
-#import "TMMessageSessionHandler.h"
-
-#import "TMRosterListener.h"
-
-#import "TMStatisticsHandler.h"
-
-#import "TMSubscriptionHandler.h"
+//#import "TMMessageHandler.h"
+//#import "TMMessageSessionHandler.h"
+//
+//#import "TMStatisticsHandler.h"
+//
+//#import "TMSubscriptionHandler.h"
 
 using namespace std;
 using namespace gloox;
@@ -47,6 +45,11 @@ static TMEngine *CurrentEngine = nil;
   CurrentEngine = engine;
 }
 
++ (void)clearStoredEngine
+{
+  CurrentEngine = nil;
+}
+
 
 
 - (void)setUpWithUID:(NSString *)uid password:(NSString *)password
@@ -64,6 +67,8 @@ static TMEngine *CurrentEngine = nil;
   _client->setServer( svr );
   _client->setPort( prt );
   
+  _vcardManager = new VCardManager( _client );
+  
   
   _connectionHandler = new TMConnectionHandler;
   _client->registerConnectionListener( _connectionHandler );
@@ -71,23 +76,23 @@ static TMEngine *CurrentEngine = nil;
   _presenceHandler = new TMPresenceHandler;
   _client->registerPresenceHandler( _presenceHandler );
   
+  _rosterHandler = new TMRosterHandler;
+  _client->rosterManager()->registerRosterListener( _rosterHandler );
   
   
   
-  TMMessageSessionHandler *messageSessionHandler = new TMMessageSessionHandler;
-  _client->registerMessageSessionHandler( messageSessionHandler );
-  
-  TMRosterListener *rosterListener = new TMRosterListener;
-  _client->rosterManager()->registerRosterListener( rosterListener );
-  
-  TMStatisticsHandler *statisticsHandler = new TMStatisticsHandler;
-  _client->registerStatisticsHandler( statisticsHandler );
-  
-  TMSubscriptionHandler *subscriptionHandler = new TMSubscriptionHandler;
-  _client->registerSubscriptionHandler( subscriptionHandler );
+//  TMMessageSessionHandler *messageSessionHandler = new TMMessageSessionHandler;
+//  _client->registerMessageSessionHandler( messageSessionHandler );
+//  
+//  
+//  TMStatisticsHandler *statisticsHandler = new TMStatisticsHandler;
+//  _client->registerStatisticsHandler( statisticsHandler );
+//  
+//  TMSubscriptionHandler *subscriptionHandler = new TMSubscriptionHandler;
+//  _client->registerSubscriptionHandler( subscriptionHandler );
   
   
-  _vcardManager = new VCardManager( _client );
+  
   
 }
 
@@ -126,6 +131,12 @@ static TMEngine *CurrentEngine = nil;
   return _client;
 }
 
+- (VCardManager *)vcardManager
+{
+  return _vcardManager;
+}
+
+
 - (TMConnectionHandler *)connectionHandler
 {
   return _connectionHandler;
@@ -134,6 +145,16 @@ static TMEngine *CurrentEngine = nil;
 - (TMPresenceHandler *)presenceHandler
 {
   return _presenceHandler;
+}
+
+- (TMVCardHandler *)vcardHandler
+{
+  return _vcardHandler;
+}
+
+- (RosterManager *)rosterManager
+{
+  return _client->rosterManager();
 }
 
 
@@ -153,8 +174,6 @@ static TMEngine *CurrentEngine = nil;
     
   }
 }
-
-
 
 
 
