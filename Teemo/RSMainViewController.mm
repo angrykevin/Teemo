@@ -7,6 +7,9 @@
 //
 
 #import "RSMainViewController.h"
+#import "RSChatlogViewController.h"
+#import "RSBuddiesViewController.h"
+#import "RSSettingViewController.h"
 
 @implementation RSMainViewController
 
@@ -14,31 +17,44 @@
 {
   [super viewDidLoad];
   
-  UIViewController *vc1 = [[UIViewController alloc] init];
-  vc1.view.backgroundColor = [UIColor redColor];
-  
-  UIViewController *vc2 = [[UIViewController alloc] init];
-  vc2.view.backgroundColor = [UIColor greenColor];
-  
-  UIViewController *vc3 = [[UIViewController alloc] init];
-  vc3.view.backgroundColor = [UIColor blueColor];
+  RSChatlogViewController *vc1 = [[RSChatlogViewController alloc] init];
+  RSBuddiesViewController *vc2 = [[RSBuddiesViewController alloc] init];
+  RSSettingViewController *vc3 = [[RSSettingViewController alloc] init];
   
   _viewControllers = [[NSArray alloc] initWithObjects:vc1, vc2, vc3, nil];
   
   
   
-  TTTabViewItem *item1 = [[TTTabViewItem alloc] init];
-  item1.normalTitle = @"11";
+  TTTabViewItem *it1 = [TTTabViewItem itemWithNormalTitle:NSLocalizedString(@"会话", @"")
+                                         highlightedTitle:NSLocalizedString(@"会话", @"")
+                                         normalTitleColor:[UIColor whiteColor]
+                                    highlightedTitleColor:[UIColor whiteColor]
+                                              normalImage:TTCreateImage(@"tabbar_chatlog_n.png")
+                                         highlightedImage:TTCreateImage(@"tabbar_chatlog_h.png")
+                                    normalBackgroundImage:nil
+                               highlightedBackgroundImage:nil];
   
-  TTTabViewItem *item2 = [[TTTabViewItem alloc] init];
-  item2.normalTitle = @"22";
+  TTTabViewItem *it2 = [TTTabViewItem itemWithNormalTitle:NSLocalizedString(@"好友", @"")
+                                         highlightedTitle:NSLocalizedString(@"好友", @"")
+                                         normalTitleColor:[UIColor whiteColor]
+                                    highlightedTitleColor:[UIColor whiteColor]
+                                              normalImage:TTCreateImage(@"tabbar_buddies_n.png")
+                                         highlightedImage:TTCreateImage(@"tabbar_buddies_h.png")
+                                    normalBackgroundImage:nil
+                               highlightedBackgroundImage:nil];
   
-  TTTabViewItem *item3 = [[TTTabViewItem alloc] init];
-  item3.normalTitle = @"33";
+  TTTabViewItem *it3 = [TTTabViewItem itemWithNormalTitle:NSLocalizedString(@"设置", @"")
+                                         highlightedTitle:NSLocalizedString(@"设置", @"")
+                                         normalTitleColor:[UIColor whiteColor]
+                                    highlightedTitleColor:[UIColor whiteColor]
+                                              normalImage:TTCreateImage(@"tabbar_setting_n.png")
+                                         highlightedImage:TTCreateImage(@"tabbar_setting_h.png")
+                                    normalBackgroundImage:nil
+                               highlightedBackgroundImage:nil];
   
   
-  _tabView = [self tabViewWithItems:@[ item1, item2, item3 ]];
-  [self.view addSubview:_tabView];
+  
+  [self setUpWithItems:@[ it1, it2, it3 ] viewControllers:@[ vc1, vc2, vc3 ]];
   
 }
 

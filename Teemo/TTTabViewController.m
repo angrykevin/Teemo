@@ -69,18 +69,20 @@
 }
 
 
-- (TTTabView *)tabViewWithItems:(NSArray *)items
+- (void)setUpWithItems:(NSArray *)items viewControllers:(NSArray *)viewControllers
 {
-  TTTabView *tabView = [[TTTabView alloc] initWithItems:items];
+  [_tabView removeFromSuperview];
   
-  tabView.repeatedlyNotify = NO;
+  _tabView = [[TTTabView alloc] initWithItems:items];
+  [self.view addSubview:_tabView];
+  
+  _tabView.repeatedlyNotify = NO;
   
   
   
   __weak TTTabViewController *weakSelf = self;
-  __weak NSArray *viewControllers = _viewControllers;
   
-  tabView.block = ^(NSUInteger index, TTTabViewItem *item) {
+  _tabView.block = ^(NSUInteger index, TTTabViewItem *item) {
     
     UIViewController *currentVC = [weakSelf.childViewControllers firstObject];
     UIViewController *newVC = [viewControllers objectOrNilAtIndex:index];
@@ -96,8 +98,6 @@
     
   };
   
-  
-  return tabView;
 }
 
 @end
@@ -168,9 +168,9 @@
     button.frame = CGRectMake(button.tag * itemWidth, 0.0, itemWidth, self.height);
     
     CGSize imageSize = button.imageView.frame.size;
-    button.titleEdgeInsets = UIEdgeInsetsMake(0.0, 0.0 - imageSize.width, 0.0 - imageSize.height - 2.0, 0.0);
+    button.titleEdgeInsets = UIEdgeInsetsMake(0.0, 0.0 - imageSize.width, 0.0 - imageSize.height, 0.0);
     CGSize titleSize = button.titleLabel.frame.size;
-    button.imageEdgeInsets = UIEdgeInsetsMake(0.0 - titleSize.height - 2.0, 0.0, 0.0, 0.0 - titleSize.width);
+    button.imageEdgeInsets = UIEdgeInsetsMake(0.0 - titleSize.height, 0.0, 0.0, 0.0 - titleSize.width);
     
   }
   

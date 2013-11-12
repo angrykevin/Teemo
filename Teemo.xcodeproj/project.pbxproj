@@ -193,6 +193,21 @@
 		BC84070C182CCB090058EBDC /* TTTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* TTTabViewController.m */; };
 		BC840710182CCCB20058EBDC /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */; };
 		BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D351831E16B00E93718 /* TMRosterHandler.mm */; };
+		BCA23D48183224E300E93718 /* tabbar_buddies_h.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */; };
+		BCA23D49183224E300E93718 /* tabbar_buddies_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3D183224E300E93718 /* tabbar_buddies_h@2x.png */; };
+		BCA23D4A183224E300E93718 /* tabbar_buddies_n.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3E183224E300E93718 /* tabbar_buddies_n.png */; };
+		BCA23D4B183224E300E93718 /* tabbar_buddies_n@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3F183224E300E93718 /* tabbar_buddies_n@2x.png */; };
+		BCA23D4C183224E300E93718 /* tabbar_chatlog_h.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D40183224E300E93718 /* tabbar_chatlog_h.png */; };
+		BCA23D4D183224E300E93718 /* tabbar_chatlog_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D41183224E300E93718 /* tabbar_chatlog_h@2x.png */; };
+		BCA23D4E183224E300E93718 /* tabbar_chatlog_n.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D42183224E300E93718 /* tabbar_chatlog_n.png */; };
+		BCA23D4F183224E300E93718 /* tabbar_chatlog_n@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D43183224E300E93718 /* tabbar_chatlog_n@2x.png */; };
+		BCA23D50183224E300E93718 /* tabbar_setting_h.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D44183224E300E93718 /* tabbar_setting_h.png */; };
+		BCA23D51183224E300E93718 /* tabbar_setting_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D45183224E300E93718 /* tabbar_setting_h@2x.png */; };
+		BCA23D52183224E300E93718 /* tabbar_setting_n.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D46183224E300E93718 /* tabbar_setting_n.png */; };
+		BCA23D53183224E300E93718 /* tabbar_setting_n@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D47183224E300E93718 /* tabbar_setting_n@2x.png */; };
+		BCA23D561832288B00E93718 /* RSChatlogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D551832288B00E93718 /* RSChatlogViewController.m */; };
+		BCA23D59183228C900E93718 /* RSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D58183228C900E93718 /* RSSettingViewController.m */; };
+		BCA23D5C1832293200E93718 /* RSBuddiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D5B1832293200E93718 /* RSBuddiesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -687,6 +702,24 @@
 		BCA23D351831E16B00E93718 /* TMRosterHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRosterHandler.mm; sourceTree = "<group>"; };
 		BCA23D361831E16B00E93718 /* TMRosterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMRosterHandler.h; sourceTree = "<group>"; };
 		BCA23D381831E1E800E93718 /* TMRosterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMRosterDelegate.h; sourceTree = "<group>"; };
+		BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_buddies_h.png; sourceTree = "<group>"; };
+		BCA23D3D183224E300E93718 /* tabbar_buddies_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_buddies_h@2x.png"; sourceTree = "<group>"; };
+		BCA23D3E183224E300E93718 /* tabbar_buddies_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_buddies_n.png; sourceTree = "<group>"; };
+		BCA23D3F183224E300E93718 /* tabbar_buddies_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_buddies_n@2x.png"; sourceTree = "<group>"; };
+		BCA23D40183224E300E93718 /* tabbar_chatlog_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_chatlog_h.png; sourceTree = "<group>"; };
+		BCA23D41183224E300E93718 /* tabbar_chatlog_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_chatlog_h@2x.png"; sourceTree = "<group>"; };
+		BCA23D42183224E300E93718 /* tabbar_chatlog_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_chatlog_n.png; sourceTree = "<group>"; };
+		BCA23D43183224E300E93718 /* tabbar_chatlog_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_chatlog_n@2x.png"; sourceTree = "<group>"; };
+		BCA23D44183224E300E93718 /* tabbar_setting_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_setting_h.png; sourceTree = "<group>"; };
+		BCA23D45183224E300E93718 /* tabbar_setting_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_setting_h@2x.png"; sourceTree = "<group>"; };
+		BCA23D46183224E300E93718 /* tabbar_setting_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_setting_n.png; sourceTree = "<group>"; };
+		BCA23D47183224E300E93718 /* tabbar_setting_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_setting_n@2x.png"; sourceTree = "<group>"; };
+		BCA23D541832288B00E93718 /* RSChatlogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSChatlogViewController.h; sourceTree = "<group>"; };
+		BCA23D551832288B00E93718 /* RSChatlogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSChatlogViewController.m; sourceTree = "<group>"; };
+		BCA23D57183228C900E93718 /* RSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSettingViewController.h; sourceTree = "<group>"; };
+		BCA23D58183228C900E93718 /* RSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSettingViewController.m; sourceTree = "<group>"; };
+		BCA23D5A1832293200E93718 /* RSBuddiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBuddiesViewController.h; sourceTree = "<group>"; };
+		BCA23D5B1832293200E93718 /* RSBuddiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBuddiesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -749,6 +782,9 @@
 				BC5EE306182A209D007D5DE6 /* RSSigninViewController.mm */,
 				BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */,
 				BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */,
+				BCA23D5E1832294000E93718 /* Chatlog */,
+				BCA23D5D1832293700E93718 /* Buddies */,
+				BCA23D5F1832294800E93718 /* Setting */,
 				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
 				BC5EE368182A3E17007D5DE6 /* Common */,
 				BC840708182CC6FF0058EBDC /* Views */,
@@ -1233,6 +1269,18 @@
 				BC840697182CC3870058EBDC /* navbar_bt_normal@2x.png */,
 				BC840698182CC3870058EBDC /* tabbar_bg.png */,
 				BC840699182CC3870058EBDC /* tabbar_bg@2x.png */,
+				BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */,
+				BCA23D3D183224E300E93718 /* tabbar_buddies_h@2x.png */,
+				BCA23D3E183224E300E93718 /* tabbar_buddies_n.png */,
+				BCA23D3F183224E300E93718 /* tabbar_buddies_n@2x.png */,
+				BCA23D40183224E300E93718 /* tabbar_chatlog_h.png */,
+				BCA23D41183224E300E93718 /* tabbar_chatlog_h@2x.png */,
+				BCA23D42183224E300E93718 /* tabbar_chatlog_n.png */,
+				BCA23D43183224E300E93718 /* tabbar_chatlog_n@2x.png */,
+				BCA23D44183224E300E93718 /* tabbar_setting_h.png */,
+				BCA23D45183224E300E93718 /* tabbar_setting_h@2x.png */,
+				BCA23D46183224E300E93718 /* tabbar_setting_n.png */,
+				BCA23D47183224E300E93718 /* tabbar_setting_n@2x.png */,
 				BC84069A182CC3870058EBDC /* toolbar_bg.png */,
 				BC84069B182CC3870058EBDC /* toolbar_bg@2x.png */,
 			);
@@ -1372,6 +1420,33 @@
 			name = RosterHandler;
 			sourceTree = "<group>";
 		};
+		BCA23D5D1832293700E93718 /* Buddies */ = {
+			isa = PBXGroup;
+			children = (
+				BCA23D5A1832293200E93718 /* RSBuddiesViewController.h */,
+				BCA23D5B1832293200E93718 /* RSBuddiesViewController.m */,
+			);
+			name = Buddies;
+			sourceTree = "<group>";
+		};
+		BCA23D5E1832294000E93718 /* Chatlog */ = {
+			isa = PBXGroup;
+			children = (
+				BCA23D541832288B00E93718 /* RSChatlogViewController.h */,
+				BCA23D551832288B00E93718 /* RSChatlogViewController.m */,
+			);
+			name = Chatlog;
+			sourceTree = "<group>";
+		};
+		BCA23D5F1832294800E93718 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				BCA23D57183228C900E93718 /* RSSettingViewController.h */,
+				BCA23D58183228C900E93718 /* RSSettingViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1423,6 +1498,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA23D53183224E300E93718 /* tabbar_setting_n@2x.png in Resources */,
 				BC8406A5182CC3870058EBDC /* button_large_black@2x.png in Resources */,
 				BC8406B6182CC3870058EBDC /* Images.xcassets in Resources */,
 				BC8406A0182CC3870058EBDC /* box_middle.png in Resources */,
@@ -1432,22 +1508,33 @@
 				BC8406AF182CC3870058EBDC /* navbar_bt_back@2x.png in Resources */,
 				BC8406AE182CC3870058EBDC /* navbar_bt_back.png in Resources */,
 				BC8406A1182CC3870058EBDC /* box_middle@2x.png in Resources */,
+				BCA23D51183224E300E93718 /* tabbar_setting_h@2x.png in Resources */,
+				BCA23D4A183224E300E93718 /* tabbar_buddies_n.png in Resources */,
 				BC84069E182CC3870058EBDC /* box_bottom.png in Resources */,
 				BC8406A9182CC3870058EBDC /* button_small_black@2x.png in Resources */,
 				BC8406B4182CC3870058EBDC /* toolbar_bg.png in Resources */,
+				BCA23D50183224E300E93718 /* tabbar_setting_h.png in Resources */,
+				BCA23D4F183224E300E93718 /* tabbar_chatlog_n@2x.png in Resources */,
 				BC8406AC182CC3870058EBDC /* navbar_bg.png in Resources */,
 				BC8406B1182CC3870058EBDC /* navbar_bt_normal@2x.png in Resources */,
 				BC8406A2182CC3870058EBDC /* box_top.png in Resources */,
+				BCA23D4D183224E300E93718 /* tabbar_chatlog_h@2x.png in Resources */,
 				BC8406B0182CC3870058EBDC /* navbar_bt_normal.png in Resources */,
 				BC8406A3182CC3870058EBDC /* box_top@2x.png in Resources */,
 				BC8406B3182CC3870058EBDC /* tabbar_bg@2x.png in Resources */,
 				BC8406B5182CC3870058EBDC /* toolbar_bg@2x.png in Resources */,
+				BCA23D49183224E300E93718 /* tabbar_buddies_h@2x.png in Resources */,
+				BCA23D4B183224E300E93718 /* tabbar_buddies_n@2x.png in Resources */,
+				BCA23D4C183224E300E93718 /* tabbar_chatlog_h.png in Resources */,
 				BC8406B2182CC3870058EBDC /* tabbar_bg.png in Resources */,
 				BC8406AA182CC3870058EBDC /* button_small_white.png in Resources */,
+				BCA23D52183224E300E93718 /* tabbar_setting_n.png in Resources */,
 				BC8406A4182CC3870058EBDC /* button_large_black.png in Resources */,
 				BC8406A7182CC3870058EBDC /* button_large_white@2x.png in Resources */,
+				BCA23D4E183224E300E93718 /* tabbar_chatlog_n.png in Resources */,
 				BC84069F182CC3870058EBDC /* box_bottom@2x.png in Resources */,
 				BC8406AD182CC3870058EBDC /* navbar_bg@2x.png in Resources */,
+				BCA23D48183224E300E93718 /* tabbar_buddies_h.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1531,10 +1618,12 @@
 				BC840659182CC2F00058EBDC /* subscription.cpp in Sources */,
 				BC840643182CC2F00058EBDC /* presence.cpp in Sources */,
 				BC5EE0ED182A196A007D5DE6 /* AppDelegate.m in Sources */,
+				BCA23D561832288B00E93718 /* RSChatlogViewController.m in Sources */,
 				BC840636182CC2F00058EBDC /* messageevent.cpp in Sources */,
 				BC84065C182CC2F00058EBDC /* tlsgnutlsbase.cpp in Sources */,
 				BC84065B182CC2F00058EBDC /* tlsdefault.cpp in Sources */,
 				BC840676182CC2F00058EBDC /* UIViewAdditions.m in Sources */,
+				BCA23D59183228C900E93718 /* RSSettingViewController.m in Sources */,
 				BC840626182CC2F00058EBDC /* inbandbytestream.cpp in Sources */,
 				BC84064D182CC2F00058EBDC /* rostermanager.cpp in Sources */,
 				BC84063A182CC2F00058EBDC /* mucinvitationhandler.cpp in Sources */,
@@ -1569,6 +1658,7 @@
 				BC84070C182CCB090058EBDC /* TTTabViewController.m in Sources */,
 				BC840651182CC2F00058EBDC /* simanager.cpp in Sources */,
 				BC840624182CC2F00058EBDC /* gpgencrypted.cpp in Sources */,
+				BCA23D5C1832293200E93718 /* RSBuddiesViewController.m in Sources */,
 				BC840614182CC2F00058EBDC /* connectiontls.cpp in Sources */,
 				BC840630182CC2F00058EBDC /* lastactivity.cpp in Sources */,
 				BC840618182CC2F00058EBDC /* dataformfieldcontainer.cpp in Sources */,

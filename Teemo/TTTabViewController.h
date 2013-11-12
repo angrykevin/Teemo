@@ -22,7 +22,7 @@
 
 - (void)layoutViews;
 
-- (TTTabView *)tabViewWithItems:(NSArray *)items;
+- (void)setUpWithItems:(NSArray *)items viewControllers:(NSArray *)viewControllers;
 
 @end
 
