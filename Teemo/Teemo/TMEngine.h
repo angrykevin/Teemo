@@ -12,7 +12,6 @@
 
 #include <gloox/client.h>
 #include <gloox/vcardmanager.h>
-#include <gloox/rostermanager.h>
 
 #import "TMConnectionHandler.h"
 #import "TMPresenceHandler.h"

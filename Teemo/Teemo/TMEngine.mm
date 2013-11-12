@@ -8,23 +8,8 @@
 
 #import "TMEngine.h"
 
-#include <iostream>
-
-#include <gloox/client.h>
-#include <gloox/messagehandler.h>
-#include <gloox/message.h>
-#include <gloox/connectiontcpclient.h>
-
 #import "TMCommon.h"
 
-
-
-//#import "TMMessageHandler.h"
-//#import "TMMessageSessionHandler.h"
-//
-//#import "TMStatisticsHandler.h"
-//
-//#import "TMSubscriptionHandler.h"
 
 using namespace std;
 using namespace gloox;
@@ -67,8 +52,6 @@ static TMEngine *CurrentEngine = nil;
   _client->setServer( svr );
   _client->setPort( prt );
   
-  _vcardManager = new VCardManager( _client );
-  
   
   _connectionHandler = new TMConnectionHandler;
   _client->registerConnectionListener( _connectionHandler );
@@ -76,23 +59,10 @@ static TMEngine *CurrentEngine = nil;
   _presenceHandler = new TMPresenceHandler;
   _client->registerPresenceHandler( _presenceHandler );
   
+  _vcardManager = new VCardManager( _client );
+  
   _rosterHandler = new TMRosterHandler;
   _client->rosterManager()->registerRosterListener( _rosterHandler );
-  
-  
-  
-//  TMMessageSessionHandler *messageSessionHandler = new TMMessageSessionHandler;
-//  _client->registerMessageSessionHandler( messageSessionHandler );
-//  
-//  
-//  TMStatisticsHandler *statisticsHandler = new TMStatisticsHandler;
-//  _client->registerStatisticsHandler( statisticsHandler );
-//  
-//  TMSubscriptionHandler *subscriptionHandler = new TMSubscriptionHandler;
-//  _client->registerSubscriptionHandler( subscriptionHandler );
-  
-  
-  
   
 }
 
