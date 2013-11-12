@@ -15,7 +15,7 @@ void TMConnectionHandler::onConnect()
 {
 #ifdef DEBUG
   printf("\n<<==================================================\n");
-  printf("%s\n", __PRETTY_FUNCTION__);
+  printf("onConnect\n");
   printf("==================================================>>\n\n");
 #endif
   
@@ -41,40 +41,40 @@ void TMConnectionHandler::onDisconnect( ConnectionError e )
   printf("\n<<==================================================\n");
   
   switch ( e ) {
-    case ConnNoError: printf("%s: ConnNoError\n", __PRETTY_FUNCTION__); break;
-    case ConnStreamError: printf("%s: ConnStreamError\n", __PRETTY_FUNCTION__); break;
+    case ConnNoError:               printf("onDisconnect: ConnNoError\n"); break;
+    case ConnStreamError:           printf("onDisconnect: ConnStreamError\n"); break;
       
-    case ConnStreamVersionError: printf("%s: ConnStreamVersionError\n", __PRETTY_FUNCTION__); break;
-    case ConnStreamClosed: printf("%s: ConnStreamClosed\n", __PRETTY_FUNCTION__); break;
-    case ConnProxyAuthRequired: printf("%s: ConnProxyAuthRequired\n", __PRETTY_FUNCTION__); break;
+    case ConnStreamVersionError:    printf("onDisconnect: ConnStreamVersionError\n"); break;
+    case ConnStreamClosed:          printf("onDisconnect: ConnStreamClosed\n"); break;
+    case ConnProxyAuthRequired:     printf("onDisconnect: ConnProxyAuthRequired\n"); break;
       
-    case ConnProxyAuthFailed: printf("%s: ConnProxyAuthFailed\n", __PRETTY_FUNCTION__); break;
+    case ConnProxyAuthFailed:       printf("onDisconnect: ConnProxyAuthFailed\n"); break;
       
-    case ConnProxyNoSupportedAuth: printf("%s: ConnProxyNoSupportedAuth\n", __PRETTY_FUNCTION__); break;
+    case ConnProxyNoSupportedAuth:  printf("onDisconnect: ConnProxyNoSupportedAuth\n"); break;
       
-    case ConnIoError: printf("%s: ConnIoError\n", __PRETTY_FUNCTION__); break;
-    case ConnParseError: printf("%s: ConnParseError\n", __PRETTY_FUNCTION__); break;
-    case ConnConnectionRefused: printf("%s: ConnConnectionRefused\n", __PRETTY_FUNCTION__); break;
+    case ConnIoError:               printf("onDisconnect: ConnIoError\n"); break;
+    case ConnParseError:            printf("onDisconnect: ConnParseError\n"); break;
+    case ConnConnectionRefused:     printf("onDisconnect: ConnConnectionRefused\n"); break;
       
-    case ConnDnsError: printf("%s: ConnDnsError\n", __PRETTY_FUNCTION__); break;
+    case ConnDnsError:              printf("onDisconnect: ConnDnsError\n"); break;
       
-    case ConnOutOfMemory: printf("%s: ConnOutOfMemory\n", __PRETTY_FUNCTION__); break;
-    case ConnNoSupportedAuth: printf("%s: ConnNoSupportedAuth\n", __PRETTY_FUNCTION__); break;
+    case ConnOutOfMemory:           printf("onDisconnect: ConnOutOfMemory\n"); break;
+    case ConnNoSupportedAuth:       printf("onDisconnect: ConnNoSupportedAuth\n"); break;
       
-    case ConnTlsFailed: printf("%s: ConnTlsFailed\n", __PRETTY_FUNCTION__); break;
+    case ConnTlsFailed:             printf("onDisconnect: ConnTlsFailed\n"); break;
       
-    case ConnTlsNotAvailable: printf("%s: ConnTlsNotAvailable\n", __PRETTY_FUNCTION__); break;
-      
-      
-    case ConnCompressionFailed: printf("%s: ConnCompressionFailed\n", __PRETTY_FUNCTION__); break;
-      
-    case ConnAuthenticationFailed: printf("%s: ConnAuthenticationFailed\n", __PRETTY_FUNCTION__); break;
-      
-    case ConnUserDisconnected: printf("%s: ConnUserDisconnected\n", __PRETTY_FUNCTION__); break;
-    case ConnNotConnected: printf("%s: ConnNotConnected\n", __PRETTY_FUNCTION__); break;
+    case ConnTlsNotAvailable:       printf("onDisconnect: ConnTlsNotAvailable\n"); break;
       
       
-    default: printf("%s: OTHER\n", __PRETTY_FUNCTION__); break;
+    case ConnCompressionFailed:     printf("onDisconnect: ConnCompressionFailed\n"); break;
+      
+    case ConnAuthenticationFailed:  printf("onDisconnect: ConnAuthenticationFailed\n"); break;
+      
+    case ConnUserDisconnected:      printf("onDisconnect: ConnUserDisconnected\n"); break;
+    case ConnNotConnected:          printf("onDisconnect: ConnNotConnected\n"); break;
+      
+      
+    default:                        printf("onDisconnect: OTHER\n"); break;
   }
   
   printf("==================================================>>\n\n");
@@ -100,7 +100,7 @@ void TMConnectionHandler::onResourceBind( const std::string& resource )
 {
 #ifdef DEBUG
   printf("\n<<==================================================\n");
-  printf("%s: %s\n", __PRETTY_FUNCTION__, resource.c_str());
+  printf("onResourceBind: %s\n", resource.c_str());
   printf("==================================================>>\n\n");
 #endif
   
@@ -123,7 +123,7 @@ void TMConnectionHandler::onResourceBindError( const Error* error )
 {
 #ifdef DEBUG
   printf("\n<<==================================================\n");
-  printf("%s\n", __PRETTY_FUNCTION__);
+  printf("onResourceBindError\n");
   printf("==================================================>>\n\n");
 #endif
   
@@ -146,7 +146,7 @@ void TMConnectionHandler::onSessionCreateError( const Error* error )
 {
 #ifdef DEBUG
   printf("\n<<==================================================\n");
-  printf("%s\n", __PRETTY_FUNCTION__);
+  printf("onSessionCreateError\n");
   printf("==================================================>>\n\n");
 #endif
   
@@ -170,18 +170,21 @@ bool TMConnectionHandler::onTLSConnect( const CertInfo& info )
   
 #ifdef DEBUG
   printf("\n<<==================================================\n");
-  printf("%s\n", __PRETTY_FUNCTION__);
+  printf("onTLSConnect\n");
   
-  printf("int status: %d\n", info.status);
-  printf("bool chain: %d\n", info.chain);
+  printf("int    status: %d\n", info.status);
+  printf("bool   chain: %d\n", info.chain);
   printf("string issuer: %s\n", info.issuer.c_str());
   printf("string server: %s\n", info.server.c_str());
   
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+  
   NSDate *from = [NSDate dateWithTimeIntervalSince1970:info.date_from];
-  printf("date date_from: %s\n", [[from description] UTF8String]);
+  printf("date   date_from: %s\n", [[formatter stringFromDate:from] UTF8String]);
   
   NSDate *to = [NSDate dateWithTimeIntervalSince1970:info.date_to];
-  printf("date date_to: %s\n", [[to description] UTF8String]);
+  printf("date   date_to: %s\n", [[formatter stringFromDate:to] UTF8String]);
   
   printf("string protocol: %s\n", info.protocol.c_str());
   printf("string cipher: %s\n", info.cipher.c_str());
@@ -214,33 +217,33 @@ void TMConnectionHandler::onStreamEvent( StreamEvent event )
   printf("\n<<==================================================\n");
   
   switch ( event ) {
-    case StreamEventConnecting: printf("%s: StreamEventConnecting\n", __PRETTY_FUNCTION__); break;
-    case StreamEventEncryption: printf("%s: StreamEventEncryption\n", __PRETTY_FUNCTION__); break;
-    case StreamEventCompression: printf("%s: StreamEventCompression\n", __PRETTY_FUNCTION__); break;
-    case StreamEventAuthentication: printf("%s: StreamEventAuthentication\n", __PRETTY_FUNCTION__); break;
-    case StreamEventSessionInit: printf("%s: StreamEventSessionInit\n", __PRETTY_FUNCTION__); break;
-    case StreamEventResourceBinding: printf("%s: StreamEventResourceBinding\n", __PRETTY_FUNCTION__); break;
-    case StreamEventSMEnable: printf("%s: StreamEventSMEnable\n", __PRETTY_FUNCTION__); break;
+    case StreamEventConnecting:       printf("onStreamEvent: StreamEventConnecting\n"); break;
+    case StreamEventEncryption:       printf("onStreamEvent: StreamEventEncryption\n"); break;
+    case StreamEventCompression:      printf("onStreamEvent: StreamEventCompression\n"); break;
+    case StreamEventAuthentication:   printf("onStreamEvent: StreamEventAuthentication\n"); break;
+    case StreamEventSessionInit:      printf("onStreamEvent: StreamEventSessionInit\n"); break;
+    case StreamEventResourceBinding:  printf("onStreamEvent: StreamEventResourceBinding\n"); break;
+    case StreamEventSMEnable:         printf("onStreamEvent: StreamEventSMEnable\n"); break;
       
-    case StreamEventSMResume: printf("%s: StreamEventSMResume\n", __PRETTY_FUNCTION__); break;
-      
-      
-    case StreamEventSMResumed: printf("%s: StreamEventSMResumed\n", __PRETTY_FUNCTION__); break;
+    case StreamEventSMResume:         printf("onStreamEvent: StreamEventSMResume\n"); break;
       
       
-    case StreamEventSMEnableFailed: printf("%s: StreamEventSMEnableFailed\n", __PRETTY_FUNCTION__); break;
+    case StreamEventSMResumed:        printf("onStreamEvent: StreamEventSMResumed\n"); break;
       
       
-    case StreamEventSMResumeFailed: printf("%s: StreamEventSMResumeFailed\n", __PRETTY_FUNCTION__); break;
+    case StreamEventSMEnableFailed:   printf("onStreamEvent: StreamEventSMEnableFailed\n"); break;
       
       
-    case StreamEventSessionCreation: printf("%s: StreamEventSessionCreation\n", __PRETTY_FUNCTION__); break;
-      
-    case StreamEventRoster: printf("%s: StreamEventRoster\n", __PRETTY_FUNCTION__); break;
-    case StreamEventFinished: printf("%s: StreamEventFinished\n", __PRETTY_FUNCTION__); break;
+    case StreamEventSMResumeFailed:   printf("onStreamEvent: StreamEventSMResumeFailed\n"); break;
       
       
-    default: printf("%s: OTHER\n", __PRETTY_FUNCTION__); break;
+    case StreamEventSessionCreation:  printf("onStreamEvent: StreamEventSessionCreation\n"); break;
+      
+    case StreamEventRoster:           printf("onStreamEvent: StreamEventRoster\n"); break;
+    case StreamEventFinished:         printf("onStreamEvent: StreamEventFinished\n"); break;
+      
+      
+    default:                          printf("onStreamEvent: OTHER\n"); break;
   }
   
   printf("==================================================>>\n\n");

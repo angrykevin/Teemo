@@ -110,6 +110,18 @@ void TMRosterHandler::handleRoster( const Roster& roster )
 {
   TMPRINTMETHOD();
   
+  map<const string, RosterItem*>::const_iterator it = roster.begin();
+  
+  for ( ; it != roster.end(); ++it ) {
+    string first = it->first;
+    RosterItem *second = it->second;
+    printf("%s: <name=%s jid=%s>\n",
+           first.c_str(),
+           second->name().c_str(),
+           second->jidJID().full().c_str());
+  }
+  
+  
   dispatch_async(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
