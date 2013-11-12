@@ -22,8 +22,6 @@
 #import "TMMessageHandler.h"
 #import "TMMessageSessionHandler.h"
 
-#import "TMPresenceHandler.h"
-
 #import "TMRosterListener.h"
 
 #import "TMStatisticsHandler.h"
@@ -70,13 +68,14 @@ static TMEngine *CurrentEngine = nil;
   _connectionHandler = new TMConnectionHandler;
   _client->registerConnectionListener( _connectionHandler );
   
+  _presenceHandler = new TMPresenceHandler;
+  _client->registerPresenceHandler( _presenceHandler );
+  
+  
   
   
   TMMessageSessionHandler *messageSessionHandler = new TMMessageSessionHandler;
   _client->registerMessageSessionHandler( messageSessionHandler );
-  
-  TMPresenceHandler *presenceHandler = new TMPresenceHandler;
-  _client->registerPresenceHandler( presenceHandler );
   
   TMRosterListener *rosterListener = new TMRosterListener;
   _client->rosterManager()->registerRosterListener( rosterListener );
@@ -112,7 +111,7 @@ static TMEngine *CurrentEngine = nil;
   return YES;
 }
 
-- (void)disConnect
+- (void)disconnect
 {
   _cancelled = YES;
   
@@ -130,6 +129,11 @@ static TMEngine *CurrentEngine = nil;
 - (TMConnectionHandler *)connectionHandler
 {
   return _connectionHandler;
+}
+
+- (TMPresenceHandler *)presenceHandler
+{
+  return _presenceHandler;
 }
 
 

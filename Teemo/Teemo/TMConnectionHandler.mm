@@ -7,7 +7,7 @@
 //
 
 #import "TMConnectionHandler.h"
-#include "TMDebug.h"
+#import "TMDebug.h"
 #import "TMConnectionDelegate.h"
 
 

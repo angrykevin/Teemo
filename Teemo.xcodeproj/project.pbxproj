@@ -684,6 +684,7 @@
 		BC84070B182CCB090058EBDC /* TTTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabViewController.m; sourceTree = "<group>"; };
 		BC84070E182CCCB20058EBDC /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
 		BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerAdditions.m; sourceTree = "<group>"; };
+		BCA23D211831C34100E93718 /* TMPresenceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMPresenceDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -765,15 +766,12 @@
 				BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */,
 				BC675C8218306E22003E1516 /* TMHandlerBase.h */,
 				BC675CC818308252003E1516 /* TMHandlerBase.cpp */,
-				BC4D139B1830E77300572F67 /* TMConnectionHandler.h */,
-				BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */,
-				BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */,
+				BCA23D221831C3EF00E93718 /* ConnectionHandler */,
+				BCA23D231831C3FB00E93718 /* PresenceHandler */,
 				BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */,
 				BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */,
 				BC5EE2EB182A1FAC007D5DE6 /* TMMessageSessionHandler.h */,
 				BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */,
-				BC5EE2ED182A1FAC007D5DE6 /* TMPresenceHandler.h */,
-				BC5EE2EE182A1FAC007D5DE6 /* TMPresenceHandler.mm */,
 				BC5EE2EF182A1FAC007D5DE6 /* TMRosterListener.h */,
 				BC5EE2F0182A1FAC007D5DE6 /* TMRosterListener.mm */,
 				BC5EE2F1182A1FAC007D5DE6 /* TMStatisticsHandler.h */,
@@ -1332,6 +1330,26 @@
 				BC840428182CADA40058EBDC /* RSBoxViewLine.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		BCA23D221831C3EF00E93718 /* ConnectionHandler */ = {
+			isa = PBXGroup;
+			children = (
+				BC4D139B1830E77300572F67 /* TMConnectionHandler.h */,
+				BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */,
+				BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */,
+			);
+			name = ConnectionHandler;
+			sourceTree = "<group>";
+		};
+		BCA23D231831C3FB00E93718 /* PresenceHandler */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE2ED182A1FAC007D5DE6 /* TMPresenceHandler.h */,
+				BC5EE2EE182A1FAC007D5DE6 /* TMPresenceHandler.mm */,
+				BCA23D211831C34100E93718 /* TMPresenceDelegate.h */,
+			);
+			name = PresenceHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

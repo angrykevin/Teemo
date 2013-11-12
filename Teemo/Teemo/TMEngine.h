@@ -15,6 +15,7 @@
 
 
 #import "TMConnectionHandler.h"
+#import "TMPresenceHandler.h"
 
 using namespace gloox;
 
@@ -22,6 +23,7 @@ using namespace gloox;
 @interface TMEngine : NSObject {
   Client *_client;
   TMConnectionHandler *_connectionHandler;
+  TMPresenceHandler *_presenceHandler;
   
   
   VCardManager *_vcardManager;
@@ -37,9 +39,10 @@ using namespace gloox;
 
 - (void)setUpWithUID:(NSString *)uid password:(NSString *)password;
 - (BOOL)connect;
-- (void)disConnect;
+- (void)disconnect;
 
 - (Client *)client;
 - (TMConnectionHandler *)connectionHandler;
+- (TMPresenceHandler *)presenceHandler;
 
 @end
