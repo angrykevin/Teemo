@@ -8,5 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-NSString *TMJIDFromUID(NSString *uid);
+NSString *TMJIDFromPassport(NSString *pspt);
 

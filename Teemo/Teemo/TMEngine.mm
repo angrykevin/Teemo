@@ -37,13 +37,17 @@ static TMEngine *CurrentEngine = nil;
 
 
 
-- (void)setUpWithUID:(NSString *)uid password:(NSString *)password
+- (void)setUpWithPassport:(NSString *)passport password:(NSString *)password
 {
-  NSAssert([uid length]>0, @"uid error");
+  NSAssert([passport length]>0, @"passport error");
+  NSAssert([password length]>0, @"password error");
+  
+  _passport = [passport copy];
+  _password = [password copy];
   
   _cancelled = NO;
   
-  string jid = string( [TMJIDFromUID(uid) UTF8String] );
+  string jid = string( [TMJIDFromPassport(passport) UTF8String] );
   string pwd = string( [password UTF8String] );
   string svr = string( [TMXMPPServerHost UTF8String] );
   int prt = [TMXMPPServerPort intValue];
@@ -94,6 +98,22 @@ static TMEngine *CurrentEngine = nil;
   
 }
 
+- (void)removeAllObservers
+{
+  _connectionHandler->removeAllObservers();
+}
+
+
+
+- (NSString *)passport
+{
+  return _passport;
+}
+
+- (NSString *)password
+{
+  return _password;
+}
 
 
 - (Client *)client

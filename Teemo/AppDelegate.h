@@ -10,8 +10,12 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
   UIWindow *_window;
+  UINavigationController *_root;
 }
 
 @property (nonatomic, strong) UIWindow *window;
+
+- (void)signinWithPassport:(NSString *)pspt password:(NSString *)pswd;
+- (void)signout;
 
 @end

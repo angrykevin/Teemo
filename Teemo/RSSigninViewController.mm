@@ -8,15 +8,9 @@
 
 #import "RSSigninViewController.h"
 #import "RSMainViewController.h"
-#import "Teemo.h"
+#import "AppDelegate.h"
 
 @implementation RSSigninViewController
-
-- (void)dealloc
-{
-  TMConnectionHandler *connectionHandler = [[TMEngine sharedEngine] connectionHandler];
-  connectionHandler->removeObserver((__bridge void *)self);
-}
 
 - (void)viewDidLoad
 {
@@ -110,63 +104,10 @@
     return;
   }
   
-  TMEngine *engine = [[TMEngine alloc] init];
-  [TMEngine storeEngine:engine];
-  [engine setUpWithUID:passport password:password];
-  [engine connectionHandler]->addObserver((__bridge void *)self);
-  [engine connect];
+  
+  AppDelegate *delegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
+  [delegate signinWithPassport:passport password:password];
   
 }
-
-
-
-- (void)connectionOnConnect
-{
-  TKPRINTMETHOD();
-  
-  RSMainViewController *vc = [[RSMainViewController alloc] init];
-  CATransition *transition = [CATransition pushTransition];
-  [self.navigationController.view.layer addAnimation:transition forKey:nil];
-  [self.navigationController setViewControllers:@[ vc ] animated:NO];
-  
-}
-
-- (void)connectionOnDisconnect:(ConnectionError)error
-{
-  TKPRINTMETHOD();
-  
-  TTDisplayMessage(@"登录失败！");
-  
-  TMConnectionHandler *connectionHandler = [[TMEngine sharedEngine] connectionHandler];
-  connectionHandler->removeObserver((__bridge void *)self);
-  [TMEngine clearStoredEngine];
-  
-}
-
-//- (void)connectionOnResourceBind:(const std::string &)resource
-//{
-//  TKPRINTMETHOD();
-//}
-//
-//- (void)connectionOnResourceBindError:(const Error *)error
-//{
-//  TKPRINTMETHOD();
-//}
-//
-//- (void)connectionOnSessionCreateError:(const Error *)error
-//{
-//  TKPRINTMETHOD();
-//}
-//
-//- (bool)connectionOnTLSConnect:(const CertInfo &)info
-//{
-//  TKPRINTMETHOD();
-//  return true;
-//}
-//
-//- (void)connectionOnStreamEvent:(StreamEvent)event
-//{
-//  TKPRINTMETHOD();
-//}
 
 @end

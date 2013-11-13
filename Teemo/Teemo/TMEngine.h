@@ -22,6 +22,10 @@ using namespace gloox;
 
 
 @interface TMEngine : NSObject {
+  
+  NSString *_passport;
+  NSString *_password;
+  
   Client *_client;
   VCardManager *_vcardManager;
   //RosterManager *_rosterManager;
@@ -45,10 +49,15 @@ using namespace gloox;
 + (void)clearStoredEngine;
 
 
-- (void)setUpWithUID:(NSString *)uid password:(NSString *)password;
+- (void)setUpWithPassport:(NSString *)passport password:(NSString *)password;
 - (BOOL)connect;
 - (void)disconnect;
+- (void)removeAllObservers;
 
+
+
+- (NSString *)passport;
+- (NSString *)password;
 
 - (Client *)client;
 - (VCardManager *)vcardManager;

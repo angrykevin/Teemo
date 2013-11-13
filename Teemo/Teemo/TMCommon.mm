@@ -10,11 +10,11 @@
 #import "TMConfig.h"
 
 
-NSString *TMJIDFromUID(NSString *uid)
+NSString *TMJIDFromPassport(NSString *pspt)
 {
-  if ( [uid length] > 0 ) {
+  if ( [pspt length] > 0 ) {
     NSMutableString *jid = [[NSMutableString alloc] init];
-    [jid appendString:uid];
+    [jid appendString:pspt];
     [jid appendString:TMXMPPServerDomain];
     if ( [TMXMPPClientResource length] > 0 ) {
       [jid appendFormat:@"/%@", TMXMPPServerDomain];

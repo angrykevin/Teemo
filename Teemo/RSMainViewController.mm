@@ -21,7 +21,15 @@
   RSBuddiesViewController *vc2 = [[RSBuddiesViewController alloc] init];
   RSSettingViewController *vc3 = [[RSSettingViewController alloc] init];
   
-  _viewControllers = [[NSArray alloc] initWithObjects:vc1, vc2, vc3, nil];
+  UINavigationController *nv1 = [[UINavigationController alloc] initWithRootViewController:vc1];
+  UINavigationController *nv2 = [[UINavigationController alloc] initWithRootViewController:vc2];
+  UINavigationController *nv3 = [[UINavigationController alloc] initWithRootViewController:vc3];
+  
+  nv1.navigationBarHidden = YES;
+  nv2.navigationBarHidden = YES;
+  nv3.navigationBarHidden = YES;
+  
+  _viewControllers = [[NSArray alloc] initWithObjects:nv1, nv2, nv3, nil];
   
   
   

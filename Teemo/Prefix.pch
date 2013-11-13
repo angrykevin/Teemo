@@ -16,7 +16,7 @@
   #import <Foundation/Foundation.h>
 
   #import "TapKit.h"
-  #import "TTCommon.h"
+  #import "TTToolbox.h"
 
 #endif
 
