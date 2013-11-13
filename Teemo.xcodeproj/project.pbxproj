@@ -211,6 +211,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC47AE8B183323EA00331216 /* Teemo.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Teemo.sql; sourceTree = "<group>"; };
 		BC4D139B1830E77300572F67 /* TMConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConnectionHandler.h; sourceTree = "<group>"; };
 		BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMConnectionHandler.mm; sourceTree = "<group>"; };
 		BC5EE0D9182A196A007D5DE6 /* Teemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1240,6 +1241,7 @@
 				BC840683182CC3870058EBDC /* Images */,
 				BC84069C182CC3870058EBDC /* Images.xcassets */,
 				BC84069D182CC3870058EBDC /* Info.plist */,
+				BC47AE8B183323EA00331216 /* Teemo.sql */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

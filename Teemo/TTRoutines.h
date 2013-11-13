@@ -16,6 +16,8 @@ extern "C" {
 UIImage *TTCreateImage(NSString *name);
 
 void TTDisplayMessage(NSString *message);
+  
+NSString *TTFormatDate(NSDate *date);
 
 
 #ifdef __cplusplus
