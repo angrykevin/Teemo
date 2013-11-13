@@ -7,14 +7,14 @@
 //
 
 #import "TMVCardHandler.h"
-#import "TMDebug.h"
+#import "TMMacro.h"
 #import "TMVCardDelegate.h"
 
 void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -33,7 +33,7 @@ void TMVCardHandler::handleVCardResult( VCardContext context, const JID& jid, St
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     

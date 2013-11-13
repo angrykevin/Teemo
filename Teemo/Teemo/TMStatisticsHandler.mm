@@ -7,7 +7,7 @@
 //
 
 #include "TMStatisticsHandler.h"
-#include "TMDebug.h"
+#include "TMMacro.h"
 
 void TMStatisticsHandler::handleStatistics( const StatisticsStruct stats )
 {

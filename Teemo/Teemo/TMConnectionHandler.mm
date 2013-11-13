@@ -7,7 +7,7 @@
 //
 
 #import "TMConnectionHandler.h"
-#import "TMDebug.h"
+#import "TMMacro.h"
 #import "TMConnectionDelegate.h"
 
 
@@ -19,7 +19,7 @@ void TMConnectionHandler::onConnect()
   printf("==================================================>>\n\n");
 #endif
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -81,7 +81,7 @@ void TMConnectionHandler::onDisconnect( ConnectionError e )
   
 #endif
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -104,7 +104,7 @@ void TMConnectionHandler::onResourceBind( const std::string& resource )
   printf("==================================================>>\n\n");
 #endif
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -127,7 +127,7 @@ void TMConnectionHandler::onResourceBindError( const Error* error )
   printf("==================================================>>\n\n");
 #endif
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -150,7 +150,7 @@ void TMConnectionHandler::onSessionCreateError( const Error* error )
   printf("==================================================>>\n\n");
 #endif
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -194,7 +194,7 @@ bool TMConnectionHandler::onTLSConnect( const CertInfo& info )
   printf("==================================================>>\n\n");
 #endif
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -250,7 +250,7 @@ void TMConnectionHandler::onStreamEvent( StreamEvent event )
   
 #endif
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     

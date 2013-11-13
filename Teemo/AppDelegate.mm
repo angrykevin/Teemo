@@ -65,6 +65,10 @@
 
 - (void)signout
 {
+  
+  RSSaveAccountPassport(nil);
+  RSSaveAccountPassword(nil);
+  
   TMEngine *engine = [TMEngine sharedEngine];
   [engine removeAllObservers];
   [engine disconnect];
@@ -85,8 +89,15 @@
   TKPRINTMETHOD();
   
   TMEngine *engine = [TMEngine sharedEngine];
+  
+  NSString *passport = RSAccountPassport();
+  if ( ![[engine passport] isEqualToString:passport] ) {
+    RSDatabaseClearData();
+  }
+  
   RSSaveAccountPassport( [engine passport] );
   RSSaveAccountPassword( [engine password] );
+  
   
   if ( !TKIsInstance([_root.viewControllers firstObject], [RSMainViewController class]) ) {
     RSMainViewController *vc = [[RSMainViewController alloc] init];

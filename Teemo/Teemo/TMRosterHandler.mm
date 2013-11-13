@@ -7,15 +7,16 @@
 //
 
 #import "TMRosterHandler.h"
-#import "TMDebug.h"
+#import "TMMacro.h"
 #import "TMRosterDelegate.h"
+#import "TMEngine.h"
 
 
 void TMRosterHandler::handleItemAdded( const JID& jid )
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -34,7 +35,7 @@ void TMRosterHandler::handleItemSubscribed( const JID& jid )
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -53,7 +54,7 @@ void TMRosterHandler::handleItemRemoved( const JID& jid )
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -72,7 +73,7 @@ void TMRosterHandler::handleItemUpdated( const JID& jid )
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -91,7 +92,7 @@ void TMRosterHandler::handleItemUnsubscribed( const JID& jid )
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -110,19 +111,23 @@ void TMRosterHandler::handleRoster( const Roster& roster )
 {
   TMPRINTMETHOD();
   
+  TKDatabase *db = [TKDatabase sharedObject];
+  [db executeUpdate:@"DELETE FROM tBuddy;"];
+  
+  
   map<const string, RosterItem*>::const_iterator it = roster.begin();
   
   for ( ; it != roster.end(); ++it ) {
+    
     string first = it->first;
-    RosterItem *second = it->second;
-    printf("%s: <name=%s jid=%s>\n",
-           first.c_str(),
-           second->name().c_str(),
-           second->jidJID().full().c_str());
+    TMPRINT("BUDDY: %s\n", first.c_str());
+    
+    [db executeUpdate:@"INSERT INTO tBuddy(passport) VALUES(?);", CPPStrToC(first)];
+    
   }
   
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -142,7 +147,7 @@ void TMRosterHandler::handleRosterPresence( const RosterItem& item, const std::s
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -165,7 +170,7 @@ void TMRosterHandler::handleSelfPresence( const RosterItem& item, const std::str
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -187,7 +192,7 @@ bool TMRosterHandler::handleSubscriptionRequest( const JID& jid, const std::stri
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -207,7 +212,7 @@ bool TMRosterHandler::handleUnsubscriptionRequest( const JID& jid, const std::st
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -227,7 +232,7 @@ void TMRosterHandler::handleNonrosterPresence( const Presence& presence )
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     
@@ -246,7 +251,7 @@ void TMRosterHandler::handleRosterError( const IQ& iq )
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     

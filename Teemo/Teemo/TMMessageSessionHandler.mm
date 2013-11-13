@@ -8,7 +8,7 @@
 
 #include "TMMessageSessionHandler.h"
 #include "TMMessageHandler.h"
-#include "TMDebug.h"
+#include "TMMacro.h"
 
 void TMMessageSessionHandler::handleMessageSession( MessageSession* session )
 {

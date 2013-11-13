@@ -7,7 +7,7 @@
 //
 
 #include "TMMessageHandler.h"
-#include "TMDebug.h"
+#include "TMMacro.h"
 
 void TMMessageHandler::handleMessage( const Message& msg, MessageSession* session )
 {

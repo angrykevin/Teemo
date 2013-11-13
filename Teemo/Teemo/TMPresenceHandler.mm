@@ -7,14 +7,14 @@
 //
 
 #import "TMPresenceHandler.h"
-#import "TMDebug.h"
+#import "TMMacro.h"
 #import "TMPresenceDelegate.h"
 
 void TMPresenceHandler::handlePresence( const Presence& presence )
 {
   TMPRINTMETHOD();
   
-  dispatch_async(dispatch_get_main_queue(), ^{
+  dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
     

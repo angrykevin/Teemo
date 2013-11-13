@@ -7,7 +7,7 @@
 //
 
 #include "TMIqHandler.h"
-#include "TMDebug.h"
+#include "TMMacro.h"
 
 bool TMIqHandler::handleIq( const IQ& iq )
 {

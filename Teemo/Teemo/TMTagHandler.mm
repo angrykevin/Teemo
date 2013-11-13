@@ -7,7 +7,7 @@
 //
 
 #include "TMTagHandler.h"
-#include "TMDebug.h"
+#include "TMMacro.h"
 
 void TMTagHandler::handleTag( Tag* tag )
 {

@@ -234,7 +234,7 @@
 		BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMCommon.h; sourceTree = "<group>"; };
 		BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMCommon.mm; sourceTree = "<group>"; };
 		BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConfig.h; sourceTree = "<group>"; };
-		BC5EE2E4182A1FAC007D5DE6 /* TMDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDebug.h; sourceTree = "<group>"; };
+		BC5EE2E4182A1FAC007D5DE6 /* TMMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMacro.h; sourceTree = "<group>"; };
 		BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEngine.h; sourceTree = "<group>"; };
 		BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMEngine.mm; sourceTree = "<group>"; };
 		BC5EE2E7182A1FAC007D5DE6 /* TMIqHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMIqHandler.h; sourceTree = "<group>"; };
@@ -820,7 +820,7 @@
 			children = (
 				BC5EE367182A3C8F007D5DE6 /* Teemo.h */,
 				BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */,
-				BC5EE2E4182A1FAC007D5DE6 /* TMDebug.h */,
+				BC5EE2E4182A1FAC007D5DE6 /* TMMacro.h */,
 				BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */,
 				BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */,
 				BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */,

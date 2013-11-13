@@ -7,7 +7,7 @@
 //
 
 #import "TMConfig.h"
-#import "TMDebug.h"
+#import "TMMacro.h"
 #import "TMCommon.h"
 
 #import "TMEngine.h"
