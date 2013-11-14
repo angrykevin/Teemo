@@ -122,11 +122,11 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     string first = it->first;
     TMPRINT("BUDDY: %s\n", first.c_str());
     
-    [db executeUpdate:@"INSERT INTO tBuddy(passport) VALUES(?);", CPPStrToC(first)];
+    [db executeUpdate:@"INSERT INTO tBuddy(passport) VALUES(?);", OBJCSTR(first)];
     
-//    TMEngine *engine = [TMEngine sharedEngine];
-//    VCardManager *manager = [engine vcardManager];
-//    manager->fetchVCard(JID( first ), [engine vcardHandler]);
+    TMEngine *engine = [TMEngine sharedEngine];
+    VCardManager *manager = [engine vcardManager];
+    manager->fetchVCard(JID( first ), [engine vcardHandler]);
     
   }
   

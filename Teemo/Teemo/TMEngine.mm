@@ -8,6 +8,8 @@
 
 #import "TMEngine.h"
 
+#import "TMConfig.h"
+#import "TMMacro.h"
 #import "TMCommon.h"
 
 
@@ -47,15 +49,15 @@ static TMEngine *CurrentEngine = nil;
   
   _cancelled = NO;
   
-  string jid = string( [TMJIDFromPassport(passport) UTF8String] );
-  string pwd = string( [password UTF8String] );
-  string svr = string( [TMXMPPServerHost UTF8String] );
+  string jid = CPPSTR(TMJIDFromPassport(passport));
+  string pwd = CPPSTR(password);
+  string svr = CPPSTR(TMXMPPServerHost);
   int prt = [TMXMPPServerPort intValue];
   
   _client = new Client( JID( jid ), pwd );
   _client->setServer( svr );
   _client->setPort( prt );
-  _client->setResource( [TMXMPPClientResource UTF8String] );
+  _client->setResource( CPPSTR(TMXMPPClientResource) );
   
   
   _connectionHandler = new TMConnectionHandler;

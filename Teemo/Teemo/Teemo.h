@@ -16,28 +16,14 @@
 #import "TMConnectionHandler.h"
 #import "TMConnectionDelegate.h"
 
-
-
-
-#import "TMMessageHandler.h"
-#import "TMMessageSessionHandler.h"
-
 #import "TMPresenceHandler.h"
-
-#import "TMRosterHandler.h"
-
-#import "TMStatisticsHandler.h"
-
-#import "TMSubscriptionHandler.h"
+#import "TMPresenceDelegate.h"
 
 #import "TMVCardHandler.h"
+#import "TMVCardDelegate.h"
 
-#import "TMTagHandler.h"
-
-
-#import "TMIqHandler.h"
-
-
+#import "TMRosterHandler.h"
+#import "TMRosterDelegate.h"
 
 
 

@@ -7,6 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <string>
 
 NSString *TMJIDFromPassport(NSString *pspt);
-

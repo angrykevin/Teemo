@@ -15,20 +15,43 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
   TMPRINTMETHOD();
   
   printf("jid: %s %s\n", jid.bare().c_str(), vcard->jabberid().c_str());
+  
   printf("nickname: %s\n", vcard->nickname().c_str());
+  printf("familyname: %s\n", vcard->name().family.c_str());
+  printf("givenname: %s\n", vcard->name().given.c_str());
+  printf("photo: %s\n", vcard->photo().extval.c_str());
+  printf("birthday: %s\n", vcard->bday().c_str());
   printf("desc: %s\n", vcard->desc().c_str());
-  printf("name: %s\n", vcard->formattedname().c_str());
+  printf("homepage: %s\n", vcard->url().c_str());
+  
+  if ( jid.bare().length() > 0 ) {
+  }
   
   
-//  TKDatabase *db = [TKDatabase sharedObject];
-//  NSArray *buddies = [db executeQuery:@"SELECT passport FROM tBuddy WHERE passport=?;", CPPStrToC(jid.bare())];
-//  if ( [buddies count] > 0 ) {
-//    
-//    [db executeUpdate:@"UPDATE tBuddy SET name=?, desc=? WHERE passport=?;",
-//     CPPStrToC(vcard->nickname()),
-//     CPPStrToC(vcard->desc()),
-//     CPPStrToC(jid.bare())];
-//  }
+  NSString *passport = OBJCSTR(jid.bare());
+  
+  TKDatabase *db = [TKDatabase sharedObject];
+  
+  NSArray *buddies = [db executeQuery:@"SELECT pk,passport FROM tBuddy WHERE passport=?;", passport];
+  if ( [buddies count] > 0 ) {
+    TKDatabaseRow *row = [buddies firstObject];
+    
+    int pk = [row intForName:@"pk"];
+    
+    [db executeUpdate:@"DELETE FROM tBuddy WHERE passport=?;", passport];
+    
+    [db executeUpdate:@"INSERT INTO tBuddy(pk,passport,nickname,familyname,givenname,photo,birthday,desc,homepage) VALUES(?,?,?,?,?,?,?,?,?);",
+     [NSNumber numberWithInt:pk],
+     passport,
+     OBJCSTR( vcard->nickname() ),
+     OBJCSTR( vcard->name().family ),
+     OBJCSTR( vcard->name().given ),
+     OBJCSTR( vcard->photo().extval ),
+     OBJCSTR( vcard->bday() ),
+     OBJCSTR( vcard->desc() ),
+     OBJCSTR( vcard->url() )];
+    
+  }
   
   
   dispatch_sync(dispatch_get_main_queue(), ^{
@@ -49,9 +72,6 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
 void TMVCardHandler::handleVCardResult( VCardContext context, const JID& jid, StanzaError se )
 {
   TMPRINTMETHOD();
-  
-  printf("HH%s\n", jid.bare().c_str());
-  
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     

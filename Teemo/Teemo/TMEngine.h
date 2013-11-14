@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "TMConfig.h"
-
 #include <gloox/client.h>
 #include <gloox/vcardmanager.h>
 

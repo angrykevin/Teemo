@@ -2,8 +2,14 @@
 CREATE TABLE tBuddy(
   pk INTEGER PRIMARY KEY,
   passport TEXT,
-  name TEXT,
-  desc TEXT
+
+  nickname TEXT,
+  familyname TEXT,
+  givenname TEXT,
+  photo TEXT,
+  birthday TEXT,
+  desc TEXT,
+  homepage TEXT
 );
 
 CREATE TABLE tChatlog(

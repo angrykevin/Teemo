@@ -29,25 +29,40 @@
   
   
   UIButton *bt = [UIButton buttonWithType:UIButtonTypeSystem];
-  bt.normalTitle = @"doit";
-  [bt addTarget:self action:@selector(doit:) forControlEvents:UIControlEventTouchUpInside];
+  bt.normalTitle = @"store";
+  [bt addTarget:self action:@selector(store:) forControlEvents:UIControlEventTouchUpInside];
   [_contentView addSubview:bt];
   bt.frame = CGRectMake(10, 10, 300, 40);
   
+  bt = [UIButton buttonWithType:UIButtonTypeSystem];
+  bt.normalTitle = @"fetch";
+  [bt addTarget:self action:@selector(fetch:) forControlEvents:UIControlEventTouchUpInside];
+  [_contentView addSubview:bt];
+  bt.frame = CGRectMake(10, 60, 300, 40);
+  
 }
 
-- (void)doit:(id)sender
+- (void)store:(id)sender
 {
-  
   TMEngine *engine = [TMEngine sharedEngine];
   VCardManager *manager = [engine vcardManager];
   
-//  VCard *card = new VCard();
-//  card->setFormattedname( "ALX3216" );
-//  card->setDesc( "Give it to me !" );
-//  manager->storeVCard(card, [engine vcardHandler]);
+  VCard *card = new VCard();
+  card->setNickname( "TOM" );
+  card->setName( "Wu", "Tom");
+  card->setPhotoUri( "http://v1.qzone.cc/avatar/201311/14/17/16/52849501170d3903.jpg!200x200.jpg" );
+  card->setBday( "1988-03-08" );
+  card->setDesc( "I'm Tom!" );
+  card->setUrl( "http://tom.com/" );
   
-  manager->fetchVCard(JID( CStrToCPP(TMJIDFromPassport(engine.passport)) ), [engine vcardHandler]);
+  manager->storeVCard(card, [engine vcardHandler]);
+}
+
+- (void)fetch:(id)sender
+{
+  TMEngine *engine = [TMEngine sharedEngine];
+  VCardManager *manager = [engine vcardManager];
+  manager->fetchVCard(JID( CPPSTR(TMJIDFromPassport(engine.passport)) ), [engine vcardHandler]);
 }
 
 @end
