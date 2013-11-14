@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RSBuddiesViewController : TBViewController {
+@interface RSBuddiesViewController : TBViewController<
+    UITableViewDataSource,
+    UITableViewDelegate
+> {
+  UITableView *_tableView;
+  NSArray *_buddies;
 }
 
 @end
