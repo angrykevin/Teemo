@@ -427,6 +427,10 @@ namespace gloox
 
   void ClientBase::parse( const std::string& data )
   {
+    // KEVIN
+    printf("%s\n", data.c_str());
+    printf("-------------------------------------------------->>\n");
+    
     std::string copy = data;
     int i = 0;
     if( ( i = m_parser.feed( copy ) ) >= 0 )
@@ -1025,6 +1029,11 @@ namespace gloox
 
   void ClientBase::send( const std::string& xml )
   {
+    // KEVIN
+    printf("SEND: %d\n", (int)(xml.length()));
+    printf("%s\n", xml.c_str());
+    printf("-------------------------------------------------->>\n");
+    
     if( m_connection && m_connection->state() == StateConnected )
     {
       if( m_compression && m_compressionActive )

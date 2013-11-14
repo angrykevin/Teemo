@@ -42,21 +42,10 @@
   TMEngine *engine = [TMEngine sharedEngine];
   VCardManager *manager = [engine vcardManager];
   
-//  VCard *v = new VCard();
-//  v->setFormattedname( "Hurk the Hurk" );
-//  v->setNickname( "hurkhurk" );
-//  v->setName( "Simpson", "Bart", "", "Mr.", "jr." );
-//  v->addAddress( "pobox", "app. 2", "street", "Springfield", "region", "123", "USA", VCard::AddrTypeHome );
-//  
-//  printf("%s", v->tag()->xml().c_str());
-  
 //  VCard *card = new VCard();
-//  card->setName( "Simpson", "Bart", "", "Mr.", "jr." );
-////  card->setJabberid( CStrToCPP(TMJIDFromPassport(engine.passport)) );
-////  card->setNickname( "GITM" );
-//  card->addAddress( "pobox", "app. 2", "street", "Springfield", "region", "123", "USA", VCard::AddrTypeHome );
-////  card->setDesc( "Give it to me !" );
-  //manager->storeVCard(v, [engine vcardHandler]);
+//  card->setFormattedname( "ALX3216" );
+//  card->setDesc( "Give it to me !" );
+//  manager->storeVCard(card, [engine vcardHandler]);
   
   manager->fetchVCard(JID( CStrToCPP(TMJIDFromPassport(engine.passport)) ), [engine vcardHandler]);
 }

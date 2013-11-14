@@ -55,6 +55,7 @@ static TMEngine *CurrentEngine = nil;
   _client = new Client( JID( jid ), pwd );
   _client->setServer( svr );
   _client->setPort( prt );
+  _client->setResource( [TMXMPPClientResource UTF8String] );
   
   
   _connectionHandler = new TMConnectionHandler;

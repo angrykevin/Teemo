@@ -166,7 +166,7 @@ namespace gloox
     m_buf[size] = '\0';
     
     // KEVIN
-    printf("RECEIVED: %d\n", size);
+    printf("RECV: %d\n", size);
 
     if( m_handler )
       m_handler->handleReceivedData( this, std::string( m_buf, size ) );

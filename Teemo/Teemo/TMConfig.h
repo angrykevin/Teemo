@@ -6,7 +6,12 @@
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#define TMXMPPServerHost @"talk.google.com"
+//#define TMXMPPServerHost @"talk.google.com"
+//#define TMXMPPServerPort @"5222"
+//#define TMXMPPServerDomain @"@gmail.com"
+//#define TMXMPPClientResource @"Teemo"
+
+#define TMXMPPServerHost @"192.168.1.61"
 #define TMXMPPServerPort @"5222"
-#define TMXMPPServerDomain @"@gmail.com"
+#define TMXMPPServerDomain @"@batoo.com"
 #define TMXMPPClientResource @"Teemo"

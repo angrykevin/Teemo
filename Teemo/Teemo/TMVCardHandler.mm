@@ -50,8 +50,8 @@ void TMVCardHandler::handleVCardResult( VCardContext context, const JID& jid, St
 {
   TMPRINTMETHOD();
   
-  printf("HH%s", jid.bare().c_str());
-  TKTESTVALUE((se != 0), @"VCard错误");
+  printf("HH%s\n", jid.bare().c_str());
+  
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
