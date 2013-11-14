@@ -124,6 +124,10 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     
     [db executeUpdate:@"INSERT INTO tBuddy(passport) VALUES(?);", CPPStrToC(first)];
     
+//    TMEngine *engine = [TMEngine sharedEngine];
+//    VCardManager *manager = [engine vcardManager];
+//    manager->fetchVCard(JID( first ), [engine vcardHandler]);
+    
   }
   
   

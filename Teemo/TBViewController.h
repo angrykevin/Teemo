@@ -1,5 +1,5 @@
 //
-//  TTViewController.h
+//  TBViewController.h
 //  Teemo
 //
 //  Created by Wu Kevin on 11/6/13.
@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 
-@class TTNavigationView;
+@class TBNavigationView;
 
 
-@interface TTViewController : UIViewController {
-  TTNavigationView *_navigationView;
+@interface TBViewController : UIViewController {
+  TBNavigationView *_navigationView;
   UIView *_contentView;
   
   BOOL _viewAppeared;
@@ -29,7 +29,7 @@
 @end
 
 
-@interface TTNavigationView : UIView {
+@interface TBNavigationView : UIView {
   UIButton *_backButton;
   UIButton *_leftButton;
   UILabel *_titleLabel;

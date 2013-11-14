@@ -33,30 +33,30 @@
   
   
   
-  TTTabViewItem *it1 = [TTTabViewItem itemWithNormalTitle:NSLocalizedString(@"会话", @"")
+  TBTabViewItem *it1 = [TBTabViewItem itemWithNormalTitle:NSLocalizedString(@"会话", @"")
                                          highlightedTitle:NSLocalizedString(@"会话", @"")
                                          normalTitleColor:[UIColor whiteColor]
                                     highlightedTitleColor:[UIColor whiteColor]
-                                              normalImage:TTCreateImage(@"tabbar_chatlog_n.png")
-                                         highlightedImage:TTCreateImage(@"tabbar_chatlog_h.png")
+                                              normalImage:TBCreateImage(@"tabbar_chatlog_n.png")
+                                         highlightedImage:TBCreateImage(@"tabbar_chatlog_h.png")
                                     normalBackgroundImage:nil
                                highlightedBackgroundImage:nil];
   
-  TTTabViewItem *it2 = [TTTabViewItem itemWithNormalTitle:NSLocalizedString(@"好友", @"")
+  TBTabViewItem *it2 = [TBTabViewItem itemWithNormalTitle:NSLocalizedString(@"好友", @"")
                                          highlightedTitle:NSLocalizedString(@"好友", @"")
                                          normalTitleColor:[UIColor whiteColor]
                                     highlightedTitleColor:[UIColor whiteColor]
-                                              normalImage:TTCreateImage(@"tabbar_buddies_n.png")
-                                         highlightedImage:TTCreateImage(@"tabbar_buddies_h.png")
+                                              normalImage:TBCreateImage(@"tabbar_buddies_n.png")
+                                         highlightedImage:TBCreateImage(@"tabbar_buddies_h.png")
                                     normalBackgroundImage:nil
                                highlightedBackgroundImage:nil];
   
-  TTTabViewItem *it3 = [TTTabViewItem itemWithNormalTitle:NSLocalizedString(@"设置", @"")
+  TBTabViewItem *it3 = [TBTabViewItem itemWithNormalTitle:NSLocalizedString(@"设置", @"")
                                          highlightedTitle:NSLocalizedString(@"设置", @"")
                                          normalTitleColor:[UIColor whiteColor]
                                     highlightedTitleColor:[UIColor whiteColor]
-                                              normalImage:TTCreateImage(@"tabbar_setting_n.png")
-                                         highlightedImage:TTCreateImage(@"tabbar_setting_h.png")
+                                              normalImage:TBCreateImage(@"tabbar_setting_n.png")
+                                         highlightedImage:TBCreateImage(@"tabbar_setting_h.png")
                                     normalBackgroundImage:nil
                                highlightedBackgroundImage:nil];
   

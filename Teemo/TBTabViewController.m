@@ -1,17 +1,17 @@
 //
-//  TTTabViewController.m
+//  TBTabViewController.m
 //  Teemo
 //
 //  Created by Wu Kevin on 11/8/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "TTTabViewController.h"
-#import "TTRoutines.h"
+#import "TBTabViewController.h"
+#import "TBRoutines.h"
 #import "UIViewControllerAdditions.h"
 
 
-@implementation TTTabViewController
+@implementation TBTabViewController
 
 - (id)init
 {
@@ -73,16 +73,16 @@
 {
   [_tabView removeFromSuperview];
   
-  _tabView = [[TTTabView alloc] initWithItems:items];
+  _tabView = [[TBTabView alloc] initWithItems:items];
   [self.view addSubview:_tabView];
   
   _tabView.repeatedlyNotify = NO;
   
   
   
-  __weak TTTabViewController *weakSelf = self;
+  __weak TBTabViewController *weakSelf = self;
   
-  _tabView.block = ^(NSUInteger index, TTTabViewItem *item) {
+  _tabView.block = ^(NSUInteger index, TBTabViewItem *item) {
     
     UIViewController *currentVC = [weakSelf.childViewControllers firstObject];
     UIViewController *newVC = [viewControllers objectOrNilAtIndex:index];
@@ -105,21 +105,21 @@
 
 
 
-@implementation TTTabView
+@implementation TBTabView
 
 - (id)initWithItems:(NSArray *)items
 {
   self = [super init];
   if (self) {
     
-    self.backgroundColor = [UIColor colorWithPatternImage:TTCreateImage(@"tabbar_bg.png")];
+    self.backgroundColor = [UIColor colorWithPatternImage:TBCreateImage(@"tabbar_bg.png")];
     
     
     _items = items;
     
     for ( int i=0; i<[_items count]; ++i ) {
       
-      TTTabViewItem *item = [_items objectAtIndex:i];
+      TBTabViewItem *item = [_items objectAtIndex:i];
       
       UIButton *button = [[UIButton alloc] init];
       item.button = button;
@@ -163,7 +163,7 @@
   
   for ( int i=0; i<[_items count]; ++i ) {
     
-    TTTabViewItem *item = [_items objectAtIndex:i];
+    TBTabViewItem *item = [_items objectAtIndex:i];
     UIButton *button = item.button;
     button.frame = CGRectMake(button.tag * itemWidth, 0.0, itemWidth, self.height);
     
@@ -195,7 +195,7 @@
   [self updateTabView];
   
   if ( _block ) {
-    TTTabViewItem *item = [_items objectOrNilAtIndex:tag];
+    TBTabViewItem *item = [_items objectOrNilAtIndex:tag];
     _block(tag, item);
   }
 }
@@ -212,7 +212,7 @@
 {
   
   for ( int i=0; i<[_items count]; ++i ) {
-    TTTabViewItem *item = [_items objectAtIndex:i];
+    TBTabViewItem *item = [_items objectAtIndex:i];
     UIButton *button = item.button;
     
     //button.normalTitle = item.normalTitle;
@@ -255,9 +255,9 @@
 @end
 
 
-@implementation TTTabViewItem
+@implementation TBTabViewItem
 
-+ (TTTabViewItem *)itemWithNormalTitle:(NSString *)normalTitle
++ (TBTabViewItem *)itemWithNormalTitle:(NSString *)normalTitle
                       highlightedTitle:(NSString *)highlightedTitle
                       normalTitleColor:(UIColor *)normalTitleColor
                  highlightedTitleColor:(UIColor *)highlightedTitleColor
@@ -266,7 +266,7 @@
                  normalBackgroundImage:(UIImage *)normalBackgroundImage
             highlightedBackgroundImage:(UIImage *)highlightedBackgroundImage
 {
-  TTTabViewItem *item = [[TTTabViewItem alloc] init];
+  TBTabViewItem *item = [[TBTabViewItem alloc] init];
   
   item.normalTitle = normalTitle;
   item.highlightedTitle = highlightedTitle;

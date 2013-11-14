@@ -64,6 +64,7 @@ static TMEngine *CurrentEngine = nil;
   _client->registerPresenceHandler( _presenceHandler );
   
   _vcardManager = new VCardManager( _client );
+  _vcardHandler = new TMVCardHandler;
   
   _rosterHandler = new TMRosterHandler;
   _client->rosterManager()->registerRosterListener( _rosterHandler );

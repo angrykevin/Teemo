@@ -14,6 +14,23 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
 {
   TMPRINTMETHOD();
   
+  printf("jid: %s %s\n", jid.bare().c_str(), vcard->jabberid().c_str());
+  printf("nickname: %s\n", vcard->nickname().c_str());
+  printf("desc: %s\n", vcard->desc().c_str());
+  printf("name: %s\n", vcard->formattedname().c_str());
+  
+  
+//  TKDatabase *db = [TKDatabase sharedObject];
+//  NSArray *buddies = [db executeQuery:@"SELECT passport FROM tBuddy WHERE passport=?;", CPPStrToC(jid.bare())];
+//  if ( [buddies count] > 0 ) {
+//    
+//    [db executeUpdate:@"UPDATE tBuddy SET name=?, desc=? WHERE passport=?;",
+//     CPPStrToC(vcard->nickname()),
+//     CPPStrToC(vcard->desc()),
+//     CPPStrToC(jid.bare())];
+//  }
+  
+  
   dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
@@ -32,6 +49,9 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
 void TMVCardHandler::handleVCardResult( VCardContext context, const JID& jid, StanzaError se )
 {
   TMPRINTMETHOD();
+  
+  printf("HH%s", jid.bare().c_str());
+  TKTESTVALUE((se != 0), @"VCard错误");
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     

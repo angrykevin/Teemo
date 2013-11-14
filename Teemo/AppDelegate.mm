@@ -113,7 +113,7 @@
   TKPRINTMETHOD();
   
   if ( TKIsInstance([_root.viewControllers firstObject], [RSSigninViewController class]) ) {
-    TTDisplayMessage(@"登录失败！");
+    TBDisplayMessage(@"登录失败！");
   }
   
   TMEngine *engine = [TMEngine sharedEngine];

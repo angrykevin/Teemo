@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RSChatlogViewController : TTViewController {
+@interface RSChatlogViewController : TBViewController {
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  TTRoutines.h
+//  TBRoutines.h
 //  Teemo
 //
 //  Created by Wu Kevin on 11/8/13.
@@ -13,11 +13,11 @@ extern "C" {
 #endif
 
 
-UIImage *TTCreateImage(NSString *name);
+UIImage *TBCreateImage(NSString *name);
 
-void TTDisplayMessage(NSString *message);
+void TBDisplayMessage(NSString *message);
   
-NSString *TTFormatDate(NSDate *date);
+NSString *TBFormatDate(NSDate *date);
 
 
 #ifdef __cplusplus

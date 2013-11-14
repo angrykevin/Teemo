@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RSSettingViewController : TTViewController {
+@interface RSSettingViewController : TBViewController {
 }
 
 @end

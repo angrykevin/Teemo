@@ -1,5 +1,5 @@
 //
-//  TTTabViewController.h
+//  TBTabViewController.h
 //  Teemo
 //
 //  Created by Wu Kevin on 11/8/13.
@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
-@class TTTabView;
+@class TBTabView;
 
 
-@interface TTTabViewController : UIViewController {
+@interface TBTabViewController : UIViewController {
   NSArray *_viewControllers;
-  TTTabView *_tabView;
+  TBTabView *_tabView;
   
   BOOL _viewAppeared;
   NSUInteger _appearedTimes;
@@ -30,22 +30,22 @@
 
 
 
-@class TTTabViewItem;
+@class TBTabViewItem;
 
-typedef void(^TTTabViewBlock)(NSUInteger index, TTTabViewItem *item);
+typedef void(^TBTabViewBlock)(NSUInteger index, TBTabViewItem *item);
 
-@interface TTTabView : UIView {
+@interface TBTabView : UIView {
   NSArray *_items;
   
   BOOL _repeatedlyNotify;
-  TTTabViewBlock _block;
+  TBTabViewBlock _block;
   NSUInteger _selectedIndex;
 }
 
 @property (nonatomic, strong, readonly) NSArray *items;
 
 @property (nonatomic, assign) BOOL repeatedlyNotify;
-@property (nonatomic, copy) TTTabViewBlock block;
+@property (nonatomic, copy) TBTabViewBlock block;
 @property (nonatomic, assign, readonly) NSUInteger selectedIndex;
 
 - (id)initWithItems:(NSArray *)items;
@@ -54,7 +54,7 @@ typedef void(^TTTabViewBlock)(NSUInteger index, TTTabViewItem *item);
 
 @end
 
-@interface TTTabViewItem : NSObject {
+@interface TBTabViewItem : NSObject {
   
   UIButton *_button;
   
@@ -85,7 +85,7 @@ typedef void(^TTTabViewBlock)(NSUInteger index, TTTabViewItem *item);
 @property (nonatomic, strong) UIImage *normalBackgroundImage;
 @property (nonatomic, strong) UIImage *highlightedBackgroundImage;
 
-+ (TTTabViewItem *)itemWithNormalTitle:(NSString *)normalTitle
++ (TBTabViewItem *)itemWithNormalTitle:(NSString *)normalTitle
                       highlightedTitle:(NSString *)highlightedTitle
                       normalTitleColor:(UIColor *)normalTitleColor
                  highlightedTitleColor:(UIColor *)highlightedTitleColor

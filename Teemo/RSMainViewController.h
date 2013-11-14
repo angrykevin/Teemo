@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RSMainViewController : TTTabViewController {
+@interface RSMainViewController : TBTabViewController {
   
 }
 

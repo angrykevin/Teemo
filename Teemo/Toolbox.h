@@ -1,5 +1,5 @@
 //
-//  TTToolbox.h
+//  Toolbox.h
 //  Teemo
 //
 //  Created by Wu Kevin on 11/8/13.
@@ -8,10 +8,10 @@
 
 
 
-#import "TTRoutines.h"
+#import "TBRoutines.h"
 
-#import "TTViewController.h"
-#import "TTTabViewController.h"
+#import "TBViewController.h"
+#import "TBTabViewController.h"
 
 #import "CATransitionAdditions.h"
 #import "UILabelAdditions.h"

@@ -1,21 +1,21 @@
 //
-//  TTRoutines.m
+//  TBRoutines.m
 //  Teemo
 //
 //  Created by Wu Kevin on 11/8/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "TTRoutines.h"
+#import "TBRoutines.h"
 
 
-UIImage *TTCreateImage(NSString *name)
+UIImage *TBCreateImage(NSString *name)
 {
   NSString *path = TKPathForBundleResource(nil, name);
   return [[UIImage alloc] initWithContentsOfFile:path];
 }
 
-void TTDisplayMessage(NSString *message)
+void TBDisplayMessage(NSString *message)
 {
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:message
                                                       message:nil
@@ -25,7 +25,7 @@ void TTDisplayMessage(NSString *message)
   [alertView show];
 }
 
-NSString *TTFormatDate(NSDate *date)
+NSString *TBFormatDate(NSDate *date)
 {
   if ( date ) {
     

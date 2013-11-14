@@ -29,12 +29,12 @@
 		BC5EE307182A209D007D5DE6 /* RSSigninViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE306182A209D007D5DE6 /* RSSigninViewController.mm */; };
 		BC5EE30A182A20D7007D5DE6 /* RSMainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */; };
 		BC5EE35E182A230E007D5DE6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */; };
-		BC5EE361182A2429007D5DE6 /* TTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE360182A2429007D5DE6 /* TTViewController.m */; };
+		BC5EE361182A2429007D5DE6 /* TBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE360182A2429007D5DE6 /* TBViewController.m */; };
 		BC5EE364182A2600007D5DE6 /* UILabelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */; };
 		BC675CC918308252003E1516 /* TMHandlerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC675CC818308252003E1516 /* TMHandlerBase.cpp */; };
 		BC675D4A183093E3003E1516 /* CATransitionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC675D49183093E3003E1516 /* CATransitionAdditions.m */; };
 		BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */ = {isa = PBXBuildFile; fileRef = BC840428182CADA40058EBDC /* RSBoxViewLine.m */; };
-		BC84042C182CB2A40058EBDC /* TTRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84042B182CB2A40058EBDC /* TTRoutines.m */; };
+		BC84042C182CB2A40058EBDC /* TBRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84042B182CB2A40058EBDC /* TBRoutines.m */; };
 		BC8405FE182CC2F00058EBDC /* adhoc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840461182CC2EF0058EBDC /* adhoc.cpp */; };
 		BC8405FF182CC2F00058EBDC /* amp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840465182CC2EF0058EBDC /* amp.cpp */; };
 		BC840600182CC2F00058EBDC /* annotations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840467182CC2EF0058EBDC /* annotations.cpp */; };
@@ -192,7 +192,7 @@
 		BC8406B6182CC3870058EBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC84069C182CC3870058EBDC /* Images.xcassets */; };
 		BC840706182CC5200058EBDC /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DC182CC5200058EBDC /* libcrypto.a */; };
 		BC840707182CC5200058EBDC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DD182CC5200058EBDC /* libssl.a */; };
-		BC84070C182CCB090058EBDC /* TTTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* TTTabViewController.m */; };
+		BC84070C182CCB090058EBDC /* TBTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* TBTabViewController.m */; };
 		BC840710182CCCB20058EBDC /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */; };
 		BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D351831E16B00E93718 /* TMRosterHandler.mm */; };
 		BCA23D48183224E300E93718 /* tabbar_buddies_h.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */; };
@@ -207,7 +207,7 @@
 		BCA23D51183224E300E93718 /* tabbar_setting_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D45183224E300E93718 /* tabbar_setting_h@2x.png */; };
 		BCA23D52183224E300E93718 /* tabbar_setting_n.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D46183224E300E93718 /* tabbar_setting_n.png */; };
 		BCA23D53183224E300E93718 /* tabbar_setting_n@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D47183224E300E93718 /* tabbar_setting_n@2x.png */; };
-		BCA23D561832288B00E93718 /* RSChatlogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D551832288B00E93718 /* RSChatlogViewController.m */; };
+		BCA23D561832288B00E93718 /* RSChatlogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D551832288B00E93718 /* RSChatlogViewController.mm */; };
 		BCA23D59183228C900E93718 /* RSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D58183228C900E93718 /* RSSettingViewController.m */; };
 		BCA23D5C1832293200E93718 /* RSBuddiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D5B1832293200E93718 /* RSBuddiesViewController.m */; };
 /* End PBXBuildFile section */
@@ -258,8 +258,8 @@
 		BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainViewController.h; sourceTree = "<group>"; };
 		BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSMainViewController.mm; sourceTree = "<group>"; };
 		BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		BC5EE35F182A2429007D5DE6 /* TTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTViewController.h; sourceTree = "<group>"; };
-		BC5EE360182A2429007D5DE6 /* TTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTViewController.m; sourceTree = "<group>"; };
+		BC5EE35F182A2429007D5DE6 /* TBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBViewController.h; sourceTree = "<group>"; };
+		BC5EE360182A2429007D5DE6 /* TBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBViewController.m; sourceTree = "<group>"; };
 		BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelAdditions.h; sourceTree = "<group>"; };
 		BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelAdditions.m; sourceTree = "<group>"; };
 		BC5EE367182A3C8F007D5DE6 /* Teemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Teemo.h; sourceTree = "<group>"; };
@@ -270,9 +270,9 @@
 		BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMConnectionDelegate.h; sourceTree = "<group>"; };
 		BC840427182CADA40058EBDC /* RSBoxViewLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoxViewLine.h; sourceTree = "<group>"; };
 		BC840428182CADA40058EBDC /* RSBoxViewLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBoxViewLine.m; sourceTree = "<group>"; };
-		BC84042A182CB2A40058EBDC /* TTRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRoutines.h; sourceTree = "<group>"; };
-		BC84042B182CB2A40058EBDC /* TTRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRoutines.m; sourceTree = "<group>"; };
-		BC84042D182CB30B0058EBDC /* TTToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTToolbox.h; sourceTree = "<group>"; };
+		BC84042A182CB2A40058EBDC /* TBRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBRoutines.h; sourceTree = "<group>"; };
+		BC84042B182CB2A40058EBDC /* TBRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBRoutines.m; sourceTree = "<group>"; };
+		BC84042D182CB30B0058EBDC /* Toolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toolbox.h; sourceTree = "<group>"; };
 		BC840461182CC2EF0058EBDC /* adhoc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = adhoc.cpp; sourceTree = "<group>"; };
 		BC840462182CC2EF0058EBDC /* adhoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhoc.h; sourceTree = "<group>"; };
 		BC840463182CC2EF0058EBDC /* adhoccommandprovider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhoccommandprovider.h; sourceTree = "<group>"; };
@@ -702,8 +702,8 @@
 		BC840703182CC5200058EBDC /* x509.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
 		BC840704182CC5200058EBDC /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
 		BC840705182CC5200058EBDC /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
-		BC84070A182CCB090058EBDC /* TTTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTabViewController.h; sourceTree = "<group>"; };
-		BC84070B182CCB090058EBDC /* TTTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabViewController.m; sourceTree = "<group>"; };
+		BC84070A182CCB090058EBDC /* TBTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTabViewController.h; sourceTree = "<group>"; };
+		BC84070B182CCB090058EBDC /* TBTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTabViewController.m; sourceTree = "<group>"; };
 		BC84070E182CCCB20058EBDC /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
 		BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerAdditions.m; sourceTree = "<group>"; };
 		BCA23D211831C34100E93718 /* TMPresenceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMPresenceDelegate.h; sourceTree = "<group>"; };
@@ -724,7 +724,7 @@
 		BCA23D46183224E300E93718 /* tabbar_setting_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_setting_n.png; sourceTree = "<group>"; };
 		BCA23D47183224E300E93718 /* tabbar_setting_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_setting_n@2x.png"; sourceTree = "<group>"; };
 		BCA23D541832288B00E93718 /* RSChatlogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSChatlogViewController.h; sourceTree = "<group>"; };
-		BCA23D551832288B00E93718 /* RSChatlogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSChatlogViewController.m; sourceTree = "<group>"; };
+		BCA23D551832288B00E93718 /* RSChatlogViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSChatlogViewController.mm; sourceTree = "<group>"; };
 		BCA23D57183228C900E93718 /* RSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSettingViewController.h; sourceTree = "<group>"; };
 		BCA23D58183228C900E93718 /* RSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSettingViewController.m; sourceTree = "<group>"; };
 		BCA23D5A1832293200E93718 /* RSBuddiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBuddiesViewController.h; sourceTree = "<group>"; };
@@ -809,7 +809,7 @@
 				BCA23D5F1832294800E93718 /* Setting */,
 				BC47AE8E183335AE00331216 /* Common */,
 				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
-				BC5EE368182A3E17007D5DE6 /* Toolbox */,
+				BC5EE368182A3E17007D5DE6 /* ToolBox */,
 				BC840708182CC6FF0058EBDC /* Views */,
 			);
 			path = Teemo;
@@ -847,16 +847,16 @@
 			path = Teemo;
 			sourceTree = "<group>";
 		};
-		BC5EE368182A3E17007D5DE6 /* Toolbox */ = {
+		BC5EE368182A3E17007D5DE6 /* ToolBox */ = {
 			isa = PBXGroup;
 			children = (
-				BC84042D182CB30B0058EBDC /* TTToolbox.h */,
-				BC84042A182CB2A40058EBDC /* TTRoutines.h */,
-				BC84042B182CB2A40058EBDC /* TTRoutines.m */,
-				BC5EE35F182A2429007D5DE6 /* TTViewController.h */,
-				BC5EE360182A2429007D5DE6 /* TTViewController.m */,
-				BC84070A182CCB090058EBDC /* TTTabViewController.h */,
-				BC84070B182CCB090058EBDC /* TTTabViewController.m */,
+				BC84042D182CB30B0058EBDC /* Toolbox.h */,
+				BC84042A182CB2A40058EBDC /* TBRoutines.h */,
+				BC84042B182CB2A40058EBDC /* TBRoutines.m */,
+				BC5EE35F182A2429007D5DE6 /* TBViewController.h */,
+				BC5EE360182A2429007D5DE6 /* TBViewController.m */,
+				BC84070A182CCB090058EBDC /* TBTabViewController.h */,
+				BC84070B182CCB090058EBDC /* TBTabViewController.m */,
 				BC675D48183093E3003E1516 /* CATransitionAdditions.h */,
 				BC675D49183093E3003E1516 /* CATransitionAdditions.m */,
 				BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */,
@@ -864,7 +864,7 @@
 				BC84070E182CCCB20058EBDC /* UIViewControllerAdditions.h */,
 				BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */,
 			);
-			name = Toolbox;
+			name = ToolBox;
 			sourceTree = "<group>";
 		};
 		BC84045F182CC2EF0058EBDC /* Thirdparty */ = {
@@ -1457,7 +1457,7 @@
 			isa = PBXGroup;
 			children = (
 				BCA23D541832288B00E93718 /* RSChatlogViewController.h */,
-				BCA23D551832288B00E93718 /* RSChatlogViewController.m */,
+				BCA23D551832288B00E93718 /* RSChatlogViewController.mm */,
 			);
 			name = Chatlog;
 			sourceTree = "<group>";
@@ -1582,7 +1582,7 @@
 				BC840627182CC2F00058EBDC /* instantmucroom.cpp in Sources */,
 				BC840678182CC2F00058EBDC /* TKOperation.m in Sources */,
 				BC84062E182CC2F00058EBDC /* jinglesession.cpp in Sources */,
-				BC84042C182CB2A40058EBDC /* TTRoutines.m in Sources */,
+				BC84042C182CB2A40058EBDC /* TBRoutines.m in Sources */,
 				BC840603182CC2F00058EBDC /* base64.cpp in Sources */,
 				BC840606182CC2F00058EBDC /* carbons.cpp in Sources */,
 				BC84061C182CC2F00058EBDC /* disco.cpp in Sources */,
@@ -1644,7 +1644,7 @@
 				BC840659182CC2F00058EBDC /* subscription.cpp in Sources */,
 				BC840643182CC2F00058EBDC /* presence.cpp in Sources */,
 				BC5EE0ED182A196A007D5DE6 /* AppDelegate.mm in Sources */,
-				BCA23D561832288B00E93718 /* RSChatlogViewController.m in Sources */,
+				BCA23D561832288B00E93718 /* RSChatlogViewController.mm in Sources */,
 				BC840636182CC2F00058EBDC /* messageevent.cpp in Sources */,
 				BC84065C182CC2F00058EBDC /* tlsgnutlsbase.cpp in Sources */,
 				BC84065B182CC2F00058EBDC /* tlsdefault.cpp in Sources */,
@@ -1657,7 +1657,7 @@
 				BC5EE307182A209D007D5DE6 /* RSSigninViewController.mm in Sources */,
 				BC840657182CC2F00058EBDC /* stanza.cpp in Sources */,
 				BC5EE364182A2600007D5DE6 /* UILabelAdditions.m in Sources */,
-				BC5EE361182A2429007D5DE6 /* TTViewController.m in Sources */,
+				BC5EE361182A2429007D5DE6 /* TBViewController.m in Sources */,
 				BC840632182CC2F00058EBDC /* linklocalmanager.cpp in Sources */,
 				BC84060B182CC2F00058EBDC /* component.cpp in Sources */,
 				BC5EE0E9182A196A007D5DE6 /* main.m in Sources */,
@@ -1681,7 +1681,7 @@
 				BC840616182CC2F00058EBDC /* dataform.cpp in Sources */,
 				BC840625182CC2F00058EBDC /* gpgsigned.cpp in Sources */,
 				BC840652182CC2F00058EBDC /* siprofileft.cpp in Sources */,
-				BC84070C182CCB090058EBDC /* TTTabViewController.m in Sources */,
+				BC84070C182CCB090058EBDC /* TBTabViewController.m in Sources */,
 				BC840651182CC2F00058EBDC /* simanager.cpp in Sources */,
 				BC840624182CC2F00058EBDC /* gpgencrypted.cpp in Sources */,
 				BCA23D5C1832293200E93718 /* RSBuddiesViewController.m in Sources */,

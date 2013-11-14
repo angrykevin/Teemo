@@ -35,21 +35,21 @@
   [_scrollView addSubview:_titleLabel];
   
   _passportLine = [[RSBoxViewLine alloc] init];
-  _passportLine.backgroundImageView.image = TTCreateImage(@"box_top.png");
+  _passportLine.backgroundImageView.image = TBCreateImage(@"box_top.png");
   _passportLine.label.text = NSLocalizedString(@"帐  号", @"");
   _passportLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   [_scrollView addSubview:_passportLine];
   
   _passwordLine = [[RSBoxViewLine alloc] init];
   _passwordLine.textField.secureTextEntry = YES;
-  _passwordLine.backgroundImageView.image = TTCreateImage(@"box_bottom.png");
+  _passwordLine.backgroundImageView.image = TBCreateImage(@"box_bottom.png");
   _passwordLine.label.text = NSLocalizedString(@"密  码", @"");
   _passwordLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   [_scrollView addSubview:_passwordLine];
   
   _signinButton = [[UIButton alloc] init];
   _signinButton.normalTitle = NSLocalizedString(@"登    录", @"");
-  _signinButton.normalBackgroundImage = [TTCreateImage(@"button_large_black.png") resizableImageWithCapInsets:UIEdgeInsetsMake(10.0, 5.0, 10.0, 5.0)];
+  _signinButton.normalBackgroundImage = [TBCreateImage(@"button_large_black.png") resizableImageWithCapInsets:UIEdgeInsetsMake(10.0, 5.0, 10.0, 5.0)];
   [_signinButton addTarget:self
                     action:@selector(signinButtonClicked:)
           forControlEvents:UIControlEventTouchUpInside];
@@ -95,12 +95,12 @@
   NSString *password = [_passwordLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   
   if ( !TKIsStringWithText(passport) ) {
-    TTDisplayMessage(@"帐号不能为空！");
+    TBDisplayMessage(@"帐号不能为空！");
     return;
   }
   
   if ( !TKIsStringWithText(password) ) {
-    TTDisplayMessage(@"密码不能为空！");
+    TBDisplayMessage(@"密码不能为空！");
     return;
   }
   
