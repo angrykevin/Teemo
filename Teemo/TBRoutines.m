@@ -20,7 +20,7 @@ void TBDisplayMessage(NSString *message)
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:message
                                                       message:nil
                                                      delegate:nil
-                                            cancelButtonTitle:NSLocalizedString(@"确定", @"")
+                                            cancelButtonTitle:NSLocalizedString(@"OK", @"")
                                             otherButtonTitles:nil];
   [alertView show];
 }

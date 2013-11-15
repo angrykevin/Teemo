@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC403C391835B82B00B50317 /* RSChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C381835B82B00B50317 /* RSChatViewController.m */; };
+		BC403C3C1835B87A00B50317 /* RSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C3B1835B87A00B50317 /* RSProfileViewController.m */; };
 		BC47AE92183335F000331216 /* RSDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BC47AE91183335F000331216 /* RSDatabase.m */; };
 		BC47AE9718334CC300331216 /* RSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BC47AE9618334CC300331216 /* RSAccount.m */; };
 		BC4D139D1830E77300572F67 /* TMConnectionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */; };
@@ -224,6 +226,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC403C371835B82B00B50317 /* RSChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSChatViewController.h; sourceTree = "<group>"; };
+		BC403C381835B82B00B50317 /* RSChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSChatViewController.m; sourceTree = "<group>"; };
+		BC403C3A1835B87A00B50317 /* RSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProfileViewController.h; sourceTree = "<group>"; };
+		BC403C3B1835B87A00B50317 /* RSProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSProfileViewController.m; sourceTree = "<group>"; };
 		BC47AE8B183323EA00331216 /* Teemo.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Teemo.sql; sourceTree = "<group>"; };
 		BC47AE8F183335D000331216 /* RSCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCommon.h; sourceTree = "<group>"; };
 		BC47AE90183335F000331216 /* RSDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDatabase.h; sourceTree = "<group>"; };
@@ -1486,6 +1492,10 @@
 				BCA23D5B1832293200E93718 /* RSBuddiesViewController.m */,
 				BCB44DFC1834D5B6007D074E /* RSBuddyCell.h */,
 				BCB44DFD1834D5B6007D074E /* RSBuddyCell.m */,
+				BC403C371835B82B00B50317 /* RSChatViewController.h */,
+				BC403C381835B82B00B50317 /* RSChatViewController.m */,
+				BC403C3A1835B87A00B50317 /* RSProfileViewController.h */,
+				BC403C3B1835B87A00B50317 /* RSProfileViewController.m */,
 			);
 			name = Buddies;
 			sourceTree = "<group>";
@@ -1775,6 +1785,7 @@
 				BC840645182CC2F00058EBDC /* privacymanager.cpp in Sources */,
 				BC840654182CC2F00058EBDC /* socks5bytestreammanager.cpp in Sources */,
 				BC675D4A183093E3003E1516 /* CATransitionAdditions.m in Sources */,
+				BC403C3C1835B87A00B50317 /* RSProfileViewController.m in Sources */,
 				BC840644182CC2F00058EBDC /* privacyitem.cpp in Sources */,
 				BC840640182CC2F00058EBDC /* oob.cpp in Sources */,
 				BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */,
@@ -1782,6 +1793,7 @@
 				BC84062B182CC2F00058EBDC /* jinglefiletransfer.cpp in Sources */,
 				BC840710182CCCB20058EBDC /* UIViewControllerAdditions.m in Sources */,
 				BC84062C182CC2F00058EBDC /* jingleiceudp.cpp in Sources */,
+				BC403C391835B82B00B50317 /* RSChatViewController.m in Sources */,
 				BC840628182CC2F00058EBDC /* iq.cpp in Sources */,
 				BC840638182CC2F00058EBDC /* messagefilter.cpp in Sources */,
 				BC84067F182CC2F00058EBDC /* TKDatabaseRow.m in Sources */,

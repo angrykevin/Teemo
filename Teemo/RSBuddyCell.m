@@ -45,13 +45,17 @@
 {
   [super layoutSubviews];
   
-  _photoButton.frame = CGRectMake(10.0, 5.0, self.contentView.height - 5.0 * 2, self.contentView.height - 2.0 * 2);
+  _photoButton.frame = CGRectMake(10.0, 5.0, self.contentView.height - 5.0 * 2, self.contentView.height - 5.0 * 2);
   
-  _nicknameLabel.frame = CGRectMake(_photoButton.rightX + 5.0, 2.0,
+  _nicknameLabel.frame = CGRectMake(_photoButton.rightX + 5.0, _photoButton.topY,
                                     (self.contentView.width-10.0) - (_photoButton.rightX+5.0),
                                     _nicknameLabel.font.lineHeight);
+  
+  CGSize size = [_descLabel.text sizeWithFont:_descLabel.font
+                            constrainedToSize:CGSizeMake(_nicknameLabel.width, 10000)
+                                lineBreakMode:_descLabel.lineBreakMode];
   _descLabel.frame = CGRectMake(_nicknameLabel.leftX, _nicknameLabel.bottomY,
-                                _nicknameLabel.width, _descLabel.font.lineHeight * 2);
+                                _nicknameLabel.width, MIN( (_descLabel.font.lineHeight*2), (size.height) ));
   
 }
 

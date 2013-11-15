@@ -23,7 +23,7 @@
 {
   [super viewDidLoad];
   
-  _navigationView.titleLabel.text = NSLocalizedString(@"设置", @"");
+  _navigationView.titleLabel.text = NSLocalizedString(@"Setting", @"");
   
 }
 

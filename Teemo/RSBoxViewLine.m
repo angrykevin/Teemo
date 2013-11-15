@@ -56,7 +56,7 @@
     _imageView.frame = CGRectMake(5.0, 2.0, 0.0, 0.0);
   }
   
-  _label.frame = CGRectMake(_imageView.rightX + 5.0, 2.0, 60.0, 40.0);
+  _label.frame = CGRectMake(_imageView.rightX + 5.0, 2.0, 80.0, 40.0);
   _textField.frame = CGRectMake(_label.rightX + 5.0, 2.0,
                                 (self.width - 10.0) - (_label.rightX + 5.0), 40.0);
   

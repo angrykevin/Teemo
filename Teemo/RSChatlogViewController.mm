@@ -25,7 +25,7 @@
   [super viewDidLoad];
   
   
-  _navigationView.titleLabel.text = NSLocalizedString(@"会话", @"");
+  _navigationView.titleLabel.text = NSLocalizedString(@"Chatlog", @"");
   
   
   UIButton *bt = [UIButton buttonWithType:UIButtonTypeSystem];

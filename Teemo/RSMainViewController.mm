@@ -33,8 +33,8 @@
   
   
   
-  TBTabViewItem *it1 = [TBTabViewItem itemWithNormalTitle:NSLocalizedString(@"会话", @"")
-                                         highlightedTitle:NSLocalizedString(@"会话", @"")
+  TBTabViewItem *it1 = [TBTabViewItem itemWithNormalTitle:NSLocalizedString(@"Chatlog", @"")
+                                         highlightedTitle:NSLocalizedString(@"Chatlog", @"")
                                          normalTitleColor:[UIColor whiteColor]
                                     highlightedTitleColor:[UIColor whiteColor]
                                               normalImage:TBCreateImage(@"tabbar_chatlog_n.png")
@@ -42,8 +42,8 @@
                                     normalBackgroundImage:nil
                                highlightedBackgroundImage:nil];
   
-  TBTabViewItem *it2 = [TBTabViewItem itemWithNormalTitle:NSLocalizedString(@"好友", @"")
-                                         highlightedTitle:NSLocalizedString(@"好友", @"")
+  TBTabViewItem *it2 = [TBTabViewItem itemWithNormalTitle:NSLocalizedString(@"Buddies", @"")
+                                         highlightedTitle:NSLocalizedString(@"Buddies", @"")
                                          normalTitleColor:[UIColor whiteColor]
                                     highlightedTitleColor:[UIColor whiteColor]
                                               normalImage:TBCreateImage(@"tabbar_buddies_n.png")
@@ -51,8 +51,8 @@
                                     normalBackgroundImage:nil
                                highlightedBackgroundImage:nil];
   
-  TBTabViewItem *it3 = [TBTabViewItem itemWithNormalTitle:NSLocalizedString(@"设置", @"")
-                                         highlightedTitle:NSLocalizedString(@"设置", @"")
+  TBTabViewItem *it3 = [TBTabViewItem itemWithNormalTitle:NSLocalizedString(@"Setting", @"")
+                                         highlightedTitle:NSLocalizedString(@"Setting", @"")
                                          normalTitleColor:[UIColor whiteColor]
                                     highlightedTitleColor:[UIColor whiteColor]
                                               normalImage:TBCreateImage(@"tabbar_setting_n.png")

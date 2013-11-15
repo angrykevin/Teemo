@@ -117,7 +117,7 @@
     button.hidden = YES;
     [self addSubview:button];
     _backButton = button;
-    _backButton.normalTitle = NSLocalizedString(@"返回", @"");
+    _backButton.normalTitle = NSLocalizedString(@"Back", @"");
     
     
     button = [[UIButton alloc] init];

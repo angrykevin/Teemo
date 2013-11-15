@@ -17,7 +17,7 @@
   [super viewDidLoad];
   
   
-  _navigationView.titleLabel.text = NSLocalizedString(@"登录", @"");
+  _navigationView.titleLabel.text = NSLocalizedString(@"Sign in", @"");
   
   _scrollView = [[UIScrollView alloc] init];
   _scrollView.backgroundColor = [UIColor clearColor];
@@ -36,19 +36,19 @@
   
   _passportLine = [[RSBoxViewLine alloc] init];
   _passportLine.backgroundImageView.image = TBCreateImage(@"box_top.png");
-  _passportLine.label.text = NSLocalizedString(@"帐  号", @"");
+  _passportLine.label.text = NSLocalizedString(@"Passport", @"");
   _passportLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   [_scrollView addSubview:_passportLine];
   
   _passwordLine = [[RSBoxViewLine alloc] init];
   _passwordLine.textField.secureTextEntry = YES;
   _passwordLine.backgroundImageView.image = TBCreateImage(@"box_bottom.png");
-  _passwordLine.label.text = NSLocalizedString(@"密  码", @"");
+  _passwordLine.label.text = NSLocalizedString(@"Password", @"");
   _passwordLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   [_scrollView addSubview:_passwordLine];
   
   _signinButton = [[UIButton alloc] init];
-  _signinButton.normalTitle = NSLocalizedString(@"登    录", @"");
+  _signinButton.normalTitle = NSLocalizedString(@"Sign in", @"");
   _signinButton.normalBackgroundImage = [TBCreateImage(@"button_large_black.png") resizableImageWithCapInsets:UIEdgeInsetsMake(10.0, 5.0, 10.0, 5.0)];
   [_signinButton addTarget:self
                     action:@selector(signinButtonClicked:)
@@ -78,7 +78,7 @@
   _titleLabel.frame = CGRectMake(21.0, 10.0, 278.0, 100);
   _passportLine.frame = CGRectMake(21.0, _titleLabel.bottomY + 10.0, 278.0, 44.0);
   _passwordLine.frame = CGRectMake(21.0, _passportLine.bottomY, 278.0, 44.0);
-  _signinButton.frame = CGRectMake(21.0, _passwordLine.bottomY + 10.0, 278.0, 43.0);
+  _signinButton.frame = CGRectMake(21.0, _passwordLine.bottomY + 20.0, 278.0, 43.0);
   
 }
 
