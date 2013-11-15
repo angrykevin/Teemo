@@ -9,7 +9,9 @@ CREATE TABLE tBuddy(
   photo TEXT,
   birthday TEXT,
   desc TEXT,
-  homepage TEXT
+  homepage TEXT, 
+  
+  group TEXT
 );
 
 CREATE TABLE tChatlog(

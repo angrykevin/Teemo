@@ -56,6 +56,15 @@
 //  card->setUrl( "http://tom.com/" );
 //  
 //  manager->storeVCard(card, [engine vcardHandler]);
+  
+  
+  TMEngine *engine = [TMEngine sharedEngine];
+  RosterManager *manager = [engine rosterManager];
+  
+  manager->remove( JID( "kevin@batoo.com" ) );
+  //manager->subscribe( JID( "kevin@batoo.com" ) );
+  
+  
 }
 
 - (void)fetch:(id)sender

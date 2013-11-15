@@ -26,7 +26,7 @@ void RSDatabaseSetUpTables()
   TKDatabase *db = [TKDatabase sharedObject];
   
   if ( ![db hasTableNamed:@"tBuddy"] ) {
-    NSString *sql = @"CREATE TABLE tBuddy( pk INTEGER PRIMARY KEY, bid TEXT, nickname TEXT, familyname TEXT, givenname TEXT, photo TEXT, birthday TEXT, desc TEXT, homepage TEXT );";
+    NSString *sql = @"CREATE TABLE tBuddy( pk INTEGER PRIMARY KEY, bid TEXT, nickname TEXT, familyname TEXT, givenname TEXT, photo TEXT, birthday TEXT, desc TEXT, homepage TEXT, group TEXT );";
     [db executeUpdate:sql];
   }
   

@@ -31,15 +31,16 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
     
     TKDatabase *db = [TKDatabase sharedObject];
     
-    NSArray *buddies = [db executeQuery:@"SELECT pk,bid FROM tBuddy WHERE bid=?;", bid];
+    NSArray *buddies = [db executeQuery:@"SELECT pk,bid,group FROM tBuddy WHERE bid=?;", bid];
     if ( [buddies count] > 0 ) {
       TKDatabaseRow *row = [buddies firstObject];
       
       int pk = [row intForName:@"pk"];
+      NSString *group = [row stringForName:@"group"];
       
       [db executeUpdate:@"DELETE FROM tBuddy WHERE bid=?;", bid];
       
-      [db executeUpdate:@"INSERT INTO tBuddy(pk,bid,nickname,familyname,givenname,photo,birthday,desc,homepage) VALUES(?,?,?,?,?,?,?,?,?);",
+      [db executeUpdate:@"INSERT INTO tBuddy(pk,bid,nickname,familyname,givenname,photo,birthday,desc,homepage,group) VALUES(?,?,?,?,?,?,?,?,?,?);",
        [NSNumber numberWithInt:pk],
        bid,
        OBJCSTR( vcard->nickname() ),
@@ -48,7 +49,8 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
        OBJCSTR( vcard->photo().extval ),
        OBJCSTR( vcard->bday() ),
        OBJCSTR( vcard->desc() ),
-       OBJCSTR( vcard->url() )];
+       OBJCSTR( vcard->url() ),
+       group];
       
     }
     

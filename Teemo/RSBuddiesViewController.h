@@ -13,7 +13,7 @@
     UITableViewDelegate
 > {
   UITableView *_tableView;
-  NSArray *_buddies;
+  NSArray *_groups;
 }
 
 @end

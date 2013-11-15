@@ -179,7 +179,7 @@
 - (void)rightButtonClicked:(id)sender
 {
   TKPRINTMETHOD();
-  NSLog(@"%@", _editedRow);
+  //NSLog(@"%@", _editedRow);
 }
 
 

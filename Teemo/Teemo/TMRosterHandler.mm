@@ -123,7 +123,13 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     string bare = jid.bare();
     TMPRINT("BUDDY: %s\n", bare.c_str());
     
-    [db executeUpdate:@"INSERT INTO tBuddy(bid) VALUES(?);", OBJCSTR(bare)];
+    RosterItem *item = it->second;
+    string group = item->groups().front();
+    if ( group.length() <= 0 ) {
+      group = string( "Friends" );
+    }
+    
+    [db executeUpdate:@"INSERT INTO tBuddy(bid,group) VALUES(?,?);", OBJCSTR(bare), OBJCSTR(group)];
     
     TMEngine *engine = [TMEngine sharedEngine];
     VCardManager *manager = [engine vcardManager];
