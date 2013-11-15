@@ -6,6 +6,11 @@
 //  Copyright (c) 2013 Telligenty. All rights reserved.
 //
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 #ifdef DEBUG
 #define TKPRINT(__fmt, ...) NSLog(@"%s: "__fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
 #else
@@ -39,3 +44,8 @@
 #else
 #define TKTESTVALUE(__value, __info) ((void)0)
 #endif // #ifdef DEBUG
+
+
+#ifdef __cplusplus
+}
+#endif

@@ -6,6 +6,11 @@
 //  Copyright (c) 2013 Telligenty. All rights reserved.
 //
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 ///-------------------------------
 /// Degree and radian
 ///-------------------------------
@@ -43,3 +48,8 @@ if ( __count > 0 ) { \
   } \
 } \
 va_end(__list);
+
+
+#ifdef __cplusplus
+}
+#endif
