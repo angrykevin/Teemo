@@ -1,7 +1,7 @@
 
 CREATE TABLE tBuddy(
   pk INTEGER PRIMARY KEY,
-  passport TEXT,
+  bid TEXT,
 
   nickname TEXT,
   familyname TEXT,

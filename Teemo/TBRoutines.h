@@ -18,6 +18,8 @@ UIImage *TBCreateImage(NSString *name);
 void TBDisplayMessage(NSString *message);
   
 NSString *TBFormatDate(NSDate *date);
+  
+NSString *TBBuildFullName(NSString *givenname, NSString *familyname);
 
 
 #ifdef __cplusplus

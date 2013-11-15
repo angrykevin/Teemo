@@ -14,7 +14,7 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
 {
   TMPRINTMETHOD();
   
-  printf("jid: %s %s\n", jid.bare().c_str(), vcard->jabberid().c_str());
+  printf("jid: %s\n", jid.bare().c_str());
   
   printf("nickname: %s\n", vcard->nickname().c_str());
   printf("familyname: %s\n", vcard->name().family.c_str());
@@ -25,31 +25,32 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
   printf("homepage: %s\n", vcard->url().c_str());
   
   if ( jid.bare().length() > 0 ) {
-  }
-  
-  
-  NSString *passport = OBJCSTR(jid.bare());
-  
-  TKDatabase *db = [TKDatabase sharedObject];
-  
-  NSArray *buddies = [db executeQuery:@"SELECT pk,passport FROM tBuddy WHERE passport=?;", passport];
-  if ( [buddies count] > 0 ) {
-    TKDatabaseRow *row = [buddies firstObject];
     
-    int pk = [row intForName:@"pk"];
     
-    [db executeUpdate:@"DELETE FROM tBuddy WHERE passport=?;", passport];
+    NSString *bid = OBJCSTR(jid.bare());
     
-    [db executeUpdate:@"INSERT INTO tBuddy(pk,passport,nickname,familyname,givenname,photo,birthday,desc,homepage) VALUES(?,?,?,?,?,?,?,?,?);",
-     [NSNumber numberWithInt:pk],
-     passport,
-     OBJCSTR( vcard->nickname() ),
-     OBJCSTR( vcard->name().family ),
-     OBJCSTR( vcard->name().given ),
-     OBJCSTR( vcard->photo().extval ),
-     OBJCSTR( vcard->bday() ),
-     OBJCSTR( vcard->desc() ),
-     OBJCSTR( vcard->url() )];
+    TKDatabase *db = [TKDatabase sharedObject];
+    
+    NSArray *buddies = [db executeQuery:@"SELECT pk,bid FROM tBuddy WHERE bid=?;", bid];
+    if ( [buddies count] > 0 ) {
+      TKDatabaseRow *row = [buddies firstObject];
+      
+      int pk = [row intForName:@"pk"];
+      
+      [db executeUpdate:@"DELETE FROM tBuddy WHERE bid=?;", bid];
+      
+      [db executeUpdate:@"INSERT INTO tBuddy(pk,bid,nickname,familyname,givenname,photo,birthday,desc,homepage) VALUES(?,?,?,?,?,?,?,?,?);",
+       [NSNumber numberWithInt:pk],
+       bid,
+       OBJCSTR( vcard->nickname() ),
+       OBJCSTR( vcard->name().family ),
+       OBJCSTR( vcard->name().given ),
+       OBJCSTR( vcard->photo().extval ),
+       OBJCSTR( vcard->bday() ),
+       OBJCSTR( vcard->desc() ),
+       OBJCSTR( vcard->url() )];
+      
+    }
     
   }
   

@@ -17,6 +17,8 @@
   if (self) {
     
     _photoButton = [[UIButton alloc] init];
+    _photoButton.layer.cornerRadius = 2.0;
+    _photoButton.clipsToBounds = YES;
     [self.contentView addSubview:_photoButton];
     
     _nicknameLabel = [UILabel labelWithFont:[UIFont boldSystemFontOfSize:14.0]

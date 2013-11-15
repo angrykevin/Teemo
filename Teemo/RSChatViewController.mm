@@ -1,5 +1,5 @@
 //
-//  RSChatViewController.m
+//  RSChatViewController.mm
 //  Teemo
 //
 //  Created by Wu Kevin on 11/15/13.

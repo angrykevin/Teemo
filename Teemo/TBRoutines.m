@@ -59,3 +59,23 @@ NSString *TBFormatDate(NSDate *date)
   }
   return nil;
 }
+
+NSString *TBBuildFullName(NSString *givenname, NSString *familyname)
+{
+  NSMutableString *name = [[NSMutableString alloc] init];
+  if ( [givenname length] > 0 ) {
+    [name appendString:givenname];
+    if ( [familyname length]>0 ) {
+      [name appendString:@" "];
+      [name appendString:familyname];
+    }
+  } else {
+    if ( [familyname length]>0 ) {
+      [name appendString:familyname];
+    }
+  }
+  if ( [name length] > 0 ) {
+    return name;
+  }
+  return nil;
+}

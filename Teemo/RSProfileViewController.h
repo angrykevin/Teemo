@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RSProfileViewController : TBViewController {
+@interface RSProfileViewController : TBViewController<
+    UITableViewDataSource,
+    UITableViewDelegate
+> {
+  UITableView *_tableView;
+  TKDatabaseRow *_row;
+  
+  BOOL _isOwner;
+  
 }
+
+- (id)initWithRow:(TKDatabaseRow *)row;
+- (id)initWithBid:(NSString *)bid;
 
 @end

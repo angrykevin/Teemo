@@ -33,7 +33,7 @@
   _buddies = [[TKDatabase sharedObject] executeQuery:@"SELECT * FROM tBuddy;"];
   
   
-  _tableView = [[UITableView alloc] init];
+  _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
   _tableView.dataSource = self;
   _tableView.delegate = self;
   [_contentView addSubview:_tableView];
@@ -84,7 +84,7 @@
                               numberOfLines:0];
     [footer addSubview:label];
     label.frame = CGRectMake(10.0, 35.0, 300.0, 30.0);
-    label.text = NSLocalizedString(@"No buddy yet !", @"");
+    label.text = NSLocalizedString(@"There's no buddy yet!", @"");
     
     _tableView.tableFooterView = footer;
     _tableView.tableFooterView.frame = CGRectMake(0.0, 0.0, 320.0, 100.0);
@@ -134,8 +134,11 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-  RSProfileViewController *vc = [[RSProfileViewController alloc] init];
-  [self.navigationController pushViewController:vc animated:YES];
+  TKDatabaseRow *row = [_buddies objectOrNilAtIndex:indexPath.row];
+  if ( row ) {
+    RSProfileViewController *vc = [[RSProfileViewController alloc] initWithRow:row];
+    [self.navigationController pushViewController:vc animated:YES];
+  }
 }
 
 @end

@@ -119,14 +119,15 @@ void TMRosterHandler::handleRoster( const Roster& roster )
   
   for ( ; it != roster.end(); ++it ) {
     
-    string first = it->first;
-    TMPRINT("BUDDY: %s\n", first.c_str());
+    JID jid( it->first );
+    string bare = jid.bare();
+    TMPRINT("BUDDY: %s\n", bare.c_str());
     
-    [db executeUpdate:@"INSERT INTO tBuddy(passport) VALUES(?);", OBJCSTR(first)];
+    [db executeUpdate:@"INSERT INTO tBuddy(bid) VALUES(?);", OBJCSTR(bare)];
     
     TMEngine *engine = [TMEngine sharedEngine];
     VCardManager *manager = [engine vcardManager];
-    manager->fetchVCard(JID( first ), [engine vcardHandler]);
+    manager->fetchVCard(JID( bare ), [engine vcardHandler]);
     
   }
   
