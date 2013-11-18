@@ -42,33 +42,6 @@
   return self;
 }
 
-- (id)initWithBid:(NSString *)bid
-{
-  self = [super init];
-  if (self) {
-    
-    NSAssert(([bid length]>0), @"bid error");
-    
-    NSArray *buddies = [[TKDatabase sharedObject] executeQuery:@"SELECT * FROM tBuddy WHERE bid=?;", bid];
-    _row = [buddies firstObject];
-    
-    NSAssert((_row != nil), @"row error");
-    
-    _editedRow = [[NSMutableDictionary alloc] init];
-    for ( NSString *name in _row.names ) {
-      NSString *value = [_row stringForName:name];
-      [_editedRow setObject:value forKeyIfNotNil:name];
-    }
-    
-    
-    JID owner = JID( CPPSTR(TMJIDFromPassport(RSAccountPassport())) );
-    JID current = JID( CPPSTR(bid) );
-    _isOwner = ( owner.bare() == current.bare() );
-    
-  }
-  return self;
-}
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -93,11 +66,7 @@
 {
   [super viewWillAppear:animated];
   
-  
-  NSIndexPath *ip = [_tableView indexPathForSelectedRow];
-  if ( ip ) {
-    [_tableView deselectRowAtIndexPath:ip animated:YES];
-  }
+  [_tableView deselectAllRowsAnimated:YES];
 }
 
 - (void)layoutViews

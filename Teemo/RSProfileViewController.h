@@ -21,6 +21,5 @@
 }
 
 - (id)initWithRow:(TKDatabaseRow *)row;
-- (id)initWithBid:(NSString *)bid;
 
 @end

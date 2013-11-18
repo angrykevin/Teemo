@@ -17,6 +17,13 @@
 
 - (UITableViewCell *)dequeueReusableCellWithClass:(Class)cls;
 
+
+///-------------------------------
+/// Selection
+///-------------------------------
+
+- (void)deselectAllRowsAnimated:(BOOL)animated;
+
 @end
 
 

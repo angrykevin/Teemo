@@ -17,6 +17,7 @@
 		BC47AE92183335F000331216 /* RSDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BC47AE91183335F000331216 /* RSDatabase.m */; };
 		BC47AE9718334CC300331216 /* RSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BC47AE9618334CC300331216 /* RSAccount.m */; };
 		BC4D139D1830E77300572F67 /* TMConnectionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */; };
+		BC552DBA1839C57C0078375F /* TBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC552DB91839C57C0078375F /* TBButton.m */; };
 		BC5EE0DD182A196A007D5DE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE0DC182A196A007D5DE6 /* Foundation.framework */; };
 		BC5EE0DF182A196A007D5DE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE0DE182A196A007D5DE6 /* CoreGraphics.framework */; };
 		BC5EE0E1182A196A007D5DE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE0E0182A196A007D5DE6 /* UIKit.framework */; };
@@ -254,6 +255,8 @@
 		BC47AE9618334CC300331216 /* RSAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAccount.m; sourceTree = "<group>"; };
 		BC4D139B1830E77300572F67 /* TMConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConnectionHandler.h; sourceTree = "<group>"; };
 		BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMConnectionHandler.mm; sourceTree = "<group>"; };
+		BC552DB81839C57C0078375F /* TBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBButton.h; sourceTree = "<group>"; };
+		BC552DB91839C57C0078375F /* TBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBButton.m; sourceTree = "<group>"; };
 		BC5EE0D9182A196A007D5DE6 /* Teemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5EE0DC182A196A007D5DE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BC5EE0DE182A196A007D5DE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -910,12 +913,14 @@
 				BC84042D182CB30B0058EBDC /* Toolbox.h */,
 				BC84042A182CB2A40058EBDC /* TBRoutines.h */,
 				BC84042B182CB2A40058EBDC /* TBRoutines.m */,
+				BC403C4A1835EB0B00B50317 /* TBAlertView.h */,
+				BC403C4B1835EB0B00B50317 /* TBAlertView.m */,
+				BC552DB81839C57C0078375F /* TBButton.h */,
+				BC552DB91839C57C0078375F /* TBButton.m */,
 				BC5EE35F182A2429007D5DE6 /* TBViewController.h */,
 				BC5EE360182A2429007D5DE6 /* TBViewController.m */,
 				BC84070A182CCB090058EBDC /* TBTabViewController.h */,
 				BC84070B182CCB090058EBDC /* TBTabViewController.m */,
-				BC403C4A1835EB0B00B50317 /* TBAlertView.h */,
-				BC403C4B1835EB0B00B50317 /* TBAlertView.m */,
 				BC675D48183093E3003E1516 /* CATransitionAdditions.h */,
 				BC675D49183093E3003E1516 /* CATransitionAdditions.m */,
 				BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */,
@@ -1806,6 +1811,7 @@
 				BC840649182CC2F00058EBDC /* pubsubmanager.cpp in Sources */,
 				BC84067E182CC2F00058EBDC /* TKDatabase.m in Sources */,
 				BC840633182CC2F00058EBDC /* logsink.cpp in Sources */,
+				BC552DBA1839C57C0078375F /* TBButton.m in Sources */,
 				BC84063F182CC2F00058EBDC /* nonsaslauth.cpp in Sources */,
 				BC84062D182CC2F00058EBDC /* jinglepluginfactory.cpp in Sources */,
 				BC84066E182CC2F00058EBDC /* NSDateAdditions.m in Sources */,

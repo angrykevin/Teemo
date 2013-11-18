@@ -16,7 +16,7 @@
   self = [super init];
   if (self) {
     
-    _photoButton = [[UIButton alloc] init];
+    _photoButton = [[TBButton alloc] init];
     _photoButton.layer.cornerRadius = 2.0;
     _photoButton.clipsToBounds = YES;
     [self.contentView addSubview:_photoButton];
@@ -66,7 +66,9 @@
   [super prepareForReuse];
   
   [_photoButton cancelCurrentImageLoad];
+  [_photoButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
   _photoButton.normalImage = nil;
+  _photoButton.info = nil;
   
   _nicknameLabel.text = nil;
   

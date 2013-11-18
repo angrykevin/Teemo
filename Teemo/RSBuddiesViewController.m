@@ -15,14 +15,6 @@
 
 @implementation RSBuddiesViewController
 
-- (id)init
-{
-  self = [super init];
-  if (self) {
-  }
-  return self;
-}
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -41,10 +33,7 @@
 {
   [super viewWillAppear:animated];
   
-  NSIndexPath *ip = [_tableView indexPathForSelectedRow];
-  if ( ip ) {
-    [_tableView deselectRowAtIndexPath:ip animated:YES];
-  }
+  [_tableView deselectAllRowsAnimated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -131,6 +120,8 @@
 
 - (void)groupButtonClicked:(id)sender
 {
+  TKPRINTMETHOD();
+  
   int section = [sender tag];
   NSMutableDictionary *group = [_groups objectAtIndex:section];
   //NSArray *buddies = [group objectForKey:@"buddies"];
@@ -166,6 +157,19 @@
   }
 }
 
+- (void)photoButtonClicked:(id)sender
+{
+  TKPRINTMETHOD();
+  
+  TBButton *button = (TBButton *)sender;
+  TKDatabaseRow *row = button.info;
+  if ( row ) {
+    RSProfileViewController *vc = [[RSProfileViewController alloc] initWithRow:row];
+    [self.navigationController pushViewController:vc animated:YES];
+  }
+  
+}
+
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -195,6 +199,12 @@
   if ( row ) {
     cell.nicknameLabel.text = [row stringForName:@"nickname"];
     cell.descLabel.text = [row stringForName:@"desc"];
+    
+    cell.photoButton.info = row;
+    
+    [cell.photoButton addTarget:self
+                         action:@selector(photoButtonClicked:)
+               forControlEvents:UIControlEventTouchUpInside];
     
     [cell loadPhoto:[row stringForName:@"photo"]];
     
@@ -262,8 +272,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  RSChatViewController *vc = [[RSChatViewController alloc] init];
-  [self.navigationController pushViewController:vc animated:YES];
+  NSDictionary *group = [_groups objectAtIndex:indexPath.section];
+  NSArray *buddies = [group objectForKey:@"buddies"];
+  TKDatabaseRow *row = [buddies objectOrNilAtIndex:indexPath.row];
+  if ( row ) {
+    RSChatViewController *vc = [[RSChatViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+  }
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath

@@ -116,7 +116,7 @@
   }
   
   TMEngine *engine = [TMEngine sharedEngine];
-  [engine removeAllObservers];
+  //[engine removeAllObservers];
   [TMEngine clearStoredEngine];
   
 }

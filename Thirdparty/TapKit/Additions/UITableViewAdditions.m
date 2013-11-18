@@ -31,6 +31,18 @@
   return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
 }
 
+
+
+#pragma mark - Selection
+
+- (void)deselectAllRowsAnimated:(BOOL)animated
+{
+  NSArray *ips = [self indexPathsForSelectedRows];
+  for ( NSIndexPath *ip in ips ) {
+    [self deselectRowAtIndexPath:ip animated:animated];
+  }
+}
+
 @end
 
 

@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface RSBuddyCell : UITableViewCell {
-  UIButton *_photoButton;
+  TBButton *_photoButton;
   UILabel *_nicknameLabel;
   UILabel *_descLabel;
 }
 
-@property (nonatomic, strong, readonly) UIButton *photoButton;
+@property (nonatomic, strong, readonly) TBButton *photoButton;
 @property (nonatomic, strong, readonly) UILabel *nicknameLabel;
 @property (nonatomic, strong, readonly) UILabel *descLabel;
 

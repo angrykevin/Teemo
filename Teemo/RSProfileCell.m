@@ -58,11 +58,7 @@
   _valueButton.enabled = NO;
   _valueButton.normalTitleColor = [UIColor darkGrayColor];
   _valueButton.highlightedTitleColor = [UIColor darkGrayColor];
-  
-  NSSet *targets = [_valueButton allTargets];
-  for ( id target in targets ) {
-    [_valueButton removeTarget:target action:NULL forControlEvents:UIControlEventAllTouchEvents];
-  }
+  [_valueButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
 }
 
 //+ (CGFloat)heightForTableView:(UITableView *)tableView object:(id)object
