@@ -1,5 +1,5 @@
 //
-//  RSSigninViewController.m
+//  RSSigninViewController.mm
 //  Teemo
 //
 //  Created by Wu Kevin on 11/6/13.
@@ -37,13 +37,15 @@
   _passportLine = [[RSBoxViewLine alloc] init];
   _passportLine.backgroundImageView.image = TBCreateImage(@"box_top.png");
   _passportLine.label.text = NSLocalizedString(@"Passport", @"");
+  _passportLine.textField.delegate = self;
   _passportLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   [_scrollView addSubview:_passportLine];
   
   _passwordLine = [[RSBoxViewLine alloc] init];
-  _passwordLine.textField.secureTextEntry = YES;
   _passwordLine.backgroundImageView.image = TBCreateImage(@"box_bottom.png");
   _passwordLine.label.text = NSLocalizedString(@"Password", @"");
+  _passwordLine.textField.secureTextEntry = YES;
+  _passwordLine.textField.delegate = self;
   _passwordLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   [_scrollView addSubview:_passwordLine];
   
@@ -108,6 +110,21 @@
   AppDelegate *delegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
   [delegate signinWithPassport:passport password:password];
   
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+  if ( range.length == 1 ) {
+    return YES;
+  }
+  
+  NSString *result = [textField.text stringByReplacingCharactersInRange:range withString:string];
+  
+  if ( [result length] <= 50 ) {
+    return YES;
+  }
+  return NO;
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "RSBuddiesViewController.h"
 #import "RSBuddyCell.h"
 
+#import "RSAddBuddyViewController.h"
 #import "RSChatViewController.h"
 #import "RSProfileViewController.h"
 
@@ -19,7 +20,10 @@
 {
   [super viewDidLoad];
   
+  [_navigationView showRightButton];
+  _navigationView.rightButton.normalTitle = NSLocalizedString(@"Add", @"");
   _navigationView.titleLabel.text = NSLocalizedString(@"Buddies", @"");
+  
   
   _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
   _tableView.dataSource = self;
@@ -168,6 +172,12 @@
     [self.navigationController pushViewController:vc animated:YES];
   }
   
+}
+
+- (void)rightButtonClicked:(id)sender
+{
+  RSAddBuddyViewController *vc = [[RSAddBuddyViewController alloc] init];
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 

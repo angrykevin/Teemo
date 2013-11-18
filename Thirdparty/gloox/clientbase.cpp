@@ -428,6 +428,7 @@ namespace gloox
   void ClientBase::parse( const std::string& data )
   {
     // KEVIN
+    printf("PARSE: %d\n", (int)(data.length()));
     printf("%s\n", data.c_str());
     printf("-------------------------------------------------->>\n");
     

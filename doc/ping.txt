@@ -1,0 +1,9 @@
+-------------------------------------------------->>
+PARSE: 105
+<iq type="get" id="545-146" from="batoo.com" to="alex@batoo.com/Teemo">
+  <ping xmlns="urn:xmpp:ping"/>
+</iq>
+-------------------------------------------------->>
+SEND: 97
+<iq to='batoo.com' id='545-146' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>

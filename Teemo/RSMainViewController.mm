@@ -1,5 +1,5 @@
 //
-//  RSMainViewController.m
+//  RSMainViewController.mm
 //  Teemo
 //
 //  Created by Wu Kevin on 11/6/13.

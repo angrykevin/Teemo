@@ -31,27 +31,28 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
     
     TKDatabase *db = [TKDatabase sharedObject];
     
-    NSArray *buddies = [db executeQuery:@"SELECT pk,bid,groupname FROM tBuddy WHERE bid=?;", bid];
+    NSArray *buddies = [db executeQuery:@"SELECT pk,bid,displayname,groupname FROM tBuddy WHERE bid=?;", bid];
     if ( [buddies count] > 0 ) {
       TKDatabaseRow *row = [buddies firstObject];
       
       int pk = [row intForName:@"pk"];
-      NSString *group = [row stringForName:@"groupname"];
+      NSString *displayname = [row stringForName:@"displayname"];
+      NSString *groupname = [row stringForName:@"groupname"];
       
       [db executeUpdate:@"DELETE FROM tBuddy WHERE bid=?;", bid];
       
-      [db executeUpdate:@"INSERT INTO tBuddy(pk,bid,nickname,familyname,givenname,photo,birthday,desc,homepage,groupname) VALUES(?,?,?,?,?,?,?,?,?,?);",
+      [db executeUpdate:@"INSERT INTO tBuddy(pk,bid,displayname,groupname,nickname,familyname,givenname,photo,birthday,desc,homepage) VALUES(?,?,?,?,?,?,?,?,?,?,?);",
        [NSNumber numberWithInt:pk],
        bid,
+       displayname,
+       groupname,
        OBJCSTR( vcard->nickname() ),
        OBJCSTR( vcard->name().family ),
        OBJCSTR( vcard->name().given ),
        OBJCSTR( vcard->photo().extval ),
        OBJCSTR( vcard->bday() ),
        OBJCSTR( vcard->desc() ),
-       OBJCSTR( vcard->url() ),
-       group];
-      
+       OBJCSTR( vcard->url() )];
     }
     
   }

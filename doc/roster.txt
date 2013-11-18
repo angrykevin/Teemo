@@ -1,0 +1,475 @@
+
+
+添加不存在的用户
+SEND: 206
+<iq id='uid-dd495b68-0000000a' type='set' from='alex@batoo.com/Teemo' xmlns='jabber:client'>
+  <query xmlns='jabber:iq:roster'>
+    <item jid='nonexist@batoo.com' name='a_dn'>
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+SEND: 134
+<presence to='nonexist@batoo.com' type='subscribe' from='alex@batoo.com/Teemo' xmlns='jabber:client'>
+  <status>a_msg</status>
+</presence>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 188
+<iq type="set" id="141-133" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="nonexist@batoo.com" name="a_dn" subscription="none">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemAdded(const gloox::JID &)
+SEND: 82
+<iq id='141-133' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 72
+<iq type="result" id="uid-dd495b68-0000000a" to="alex@batoo.com/Teemo"/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 204
+<iq type="set" id="554-134" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="nonexist@batoo.com" name="a_dn" ask="subscribe" subscription="none">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUpdated(const gloox::JID &)
+SEND: 82
+<iq id='554-134' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+
+
+添加存在的用户
+SEND: 203
+<iq id='uid-dd495b68-0000000b' type='set' from='alex@batoo.com/Teemo' xmlns='jabber:client'>
+  <query xmlns='jabber:iq:roster'>
+    <item jid='kevin@batoo.com' name='a_dn'>
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+SEND: 131
+<presence to='kevin@batoo.com' type='subscribe' from='alex@batoo.com/Teemo' xmlns='jabber:client'>
+  <status>a_msg</status>
+</presence>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 185
+<iq type="set" id="157-138" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" name="a_dn" subscription="none">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemAdded(const gloox::JID &)
+SEND: 82
+<iq id='157-138' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 72
+<iq type="result" id="uid-dd495b68-0000000b" to="alex@batoo.com/Teemo"/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 201
+<iq type="set" id="666-139" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" name="a_dn" ask="subscribe" subscription="none">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUpdated(const gloox::JID &)
+SEND: 82
+<iq id='666-139' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+
+
+用户打开软件
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 183
+<iq type="set" id="468-156" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" name="a_dn" subscription="to">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUpdated(const gloox::JID &)
+SEND: 82
+<iq id='468-156' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 85
+<presence id="O4end-7" to="alex@batoo.com" type="subscribed" from="kevin@batoo.com"/>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemSubscribed(const gloox::JID &)
+RECV: 74
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 134
+<presence id="O4end-6" from="kevin@batoo.com/Spark" to="alex@batoo.com/Teemo">
+  <status>Online</status>
+  <priority>1</priority>
+</presence>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleRosterPresence(const gloox::RosterItem &, const std::string &, Presence::PresenceType, const std::string &)
+virtual void TMPresenceHandler::handlePresence(const gloox::Presence &)
+
+
+用户关闭请求窗口
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 185
+<iq type="set" id="340-159" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" name="a_dn" subscription="none">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUpdated(const gloox::JID &)
+SEND: 82
+<iq id='340-159' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 74
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 87
+<presence id="O4end-25" to="alex@batoo.com" type="unsubscribe" from="kevin@batoo.com"/>
+-------------------------------------------------->>
+SEND: 102
+<presence to='kevin@batoo.com' type='unsubscribed' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+virtual bool TMRosterHandler::handleUnsubscriptionRequest(const gloox::JID &, const std::string &)
+SEND: 188
+<iq id='uid-dd495b68-0000000e' type='set' from='alex@batoo.com/Teemo' xmlns='jabber:client'>
+  <query xmlns='jabber:iq:roster'>
+    <item jid='kevin@batoo.com' subscription='remove'/>
+  </query>
+</iq>
+-------------------------------------------------->>
+RECV: 180
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 150
+<iq type="set" id="289-160" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" subscription="remove"/>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemRemoved(const gloox::JID &)
+SEND: 82
+<iq id='289-160' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 72
+<iq type="result" id="uid-dd495b68-0000000e" to="alex@batoo.com/Teemo"/>
+-------------------------------------------------->>
+
+
+被用户拒绝
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 87
+<presence id="O4end-27" to="alex@batoo.com" type="unsubscribe" from="kevin@batoo.com"/>
+-------------------------------------------------->>
+SEND: 102
+<presence to='kevin@batoo.com' type='unsubscribed' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+virtual bool TMRosterHandler::handleUnsubscriptionRequest(const gloox::JID &, const std::string &)
+SEND: 188
+<iq id='uid-dd495b68-00000010' type='set' from='alex@batoo.com/Teemo' xmlns='jabber:client'>
+  <query xmlns='jabber:iq:roster'>
+    <item jid='kevin@batoo.com' subscription='remove'/>
+  </query>
+</iq>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 150
+<iq type="set" id="620-165" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" subscription="remove"/>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemRemoved(const gloox::JID &)
+SEND: 82
+<iq id='620-165' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 72
+<iq type="result" id="uid-dd495b68-00000010" to="alex@batoo.com/Teemo"/>
+-------------------------------------------------->>
+
+
+被用户接受(单方面)
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 183
+<iq type="set" id="418-172" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" name="a_dn" subscription="to">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUpdated(const gloox::JID &)
+SEND: 82
+<iq id='418-172' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 164
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 86
+<presence id="O4end-28" to="alex@batoo.com" type="subscribed" from="kevin@batoo.com"/>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemSubscribed(const gloox::JID &)
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 134
+<presence id="O4end-6" from="kevin@batoo.com/Spark" to="alex@batoo.com/Teemo">
+  <status>Online</status>
+  <priority>1</priority>
+</presence>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleRosterPresence(const gloox::RosterItem &, const std::string &, Presence::PresenceType, const std::string &)
+virtual void TMPresenceHandler::handlePresence(const gloox::Presence &)
+
+
+被用户接受
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 85
+<presence id="O4end-31" to="alex@batoo.com" type="subscribe" from="kevin@batoo.com"/>
+-------------------------------------------------->>
+virtual bool TMRosterHandler::handleSubscriptionRequest(const gloox::JID &, const std::string &)
+SEND: 100
+<presence to='kevin@batoo.com' type='subscribed' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 201
+<iq type="set" id="574-180" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" name="a_dn" ask="subscribe" subscription="from">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUpdated(const gloox::JID &)
+SEND: 82
+<iq id='574-180' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 185
+<iq type="set" id="225-183" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" name="a_dn" subscription="both">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUpdated(const gloox::JID &)
+SEND: 82
+<iq id='225-183' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 164
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 86
+<presence id="O4end-32" to="alex@batoo.com" type="subscribed" from="kevin@batoo.com"/>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemSubscribed(const gloox::JID &)
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 134
+<presence id="O4end-6" from="kevin@batoo.com/Spark" to="alex@batoo.com/Teemo">
+  <status>Online</status>
+  <priority>1</priority>
+</presence>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleRosterPresence(const gloox::RosterItem &, const std::string &, Presence::PresenceType, const std::string &)
+virtual void TMPresenceHandler::handlePresence(const gloox::Presence &)
+
+
+被用户删除
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 183
+<iq type="set" id="894-186" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" name="a_dn" subscription="to">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUpdated(const gloox::JID &)
+SEND: 82
+<iq id='894-186' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 73
+<presence from="kevin@batoo.com" to="alex@batoo.com" type="unsubscribe"/>
+-------------------------------------------------->>
+SEND: 102
+<presence to='kevin@batoo.com' type='unsubscribed' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+virtual bool TMRosterHandler::handleUnsubscriptionRequest(const gloox::JID &, const std::string &)
+SEND: 188
+<iq id='uid-dd495b68-00000013' type='set' from='alex@batoo.com/Teemo' xmlns='jabber:client'>
+  <query xmlns='jabber:iq:roster'>
+    <item jid='kevin@batoo.com' subscription='remove'/>
+  </query>
+</iq>
+-------------------------------------------------->>
+RECV: 180
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 183
+<iq type="set" id="0-188" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" name="a_dn" subscription="none">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUpdated(const gloox::JID &)
+SEND: 80
+<iq id='0-188' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 185
+<iq type="set" id="255-189" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" name="a_dn" subscription="none">
+      <group>a_gn</group>
+    </item>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUpdated(const gloox::JID &)
+SEND: 82
+<iq id='255-189' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 164
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 74
+<presence from="kevin@batoo.com" to="alex@batoo.com" type="unsubscribed"/>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemUnsubscribed(const gloox::JID &)
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 85
+<presence type="unavailable" from="kevin@batoo.com/Spark" to="alex@batoo.com/Teemo"/>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleRosterPresence(const gloox::RosterItem &, const std::string &, Presence::PresenceType, const std::string &)
+virtual void TMPresenceHandler::handlePresence(const gloox::Presence &)
+RECV: 180
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 150
+<iq type="set" id="394-192" to="alex@batoo.com/Teemo">
+  <query xmlns="jabber:iq:roster">
+    <item jid="kevin@batoo.com" subscription="remove"/>
+  </query>
+</iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemRemoved(const gloox::JID &)
+SEND: 82
+<iq id='394-192' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 72
+<iq type="result" id="uid-dd495b68-00000013" to="alex@batoo.com/Teemo"/>
+-------------------------------------------------->>
+
+
+删除别人

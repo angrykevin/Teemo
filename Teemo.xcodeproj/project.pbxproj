@@ -18,6 +18,15 @@
 		BC47AE9718334CC300331216 /* RSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BC47AE9618334CC300331216 /* RSAccount.m */; };
 		BC4D139D1830E77300572F67 /* TMConnectionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */; };
 		BC552DBA1839C57C0078375F /* TBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC552DB91839C57C0078375F /* TBButton.m */; };
+		BC552DC31839DC350078375F /* status_away.png in Resources */ = {isa = PBXBuildFile; fileRef = BC552DBB1839DC350078375F /* status_away.png */; };
+		BC552DC41839DC350078375F /* status_away@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC552DBC1839DC350078375F /* status_away@2x.png */; };
+		BC552DC51839DC350078375F /* status_dnd.png in Resources */ = {isa = PBXBuildFile; fileRef = BC552DBD1839DC350078375F /* status_dnd.png */; };
+		BC552DC61839DC350078375F /* status_dnd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC552DBE1839DC350078375F /* status_dnd@2x.png */; };
+		BC552DC71839DC350078375F /* status_offline.png in Resources */ = {isa = PBXBuildFile; fileRef = BC552DBF1839DC350078375F /* status_offline.png */; };
+		BC552DC81839DC350078375F /* status_offline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC552DC01839DC350078375F /* status_offline@2x.png */; };
+		BC552DC91839DC350078375F /* status_online.png in Resources */ = {isa = PBXBuildFile; fileRef = BC552DC11839DC350078375F /* status_online.png */; };
+		BC552DCA1839DC350078375F /* status_online@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC552DC21839DC350078375F /* status_online@2x.png */; };
+		BC552DCF1839FF400078375F /* RSAddBuddyViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC552DCE1839FF400078375F /* RSAddBuddyViewController.mm */; };
 		BC5EE0DD182A196A007D5DE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE0DC182A196A007D5DE6 /* Foundation.framework */; };
 		BC5EE0DF182A196A007D5DE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE0DE182A196A007D5DE6 /* CoreGraphics.framework */; };
 		BC5EE0E1182A196A007D5DE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE0E0182A196A007D5DE6 /* UIKit.framework */; };
@@ -257,6 +266,16 @@
 		BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMConnectionHandler.mm; sourceTree = "<group>"; };
 		BC552DB81839C57C0078375F /* TBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBButton.h; sourceTree = "<group>"; };
 		BC552DB91839C57C0078375F /* TBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBButton.m; sourceTree = "<group>"; };
+		BC552DBB1839DC350078375F /* status_away.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_away.png; sourceTree = "<group>"; };
+		BC552DBC1839DC350078375F /* status_away@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status_away@2x.png"; sourceTree = "<group>"; };
+		BC552DBD1839DC350078375F /* status_dnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_dnd.png; sourceTree = "<group>"; };
+		BC552DBE1839DC350078375F /* status_dnd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status_dnd@2x.png"; sourceTree = "<group>"; };
+		BC552DBF1839DC350078375F /* status_offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_offline.png; sourceTree = "<group>"; };
+		BC552DC01839DC350078375F /* status_offline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status_offline@2x.png"; sourceTree = "<group>"; };
+		BC552DC11839DC350078375F /* status_online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_online.png; sourceTree = "<group>"; };
+		BC552DC21839DC350078375F /* status_online@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status_online@2x.png"; sourceTree = "<group>"; };
+		BC552DCD1839FF400078375F /* RSAddBuddyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAddBuddyViewController.h; sourceTree = "<group>"; };
+		BC552DCE1839FF400078375F /* RSAddBuddyViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSAddBuddyViewController.mm; sourceTree = "<group>"; };
 		BC5EE0D9182A196A007D5DE6 /* Teemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5EE0DC182A196A007D5DE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BC5EE0DE182A196A007D5DE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -860,8 +879,6 @@
 				BC5EE0EC182A196A007D5DE6 /* AppDelegate.mm */,
 				BC5EE305182A209D007D5DE6 /* RSSigninViewController.h */,
 				BC5EE306182A209D007D5DE6 /* RSSigninViewController.mm */,
-				BC840427182CADA40058EBDC /* RSBoxViewLine.h */,
-				BC840428182CADA40058EBDC /* RSBoxViewLine.m */,
 				BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */,
 				BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */,
 				BCA23D5E1832294000E93718 /* Chatlog */,
@@ -1356,6 +1373,14 @@
 				BC840695182CC3870058EBDC /* navbar_bt_back@2x.png */,
 				BC840696182CC3870058EBDC /* navbar_bt_normal.png */,
 				BC840697182CC3870058EBDC /* navbar_bt_normal@2x.png */,
+				BC552DBB1839DC350078375F /* status_away.png */,
+				BC552DBC1839DC350078375F /* status_away@2x.png */,
+				BC552DBD1839DC350078375F /* status_dnd.png */,
+				BC552DBE1839DC350078375F /* status_dnd@2x.png */,
+				BC552DBF1839DC350078375F /* status_offline.png */,
+				BC552DC01839DC350078375F /* status_offline@2x.png */,
+				BC552DC11839DC350078375F /* status_online.png */,
+				BC552DC21839DC350078375F /* status_online@2x.png */,
 				BC840698182CC3870058EBDC /* tabbar_bg.png */,
 				BC840699182CC3870058EBDC /* tabbar_bg@2x.png */,
 				BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */,
@@ -1463,6 +1488,8 @@
 		BC840708182CC6FF0058EBDC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC840427182CADA40058EBDC /* RSBoxViewLine.h */,
+				BC840428182CADA40058EBDC /* RSBoxViewLine.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1514,6 +1541,8 @@
 				BCA23D5B1832293200E93718 /* RSBuddiesViewController.m */,
 				BCB44DFC1834D5B6007D074E /* RSBuddyCell.h */,
 				BCB44DFD1834D5B6007D074E /* RSBuddyCell.m */,
+				BC552DCD1839FF400078375F /* RSAddBuddyViewController.h */,
+				BC552DCE1839FF400078375F /* RSAddBuddyViewController.mm */,
 				BC403C371835B82B00B50317 /* RSChatViewController.h */,
 				BC403C381835B82B00B50317 /* RSChatViewController.mm */,
 				BC403C3A1835B87A00B50317 /* RSProfileViewController.h */,
@@ -1631,6 +1660,7 @@
 				BC8406A5182CC3870058EBDC /* button_large_black@2x.png in Resources */,
 				BC8406B6182CC3870058EBDC /* Images.xcassets in Resources */,
 				BC8406A0182CC3870058EBDC /* box_middle.png in Resources */,
+				BC552DC91839DC350078375F /* status_online.png in Resources */,
 				BC8406AB182CC3870058EBDC /* button_small_white@2x.png in Resources */,
 				BC8406A8182CC3870058EBDC /* button_small_black.png in Resources */,
 				BC8406A6182CC3870058EBDC /* button_large_white.png in Resources */,
@@ -1642,12 +1672,17 @@
 				BC84069E182CC3870058EBDC /* box_bottom.png in Resources */,
 				BC8406A9182CC3870058EBDC /* button_small_black@2x.png in Resources */,
 				BC8406B4182CC3870058EBDC /* toolbar_bg.png in Resources */,
+				BC552DC31839DC350078375F /* status_away.png in Resources */,
+				BC552DCA1839DC350078375F /* status_online@2x.png in Resources */,
 				BCA23D50183224E300E93718 /* tabbar_setting_h.png in Resources */,
 				BCA23D4F183224E300E93718 /* tabbar_chatlog_n@2x.png in Resources */,
+				BC552DC51839DC350078375F /* status_dnd.png in Resources */,
 				BC8406AC182CC3870058EBDC /* navbar_bg.png in Resources */,
 				BC8406B1182CC3870058EBDC /* navbar_bt_normal@2x.png in Resources */,
+				BC552DC81839DC350078375F /* status_offline@2x.png in Resources */,
 				BC8406A2182CC3870058EBDC /* box_top.png in Resources */,
 				BCA23D4D183224E300E93718 /* tabbar_chatlog_h@2x.png in Resources */,
+				BC552DC61839DC350078375F /* status_dnd@2x.png in Resources */,
 				BC8406B0182CC3870058EBDC /* navbar_bt_normal.png in Resources */,
 				BC8406A3182CC3870058EBDC /* box_top@2x.png in Resources */,
 				BC8406B3182CC3870058EBDC /* tabbar_bg@2x.png in Resources */,
@@ -1657,9 +1692,11 @@
 				BCA23D4C183224E300E93718 /* tabbar_chatlog_h.png in Resources */,
 				BC8406B2182CC3870058EBDC /* tabbar_bg.png in Resources */,
 				BC8406AA182CC3870058EBDC /* button_small_white.png in Resources */,
+				BC552DC71839DC350078375F /* status_offline.png in Resources */,
 				BCA23D52183224E300E93718 /* tabbar_setting_n.png in Resources */,
 				BC8406A4182CC3870058EBDC /* button_large_black.png in Resources */,
 				BC8406A7182CC3870058EBDC /* button_large_white@2x.png in Resources */,
+				BC552DC41839DC350078375F /* status_away@2x.png in Resources */,
 				BCA23D4E183224E300E93718 /* tabbar_chatlog_n.png in Resources */,
 				BC84069F182CC3870058EBDC /* box_bottom@2x.png in Resources */,
 				BC8406AD182CC3870058EBDC /* navbar_bg@2x.png in Resources */,
@@ -1703,6 +1740,7 @@
 				BC84064F182CC2F00058EBDC /* sha.cpp in Sources */,
 				BC5EE304182A1FAC007D5DE6 /* TMVCardHandler.mm in Sources */,
 				BCB44E191834E02A007D074E /* SDWebImageCompat.m in Sources */,
+				BC552DCF1839FF400078375F /* RSAddBuddyViewController.mm in Sources */,
 				BC84060D182CC2F00058EBDC /* compressionzlib.cpp in Sources */,
 				BC840665182CC2F00058EBDC /* util.cpp in Sources */,
 				BC840600182CC2F00058EBDC /* annotations.cpp in Sources */,

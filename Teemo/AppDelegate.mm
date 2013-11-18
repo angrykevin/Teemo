@@ -1,5 +1,5 @@
 //
-//  AppDelegate.m
+//  AppDelegate.mm
 //  Teemo
 //
 //  Created by Wu Kevin on 11/6/13.
@@ -19,7 +19,6 @@
 {
   RSDatabaseCreate();
   RSDatabaseSetUpTables();
-  
   
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];

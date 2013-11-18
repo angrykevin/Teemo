@@ -124,12 +124,15 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     TMPRINT("BUDDY: %s\n", bare.c_str());
     
     RosterItem *item = it->second;
-    string group = item->groups().front();
-    if ( group.length() <= 0 ) {
-      group = string( "Friends" );
+    string groupname = item->groups().front();
+    if ( groupname.length() <= 0 ) {
+      groupname = string( "Friends" );
     }
     
-    [db executeUpdate:@"INSERT INTO tBuddy(bid,groupname) VALUES(?,?);", OBJCSTR(bare), OBJCSTR(group)];
+    string displayname = item->name();
+    
+    
+    [db executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);", OBJCSTR(bare), OBJCSTR(displayname), OBJCSTR(groupname)];
     
     TMEngine *engine = [TMEngine sharedEngine];
     VCardManager *manager = [engine vcardManager];

@@ -10,7 +10,9 @@
 #import "RSBoxViewLine.h"
 
 
-@interface RSSigninViewController : TBViewController {
+@interface RSSigninViewController : TBViewController<
+    UITextFieldDelegate
+> {
   
   UIScrollView *_scrollView;
   

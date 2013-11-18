@@ -2,6 +2,8 @@
 CREATE TABLE tBuddy(
   pk INTEGER PRIMARY KEY,
   bid TEXT,
+  displayname TEXT,
+  groupname TEXT
 
   nickname TEXT,
   familyname TEXT,
@@ -9,9 +11,7 @@ CREATE TABLE tBuddy(
   photo TEXT,
   birthday TEXT,
   desc TEXT,
-  homepage TEXT, 
-  
-  groupname TEXT
+  homepage TEXT,
 );
 
 CREATE TABLE tChatlog(

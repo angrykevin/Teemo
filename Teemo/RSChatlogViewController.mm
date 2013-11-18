@@ -1,5 +1,5 @@
 //
-//  RSChatlogViewController.m
+//  RSChatlogViewController.mm
 //  Teemo
 //
 //  Created by Wu Kevin on 11/12/13.
