@@ -19,7 +19,6 @@
 {
   self = [super init];
   if (self) {
-    [self reloadRoster];
   }
   return self;
 }
@@ -33,6 +32,7 @@
   _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
   _tableView.dataSource = self;
   _tableView.delegate = self;
+  _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   [_contentView addSubview:_tableView];
   
 }
@@ -51,10 +51,13 @@
 {
   [super viewDidAppear:animated];
   
+  if ( _appearedTimes == 1 ) {
+    [self reloadRoster];
+    [_tableView reloadData];
+  }
+  
   [self addFooterIfNeeded];
   
-  [self reloadRoster];
-  [_tableView reloadData];
 }
 
 - (void)layoutViews
@@ -74,7 +77,7 @@
   
   NSMutableArray *groups = [[NSMutableArray alloc] init];
   
-  NSArray *dbGroups = [db executeQuery:@"SELECT DISTINCT group FROM tBuddy ORDER BY group;"];
+  NSArray *dbGroups = [db executeQuery:@"SELECT DISTINCT groupname FROM tBuddy ORDER BY groupname;"];
   
   for ( int i=0; i<[dbGroups count]; ++i ) {
     TKDatabaseRow *dbGroup = [dbGroups objectAtIndex:i];
@@ -84,11 +87,11 @@
     
     [group setObject:[NSNumber numberWithBool:NO] forKeyIfNotNil:@"open"];
     
-    NSString *groupName = [dbGroup stringForName:@"group"];
+    NSString *groupName = [dbGroup stringForName:@"groupname"];
     [group setObject:groupName forKeyIfNotNil:@"name"];
     
     
-    NSArray *dbBuddies = [db executeQuery:@"SELECT * FROM tBuddy WHERE group=? ORDER BY nickname;", groupName];
+    NSArray *dbBuddies = [db executeQuery:@"SELECT * FROM tBuddy WHERE groupname=? ORDER BY nickname;", groupName];
     [group setObject:dbBuddies forKeyIfNotNil:@"buddies"];
     
   }
@@ -210,7 +213,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
   UIView *header = [[UIView alloc] init];
-  header.frame = CGRectMake(0.0, 0.0, 320.0, 30.0);
+  header.frame = CGRectMake(0.0, 0.0, 320.0, 40.0);
   
   UILabel *nameLabel = [UILabel labelWithFont:[UIFont systemFontOfSize:12.0]
                                     textColor:[UIColor blackColor]
@@ -220,7 +223,7 @@
                     adjustsFontSizeToFitWidth:NO
                                 numberOfLines:1];
   [header addSubview:nameLabel];
-  nameLabel.frame = CGRectMake(10.0, 0.0, 250.0, 30.0);
+  nameLabel.frame = CGRectMake(10.0, 0.0, 250.0, 40.0);
   
   UILabel *statisticsLabel = [UILabel labelWithFont:[UIFont systemFontOfSize:12.0]
                                           textColor:[UIColor darkGrayColor]
@@ -230,7 +233,7 @@
                           adjustsFontSizeToFitWidth:NO
                                       numberOfLines:1];
   [header addSubview:statisticsLabel];
-  statisticsLabel.frame = CGRectMake(260.0, 0.0, 50.0, 30.0);
+  statisticsLabel.frame = CGRectMake(260.0, 0.0, 50.0, 40.0);
   
   UIButton *button = [[UIButton alloc] init];
   button.tag = section;
@@ -253,7 +256,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-  return 30.0;
+  return 40.0;
 }
 
 

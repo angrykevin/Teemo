@@ -11,7 +11,7 @@ CREATE TABLE tBuddy(
   desc TEXT,
   homepage TEXT, 
   
-  group TEXT
+  groupname TEXT
 );
 
 CREATE TABLE tChatlog(

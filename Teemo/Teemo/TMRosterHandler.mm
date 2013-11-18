@@ -129,7 +129,7 @@ void TMRosterHandler::handleRoster( const Roster& roster )
       group = string( "Friends" );
     }
     
-    [db executeUpdate:@"INSERT INTO tBuddy(bid,group) VALUES(?,?);", OBJCSTR(bare), OBJCSTR(group)];
+    [db executeUpdate:@"INSERT INTO tBuddy(bid,groupname) VALUES(?,?);", OBJCSTR(bare), OBJCSTR(group)];
     
     TMEngine *engine = [TMEngine sharedEngine];
     VCardManager *manager = [engine vcardManager];
