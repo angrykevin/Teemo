@@ -15,6 +15,38 @@
 void TMRosterHandler::handleItemAdded( const JID& jid )
 {
   TMPRINTMETHOD();
+  TMEngine *engine = [TMEngine sharedEngine];
+  RosterManager *manager = [engine rosterManager];
+  Roster *roster = manager->roster();
+  
+  map<const string, RosterItem*>::const_iterator it = roster->begin();
+  
+  for ( ; it != roster->end(); ++it ) {
+    
+    JID jid( it->first );
+    string bare = jid.bare();
+    
+    RosterItem *item = it->second;
+    string groupname = item->groups().front();
+    if ( groupname.length() <= 0 ) {
+      groupname = string( "Friends" );
+    }
+    
+    string displayname = item->name();
+    
+    TMPRINT("BUDDY: %s %s %s\n", bare.c_str(), groupname.c_str(), displayname.c_str());
+    
+    
+//    TKDatabase *db = [TKDatabase sharedObject];
+//    [db executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);", OBJCSTR(bare), OBJCSTR(displayname), OBJCSTR(groupname)];
+//    
+//    TMEngine *engine = [TMEngine sharedEngine];
+//    VCardManager *manager = [engine vcardManager];
+//    manager->fetchVCard(JID( bare ), [engine vcardHandler]);
+    
+    
+  }
+  
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
@@ -121,7 +153,6 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     
     JID jid( it->first );
     string bare = jid.bare();
-    TMPRINT("BUDDY: %s\n", bare.c_str());
     
     RosterItem *item = it->second;
     string groupname = item->groups().front();
@@ -130,6 +161,8 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     }
     
     string displayname = item->name();
+    
+    TMPRINT("BUDDY: %s %s %s\n", bare.c_str(), groupname.c_str(), displayname.c_str());
     
     
     [db executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);", OBJCSTR(bare), OBJCSTR(displayname), OBJCSTR(groupname)];
