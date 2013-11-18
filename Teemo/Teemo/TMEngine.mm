@@ -76,15 +76,13 @@ static TMEngine *CurrentEngine = nil;
 
 - (BOOL)connect
 {
+  TKPRINTMETHOD();
+  
   if ( _cancelled ) {
     return NO;
   }
   
-  if ( ! (_client->connect( false )) ) {
-    return NO;
-  }
-  
-  [self performSelector:@selector(monitorClient:)
+  [self performSelector:@selector(connectionBody:)
                onThread:[[self class] engineThread]
              withObject:[NSValue valueWithPointer:_client]
           waitUntilDone:NO
@@ -92,6 +90,7 @@ static TMEngine *CurrentEngine = nil;
   
   
   return YES;
+  
 }
 
 - (void)disconnect
@@ -154,17 +153,19 @@ static TMEngine *CurrentEngine = nil;
 
 
 
-- (void)monitorClient:(NSValue *)value
+- (void)connectionBody:(NSValue *)value
 {
   @autoreleasepool {
     
     Client *client = (Client *)[value pointerValue];
     
-    while ( !_cancelled ) {
-      client->recv( 1000000 );
+    if ( client->connect( false ) ) {
+      while ( !_cancelled ) {
+        client->recv( 1000000 );
+      }
+      
+      client->disconnect();
     }
-    
-    client->disconnect();
     
   }
 }
