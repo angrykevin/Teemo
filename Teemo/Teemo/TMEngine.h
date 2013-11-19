@@ -35,7 +35,7 @@ using namespace gloox;
   TMRosterHandler *_rosterHandler;
   
   
-  
+  TKDatabase *_database;
   
   
   
@@ -52,6 +52,10 @@ using namespace gloox;
 - (void)disconnect;
 - (void)removeAllObservers;
 
+- (void)createDatabase;
+- (void)setUpDatabase;
+- (void)clearDatabase;
+
 
 
 - (NSString *)passport;
@@ -59,10 +63,13 @@ using namespace gloox;
 
 - (Client *)client;
 - (VCardManager *)vcardManager;
+- (RosterManager *)rosterManager;
 
 - (TMConnectionHandler *)connectionHandler;
 - (TMPresenceHandler *)presenceHandler;
 - (TMVCardHandler *)vcardHandler;
-- (RosterManager *)rosterManager;
+- (TMRosterHandler *)rosterHandler;
+
+- (TKDatabase *)database;
 
 @end

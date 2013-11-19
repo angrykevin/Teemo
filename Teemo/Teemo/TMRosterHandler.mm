@@ -15,35 +15,44 @@
 void TMRosterHandler::handleItemAdded( const JID& jid )
 {
   TMPRINTMETHOD();
-  TMEngine *engine = [TMEngine sharedEngine];
-  RosterManager *manager = [engine rosterManager];
-  Roster *roster = manager->roster();
   
-  map<const string, RosterItem*>::const_iterator it = roster->begin();
+  TMEngine *engine = [TMEngine sharedEngine];
+  
+  Roster *roster = [engine rosterManager]->roster();
+  Roster::const_iterator it = roster->begin();
   
   for ( ; it != roster->end(); ++it ) {
     
-    JID jid( it->first );
-    string bare = jid.bare();
-    
+    JID tmp( it->first );
     RosterItem *item = it->second;
-    string groupname = item->groups().front();
-    if ( groupname.length() <= 0 ) {
-      groupname = string( "Friends" );
+    
+    if ( jid.bare() == tmp.bare() ) {
+      
+      string groupname = item->groups().front();
+      string displayname = item->name();
+      
+      TMPRINT("BUDDY: %s %s %s\n", tmp.bare().c_str(), groupname.c_str(), displayname.c_str());
+      
+      NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM tBuddy WHERE bid=?;", OBJCSTR(tmp.bare())];
+      if ( [buddies count] > 0 ) {
+        
+        [[engine database] executeUpdate:@"UPDATE tBuddy SET displayname=?, groupname=? WHERE bid=?;",
+         OBJCSTR(displayname),
+         OBJCSTR(groupname),
+         OBJCSTR(tmp.bare())];
+        
+      } else {
+        
+        [[engine database] executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);",
+         OBJCSTR(tmp.bare()),
+         OBJCSTR(displayname),
+         OBJCSTR(groupname)];
+        
+      }
+      
+      [engine vcardManager]->fetchVCard(JID( tmp.bare() ), [engine vcardHandler]);
+      
     }
-    
-    string displayname = item->name();
-    
-    TMPRINT("BUDDY: %s %s %s\n", bare.c_str(), groupname.c_str(), displayname.c_str());
-    
-    
-//    TKDatabase *db = [TKDatabase sharedObject];
-//    [db executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);", OBJCSTR(bare), OBJCSTR(displayname), OBJCSTR(groupname)];
-//    
-//    TMEngine *engine = [TMEngine sharedEngine];
-//    VCardManager *manager = [engine vcardManager];
-//    manager->fetchVCard(JID( bare ), [engine vcardHandler]);
-    
     
   }
   
@@ -86,6 +95,10 @@ void TMRosterHandler::handleItemRemoved( const JID& jid )
 {
   TMPRINTMETHOD();
   
+  TMEngine *engine = [TMEngine sharedEngine];
+  [[engine database] executeUpdate:@"DELETE FROM tBuddy WHERE bid=?;", OBJCSTR(jid.bare())];
+  
+  
   dispatch_sync(dispatch_get_main_queue(), ^{
     
     list<void *>::const_iterator it = m_observers.begin();
@@ -104,6 +117,48 @@ void TMRosterHandler::handleItemRemoved( const JID& jid )
 void TMRosterHandler::handleItemUpdated( const JID& jid )
 {
   TMPRINTMETHOD();
+  
+  TMEngine *engine = [TMEngine sharedEngine];
+  
+  Roster *roster = [engine rosterManager]->roster();
+  Roster::const_iterator it = roster->begin();
+  
+  for ( ; it!=roster->end(); ++it ) {
+    
+    JID tmp( it->first );
+    RosterItem *item = it->second;
+    
+    if ( jid.bare() == tmp.bare() ) {
+      
+      string groupname = item->groups().front();
+      string displayname = item->name();
+      
+      TMPRINT("BUDDY: %s %s %s\n", tmp.bare().c_str(), groupname.c_str(), displayname.c_str());
+      
+      
+      NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM tBuddy WHERE bid=?;", OBJCSTR(tmp.bare())];
+      if ( [buddies count] > 0 ) {
+        
+        [[engine database] executeUpdate:@"UPDATE tBuddy SET displayname=?, groupname=? WHERE bid=?;",
+         OBJCSTR(displayname),
+         OBJCSTR(groupname),
+         OBJCSTR(tmp.bare())];
+        
+      } else {
+        
+        [[engine database] executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);",
+         OBJCSTR(tmp.bare()),
+         OBJCSTR(displayname),
+         OBJCSTR(groupname)];
+        
+      }
+      
+      [engine vcardManager]->fetchVCard(JID( tmp.bare() ), [engine vcardHandler]);
+      
+    }
+    
+  }
+  
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
@@ -143,33 +198,29 @@ void TMRosterHandler::handleRoster( const Roster& roster )
 {
   TMPRINTMETHOD();
   
-  TKDatabase *db = [TKDatabase sharedObject];
-  [db executeUpdate:@"DELETE FROM tBuddy;"];
+  TMEngine *engine = [TMEngine sharedEngine];
   
+  [[engine database] executeUpdate:@"DELETE FROM tBuddy;"];
   
-  map<const string, RosterItem*>::const_iterator it = roster.begin();
+  Roster::const_iterator it = roster.begin();
   
-  for ( ; it != roster.end(); ++it ) {
+  for ( ; it!=roster.end(); ++it ) {
     
     JID jid( it->first );
-    string bare = jid.bare();
-    
     RosterItem *item = it->second;
-    string groupname = item->groups().front();
-    if ( groupname.length() <= 0 ) {
-      groupname = string( "Friends" );
-    }
     
+    string groupname = item->groups().front();
     string displayname = item->name();
     
-    TMPRINT("BUDDY: %s %s %s\n", bare.c_str(), groupname.c_str(), displayname.c_str());
+    TMPRINT("BUDDY: %s %s %s\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str());
     
     
-    [db executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);", OBJCSTR(bare), OBJCSTR(displayname), OBJCSTR(groupname)];
+    [[engine database] executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);",
+     OBJCSTR(jid.bare()),
+     OBJCSTR(displayname),
+     OBJCSTR(groupname)];
     
-    TMEngine *engine = [TMEngine sharedEngine];
-    VCardManager *manager = [engine vcardManager];
-    manager->fetchVCard(JID( bare ), [engine vcardHandler]);
+    [engine vcardManager]->fetchVCard(JID( jid.bare() ), [engine vcardHandler]);
     
   }
   

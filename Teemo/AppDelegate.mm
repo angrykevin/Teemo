@@ -17,9 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  RSDatabaseCreate();
-  RSDatabaseSetUpTables();
-  
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
   
@@ -54,8 +51,16 @@
   [engine removeAllObservers];
   [TMEngine clearStoredEngine];
   
+  
   engine = [[TMEngine alloc] init];
   [TMEngine storeEngine:engine];
+  
+  [engine createDatabase];
+  [engine setUpDatabase];
+  if ( ![pspt isEqualToString:RSAccountPassport()] ) {
+    [engine clearDatabase];
+  }
+  
   [engine setUpWithPassport:pspt password:pswd];
   [engine connectionHandler]->addObserver((__bridge void *)self);
   [engine connect];
@@ -88,11 +93,6 @@
   
   TMEngine *engine = [TMEngine sharedEngine];
   
-  NSString *passport = RSAccountPassport();
-  if ( ![[engine passport] isEqualToString:passport] ) {
-    RSDatabaseClearData();
-  }
-  
   RSSaveAccountPassport( [engine passport] );
   RSSaveAccountPassword( [engine password] );
   
@@ -114,7 +114,7 @@
     TBDisplayMessage(@"登录失败！");
   }
   
-  TMEngine *engine = [TMEngine sharedEngine];
+  //TMEngine *engine = [TMEngine sharedEngine];
   //[engine removeAllObservers];
   [TMEngine clearStoredEngine];
   

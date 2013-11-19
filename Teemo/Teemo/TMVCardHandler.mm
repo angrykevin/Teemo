@@ -9,6 +9,7 @@
 #import "TMVCardHandler.h"
 #import "TMMacro.h"
 #import "TMVCardDelegate.h"
+#import "TMEngine.h"
 
 void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
 {
@@ -26,33 +27,20 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
   
   if ( jid.bare().length() > 0 ) {
     
+    TMEngine *engine = [TMEngine sharedEngine];
     
-    NSString *bid = OBJCSTR(jid.bare());
-    
-    TKDatabase *db = [TKDatabase sharedObject];
-    
-    NSArray *buddies = [db executeQuery:@"SELECT pk,bid,displayname,groupname FROM tBuddy WHERE bid=?;", bid];
+    NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM tBuddy WHERE bid=?;", OBJCSTR(jid.bare())];
     if ( [buddies count] > 0 ) {
-      TKDatabaseRow *row = [buddies firstObject];
       
-      int pk = [row intForName:@"pk"];
-      NSString *displayname = [row stringForName:@"displayname"];
-      NSString *groupname = [row stringForName:@"groupname"];
-      
-      [db executeUpdate:@"DELETE FROM tBuddy WHERE bid=?;", bid];
-      
-      [db executeUpdate:@"INSERT INTO tBuddy(pk,bid,displayname,groupname,nickname,familyname,givenname,photo,birthday,desc,homepage) VALUES(?,?,?,?,?,?,?,?,?,?,?);",
-       [NSNumber numberWithInt:pk],
-       bid,
-       displayname,
-       groupname,
-       OBJCSTR( vcard->nickname() ),
-       OBJCSTR( vcard->name().family ),
-       OBJCSTR( vcard->name().given ),
-       OBJCSTR( vcard->photo().extval ),
-       OBJCSTR( vcard->bday() ),
-       OBJCSTR( vcard->desc() ),
-       OBJCSTR( vcard->url() )];
+      [[engine database] executeUpdate:@"UPDATE tBuddy SET nickname=?, familyname=?, givenname=?, photo=?, birthday=?, desc=?, homepage=? WHERE bid=?;",
+       OBJCSTR(vcard->nickname()),
+       OBJCSTR(vcard->name().family),
+       OBJCSTR(vcard->name().given),
+       OBJCSTR(vcard->photo().extval),
+       OBJCSTR(vcard->bday()),
+       OBJCSTR(vcard->desc()),
+       OBJCSTR(vcard->url()),
+       OBJCSTR(jid.bare())];
     }
     
   }

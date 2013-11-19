@@ -1,5 +1,5 @@
 //
-//  RSSigninViewController.mm
+//  RSSigninViewController.m
 //  Teemo
 //
 //  Created by Wu Kevin on 11/6/13.

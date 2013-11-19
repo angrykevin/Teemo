@@ -1,5 +1,5 @@
 //
-//  RSBuddiesViewController.m
+//  RSBuddiesViewController.mm
 //  Teemo
 //
 //  Created by Wu Kevin on 11/12/13.
@@ -8,6 +8,7 @@
 
 #import "RSBuddiesViewController.h"
 #import "RSBuddyCell.h"
+#import "Teemo.h"
 
 #import "RSAddBuddyViewController.h"
 #import "RSChatViewController.h"
@@ -66,11 +67,11 @@
 - (void)reloadRoster
 {
   
-  TKDatabase *db = [TKDatabase sharedObject];
+  TMEngine *engine = [TMEngine sharedEngine];
   
   NSMutableArray *groups = [[NSMutableArray alloc] init];
   
-  NSArray *dbGroups = [db executeQuery:@"SELECT DISTINCT groupname FROM tBuddy ORDER BY groupname;"];
+  NSArray *dbGroups = [[engine database] executeQuery:@"SELECT DISTINCT groupname FROM tBuddy ORDER BY groupname;"];
   
   for ( int i=0; i<[dbGroups count]; ++i ) {
     TKDatabaseRow *dbGroup = [dbGroups objectAtIndex:i];
@@ -84,7 +85,7 @@
     [group setObject:groupName forKeyIfNotNil:@"name"];
     
     
-    NSArray *dbBuddies = [db executeQuery:@"SELECT * FROM tBuddy WHERE groupname=? ORDER BY nickname;", groupName];
+    NSArray *dbBuddies = [[engine database] executeQuery:@"SELECT * FROM tBuddy WHERE groupname=? ORDER BY nickname;", groupName];
     [group setObject:dbBuddies forKeyIfNotNil:@"buddies"];
     
   }

@@ -107,6 +107,39 @@ static TMEngine *CurrentEngine = nil;
 }
 
 
+- (void)createDatabase
+{
+  _database = [[TKDatabase alloc] init];
+  _database.path = TKPathForDocumentsResource(@"imdb.db");
+  [_database open];
+}
+
+- (void)setUpDatabase
+{
+  if ( ![_database hasTableNamed:@"tBuddy"] ) {
+    NSString *sql = @"CREATE TABLE tBuddy( pk INTEGER PRIMARY KEY, bid TEXT, displayname TEXT, groupname TEXT, nickname TEXT, familyname TEXT, givenname TEXT, photo TEXT, birthday TEXT, desc TEXT, homepage TEXT );";
+    [_database executeUpdate:sql];
+  }
+  
+  if ( ![_database hasTableNamed:@"tChatlog"] ) {
+    NSString *sql = @"CREATE TABLE tChatlog( pk INTEGER PRIMARY KEY, passport TEXT, date TEXT );";
+    [_database executeUpdate:sql];
+  }
+  
+  if ( ![_database hasTableNamed:@"tMessage"] ) {
+    NSString *sql = @"CREATE TABLE tMessage( pk INTEGER PRIMARY KEY, passport TEXT, content TEXT, date TEXT, read INTEGER );";
+    [_database executeUpdate:sql];
+  }
+}
+
+- (void)clearDatabase
+{
+  [_database executeUpdate:@"DELETE FROM tBuddy;"];
+  [_database executeUpdate:@"DELETE FROM tChatlog;"];
+  [_database executeUpdate:@"DELETE FROM tMessage;"];
+}
+
+
 
 - (NSString *)passport
 {
@@ -129,6 +162,11 @@ static TMEngine *CurrentEngine = nil;
   return _vcardManager;
 }
 
+- (RosterManager *)rosterManager
+{
+  return _client->rosterManager();
+}
+
 
 - (TMConnectionHandler *)connectionHandler
 {
@@ -145,10 +183,19 @@ static TMEngine *CurrentEngine = nil;
   return _vcardHandler;
 }
 
-- (RosterManager *)rosterManager
+- (TMRosterHandler *)rosterHandler
 {
-  return _client->rosterManager();
+  return _rosterHandler;
 }
+
+
+
+- (TKDatabase *)database
+{
+  return _database;
+}
+
+
 
 
 

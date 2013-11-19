@@ -15,3 +15,6 @@
 #define TMXMPPServerPort @"5222"
 #define TMXMPPServerDomain @"@batoo.com"
 #define TMXMPPClientResource @"Teemo"
+
+
+#define TMDefaultGroupName @"Friends"
