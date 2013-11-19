@@ -39,6 +39,7 @@
   _passportLine.label.text = NSLocalizedString(@"Passport", @"");
   _passportLine.textField.delegate = self;
   _passportLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  _passportLine.textField.returnKeyType = UIReturnKeyNext;
   [_scrollView addSubview:_passportLine];
   
   _passwordLine = [[RSBoxViewLine alloc] init];
@@ -47,6 +48,7 @@
   _passwordLine.textField.secureTextEntry = YES;
   _passwordLine.textField.delegate = self;
   _passwordLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  _passwordLine.textField.returnKeyType = UIReturnKeyDone;
   [_scrollView addSubview:_passwordLine];
   
   _signinButton = [[UIButton alloc] init];
@@ -125,6 +127,17 @@
     return YES;
   }
   return NO;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  if ( textField == _passportLine.textField ) {
+    [_passwordLine.textField becomeFirstResponder];
+  } else if ( textField == _passwordLine.textField ) {
+    [_passwordLine.textField resignFirstResponder];
+    [self signinButtonClicked:nil];
+  }
+  return YES;
 }
 
 @end

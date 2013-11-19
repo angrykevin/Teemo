@@ -9,6 +9,7 @@
 #import "RSProfileViewController.h"
 #import "RSCommon.h"
 #import "Teemo.h"
+
 #import "RSProfileHeaderView.h"
 #import "RSProfileFooterView.h"
 #import "RSProfileCell.h"
@@ -143,6 +144,14 @@
 - (void)deleteButtonClicked:(id)sender
 {
   TKPRINTMETHOD();
+  
+  TMEngine *engine = [TMEngine sharedEngine];
+  
+  NSString *jid = [_row stringForName:@"bid"];
+  
+  [engine rosterManager]->remove(JID( CPPSTR(jid) ));
+  
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)rightButtonClicked:(id)sender

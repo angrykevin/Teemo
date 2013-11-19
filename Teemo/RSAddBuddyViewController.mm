@@ -32,6 +32,7 @@
   _jidLine.label.text = NSLocalizedString(@"JID", @"");
   _jidLine.textField.delegate = self;
   _jidLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  _jidLine.textField.returnKeyType = UIReturnKeyNext;
   [_scrollView addSubview:_jidLine];
   
   _displaynameLine = [[RSBoxViewLine alloc] init];
@@ -39,6 +40,7 @@
   _displaynameLine.label.text = NSLocalizedString(@"Displayname", @"");
   _displaynameLine.textField.delegate = self;
   _displaynameLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  _displaynameLine.textField.returnKeyType = UIReturnKeyNext;
   [_scrollView addSubview:_displaynameLine];
   
   _groupnameLine = [[RSBoxViewLine alloc] init];
@@ -46,6 +48,7 @@
   _groupnameLine.label.text = NSLocalizedString(@"Groupname", @"");
   _groupnameLine.textField.delegate = self;
   _groupnameLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  _groupnameLine.textField.returnKeyType = UIReturnKeyNext;
   [_scrollView addSubview:_groupnameLine];
   
   _messageLine = [[RSBoxViewLine alloc] init];
@@ -53,6 +56,7 @@
   _messageLine.label.text = NSLocalizedString(@"Message", @"");
   _messageLine.textField.delegate = self;
   _messageLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  _messageLine.textField.returnKeyType = UIReturnKeyDone;
   [_scrollView addSubview:_messageLine];
   
   
@@ -138,6 +142,21 @@
     return YES;
   }
   return NO;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  if ( textField == _jidLine.textField ) {
+    [_displaynameLine.textField becomeFirstResponder];
+  } else if ( textField == _displaynameLine.textField ) {
+    [_groupnameLine.textField becomeFirstResponder];
+  } else if ( textField == _groupnameLine.textField ) {
+    [_messageLine.textField becomeFirstResponder];
+  } else if ( textField == _messageLine.textField ) {
+    [_messageLine.textField resignFirstResponder];
+    [self rightButtonClicked:nil];
+  }
+  return YES;
 }
 
 @end

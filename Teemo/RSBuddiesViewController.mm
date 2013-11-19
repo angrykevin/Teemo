@@ -236,7 +236,17 @@
   NSArray *buddies = [group objectForKey:@"buddies"];
   TKDatabaseRow *row = [buddies objectOrNilAtIndex:indexPath.row];
   if ( row ) {
-    cell.nicknameLabel.text = [row stringForName:@"nickname"];
+    NSString *displayname = [row stringForName:@"displayname"];
+    if ( [displayname length] > 0 ) {
+      cell.nicknameLabel.text = displayname;
+    } else {
+      NSString *nickname = [row stringForName:@"nickname"];
+      if ( [nickname length] > 0 ) {
+        cell.nicknameLabel.text = nickname;
+      } else {
+        cell.nicknameLabel.text = [row stringForName:@"bid"];
+      }
+    }
     cell.descLabel.text = [row stringForName:@"desc"];
     
     cell.photoButton.info = row;
