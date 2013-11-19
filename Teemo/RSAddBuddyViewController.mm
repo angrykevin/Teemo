@@ -115,11 +115,12 @@
   }
   
   TMEngine *engine = [TMEngine sharedEngine];
-  RosterManager *manager = [engine rosterManager];
-  manager->subscribe(JID( CPPSTR(jid) ),
-                     CPPSTR(displayname),
-                     StringList(1, CPPSTR(groupname)),
-                     CPPSTR(message));
+  [engine rosterManager]->subscribe(JID( CPPSTR(jid) ),
+                                    CPPSTR(displayname),
+                                    StringList(1, CPPSTR(groupname)),
+                                    CPPSTR(message));
+  
+  [self.navigationController popViewControllerAnimated:YES];
   
 }
 
