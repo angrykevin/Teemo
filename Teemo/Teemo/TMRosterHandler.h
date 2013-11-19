@@ -19,7 +19,7 @@
 using namespace gloox;
 
 
-class TMRosterHandler : public RosterListener, TMHandlerBase {
+class TMRosterHandler : public RosterListener, public TMHandlerBase {
   
 public:
   /**

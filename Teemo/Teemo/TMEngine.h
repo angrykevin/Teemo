@@ -28,12 +28,10 @@ using namespace gloox;
   VCardManager *_vcardManager;
   //RosterManager *_rosterManager;
   
-  
   TMConnectionHandler *_connectionHandler;
   TMPresenceHandler *_presenceHandler;
   TMVCardHandler *_vcardHandler;
   TMRosterHandler *_rosterHandler;
-  
   
   TKDatabase *_database;
   

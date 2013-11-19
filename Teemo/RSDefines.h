@@ -6,4 +6,5 @@
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
+#define RSDefaultGroupName @"Friends"
 

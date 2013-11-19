@@ -17,6 +17,36 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
+//  TKDatabase *db = [TKDatabase sharedObject];
+//  db.path = TKPathForDocumentsResource(@"im.db");
+//  [db open];
+//
+//  [db executeUpdate:@"CREATE TABLE abc( pk INTEGER PRIMARY KEY, str TEXT );"];
+//  
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"bbb"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"ddd"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @""];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aaa"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"ccc"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @""];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"ddd"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"ccc"];
+//
+//  NSArray *array1 = [db executeQuery:@"SELECT DISTINCT str FROM abc ORDER BY str;"];
+//  for (int i=0; i<[array1 count]; ++i ) {
+//    TKDatabaseRow *row = [array1 objectAtIndex:i];
+//    NSLog(@"H%@H", [row stringForName:@"str"]);
+//  }
+//  
+//  NSArray *array2 = [db executeQuery:@"SELECT * FROM abc WHERE str=?;", @""];
+//  for (int i=0; i<[array2 count]; ++i ) {
+//    TKDatabaseRow *row = [array2 objectAtIndex:i];
+//    NSLog(@"H%d %@H", [row intForName:@"pk"], [row stringForName:@"str"]);
+//  }
+  
+  
+  
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
   

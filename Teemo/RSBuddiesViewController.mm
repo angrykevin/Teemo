@@ -7,8 +7,10 @@
 //
 
 #import "RSBuddiesViewController.h"
-#import "RSBuddyCell.h"
+#import "RSCommon.h"
 #import "Teemo.h"
+
+#import "RSBuddyCell.h"
 
 #import "RSAddBuddyViewController.h"
 #import "RSChatViewController.h"
@@ -16,6 +18,26 @@
 
 
 @implementation RSBuddiesViewController
+
+- (id)init
+{
+  self = [super init];
+  if (self) {
+    
+    TMEngine *engine = [TMEngine sharedEngine];
+    [engine vcardHandler]->addObserver((__bridge void *)self);
+    [engine rosterHandler]->addObserver((__bridge void *)self);
+    
+  }
+  return self;
+}
+
+- (void)dealloc
+{
+  TMEngine *engine = [TMEngine sharedEngine];
+  [engine vcardHandler]->removeObserver((__bridge void *)self);
+  [engine rosterHandler]->removeObserver((__bridge void *)self);
+}
 
 - (void)viewDidLoad
 {
@@ -32,6 +54,9 @@
   _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   [_contentView addSubview:_tableView];
   
+  [self reloadRoster];
+  [self addFooterIfNeeded];
+  
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -39,19 +64,6 @@
   [super viewWillAppear:animated];
   
   [_tableView deselectAllRowsAnimated:YES];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-  [super viewDidAppear:animated];
-  
-  if ( _appearedTimes == 1 ) {
-    [self reloadRoster];
-    [_tableView reloadData];
-  }
-  
-  [self addFooterIfNeeded];
-  
 }
 
 - (void)layoutViews
@@ -64,37 +76,50 @@
 
 
 
+
 - (void)reloadRoster
 {
   
+  NSDictionary *openedGroup = [_groups objectOrNilAtIndex:[self indexOfOpenedGroup:_groups]];
+  
   TMEngine *engine = [TMEngine sharedEngine];
+  NSArray *dbGroups = [[engine database] executeQuery:@"SELECT DISTINCT groupname FROM tBuddy ORDER BY groupname;"];
+  
   
   NSMutableArray *groups = [[NSMutableArray alloc] init];
   
-  NSArray *dbGroups = [[engine database] executeQuery:@"SELECT DISTINCT groupname FROM tBuddy ORDER BY groupname;"];
-  
   for ( int i=0; i<[dbGroups count]; ++i ) {
+    
     TKDatabaseRow *dbGroup = [dbGroups objectAtIndex:i];
     
-    NSMutableDictionary *group = [[NSMutableDictionary alloc] init];
-    [groups addObject:group];
     
-    [group setObject:[NSNumber numberWithBool:NO] forKeyIfNotNil:@"open"];
+    NSMutableDictionary *group = [[NSMutableDictionary alloc] init];
     
     NSString *groupName = [dbGroup stringForName:@"groupname"];
-    [group setObject:groupName forKeyIfNotNil:@"name"];
-    
+    if ( [groupName length] <= 0 ) {
+      [group setObject:RSDefaultGroupName forKeyIfNotNil:@"name"];
+    } else {
+      [group setObject:groupName forKeyIfNotNil:@"name"];
+    }
     
     NSArray *dbBuddies = [[engine database] executeQuery:@"SELECT * FROM tBuddy WHERE groupname=? ORDER BY nickname;", groupName];
-    [group setObject:dbBuddies forKeyIfNotNil:@"buddies"];
+    NSMutableArray *buddies = [dbBuddies mutableCopy];
+    [group setObject:buddies forKeyIfNotNil:@"buddies"];
+    
+    
+    if ( [[group objectForKey:@"name"] isEqualToString:[openedGroup objectForKey:@"name"]] ) {
+      [group setObject:[NSNumber numberWithBool:YES] forKeyIfNotNil:@"open"];
+    } else {
+      [group setObject:[NSNumber numberWithBool:NO] forKeyIfNotNil:@"open"];
+    }
+    
+    [groups addObject:group];
     
   }
   
   _groups = groups;
   
 }
-
-
 
 - (void)addFooterIfNeeded
 {
@@ -120,6 +145,17 @@
   }
 }
 
+- (int)indexOfOpenedGroup:(NSArray *)groups
+{
+  for ( int i=0; i<[groups count]; ++i ) {
+    NSMutableDictionary *item = [groups objectAtIndex:i];
+    if ( [[item objectForKey:@"open"] boolValue] ) {
+      return i;
+    }
+  }
+  return -1;
+}
+
 
 
 
@@ -138,16 +174,8 @@
     [_tableView reloadSections:[NSIndexSet indexSetWithIndex:section]
               withRowAnimation:UITableViewRowAnimationFade];
   } else {
-    int openedSection = -1;
-    NSMutableDictionary *openedGroup = nil;
-    for ( int i=0; i<[_groups count]; ++i ) {
-      NSMutableDictionary *item = [_groups objectAtIndex:i];
-      if ( [[item objectForKey:@"open"] boolValue] ) {
-        openedSection = i;
-        openedGroup = item;
-        break;
-      }
-    }
+    int openedSection = [self indexOfOpenedGroup:_groups];
+    NSMutableDictionary *openedGroup = [_groups objectOrNilAtIndex:openedSection];
     
     if ( (openedSection>=0) && (openedGroup!=nil) ) {
       [openedGroup setObject:[NSNumber numberWithBool:NO] forKey:@"open"];
@@ -301,6 +329,104 @@
     RSProfileViewController *vc = [[RSProfileViewController alloc] initWithRow:row];
     [self.navigationController pushViewController:vc animated:YES];
   }
+}
+
+
+
+
+- (void)vcardOnReceived:(const JID &)jid vcard:(const VCard *)vcard
+{
+  TKPRINTMETHOD();
+  [self reloadRoster];
+  [_tableView reloadData];
+  [self addFooterIfNeeded];
+}
+
+//- (void)vcardOnResult:(const JID &)jid context:(VCardHandler::VCardContext)context error:(StanzaError)se
+//{
+//  TKPRINTMETHOD();
+//}
+
+
+
+- (void)rosterOnItemAdded:(const JID &)jid
+{
+  TKPRINTMETHOD();
+  [self reloadRoster];
+  [_tableView reloadData];
+  [self addFooterIfNeeded];
+}
+
+- (void)rosterOnItemSubscribed:(const JID &)jid
+{
+  TKPRINTMETHOD();
+}
+
+- (void)rosterOnItemRemoved:(const JID &)jid
+{
+  TKPRINTMETHOD();
+  [self reloadRoster];
+  [_tableView reloadData];
+  [self addFooterIfNeeded];
+}
+
+- (void)rosterOnItemUpdated:(const JID &)jid
+{
+  TKPRINTMETHOD();
+  [self reloadRoster];
+  [_tableView reloadData];
+  [self addFooterIfNeeded];
+}
+
+- (void)rosterOnItemUnsubscribed:(const JID &)jid
+{
+  TKPRINTMETHOD();
+}
+
+- (void)rosterOnReceived:(const Roster &)roster
+{
+  TKPRINTMETHOD();
+  [self reloadRoster];
+  [_tableView reloadData];
+  [self addFooterIfNeeded];
+}
+
+- (void)rosterOnPresence:(const RosterItem &)item
+                resource:(const std::string &)resource
+                presence:(Presence::PresenceType)presence
+                     msg:(const std::string &)msg
+{
+  TKPRINTMETHOD();
+}
+
+- (void)rosterOnSelfPresence:(const RosterItem &)item
+                    resource:(const std::string &)resource
+                    presence:(Presence::PresenceType)presence
+                         msg:(const std::string &)msg
+{
+  TKPRINTMETHOD();
+}
+
+- (bool)rosterOnSubscriptionRequest:(const JID &)jid msg:(const std::string &)msg
+{
+  TKPRINTMETHOD();
+  return true;
+}
+
+- (bool)rosterOnUnsubscriptionRequest:(const JID &)jid msg:(const std::string &)msg
+{
+  TKPRINTMETHOD();
+  return true;
+}
+
+- (void)rosterOnNonrosterPresence:(const Presence &)presence
+{
+  TKPRINTMETHOD();
+}
+
+- (void)rosterOnError:(const IQ &)iq
+{
+  TKPRINTMETHOD();
 }
 
 @end
