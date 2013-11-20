@@ -66,7 +66,7 @@
   [_scrollView addGestureRecognizer:tapGestureRecognizer];
   
 #ifdef DEBUG
-  _passportLine.textField.text = @"alex";
+  _passportLine.textField.text = @"lily";
   _passwordLine.textField.text = @"killbill";
 #endif
   

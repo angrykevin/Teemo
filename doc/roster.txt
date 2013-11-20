@@ -473,3 +473,52 @@ PARSE: 72
 
 
 删除别人
+
+
+别人添加自己
+
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 85
+<presence id="4SmtN-40" to="alex@batoo.com" type="subscribe" from="kevin@batoo.com"/>
+-------------------------------------------------->>
+virtual bool TMRosterHandler::handleSubscriptionRequest(const gloox::JID &, const std::string &)
+2013-11-20 10:58:01.295 Teemo[878:c07] -[RSBuddiesViewController rosterOnSubscriptionRequest:msg:]
+SEND: 100
+<presence to='kevin@batoo.com' type='subscribed' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 147
+<iq type="set" id="264-49" to="alex@batoo.com/Teemo"><query xmlns="jabber:iq:roster"><item jid="kevin@batoo.com" subscription="from"/></query></iq>
+-------------------------------------------------->>
+virtual void TMRosterHandler::handleItemAdded(const gloox::JID &)
+BUDDY: kevin@batoo.com  
+SEND: 159
+<iq to='kevin@batoo.com' id='uid-23c44968-00000011' type='get' from='alex@batoo.com/Teemo' xmlns='jabber:client'><vCard xmlns='vcard-temp' version='3.0'/></iq>
+-------------------------------------------------->>
+2013-11-20 10:58:01.310 Teemo[878:c07] -[RSBuddiesViewController rosterOnItemAdded:]
+SEND: 81
+<iq id='264-49' type='result' from='alex@batoo.com/Teemo' xmlns='jabber:client'/>
+-------------------------------------------------->>
+RECV: 90
+PARSE: 0
+
+-------------------------------------------------->>
+PARSE: 399
+<iq type="result" id="uid-23c44968-00000011" from="kevin@batoo.com" to="alex@batoo.com/Teemo"><vCard xmlns="vcard-temp" version="3.0"><NICKNAME>KEVIN</NICKNAME><URL>http://kevin.com/</URL><BDAY>1988-03-08</BDAY><DESC>I'm Kevin!</DESC><N><FAMILY>Wu</FAMILY><GIVEN>Kevin</GIVEN></N><PHOTO><EXTVAL>http://v1.qzone.cc/avatar/201311/14/17/16/528494fe5f7de329.jpg!200x200.jpg</EXTVAL></PHOTO></vCard></iq>
+-------------------------------------------------->>
+virtual void TMVCardHandler::handleVCard(const gloox::JID &, const gloox::VCard *)
+jid: kevin@batoo.com
+nickname: KEVIN
+familyname: Wu
+givenname: Kevin
+photo: http://v1.qzone.cc/avatar/201311/14/17/16/528494fe5f7de329.jpg!200x200.jpg
+birthday: 1988-03-08
+desc: I'm Kevin!
+homepage: http://kevin.com/
+2013-11-20 10:58:01.316 Teemo[878:c07] -[RSBuddiesViewController vcardOnReceived:vcard:]
