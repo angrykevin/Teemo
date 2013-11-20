@@ -12,6 +12,7 @@
 #include <iostream>
 
 #include <gloox/vcardhandler.h>
+#include <gloox/vcardmanager.h>
 
 #include "TMHandlerBase.h"
 

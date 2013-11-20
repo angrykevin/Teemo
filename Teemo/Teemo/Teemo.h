@@ -13,16 +13,16 @@
 #import "TMEngine.h"
 
 
-#import "TMConnectionHandler.h"
+#include "TMConnectionHandler.h"
 #import "TMConnectionDelegate.h"
 
-#import "TMPresenceHandler.h"
+#include "TMPresenceHandler.h"
 #import "TMPresenceDelegate.h"
 
-#import "TMVCardHandler.h"
+#include "TMVCardHandler.h"
 #import "TMVCardDelegate.h"
 
-#import "TMRosterHandler.h"
+#include "TMRosterHandler.h"
 #import "TMRosterDelegate.h"
 
 

@@ -7,6 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#include <string>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 NSString *TMJIDFromPassport(NSString *pspt);
+
+
+#ifdef __cplusplus
+}
+#endif

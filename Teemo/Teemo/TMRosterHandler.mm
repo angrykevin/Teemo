@@ -6,9 +6,11 @@
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "TMRosterHandler.h"
-#import "TMMacro.h"
+#include "TMRosterHandler.h"
 #import "TMRosterDelegate.h"
+
+#import "TMMacro.h"
+
 #import "TMEngine.h"
 
 

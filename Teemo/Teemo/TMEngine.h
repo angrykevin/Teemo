@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #include <gloox/client.h>
-#include <gloox/vcardmanager.h>
 
-#import "TMConnectionHandler.h"
-#import "TMPresenceHandler.h"
-#import "TMVCardHandler.h"
-#import "TMRosterHandler.h"
+#include "TMConnectionHandler.h"
+#include "TMPresenceHandler.h"
+#include "TMVCardHandler.h"
+#include "TMRosterHandler.h"
 
 using namespace gloox;
 

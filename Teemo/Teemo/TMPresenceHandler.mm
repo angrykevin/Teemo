@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "TMPresenceHandler.h"
-#import "TMMacro.h"
+#include "TMPresenceHandler.h"
 #import "TMPresenceDelegate.h"
+
+#import "TMMacro.h"
 
 void TMPresenceHandler::handlePresence( const Presence& presence )
 {

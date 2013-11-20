@@ -1,14 +1,15 @@
 //
-//  TMConnectionHandler.m
+//  TMConnectionHandler.mm
 //  Teemo
 //
 //  Created by Wu Kevin on 11/11/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "TMConnectionHandler.h"
-#import "TMMacro.h"
+#include "TMConnectionHandler.h"
 #import "TMConnectionDelegate.h"
+
+#import "TMMacro.h"
 
 
 void TMConnectionHandler::onConnect()

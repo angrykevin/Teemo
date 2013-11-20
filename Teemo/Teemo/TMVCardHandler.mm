@@ -6,10 +6,13 @@
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "TMVCardHandler.h"
-#import "TMMacro.h"
+#include "TMVCardHandler.h"
 #import "TMVCardDelegate.h"
+
+#import "TMMacro.h"
+
 #import "TMEngine.h"
+
 
 void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
 {

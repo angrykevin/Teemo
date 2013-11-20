@@ -13,10 +13,6 @@
 #import "TMCommon.h"
 
 
-using namespace std;
-using namespace gloox;
-
-
 static TMEngine *CurrentEngine = nil;
 
 

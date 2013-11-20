@@ -32,7 +32,7 @@
 		BC5EE0E9182A196A007D5DE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE0E8182A196A007D5DE6 /* main.m */; };
 		BC5EE0ED182A196A007D5DE6 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE0EC182A196A007D5DE6 /* AppDelegate.mm */; };
 		BC5EE2DC182A1C6B007D5DE6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE2DB182A1C6B007D5DE6 /* libz.dylib */; };
-		BC5EE2F9182A1FAC007D5DE6 /* TMCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */; };
+		BC5EE2F9182A1FAC007D5DE6 /* TMCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E0182A1FAC007D5DE6 /* TMCommon.m */; };
 		BC5EE2FB182A1FAC007D5DE6 /* TMEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */; };
 		BC5EE2FC182A1FAC007D5DE6 /* TMIqHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */; };
 		BC5EE2FD182A1FAC007D5DE6 /* TMMessageHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */; };
@@ -47,7 +47,7 @@
 		BC5EE35E182A230E007D5DE6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */; };
 		BC5EE361182A2429007D5DE6 /* TBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE360182A2429007D5DE6 /* TBViewController.m */; };
 		BC5EE364182A2600007D5DE6 /* UILabelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */; };
-		BC675CC918308252003E1516 /* TMHandlerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC675CC818308252003E1516 /* TMHandlerBase.cpp */; };
+		BC675CC918308252003E1516 /* TMHandlerBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC675CC818308252003E1516 /* TMHandlerBase.mm */; };
 		BC675D4A183093E3003E1516 /* CATransitionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC675D49183093E3003E1516 /* CATransitionAdditions.m */; };
 		BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */ = {isa = PBXBuildFile; fileRef = BC840428182CADA40058EBDC /* RSBoxViewLine.m */; };
 		BC84042C182CB2A40058EBDC /* TBRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84042B182CB2A40058EBDC /* TBRoutines.m */; };
@@ -283,7 +283,7 @@
 		BC5EE0EC182A196A007D5DE6 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		BC5EE2DB182A1C6B007D5DE6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMCommon.h; sourceTree = "<group>"; };
-		BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMCommon.mm; sourceTree = "<group>"; };
+		BC5EE2E0182A1FAC007D5DE6 /* TMCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMCommon.m; sourceTree = "<group>"; };
 		BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConfig.h; sourceTree = "<group>"; };
 		BC5EE2E4182A1FAC007D5DE6 /* TMMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMacro.h; sourceTree = "<group>"; };
 		BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEngine.h; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 		BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelAdditions.m; sourceTree = "<group>"; };
 		BC5EE367182A3C8F007D5DE6 /* Teemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Teemo.h; sourceTree = "<group>"; };
 		BC675C8218306E22003E1516 /* TMHandlerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMHandlerBase.h; sourceTree = "<group>"; };
-		BC675CC818308252003E1516 /* TMHandlerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMHandlerBase.cpp; sourceTree = "<group>"; };
+		BC675CC818308252003E1516 /* TMHandlerBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMHandlerBase.mm; sourceTree = "<group>"; };
 		BC675D48183093E3003E1516 /* CATransitionAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATransitionAdditions.h; sourceTree = "<group>"; };
 		BC675D49183093E3003E1516 /* CATransitionAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATransitionAdditions.m; sourceTree = "<group>"; };
 		BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMConnectionDelegate.h; sourceTree = "<group>"; };
@@ -894,11 +894,11 @@
 				BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */,
 				BC5EE2E4182A1FAC007D5DE6 /* TMMacro.h */,
 				BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */,
-				BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */,
+				BC5EE2E0182A1FAC007D5DE6 /* TMCommon.m */,
 				BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */,
 				BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */,
 				BC675C8218306E22003E1516 /* TMHandlerBase.h */,
-				BC675CC818308252003E1516 /* TMHandlerBase.cpp */,
+				BC675CC818308252003E1516 /* TMHandlerBase.mm */,
 				BCA23D221831C3EF00E93718 /* ConnectionHandler */,
 				BCA23D231831C3FB00E93718 /* PresenceHandler */,
 				BCA23D261831D2BC00E93718 /* VCardHandler */,
@@ -1750,7 +1750,7 @@
 				BC840617182CC2F00058EBDC /* dataformfield.cpp in Sources */,
 				BCB44DFE1834D5B6007D074E /* RSBuddyCell.m in Sources */,
 				BC840672182CC2F00058EBDC /* UIButtonAdditions.m in Sources */,
-				BC5EE2F9182A1FAC007D5DE6 /* TMCommon.mm in Sources */,
+				BC5EE2F9182A1FAC007D5DE6 /* TMCommon.m in Sources */,
 				BC840668182CC2F00058EBDC /* vcardupdate.cpp in Sources */,
 				BC84066F182CC2F00058EBDC /* NSDictionaryAdditions.m in Sources */,
 				BC5EE2FB182A1FAC007D5DE6 /* TMEngine.mm in Sources */,
@@ -1880,7 +1880,7 @@
 				BC84062A182CC2F00058EBDC /* jinglecontent.cpp in Sources */,
 				BC840677182CC2F00058EBDC /* TKCache.m in Sources */,
 				BC840635182CC2F00058EBDC /* message.cpp in Sources */,
-				BC675CC918308252003E1516 /* TMHandlerBase.cpp in Sources */,
+				BC675CC918308252003E1516 /* TMHandlerBase.mm in Sources */,
 				BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */,
 				BC403C451835D98100B50317 /* RSProfileHeaderView.m in Sources */,
 				BC84061D182CC2F00058EBDC /* dns.cpp in Sources */,
