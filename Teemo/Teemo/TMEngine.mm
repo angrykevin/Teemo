@@ -136,6 +136,31 @@ static TMEngine *CurrentEngine = nil;
 }
 
 
+- (BOOL)isBuddyInRoster:(NSString *)bid
+{
+  if ( [bid length] > 0 ) {
+    
+    JID jid = JID( CPPSTR(bid) );
+    
+    Roster *roster = _client->rosterManager()->roster();
+    Roster::const_iterator it = roster->begin();
+    
+    for ( ; it != roster->end(); ++it ) {
+      
+      JID tmp( it->first );
+      
+      if ( jid.bare() == tmp.bare() ) {
+        return YES;
+      }
+      
+    }
+    
+  }
+  
+  return NO;
+}
+
+
 
 - (NSString *)passport
 {

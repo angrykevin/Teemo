@@ -53,6 +53,8 @@ using namespace gloox;
 - (void)setUpDatabase;
 - (void)clearDatabase;
 
+- (BOOL)isBuddyInRoster:(NSString *)bid;
+
 
 
 - (NSString *)passport;
