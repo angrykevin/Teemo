@@ -1,14 +1,14 @@
 //
-//  CATransitionAdditions.m
+//  CATransitionExtentions.m
 //  Teemo
 //
 //  Created by Wu Kevin on 11/11/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "CATransitionAdditions.h"
+#import "CATransitionExtentions.h"
 
-@implementation CATransition (Initialization)
+@implementation CATransition (Extentions)
 
 + (CATransition *)pushTransition
 {

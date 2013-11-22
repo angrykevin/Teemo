@@ -1,14 +1,14 @@
 //
-//  UIViewControllerAdditions.m
-//  XieHou
+//  UIViewControllerExtentions.m
+//  Teemo
 //
 //  Created by Wu Kevin on 8/27/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "UIViewControllerAdditions.h"
+#import "UIViewControllerExtentions.h"
 
-@implementation UIViewController (Container)
+@implementation UIViewController (Extentions)
 
 - (void)presentChildViewController:(UIViewController *)childViewController
 {

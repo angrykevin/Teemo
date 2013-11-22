@@ -8,7 +8,7 @@
 
 #import "TBTabViewController.h"
 #import "TBRoutines.h"
-#import "UIViewControllerAdditions.h"
+#import "UIViewControllerExtentions.h"
 
 
 @implementation TBTabViewController

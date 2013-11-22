@@ -14,6 +14,7 @@
 		BC403C481835E80800B50317 /* RSProfileFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C471835E80800B50317 /* RSProfileFooterView.m */; };
 		BC403C4C1835EB0B00B50317 /* TBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C4B1835EB0B00B50317 /* TBAlertView.m */; };
 		BC403C4F1835F3E200B50317 /* RSEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C4E1835F3E200B50317 /* RSEditProfileViewController.m */; };
+		BC46D3B2183EF52F00EADAA9 /* UITableViewExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC46D3B1183EF52F00EADAA9 /* UITableViewExtentions.m */; };
 		BC47AE9718334CC300331216 /* RSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BC47AE9618334CC300331216 /* RSAccount.m */; };
 		BC4D139D1830E77300572F67 /* TMConnectionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */; };
 		BC552DBA1839C57C0078375F /* TBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC552DB91839C57C0078375F /* TBButton.m */; };
@@ -46,9 +47,9 @@
 		BC5EE30A182A20D7007D5DE6 /* RSMainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */; };
 		BC5EE35E182A230E007D5DE6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */; };
 		BC5EE361182A2429007D5DE6 /* TBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE360182A2429007D5DE6 /* TBViewController.m */; };
-		BC5EE364182A2600007D5DE6 /* UILabelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */; };
+		BC5EE364182A2600007D5DE6 /* UILabelExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE363182A2600007D5DE6 /* UILabelExtentions.m */; };
 		BC675CC918308252003E1516 /* TMHandlerBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC675CC818308252003E1516 /* TMHandlerBase.mm */; };
-		BC675D4A183093E3003E1516 /* CATransitionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC675D49183093E3003E1516 /* CATransitionAdditions.m */; };
+		BC675D4A183093E3003E1516 /* CATransitionExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC675D49183093E3003E1516 /* CATransitionExtentions.m */; };
 		BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */ = {isa = PBXBuildFile; fileRef = BC840428182CADA40058EBDC /* RSBoxViewLine.m */; };
 		BC84042C182CB2A40058EBDC /* TBRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84042B182CB2A40058EBDC /* TBRoutines.m */; };
 		BC8405FE182CC2F00058EBDC /* adhoc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840461182CC2EF0058EBDC /* adhoc.cpp */; };
@@ -209,7 +210,7 @@
 		BC840706182CC5200058EBDC /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DC182CC5200058EBDC /* libcrypto.a */; };
 		BC840707182CC5200058EBDC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DD182CC5200058EBDC /* libssl.a */; };
 		BC84070C182CCB090058EBDC /* TBTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* TBTabViewController.m */; };
-		BC840710182CCCB20058EBDC /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */; };
+		BC840710182CCCB20058EBDC /* UIViewControllerExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */; };
 		BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D351831E16B00E93718 /* TMRosterHandler.mm */; };
 		BCA23D48183224E300E93718 /* tabbar_buddies_h.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */; };
 		BCA23D49183224E300E93718 /* tabbar_buddies_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3D183224E300E93718 /* tabbar_buddies_h@2x.png */; };
@@ -254,6 +255,8 @@
 		BC403C4B1835EB0B00B50317 /* TBAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBAlertView.m; sourceTree = "<group>"; };
 		BC403C4D1835F3E200B50317 /* RSEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSEditProfileViewController.h; sourceTree = "<group>"; };
 		BC403C4E1835F3E200B50317 /* RSEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSEditProfileViewController.m; sourceTree = "<group>"; };
+		BC46D3B0183EF52F00EADAA9 /* UITableViewExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewExtentions.h; sourceTree = "<group>"; };
+		BC46D3B1183EF52F00EADAA9 /* UITableViewExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewExtentions.m; sourceTree = "<group>"; };
 		BC47AE8B183323EA00331216 /* Teemo.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Teemo.sql; sourceTree = "<group>"; };
 		BC47AE8F183335D000331216 /* RSCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCommon.h; sourceTree = "<group>"; };
 		BC47AE94183340AA00331216 /* RSDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSDefines.h; sourceTree = "<group>"; };
@@ -311,13 +314,13 @@
 		BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BC5EE35F182A2429007D5DE6 /* TBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBViewController.h; sourceTree = "<group>"; };
 		BC5EE360182A2429007D5DE6 /* TBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBViewController.m; sourceTree = "<group>"; };
-		BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelAdditions.h; sourceTree = "<group>"; };
-		BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelAdditions.m; sourceTree = "<group>"; };
+		BC5EE362182A2600007D5DE6 /* UILabelExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelExtentions.h; sourceTree = "<group>"; };
+		BC5EE363182A2600007D5DE6 /* UILabelExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelExtentions.m; sourceTree = "<group>"; };
 		BC5EE367182A3C8F007D5DE6 /* Teemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Teemo.h; sourceTree = "<group>"; };
 		BC675C8218306E22003E1516 /* TMHandlerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMHandlerBase.h; sourceTree = "<group>"; };
 		BC675CC818308252003E1516 /* TMHandlerBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMHandlerBase.mm; sourceTree = "<group>"; };
-		BC675D48183093E3003E1516 /* CATransitionAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATransitionAdditions.h; sourceTree = "<group>"; };
-		BC675D49183093E3003E1516 /* CATransitionAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATransitionAdditions.m; sourceTree = "<group>"; };
+		BC675D48183093E3003E1516 /* CATransitionExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATransitionExtentions.h; sourceTree = "<group>"; };
+		BC675D49183093E3003E1516 /* CATransitionExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATransitionExtentions.m; sourceTree = "<group>"; };
 		BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMConnectionDelegate.h; sourceTree = "<group>"; };
 		BC840427182CADA40058EBDC /* RSBoxViewLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoxViewLine.h; sourceTree = "<group>"; };
 		BC840428182CADA40058EBDC /* RSBoxViewLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBoxViewLine.m; sourceTree = "<group>"; };
@@ -755,8 +758,8 @@
 		BC840705182CC5200058EBDC /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
 		BC84070A182CCB090058EBDC /* TBTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTabViewController.h; sourceTree = "<group>"; };
 		BC84070B182CCB090058EBDC /* TBTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTabViewController.m; sourceTree = "<group>"; };
-		BC84070E182CCCB20058EBDC /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
-		BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerAdditions.m; sourceTree = "<group>"; };
+		BC84070E182CCCB20058EBDC /* UIViewControllerExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtentions.h; sourceTree = "<group>"; };
+		BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerExtentions.m; sourceTree = "<group>"; };
 		BCA23D211831C34100E93718 /* TMPresenceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMPresenceDelegate.h; sourceTree = "<group>"; };
 		BCA23D251831CC8E00E93718 /* TMVCardDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMVCardDelegate.h; sourceTree = "<group>"; };
 		BCA23D351831E16B00E93718 /* TMRosterHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRosterHandler.mm; sourceTree = "<group>"; };
@@ -933,12 +936,14 @@
 				BC5EE360182A2429007D5DE6 /* TBViewController.m */,
 				BC84070A182CCB090058EBDC /* TBTabViewController.h */,
 				BC84070B182CCB090058EBDC /* TBTabViewController.m */,
-				BC675D48183093E3003E1516 /* CATransitionAdditions.h */,
-				BC675D49183093E3003E1516 /* CATransitionAdditions.m */,
-				BC5EE362182A2600007D5DE6 /* UILabelAdditions.h */,
-				BC5EE363182A2600007D5DE6 /* UILabelAdditions.m */,
-				BC84070E182CCCB20058EBDC /* UIViewControllerAdditions.h */,
-				BC84070F182CCCB20058EBDC /* UIViewControllerAdditions.m */,
+				BC675D48183093E3003E1516 /* CATransitionExtentions.h */,
+				BC675D49183093E3003E1516 /* CATransitionExtentions.m */,
+				BC5EE362182A2600007D5DE6 /* UILabelExtentions.h */,
+				BC5EE363182A2600007D5DE6 /* UILabelExtentions.m */,
+				BC46D3B0183EF52F00EADAA9 /* UITableViewExtentions.h */,
+				BC46D3B1183EF52F00EADAA9 /* UITableViewExtentions.m */,
+				BC84070E182CCCB20058EBDC /* UIViewControllerExtentions.h */,
+				BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */,
 			);
 			name = ToolBox;
 			sourceTree = "<group>";
@@ -1801,7 +1806,7 @@
 				BC8405FE182CC2F00058EBDC /* adhoc.cpp in Sources */,
 				BC5EE307182A209D007D5DE6 /* RSSigninViewController.m in Sources */,
 				BC840657182CC2F00058EBDC /* stanza.cpp in Sources */,
-				BC5EE364182A2600007D5DE6 /* UILabelAdditions.m in Sources */,
+				BC5EE364182A2600007D5DE6 /* UILabelExtentions.m in Sources */,
 				BC5EE361182A2429007D5DE6 /* TBViewController.m in Sources */,
 				BC840632182CC2F00058EBDC /* linklocalmanager.cpp in Sources */,
 				BCB44E181834E02A007D074E /* SDImageCache.m in Sources */,
@@ -1830,6 +1835,7 @@
 				BC840625182CC2F00058EBDC /* gpgsigned.cpp in Sources */,
 				BC840652182CC2F00058EBDC /* siprofileft.cpp in Sources */,
 				BC84070C182CCB090058EBDC /* TBTabViewController.m in Sources */,
+				BC46D3B2183EF52F00EADAA9 /* UITableViewExtentions.m in Sources */,
 				BC840651182CC2F00058EBDC /* simanager.cpp in Sources */,
 				BC840624182CC2F00058EBDC /* gpgencrypted.cpp in Sources */,
 				BCA23D5C1832293200E93718 /* RSBuddiesViewController.mm in Sources */,
@@ -1851,14 +1857,14 @@
 				BC5EE301182A1FAC007D5DE6 /* TMStatisticsHandler.mm in Sources */,
 				BC840645182CC2F00058EBDC /* privacymanager.cpp in Sources */,
 				BC840654182CC2F00058EBDC /* socks5bytestreammanager.cpp in Sources */,
-				BC675D4A183093E3003E1516 /* CATransitionAdditions.m in Sources */,
+				BC675D4A183093E3003E1516 /* CATransitionExtentions.m in Sources */,
 				BC403C3C1835B87A00B50317 /* RSProfileViewController.mm in Sources */,
 				BC840644182CC2F00058EBDC /* privacyitem.cpp in Sources */,
 				BC840640182CC2F00058EBDC /* oob.cpp in Sources */,
 				BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */,
 				BC84063D182CC2F00058EBDC /* mutex.cpp in Sources */,
 				BC84062B182CC2F00058EBDC /* jinglefiletransfer.cpp in Sources */,
-				BC840710182CCCB20058EBDC /* UIViewControllerAdditions.m in Sources */,
+				BC840710182CCCB20058EBDC /* UIViewControllerExtentions.m in Sources */,
 				BC84062C182CC2F00058EBDC /* jingleiceudp.cpp in Sources */,
 				BC403C391835B82B00B50317 /* RSChatViewController.mm in Sources */,
 				BC840628182CC2F00058EBDC /* iq.cpp in Sources */,

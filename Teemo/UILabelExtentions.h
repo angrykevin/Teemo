@@ -1,5 +1,5 @@
 //
-//  UILabelAdditions.h
+//  UILabelExtentions.h
 //  Teemo
 //
 //  Created by Wu Kevin on 9/4/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UILabel (Initialization)
+@interface UILabel (Extentions)
 
 + (id)labelWithFont:(UIFont *)font
           textColor:(UIColor *)textColor

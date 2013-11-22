@@ -8,7 +8,7 @@
 
 #import "TBViewController.h"
 #import "TBRoutines.h"
-#import "UILabelAdditions.h"
+#import "UILabelExtentions.h"
 
 @implementation TBViewController
 

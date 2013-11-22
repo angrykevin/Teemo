@@ -15,6 +15,7 @@
 #import "TBViewController.h"
 #import "TBTabViewController.h"
 
-#import "CATransitionAdditions.h"
-#import "UILabelAdditions.h"
-#import "UIViewControllerAdditions.h"
+#import "CATransitionExtentions.h"
+#import "UILabelExtentions.h"
+#import "UITableViewExtentions.h"
+#import "UIViewControllerExtentions.h"

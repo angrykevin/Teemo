@@ -1,5 +1,5 @@
 //
-//  CATransitionAdditions.h
+//  CATransitionExtentions.h
 //  Teemo
 //
 //  Created by Wu Kevin on 11/11/13.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CATransition (Initialization)
+@interface CATransition (Extentions)
 
 + (CATransition *)pushTransition;
 

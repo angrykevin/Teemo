@@ -1,6 +1,6 @@
 //
-//  UIViewControllerAdditions.h
-//  XieHou
+//  UIViewControllerExtentions.h
+//  Teemo
 //
 //  Created by Wu Kevin on 8/27/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (Container)
+@interface UIViewController (Extentions)
 
 - (void)presentChildViewController:(UIViewController *)childViewController;
 
