@@ -49,17 +49,19 @@
 - (void)scrollToCenterAnimated:(BOOL)animated
 {
   CGPoint offset = CGPointZero;
-  CGFloat height = CGRectGetHeight(self.bounds);
-  offset.y = self.contentSize.height - height - height/2.0;
-  [self setContentOffset:offset animated:animated];
+  offset.y = (self.contentSize.height - self.bounds.size.height) /2.0;
+  if ( offset.y > 0.0 ) {
+    [self setContentOffset:offset animated:animated];
+  }
 }
 
 - (void)scrollToBottomAnimated:(BOOL)animated
 {
   CGPoint offset = CGPointZero;
-  CGFloat height = CGRectGetHeight(self.bounds);
-  offset.y = self.contentSize.height - height;
-  [self setContentOffset:offset animated:animated];
+  offset.y = self.contentSize.height - self.bounds.size.height;
+  if ( offset.y > 0.0 ) {
+    [self setContentOffset:offset animated:animated];
+  }
 }
 
 - (void)stopScrollingAnimated:(BOOL)animated
