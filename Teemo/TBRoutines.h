@@ -19,7 +19,7 @@ void TBDisplayMessage(NSString *message);
   
 NSString *TBFormatDate(NSDate *date);
   
-NSString *TBBuildFullName(NSString *givenname, NSString *familyname);
+NSString *TBBuildFullname(NSString *givenname, NSString *familyname);
 
 
 #ifdef __cplusplus

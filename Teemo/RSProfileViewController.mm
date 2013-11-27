@@ -190,7 +190,7 @@
     cell.titleLabel.text = NSLocalizedString(@"Name", @"");
     NSString *family = [_editedRow objectForKey:@"familyname"];
     NSString *given = [_editedRow objectForKey:@"givenname"];
-    cell.valueButton.normalTitle = TBBuildFullName(given, family);
+    cell.valueButton.normalTitle = TBBuildFullname(given, family);
   } else if ( row == 2 ) {
     cell.titleLabel.text = NSLocalizedString(@"Birthday", @"");
     cell.valueButton.normalTitle = [_editedRow objectForKey:@"birthday"];
@@ -235,7 +235,7 @@
   } else if ( row == 1 ) {
     NSString *family = [_editedRow objectForKey:@"familyname"];
     NSString *given = [_editedRow objectForKey:@"givenname"];
-    vc.value = TBBuildFullName(given, family);
+    vc.value = TBBuildFullname(given, family);
     vc.maxLength = 30;
     vc.completeBlock = ^(id value) {
       NSArray *components = [value componentsSeparatedByString:@" "];

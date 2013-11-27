@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TBButton : UIButton {
-  id info;
+  id _info;
 }
 
 @property (nonatomic, strong) id info;

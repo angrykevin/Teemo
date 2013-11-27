@@ -60,7 +60,7 @@ NSString *TBFormatDate(NSDate *date)
   return nil;
 }
 
-NSString *TBBuildFullName(NSString *givenname, NSString *familyname)
+NSString *TBBuildFullname(NSString *givenname, NSString *familyname)
 {
   NSMutableString *name = [[NSMutableString alloc] init];
   if ( [givenname length] > 0 ) {
