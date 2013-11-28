@@ -429,7 +429,14 @@ namespace gloox
   {
     // KEVIN
     printf("PARSE: %d\n", (int)(data.length()));
-    printf("%s\n", data.c_str());
+    std::string temp(data);
+    std::string pattern("><");
+    size_t location = temp.find(pattern);
+    while ( location != std::string::npos ) {
+      temp.replace(location, 2, std::string(">\n<"));
+      location = temp.find( std::string("><") );
+    }
+    printf("%s\n", temp.c_str());
     printf("-------------------------------------------------->>\n");
     
     std::string copy = data;
@@ -1032,7 +1039,14 @@ namespace gloox
   {
     // KEVIN
     printf("SEND: %d\n", (int)(xml.length()));
-    printf("%s\n", xml.c_str());
+    std::string temp(xml);
+    std::string pattern("><");
+    size_t location = temp.find(pattern);
+    while ( location != std::string::npos ) {
+      temp.replace(location, 2, std::string(">\n<"));
+      location = temp.find( std::string("><") );
+    }
+    printf("%s\n", temp.c_str());
     printf("-------------------------------------------------->>\n");
     
     if( m_connection && m_connection->state() == StateConnected )
