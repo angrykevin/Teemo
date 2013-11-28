@@ -58,12 +58,19 @@
 //  manager->storeVCard(card, [engine vcardHandler]);
   
   
+//  TMEngine *engine = [TMEngine sharedEngine];
+//  RosterManager *manager = [engine rosterManager];
+//  
+//  manager->remove( JID( "kevin@batoo.com" ) );
+//  //manager->subscribe( JID( "kevin@batoo.com" ) );
+  
+  
+  //NSArray *values = @[ @"1", @"4" ];
+  NSString *va = @"6,4";
+  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM tBuddy WHERE subscription IN(%@);", va];
   TMEngine *engine = [TMEngine sharedEngine];
-  RosterManager *manager = [engine rosterManager];
-  
-  manager->remove( JID( "kevin@batoo.com" ) );
-  //manager->subscribe( JID( "kevin@batoo.com" ) );
-  
+  NSArray *ary = [[engine database] executeQuery:sql];
+  NSLog(@"%@", ary);
   
 }
 

@@ -99,12 +99,12 @@
   NSString *password = [_passwordLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   
   if ( !TKIsStringWithText(passport) ) {
-    TBDisplayMessage(@"帐号不能为空！");
+    TBDisplayMessage(@"Passport invalid !");
     return;
   }
   
   if ( !TKIsStringWithText(password) ) {
-    TBDisplayMessage(@"密码不能为空！");
+    TBDisplayMessage(@"Password invalid !");
     return;
   }
   

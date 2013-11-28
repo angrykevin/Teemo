@@ -12,6 +12,8 @@ CREATE TABLE tBuddy(
   birthday TEXT,
   desc TEXT,
   homepage TEXT,
+  
+  subscription INTEGER
 );
 
 CREATE TABLE tChatlog(

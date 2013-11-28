@@ -141,6 +141,10 @@ public:
    */
   virtual void handleRosterError( const IQ& iq );
   
+  
+private:
+  void saveRosterItemIntoDatabase(RosterItem *item);
+  
 };
 
 #endif

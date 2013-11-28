@@ -30,27 +30,7 @@ void TMRosterHandler::handleItemAdded( const JID& jid )
     
     if ( jid.bare() == tmp.bare() ) {
       
-      string groupname = item->groups().front();
-      string displayname = item->name();
-      
-      TMPRINT("BUDDY: %s %s %s\n", tmp.bare().c_str(), groupname.c_str(), displayname.c_str());
-      
-      NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM tBuddy WHERE bid=?;", OBJCSTR(tmp.bare())];
-      if ( [buddies count] > 0 ) {
-        
-        [[engine database] executeUpdate:@"UPDATE tBuddy SET displayname=?, groupname=? WHERE bid=?;",
-         OBJCSTR(displayname),
-         OBJCSTR(groupname),
-         OBJCSTR(tmp.bare())];
-        
-      } else {
-        
-        [[engine database] executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);",
-         OBJCSTR(tmp.bare()),
-         OBJCSTR(displayname),
-         OBJCSTR(groupname)];
-        
-      }
+      saveRosterItemIntoDatabase(item);
       
       [engine vcardManager]->fetchVCard(JID( tmp.bare() ), [engine vcardHandler]);
       
@@ -132,28 +112,7 @@ void TMRosterHandler::handleItemUpdated( const JID& jid )
     
     if ( jid.bare() == tmp.bare() ) {
       
-      string groupname = item->groups().front();
-      string displayname = item->name();
-      
-      TMPRINT("BUDDY: %s %s %s\n", tmp.bare().c_str(), groupname.c_str(), displayname.c_str());
-      
-      
-      NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM tBuddy WHERE bid=?;", OBJCSTR(tmp.bare())];
-      if ( [buddies count] > 0 ) {
-        
-        [[engine database] executeUpdate:@"UPDATE tBuddy SET displayname=?, groupname=? WHERE bid=?;",
-         OBJCSTR(displayname),
-         OBJCSTR(groupname),
-         OBJCSTR(tmp.bare())];
-        
-      } else {
-        
-        [[engine database] executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);",
-         OBJCSTR(tmp.bare()),
-         OBJCSTR(displayname),
-         OBJCSTR(groupname)];
-        
-      }
+      saveRosterItemIntoDatabase(item);
       
       [engine vcardManager]->fetchVCard(JID( tmp.bare() ), [engine vcardHandler]);
       
@@ -213,14 +172,16 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     
     string groupname = item->groups().front();
     string displayname = item->name();
+    SubscriptionType subscription = item->subscription();
     
-    TMPRINT("BUDDY: %s %s %s\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str());
+    TMPRINT("BUDDY: %s %s %s %d\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str(), subscription);
     
     
-    [[engine database] executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname) VALUES(?,?,?);",
+    [[engine database] executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname,subscription) VALUES(?,?,?,?);",
      OBJCSTR(jid.bare()),
      OBJCSTR(displayname),
-     OBJCSTR(groupname)];
+     OBJCSTR(groupname),
+     [NSNumber numberWithInt:subscription]];
     
     [engine vcardManager]->fetchVCard(JID( jid.bare() ), [engine vcardHandler]);
     
@@ -364,4 +325,36 @@ void TMRosterHandler::handleRosterError( const IQ& iq )
     
   });
   
+}
+
+
+
+void TMRosterHandler::saveRosterItemIntoDatabase(RosterItem *item)
+{
+  JID jid( item->jidJID() );
+  string groupname = item->groups().front();
+  string displayname = item->name();
+  SubscriptionType subscription = item->subscription();
+  
+  TMPRINT("BUDDY: %s %s %s %d\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str(), subscription);
+  
+  TMEngine *engine = [TMEngine sharedEngine];
+  NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM tBuddy WHERE bid=?;", OBJCSTR(jid.bare())];
+  if ( [buddies count] > 0 ) {
+    
+    [[engine database] executeUpdate:@"UPDATE tBuddy SET displayname=?, groupname=?, subscription=? WHERE bid=?;",
+     OBJCSTR(displayname),
+     OBJCSTR(groupname),
+     [NSNumber numberWithInt:subscription],
+     OBJCSTR(jid.bare())];
+    
+  } else {
+    
+    [[engine database] executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname,subscription) VALUES(?,?,?,?);",
+     OBJCSTR(jid.bare()),
+     OBJCSTR(displayname),
+     OBJCSTR(groupname),
+     [NSNumber numberWithInt:subscription]];
+    
+  }
 }

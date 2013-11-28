@@ -113,7 +113,7 @@ static TMEngine *CurrentEngine = nil;
 - (void)setUpDatabase
 {
   if ( ![_database hasTableNamed:@"tBuddy"] ) {
-    NSString *sql = @"CREATE TABLE tBuddy( pk INTEGER PRIMARY KEY, bid TEXT, displayname TEXT, groupname TEXT, nickname TEXT, familyname TEXT, givenname TEXT, photo TEXT, birthday TEXT, desc TEXT, homepage TEXT );";
+    NSString *sql = @"CREATE TABLE tBuddy( pk INTEGER PRIMARY KEY, bid TEXT, displayname TEXT, groupname TEXT, nickname TEXT, familyname TEXT, givenname TEXT, photo TEXT, birthday TEXT, desc TEXT, homepage TEXT, subscription INTEGER );";
     [_database executeUpdate:sql];
   }
   

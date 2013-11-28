@@ -48,7 +48,7 @@
   
   
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
   
   
   if ( RSHasAccount() ) {
@@ -141,7 +141,7 @@
   TKPRINTMETHOD();
   
   if ( TKIsInstance([_root.viewControllers firstObject], [RSSigninViewController class]) ) {
-    TBDisplayMessage(@"登录失败！");
+    TBDisplayMessage(@"Sign in failed !");
   }
   
   //TMEngine *engine = [TMEngine sharedEngine];
