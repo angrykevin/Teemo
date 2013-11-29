@@ -173,6 +173,13 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     string groupname = item->groups().front();
     string displayname = item->name();
     SubscriptionType subscription = item->subscription();
+    const RosterItem::ResourceMap map = item->resources();
+    RosterItem::ResourceMap::const_iterator aa = map.begin();
+    for ( ; aa!=map.end(); ++aa ) {
+      string first = aa->first;
+      Resource *res = aa->second;
+      printf("%s %s %d\n", first.c_str(), res->message().c_str(), res->presence());
+    }
     
     TMPRINT("BUDDY: %s %s %s %d\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str(), subscription);
     

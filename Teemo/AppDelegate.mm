@@ -45,6 +45,33 @@
 //    NSLog(@"H%d %@H", [row intForName:@"pk"], [row stringForName:@"str"]);
 //  }
   
+//  TKDatabase *db = [TKDatabase sharedObject];
+//  db.path = TKPathForDocumentsResource(@"im.db");
+//  [db open];
+//  
+//  [db executeUpdate:@"CREATE TABLE abc( pk INTEGER PRIMARY KEY, str TEXT );"];
+//  
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aa"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"bb"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"cc"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aa,cc"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"cc,bb"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aa,bb,cc"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aaaa"];
+//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aaaa,aa"];
+//  
+//  NSArray *array1 = [db executeQuery:@"SELECT * FROM abc WHERE str LIKE 'bb' OR str LIKE 'bb,%' OR str LIKE '%,bb' OR str LIKE '%,bb,%';"];
+//  for (int i=0; i<[array1 count]; ++i ) {
+//    TKDatabaseRow *row = [array1 objectAtIndex:i];
+//    NSLog(@"H%dH", [row intForName:@"pk"]);
+//  }
+//  
+//  NSArray *array2 = [db executeQuery:@"SELECT * FROM abc WHERE str=?;", @""];
+//  for (int i=0; i<[array2 count]; ++i ) {
+//    TKDatabaseRow *row = [array2 objectAtIndex:i];
+//    NSLog(@"H%d %@H", [row intForName:@"pk"], [row stringForName:@"str"]);
+//  }
+  
   
   
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
