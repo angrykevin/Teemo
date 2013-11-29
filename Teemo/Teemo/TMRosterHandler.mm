@@ -171,15 +171,18 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     RosterItem *item = it->second;
     
     string groupname = item->groups().front();
-    string displayname = item->name();
-    SubscriptionType subscription = item->subscription();
-    const RosterItem::ResourceMap map = item->resources();
-    RosterItem::ResourceMap::const_iterator aa = map.begin();
-    for ( ; aa!=map.end(); ++aa ) {
-      string first = aa->first;
-      Resource *res = aa->second;
-      printf("%s %s %d\n", first.c_str(), res->message().c_str(), res->presence());
+    if ( item->groups().size() > 1 ) {
+      StringList::const_iterator it = item->groups().begin();
+      ++it;
+      for ( ; it!=item->groups().end(); ++it ) {
+        groupname.append( string(",") );
+        groupname.append( *it );
+      }
     }
+    
+    string displayname = item->name();
+    
+    SubscriptionType subscription = item->subscription();
     
     TMPRINT("BUDDY: %s %s %s %d\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str(), subscription);
     
@@ -339,8 +342,19 @@ void TMRosterHandler::handleRosterError( const IQ& iq )
 void TMRosterHandler::saveRosterItemIntoDatabase(RosterItem *item)
 {
   JID jid( item->jidJID() );
+  
   string groupname = item->groups().front();
+  if ( item->groups().size() > 1 ) {
+    StringList::const_iterator it = item->groups().begin();
+    ++it;
+    for ( ; it!=item->groups().end(); ++it ) {
+      groupname.append( string(",") );
+      groupname.append( *it );
+    }
+  }
+  
   string displayname = item->name();
+  
   SubscriptionType subscription = item->subscription();
   
   TMPRINT("BUDDY: %s %s %s %d\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str(), subscription);

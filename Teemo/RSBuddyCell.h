@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RSCommon.h"
+
 
 @interface RSBuddyCell : UITableViewCell {
   TBButton *_photoButton;
@@ -18,6 +20,6 @@
 @property (nonatomic, strong, readonly) UILabel *nicknameLabel;
 @property (nonatomic, strong, readonly) UILabel *descLabel;
 
-- (void)loadPhoto:(NSString *)photo;
+- (void)loadPhoto:(NSString *)photo block:(RSImageProcessBlock)block;
 
 @end

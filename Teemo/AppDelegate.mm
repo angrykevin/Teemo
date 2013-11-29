@@ -18,6 +18,35 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
+  
+  
+//  tmp.append( string("aa") );
+//  tmp.append( string(",") );
+//  tmp.append( string("bb") );
+//  tmp.append( string(",") );
+//  tmp.append( string("cc") );
+  
+  
+//  StringList *list = NULL;
+//  printf("%d", list->size());
+//  list.push_back( string("aa") );
+//  list.push_back( string("bb") );
+////  list.push_back( string("cc") );
+////  list.push_back( string("dd") );
+//  
+//  string groupname = list.front();
+//  
+//  if ( list.size() > 1 ) {
+//    StringList::const_iterator it = list.begin();
+//    ++it;
+//    for ( ; it!=list.end(); ++it ) {
+//      groupname.append( string(",") );
+//      groupname.append( *it );
+//    }
+//  }
+//  
+//  printf("H%sH", groupname.c_str());
+  
 //  TKDatabase *db = [TKDatabase sharedObject];
 //  db.path = TKPathForDocumentsResource(@"im.db");
 //  [db open];
@@ -49,28 +78,47 @@
 //  db.path = TKPathForDocumentsResource(@"im.db");
 //  [db open];
 //  
-//  [db executeUpdate:@"CREATE TABLE abc( pk INTEGER PRIMARY KEY, str TEXT );"];
+//  [db executeUpdate:@"CREATE TABLE abc( pk INTEGER PRIMARY KEY, str TEXT, sub INTEGER );"];
 //  
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aa"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"bb"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"cc"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aa,cc"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"cc,bb"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aa,bb,cc"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aaaa"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aaaa,aa"];
+//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"aa", @1];
+//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"", @1];
+//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"bb", @2];
+//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"cc", @2];
+//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"aa,cc", @3];
+//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"cc,bb", @2];
+//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"aa,bb,cc", @1];
+//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"aaaa", @2];
+//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"aaaa,aa", @3];
 //  
-//  NSArray *array1 = [db executeQuery:@"SELECT * FROM abc WHERE str LIKE 'bb' OR str LIKE 'bb,%' OR str LIKE '%,bb' OR str LIKE '%,bb,%';"];
+//  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM abc WHERE (str LIKE '%@' OR str LIKE '%@,%%' OR str LIKE '%%,%@' OR str LIKE '%%,%@,%%') AND (sub IN (%@));", @"aa", @"aa", @"aa", @"aa", @"1,2"];
+//  NSArray *array1 = [db executeQuery:sql];
 //  for (int i=0; i<[array1 count]; ++i ) {
 //    TKDatabaseRow *row = [array1 objectAtIndex:i];
 //    NSLog(@"H%dH", [row intForName:@"pk"]);
 //  }
-//  
+//
 //  NSArray *array2 = [db executeQuery:@"SELECT * FROM abc WHERE str=?;", @""];
 //  for (int i=0; i<[array2 count]; ++i ) {
 //    TKDatabaseRow *row = [array2 objectAtIndex:i];
 //    NSLog(@"H%d %@H", [row intForName:@"pk"], [row stringForName:@"str"]);
 //  }
+  
+  
+//  NSArray *ary = @[ @"b", @"a", @"d", @"c" ];
+//  
+//  NSArray *tmp = [ary sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+//    return [obj1 compare:obj2];
+////    NSNumber *n1 = obj1;
+////    NSNumber *n2 = obj2;
+////    if ( [n1 intValue] < [n2 intValue] ) {
+////      return NSOrderedAscending;
+////    } else if ( [n1 intValue] > [n2 intValue] ) {
+////      return NSOrderedDescending;
+////    }
+////    return NSOrderedSame;
+//  }];
+//  NSLog(@"%@", tmp);
+  
   
   
   

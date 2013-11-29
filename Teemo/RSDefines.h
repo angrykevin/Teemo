@@ -8,3 +8,4 @@
 
 #define RSDefaultGroupName @"Friends"
 
+typedef UIImage *(^RSImageProcessBlock)(UIImage *image);

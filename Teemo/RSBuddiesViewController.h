@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RSRosterModel.h"
 
 @interface RSBuddiesViewController : TBViewController<
     UITableViewDataSource,
     UITableViewDelegate
 > {
   UITableView *_tableView;
-  NSArray *_groups;
+  RSRosterModel *_rosterModel;
+  NSMutableDictionary *_openedMap;
 }
 
 @end

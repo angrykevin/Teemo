@@ -173,6 +173,12 @@ static TMEngine *CurrentEngine = nil;
 }
 
 
+- (TKDatabase *)database
+{
+  return _database;
+}
+
+
 - (Client *)client
 {
   return _client;
@@ -207,13 +213,6 @@ static TMEngine *CurrentEngine = nil;
 - (TMRosterHandler *)rosterHandler
 {
   return _rosterHandler;
-}
-
-
-
-- (TKDatabase *)database
-{
-  return _database;
 }
 
 

@@ -23,6 +23,8 @@ using namespace gloox;
   NSString *_passport;
   NSString *_password;
   
+  TKDatabase *_database;
+  
   Client *_client;
   VCardManager *_vcardManager;
   //RosterManager *_rosterManager;
@@ -31,9 +33,6 @@ using namespace gloox;
   TMPresenceHandler *_presenceHandler;
   TMVCardHandler *_vcardHandler;
   TMRosterHandler *_rosterHandler;
-  
-  TKDatabase *_database;
-  
   
   
   BOOL _cancelled;
@@ -60,6 +59,8 @@ using namespace gloox;
 - (NSString *)passport;
 - (NSString *)password;
 
+- (TKDatabase *)database;
+
 - (Client *)client;
 - (VCardManager *)vcardManager;
 - (RosterManager *)rosterManager;
@@ -68,7 +69,5 @@ using namespace gloox;
 - (TMPresenceHandler *)presenceHandler;
 - (TMVCardHandler *)vcardHandler;
 - (TMRosterHandler *)rosterHandler;
-
-- (TKDatabase *)database;
 
 @end

@@ -211,6 +211,7 @@
 		BC840707182CC5200058EBDC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DD182CC5200058EBDC /* libssl.a */; };
 		BC84070C182CCB090058EBDC /* TBTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* TBTabViewController.m */; };
 		BC840710182CCCB20058EBDC /* UIViewControllerExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */; };
+		BC8B0E6C18485D2C00AFF390 /* RSRosterModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC8B0E6B18485D2C00AFF390 /* RSRosterModel.mm */; };
 		BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D351831E16B00E93718 /* TMRosterHandler.mm */; };
 		BCA23D48183224E300E93718 /* tabbar_buddies_h.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */; };
 		BCA23D49183224E300E93718 /* tabbar_buddies_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3D183224E300E93718 /* tabbar_buddies_h@2x.png */; };
@@ -760,6 +761,8 @@
 		BC84070B182CCB090058EBDC /* TBTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTabViewController.m; sourceTree = "<group>"; };
 		BC84070E182CCCB20058EBDC /* UIViewControllerExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtentions.h; sourceTree = "<group>"; };
 		BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerExtentions.m; sourceTree = "<group>"; };
+		BC8B0E6A18485D2C00AFF390 /* RSRosterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSRosterModel.h; path = Teemo/RSRosterModel.h; sourceTree = "<group>"; };
+		BC8B0E6B18485D2C00AFF390 /* RSRosterModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RSRosterModel.mm; path = Teemo/RSRosterModel.mm; sourceTree = "<group>"; };
 		BCA23D211831C34100E93718 /* TMPresenceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMPresenceDelegate.h; sourceTree = "<group>"; };
 		BCA23D251831CC8E00E93718 /* TMVCardDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMVCardDelegate.h; sourceTree = "<group>"; };
 		BCA23D351831E16B00E93718 /* TMRosterHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRosterHandler.mm; sourceTree = "<group>"; };
@@ -1555,6 +1558,8 @@
 				BC403C471835E80800B50317 /* RSProfileFooterView.m */,
 				BC403C401835C8ED00B50317 /* RSProfileCell.h */,
 				BC403C411835C8ED00B50317 /* RSProfileCell.m */,
+				BC8B0E6A18485D2C00AFF390 /* RSRosterModel.h */,
+				BC8B0E6B18485D2C00AFF390 /* RSRosterModel.mm */,
 			);
 			name = Buddies;
 			sourceTree = "<group>";
@@ -1878,6 +1883,7 @@
 				BC84067C182CC2F00058EBDC /* TKCoreCompatibility.m in Sources */,
 				BC84061A182CC2F00058EBDC /* dataformreported.cpp in Sources */,
 				BCB44E1D1834E02A007D074E /* SDWebImageManager.m in Sources */,
+				BC8B0E6C18485D2C00AFF390 /* RSRosterModel.mm in Sources */,
 				BC84065A182CC2F00058EBDC /* tag.cpp in Sources */,
 				BC840681182CC2F00058EBDC /* TKURLConnectionOperation.m in Sources */,
 				BC840647182CC2F00058EBDC /* pubsubevent.cpp in Sources */,
