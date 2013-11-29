@@ -22,7 +22,7 @@ void TMConnectionHandler::onConnect()
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
@@ -84,7 +84,7 @@ void TMConnectionHandler::onDisconnect( ConnectionError e )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
@@ -107,7 +107,7 @@ void TMConnectionHandler::onResourceBind( const std::string& resource )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
@@ -130,7 +130,7 @@ void TMConnectionHandler::onResourceBindError( const Error* error )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
@@ -153,7 +153,7 @@ void TMConnectionHandler::onSessionCreateError( const Error* error )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
@@ -197,7 +197,7 @@ bool TMConnectionHandler::onTLSConnect( const CertInfo& info )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
@@ -253,7 +253,7 @@ void TMConnectionHandler::onStreamEvent( StreamEvent event )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);

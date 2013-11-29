@@ -41,7 +41,7 @@ void TMRosterHandler::handleItemAdded( const JID& jid )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -60,7 +60,7 @@ void TMRosterHandler::handleItemSubscribed( const JID& jid )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -83,7 +83,7 @@ void TMRosterHandler::handleItemRemoved( const JID& jid )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -123,7 +123,7 @@ void TMRosterHandler::handleItemUpdated( const JID& jid )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -142,7 +142,7 @@ void TMRosterHandler::handleItemUnsubscribed( const JID& jid )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -200,7 +200,7 @@ void TMRosterHandler::handleRoster( const Roster& roster )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -220,7 +220,7 @@ void TMRosterHandler::handleRosterPresence( const RosterItem& item, const std::s
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -243,7 +243,7 @@ void TMRosterHandler::handleSelfPresence( const RosterItem& item, const std::str
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -265,7 +265,7 @@ bool TMRosterHandler::handleSubscriptionRequest( const JID& jid, const std::stri
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -285,7 +285,7 @@ bool TMRosterHandler::handleUnsubscriptionRequest( const JID& jid, const std::st
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -305,7 +305,7 @@ void TMRosterHandler::handleNonrosterPresence( const Presence& presence )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
@@ -324,7 +324,7 @@ void TMRosterHandler::handleRosterError( const IQ& iq )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);

@@ -17,7 +17,7 @@ void TMPresenceHandler::handlePresence( const Presence& presence )
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     
-    list<void *>::const_iterator it = m_observers.begin();
+    TMObserverList::const_iterator it = m_observers.begin();
     
     for( ; it != m_observers.end(); ++it ) {
       id<TMPresenceDelegate> delegate = (__bridge id<TMPresenceDelegate>)(*it);

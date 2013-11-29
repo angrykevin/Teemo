@@ -14,6 +14,8 @@
 
 using namespace std;
 
+typedef list<void *> TMObserverList;
+
 
 class TMHandlerBase {
   
@@ -25,7 +27,7 @@ public:
   void removeAllObservers();
   
 protected:
-  list<void *> m_observers;
+  TMObserverList m_observers;
 };
 
 #endif
