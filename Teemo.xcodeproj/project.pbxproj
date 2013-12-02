@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC20B262184C75E90087CF9C /* UIButtonExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC20B261184C75E90087CF9C /* UIButtonExtentions.m */; };
 		BC403C391835B82B00B50317 /* RSChatViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C381835B82B00B50317 /* RSChatViewController.mm */; };
 		BC403C3C1835B87A00B50317 /* RSProfileViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C3B1835B87A00B50317 /* RSProfileViewController.mm */; };
 		BC403C421835C8ED00B50317 /* RSProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C411835C8ED00B50317 /* RSProfileCell.m */; };
@@ -242,6 +243,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC20B260184C75E90087CF9C /* UIButtonExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonExtentions.h; sourceTree = "<group>"; };
+		BC20B261184C75E90087CF9C /* UIButtonExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonExtentions.m; sourceTree = "<group>"; };
 		BC403C371835B82B00B50317 /* RSChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSChatViewController.h; sourceTree = "<group>"; };
 		BC403C381835B82B00B50317 /* RSChatViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSChatViewController.mm; sourceTree = "<group>"; };
 		BC403C3A1835B87A00B50317 /* RSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProfileViewController.h; sourceTree = "<group>"; };
@@ -941,6 +944,8 @@
 				BC84070B182CCB090058EBDC /* TBTabViewController.m */,
 				BC675D48183093E3003E1516 /* CATransitionExtentions.h */,
 				BC675D49183093E3003E1516 /* CATransitionExtentions.m */,
+				BC20B260184C75E90087CF9C /* UIButtonExtentions.h */,
+				BC20B261184C75E90087CF9C /* UIButtonExtentions.m */,
 				BC5EE362182A2600007D5DE6 /* UILabelExtentions.h */,
 				BC5EE363182A2600007D5DE6 /* UILabelExtentions.m */,
 				BC46D3B0183EF52F00EADAA9 /* UITableViewExtentions.h */,
@@ -1775,6 +1780,7 @@
 				BC840656182CC2F00058EBDC /* softwareversion.cpp in Sources */,
 				BC5EE2FD182A1FAC007D5DE6 /* TMMessageHandler.mm in Sources */,
 				BC84067A182CC2F00058EBDC /* TKCoreBase64.m in Sources */,
+				BC20B262184C75E90087CF9C /* UIButtonExtentions.m in Sources */,
 				BC840605182CC2F00058EBDC /* capabilities.cpp in Sources */,
 				BCB44E1E1834E02A007D074E /* SDWebImagePrefetcher.m in Sources */,
 				BC840641182CC2F00058EBDC /* parser.cpp in Sources */,
