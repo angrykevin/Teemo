@@ -111,7 +111,7 @@
   
   //NSArray *values = @[ @"1", @"4" ];
 //  NSString *va = @"6,4";
-//  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM tBuddy WHERE subscription IN(%@);", va];
+//  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN(%@);", va];
 //  TMEngine *engine = [TMEngine sharedEngine];
 //  NSArray *ary = [[engine database] executeQuery:sql];
 //  NSLog(@"%@", ary);

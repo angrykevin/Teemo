@@ -32,10 +32,10 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
     
     TMEngine *engine = [TMEngine sharedEngine];
     
-    NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM tBuddy WHERE bid=?;", OBJCSTR(jid.bare())];
+    NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
     if ( [buddies count] > 0 ) {
       
-      [[engine database] executeUpdate:@"UPDATE tBuddy SET nickname=?, familyname=?, givenname=?, photo=?, birthday=?, desc=?, homepage=? WHERE bid=?;",
+      [[engine database] executeUpdate:@"UPDATE t_buddy SET nickname=?, familyname=?, givenname=?, photo=?, birthday=?, desc=?, homepage=? WHERE bid=?;",
        OBJCSTR(vcard->nickname()),
        OBJCSTR(vcard->name().family),
        OBJCSTR(vcard->name().given),

@@ -47,7 +47,9 @@
 {
   int index = [self addButtonWithTitle:title block:block];
   
-  [self setCancelButtonIndex:index];
+  if ( index >= 0 ) {
+    [self setCancelButtonIndex:index];
+  }
   
   return index;
 }

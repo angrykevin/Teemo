@@ -16,6 +16,8 @@
 #import "TBTabViewController.h"
 
 #import "CATransitionExtentions.h"
+#import "UIButtonExtentions.h"
+#import "UIImageExtentions.h"
 #import "UILabelExtentions.h"
 #import "UITableViewExtentions.h"
 #import "UIViewControllerExtentions.h"

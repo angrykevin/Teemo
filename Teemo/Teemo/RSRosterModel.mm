@@ -49,7 +49,7 @@
   TMEngine *engine = [TMEngine sharedEngine];
   
   NSMutableArray *groupNames = [[NSMutableArray alloc] init];
-  NSArray *dbGroupNames = [[engine database] executeQuery:@"SELECT DISTINCT groupname FROM tBuddy;"];
+  NSArray *dbGroupNames = [[engine database] executeQuery:@"SELECT DISTINCT groupname FROM t_buddy;"];
   for ( TKDatabaseRow *row in dbGroupNames ) {
     NSArray *names = [[row stringForName:@"groupname"] componentsSeparatedByString:@","];
     for ( NSString *name in names ) {
@@ -79,7 +79,7 @@
     RosterManager *rosterManager = [engine rosterManager];
     
     NSMutableArray *buddies = [[NSMutableArray alloc] init];
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM tBuddy WHERE (groupname LIKE '%@' OR groupname LIKE '%@,%%' OR groupname LIKE '%%,%@' OR groupname LIKE '%%,%@,%%') AND (subscription IN (%@));", groupName, groupName, groupName, groupName, subscriptionTypeString];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE (groupname LIKE '%@' OR groupname LIKE '%@,%%' OR groupname LIKE '%%,%@' OR groupname LIKE '%%,%@,%%') AND (subscription IN (%@));", groupName, groupName, groupName, groupName, subscriptionTypeString];
     NSArray *dbBuddies = [[engine database] executeQuery:sql];
     for ( TKDatabaseRow *row in dbBuddies ) {
       
@@ -147,7 +147,7 @@
     RosterManager *rosterManager = [engine rosterManager];
     
     NSMutableArray *buddies = [[NSMutableArray alloc] init];
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM tBuddy WHERE subscription IN (%@);", subscriptionTypeString];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
     NSArray *dbBuddies = [[engine database] executeQuery:sql];
     for ( TKDatabaseRow *row in dbBuddies ) {
       

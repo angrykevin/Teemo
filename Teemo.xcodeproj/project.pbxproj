@@ -240,6 +240,7 @@
 		BCB44E1E1834E02A007D074E /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E121834E02A007D074E /* SDWebImagePrefetcher.m */; };
 		BCB44E1F1834E02A007D074E /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E141834E02A007D074E /* UIButton+WebCache.m */; };
 		BCB44E201834E02A007D074E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E161834E02A007D074E /* UIImageView+WebCache.m */; };
+		BCB653DD185C416200556C10 /* UIImageExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB653DC185C416200556C10 /* UIImageExtentions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -812,6 +813,8 @@
 		BCB44E141834E02A007D074E /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		BCB44E151834E02A007D074E /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		BCB44E161834E02A007D074E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		BCB653DB185C416200556C10 /* UIImageExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtentions.h; sourceTree = "<group>"; };
+		BCB653DC185C416200556C10 /* UIImageExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtentions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -890,7 +893,7 @@
 				BCA23D5F1832294800E93718 /* Setting */,
 				BC47AE8E183335AE00331216 /* Common */,
 				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
-				BC5EE368182A3E17007D5DE6 /* ToolBox */,
+				BC5EE368182A3E17007D5DE6 /* Toolbox */,
 				BC840708182CC6FF0058EBDC /* Views */,
 			);
 			path = Teemo;
@@ -928,7 +931,7 @@
 			path = Teemo;
 			sourceTree = "<group>";
 		};
-		BC5EE368182A3E17007D5DE6 /* ToolBox */ = {
+		BC5EE368182A3E17007D5DE6 /* Toolbox */ = {
 			isa = PBXGroup;
 			children = (
 				BC84042D182CB30B0058EBDC /* Toolbox.h */,
@@ -946,6 +949,8 @@
 				BC675D49183093E3003E1516 /* CATransitionExtentions.m */,
 				BC20B260184C75E90087CF9C /* UIButtonExtentions.h */,
 				BC20B261184C75E90087CF9C /* UIButtonExtentions.m */,
+				BCB653DB185C416200556C10 /* UIImageExtentions.h */,
+				BCB653DC185C416200556C10 /* UIImageExtentions.m */,
 				BC5EE362182A2600007D5DE6 /* UILabelExtentions.h */,
 				BC5EE363182A2600007D5DE6 /* UILabelExtentions.m */,
 				BC46D3B0183EF52F00EADAA9 /* UITableViewExtentions.h */,
@@ -953,7 +958,7 @@
 				BC84070E182CCCB20058EBDC /* UIViewControllerExtentions.h */,
 				BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */,
 			);
-			name = ToolBox;
+			name = Toolbox;
 			sourceTree = "<group>";
 		};
 		BC84045F182CC2EF0058EBDC /* Thirdparty */ = {
@@ -1732,6 +1737,7 @@
 				BC840612182CC2F00058EBDC /* connectiontcpclient.cpp in Sources */,
 				BCB44E1F1834E02A007D074E /* UIButton+WebCache.m in Sources */,
 				BC84066C182CC2F00058EBDC /* NSArrayAdditions.m in Sources */,
+				BCB653DD185C416200556C10 /* UIImageExtentions.m in Sources */,
 				BC84067B182CC2F00058EBDC /* TKCoreCommon.m in Sources */,
 				BC840627182CC2F00058EBDC /* instantmucroom.cpp in Sources */,
 				BC840678182CC2F00058EBDC /* TKOperation.m in Sources */,

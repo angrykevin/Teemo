@@ -112,8 +112,8 @@ static TMEngine *CurrentEngine = nil;
 
 - (void)setUpDatabase
 {
-  if ( ![_database hasTableNamed:@"tBuddy"] ) {
-    NSString *sql = @"CREATE TABLE tBuddy( pk INTEGER PRIMARY KEY, bid TEXT, displayname TEXT, groupname TEXT, nickname TEXT, familyname TEXT, givenname TEXT, photo TEXT, birthday TEXT, desc TEXT, homepage TEXT, subscription INTEGER );";
+  if ( ![_database hasTableNamed:@"t_buddy"] ) {
+    NSString *sql = @"CREATE TABLE t_buddy( pk INTEGER PRIMARY KEY, bid TEXT, displayname TEXT, groupname TEXT, nickname TEXT, familyname TEXT, givenname TEXT, photo TEXT, birthday TEXT, desc TEXT, homepage TEXT, subscription INTEGER );";
     [_database executeUpdate:sql];
   }
   
@@ -130,7 +130,7 @@ static TMEngine *CurrentEngine = nil;
 
 - (void)clearDatabase
 {
-  [_database executeUpdate:@"DELETE FROM tBuddy;"];
+  [_database executeUpdate:@"DELETE FROM t_buddy;"];
   [_database executeUpdate:@"DELETE FROM tChatlog;"];
   [_database executeUpdate:@"DELETE FROM tMessage;"];
 }

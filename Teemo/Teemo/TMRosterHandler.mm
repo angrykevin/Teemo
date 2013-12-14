@@ -72,7 +72,7 @@ void TMRosterHandler::handleItemRemoved( const JID& jid )
   TMPRINTMETHOD();
   
   TMEngine *engine = [TMEngine sharedEngine];
-  [[engine database] executeUpdate:@"DELETE FROM tBuddy WHERE bid=?;", OBJCSTR(jid.bare())];
+  [[engine database] executeUpdate:@"DELETE FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
   
   
   dispatch_sync(dispatch_get_main_queue(), ^{
@@ -146,7 +146,7 @@ void TMRosterHandler::handleRoster( const Roster& roster )
   
   TMEngine *engine = [TMEngine sharedEngine];
   
-  [[engine database] executeUpdate:@"DELETE FROM tBuddy;"];
+  [[engine database] executeUpdate:@"DELETE FROM t_buddy;"];
   
   Roster::const_iterator it = roster.begin();
   
@@ -172,7 +172,7 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     TMPRINT("BUDDY: %s %s %s %d\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str(), subscription);
     
     
-    [[engine database] executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname,subscription) VALUES(?,?,?,?);",
+    [[engine database] executeUpdate:@"INSERT INTO t_buddy(bid,displayname,groupname,subscription) VALUES(?,?,?,?);",
      OBJCSTR(jid.bare()),
      OBJCSTR(displayname),
      OBJCSTR(groupname),
@@ -324,10 +324,10 @@ void TMRosterHandler::saveRosterItemIntoDatabase(RosterItem *item)
   TMPRINT("BUDDY: %s %s %s %d\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str(), subscription);
   
   TMEngine *engine = [TMEngine sharedEngine];
-  NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM tBuddy WHERE bid=?;", OBJCSTR(jid.bare())];
+  NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
   if ( [buddies count] > 0 ) {
     
-    [[engine database] executeUpdate:@"UPDATE tBuddy SET displayname=?, groupname=?, subscription=? WHERE bid=?;",
+    [[engine database] executeUpdate:@"UPDATE t_buddy SET displayname=?, groupname=?, subscription=? WHERE bid=?;",
      OBJCSTR(displayname),
      OBJCSTR(groupname),
      [NSNumber numberWithInt:subscription],
@@ -335,7 +335,7 @@ void TMRosterHandler::saveRosterItemIntoDatabase(RosterItem *item)
     
   } else {
     
-    [[engine database] executeUpdate:@"INSERT INTO tBuddy(bid,displayname,groupname,subscription) VALUES(?,?,?,?);",
+    [[engine database] executeUpdate:@"INSERT INTO t_buddy(bid,displayname,groupname,subscription) VALUES(?,?,?,?);",
      OBJCSTR(jid.bare()),
      OBJCSTR(displayname),
      OBJCSTR(groupname),

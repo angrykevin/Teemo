@@ -1,9 +1,9 @@
 
-CREATE TABLE tBuddy(
+CREATE TABLE t_buddy(
   pk INTEGER PRIMARY KEY,
   bid TEXT,
   displayname TEXT,
-  groupname TEXT
+  groupname TEXT,
 
   nickname TEXT,
   familyname TEXT,
