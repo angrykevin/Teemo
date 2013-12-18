@@ -32,7 +32,7 @@
   
   if ( _appearedTimes == 0 ) {
     UIViewController *vc = [_viewControllers firstObject];
-    [self presentChildViewController:vc];
+    [self presentChildViewController:vc inView:nil];
     [_tabView selectItemAtIndex:0];
   }
   
@@ -89,7 +89,7 @@
     
     if ( currentVC != newVC ) {
       
-      [weakSelf presentChildViewController:newVC];
+      [weakSelf presentChildViewController:newVC inView:nil];
       [weakSelf dismissChildViewController:currentVC];
       
     }

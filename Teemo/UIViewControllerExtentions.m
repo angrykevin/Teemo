@@ -10,11 +10,15 @@
 
 @implementation UIViewController (Extentions)
 
-- (void)presentChildViewController:(UIViewController *)childViewController
+- (void)presentChildViewController:(UIViewController *)childViewController inView:(UIView *)containerView
 {
+  UIView *boxView = containerView;
+  if ( boxView == nil ) {
+    boxView = self.view;
+  }
   
   [self addChildViewController:childViewController];
-  [self.view addSubview:childViewController.view];
+  [boxView addSubview:childViewController.view];
   [childViewController didMoveToParentViewController:self];
   
 }

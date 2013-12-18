@@ -10,7 +10,7 @@
 
 @interface UIViewController (Extentions)
 
-- (void)presentChildViewController:(UIViewController *)childViewController;
+- (void)presentChildViewController:(UIViewController *)childViewController inView:(UIView *)containerView;
 
 - (void)dismissChildViewController:(UIViewController *)childViewController;
 
