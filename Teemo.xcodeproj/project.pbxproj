@@ -52,7 +52,6 @@
 		BC675CC918308252003E1516 /* TMHandlerBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC675CC818308252003E1516 /* TMHandlerBase.mm */; };
 		BC675D4A183093E3003E1516 /* CATransitionExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC675D49183093E3003E1516 /* CATransitionExtentions.m */; };
 		BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */ = {isa = PBXBuildFile; fileRef = BC840428182CADA40058EBDC /* RSBoxViewLine.m */; };
-		BC84042C182CB2A40058EBDC /* TBRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84042B182CB2A40058EBDC /* TBRoutines.m */; };
 		BC8405FE182CC2F00058EBDC /* adhoc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840461182CC2EF0058EBDC /* adhoc.cpp */; };
 		BC8405FF182CC2F00058EBDC /* amp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840465182CC2EF0058EBDC /* amp.cpp */; };
 		BC840600182CC2F00058EBDC /* annotations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840467182CC2EF0058EBDC /* annotations.cpp */; };
@@ -241,6 +240,9 @@
 		BCB44E1F1834E02A007D074E /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E141834E02A007D074E /* UIButton+WebCache.m */; };
 		BCB44E201834E02A007D074E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E161834E02A007D074E /* UIImageView+WebCache.m */; };
 		BCB653DD185C416200556C10 /* UIImageExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB653DC185C416200556C10 /* UIImageExtentions.m */; };
+		BCC877DC18629DDA002FE75F /* TBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC877DB18629DDA002FE75F /* TBLocationManager.m */; };
+		BCC877DF1862C3C4002FE75F /* TBReverseGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC877DE1862C3C4002FE75F /* TBReverseGeocoder.m */; };
+		BCC877E31862D1FA002FE75F /* TBCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC877E21862D1FA002FE75F /* TBCommon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -329,8 +331,6 @@
 		BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMConnectionDelegate.h; sourceTree = "<group>"; };
 		BC840427182CADA40058EBDC /* RSBoxViewLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoxViewLine.h; sourceTree = "<group>"; };
 		BC840428182CADA40058EBDC /* RSBoxViewLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBoxViewLine.m; sourceTree = "<group>"; };
-		BC84042A182CB2A40058EBDC /* TBRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBRoutines.h; sourceTree = "<group>"; };
-		BC84042B182CB2A40058EBDC /* TBRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBRoutines.m; sourceTree = "<group>"; };
 		BC84042D182CB30B0058EBDC /* Toolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toolbox.h; sourceTree = "<group>"; };
 		BC840461182CC2EF0058EBDC /* adhoc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = adhoc.cpp; sourceTree = "<group>"; };
 		BC840462182CC2EF0058EBDC /* adhoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adhoc.h; sourceTree = "<group>"; };
@@ -815,6 +815,12 @@
 		BCB44E161834E02A007D074E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		BCB653DB185C416200556C10 /* UIImageExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtentions.h; sourceTree = "<group>"; };
 		BCB653DC185C416200556C10 /* UIImageExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtentions.m; sourceTree = "<group>"; };
+		BCC877DA18629DDA002FE75F /* TBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLocationManager.h; sourceTree = "<group>"; };
+		BCC877DB18629DDA002FE75F /* TBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLocationManager.m; sourceTree = "<group>"; };
+		BCC877DD1862C3C4002FE75F /* TBReverseGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBReverseGeocoder.h; sourceTree = "<group>"; };
+		BCC877DE1862C3C4002FE75F /* TBReverseGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBReverseGeocoder.m; sourceTree = "<group>"; };
+		BCC877E11862D1FA002FE75F /* TBCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCommon.h; sourceTree = "<group>"; };
+		BCC877E21862D1FA002FE75F /* TBCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCommon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -935,8 +941,8 @@
 			isa = PBXGroup;
 			children = (
 				BC84042D182CB30B0058EBDC /* Toolbox.h */,
-				BC84042A182CB2A40058EBDC /* TBRoutines.h */,
-				BC84042B182CB2A40058EBDC /* TBRoutines.m */,
+				BCC877E11862D1FA002FE75F /* TBCommon.h */,
+				BCC877E21862D1FA002FE75F /* TBCommon.m */,
 				BC403C4A1835EB0B00B50317 /* TBAlertView.h */,
 				BC403C4B1835EB0B00B50317 /* TBAlertView.m */,
 				BC552DB81839C57C0078375F /* TBButton.h */,
@@ -945,6 +951,10 @@
 				BC5EE360182A2429007D5DE6 /* TBViewController.m */,
 				BC84070A182CCB090058EBDC /* TBTabViewController.h */,
 				BC84070B182CCB090058EBDC /* TBTabViewController.m */,
+				BCC877DA18629DDA002FE75F /* TBLocationManager.h */,
+				BCC877DB18629DDA002FE75F /* TBLocationManager.m */,
+				BCC877DD1862C3C4002FE75F /* TBReverseGeocoder.h */,
+				BCC877DE1862C3C4002FE75F /* TBReverseGeocoder.m */,
 				BC675D48183093E3003E1516 /* CATransitionExtentions.h */,
 				BC675D49183093E3003E1516 /* CATransitionExtentions.m */,
 				BC20B260184C75E90087CF9C /* UIButtonExtentions.h */,
@@ -1742,7 +1752,6 @@
 				BC840627182CC2F00058EBDC /* instantmucroom.cpp in Sources */,
 				BC840678182CC2F00058EBDC /* TKOperation.m in Sources */,
 				BC84062E182CC2F00058EBDC /* jinglesession.cpp in Sources */,
-				BC84042C182CB2A40058EBDC /* TBRoutines.m in Sources */,
 				BC840603182CC2F00058EBDC /* base64.cpp in Sources */,
 				BC403C4C1835EB0B00B50317 /* TBAlertView.m in Sources */,
 				BC840606182CC2F00058EBDC /* carbons.cpp in Sources */,
@@ -1761,6 +1770,7 @@
 				BC840600182CC2F00058EBDC /* annotations.cpp in Sources */,
 				BC840655182CC2F00058EBDC /* socks5bytestreamserver.cpp in Sources */,
 				BC4D139D1830E77300572F67 /* TMConnectionHandler.mm in Sources */,
+				BCC877DC18629DDA002FE75F /* TBLocationManager.m in Sources */,
 				BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */,
 				BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */,
 				BC840669182CC2F00058EBDC /* xhtmlim.cpp in Sources */,
@@ -1789,6 +1799,7 @@
 				BC20B262184C75E90087CF9C /* UIButtonExtentions.m in Sources */,
 				BC840605182CC2F00058EBDC /* capabilities.cpp in Sources */,
 				BCB44E1E1834E02A007D074E /* SDWebImagePrefetcher.m in Sources */,
+				BCC877DF1862C3C4002FE75F /* TBReverseGeocoder.m in Sources */,
 				BC840641182CC2F00058EBDC /* parser.cpp in Sources */,
 				BC840661182CC2F00058EBDC /* tlsopensslclient.cpp in Sources */,
 				BC84061F182CC2F00058EBDC /* eventdispatcher.cpp in Sources */,
@@ -1846,6 +1857,7 @@
 				BC5EE30A182A20D7007D5DE6 /* RSMainViewController.mm in Sources */,
 				BC840623182CC2F00058EBDC /* gloox.cpp in Sources */,
 				BC403C4F1835F3E200B50317 /* RSEditProfileViewController.m in Sources */,
+				BCC877E31862D1FA002FE75F /* TBCommon.m in Sources */,
 				BCB44E171834E02A007D074E /* MKAnnotationView+WebCache.m in Sources */,
 				BC840680182CC2F00058EBDC /* TKNAIManager.m in Sources */,
 				BC840616182CC2F00058EBDC /* dataform.cpp in Sources */,

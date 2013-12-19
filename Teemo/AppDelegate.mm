@@ -15,10 +15,73 @@
 
 @implementation AppDelegate
 
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+  TKPRINTMETHOD();
+  [[TBLocationManager sharedObject] shutDownLocationServiceIfNeeded];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+  TKPRINTMETHOD();
+  [[TBLocationManager sharedObject] launchLocationServiceIfNeeded];
+}
+
+- (void)didStart:(NSNotification *)notification
+{
+  TKPRINTMETHOD();
+}
+
+- (void)didStop:(NSNotification *)notification
+{
+  TKPRINTMETHOD();
+}
+
+- (void)didUpdate:(NSNotification *)notification
+{
+  TKPRINTMETHOD();
+  TBLocationManager *lm = [TBLocationManager sharedObject];
+  
+  if ( _geocoder == nil ) {
+    _geocoder = [[TBReverseGeocoder alloc] init];
+  }
+  
+  [_geocoder reverseGeocodeLocation:lm.location
+                 completionHandler:^(NSDictionary *result, NSError *error) {
+                   if ( error == nil ) {
+                     NSLog(@"%@", result);
+                   } else {
+                     NSLog(@"解析出错");
+                   }
+                 }];
+  
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
   
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(didStart:)
+                                               name:TBLocationManagerDidStartUpdatingNotification
+                                             object:nil];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(didStop:)
+                                               name:TBLocationManagerDidStopUpdatingNotification
+                                             object:nil];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(didUpdate:)
+                                               name:TBLocationManagerDidUpdateNotification
+                                             object:nil];
+  NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
+  NSLog(@"%@", error);
+  if ( error == nil ) {
+    NSLog(@"error is nil");
+  } else {
+    NSLog(@"error is not nil");
+  }
   
 //  tmp.append( string("aa") );
 //  tmp.append( string(",") );

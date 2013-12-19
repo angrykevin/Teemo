@@ -7,7 +7,7 @@
 //
 
 #import "TBViewController.h"
-#import "TBRoutines.h"
+#import "TBCommon.h"
 #import "UILabelExtentions.h"
 
 @implementation TBViewController
@@ -92,6 +92,22 @@
 }
 
 - (void)rightButtonClicked:(id)sender
+{
+  TKPRINTMETHOD();
+}
+
+
+- (void)disappearedForDestroy
+{
+  TKPRINTMETHOD();
+}
+
+- (void)disappearedForPush
+{
+  TKPRINTMETHOD();
+}
+
+- (void)appearedForPop
 {
   TKPRINTMETHOD();
 }

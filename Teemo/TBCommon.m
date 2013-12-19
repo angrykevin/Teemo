@@ -1,13 +1,12 @@
 //
-//  TBRoutines.m
+//  TBCommon.m
 //  Teemo
 //
-//  Created by Wu Kevin on 11/8/13.
+//  Created by Wu Kevin on 12/19/13.
 //  Copyright (c) 2013 xbcx. All rights reserved.
 //
 
-#import "TBRoutines.h"
-
+#import "TBCommon.h"
 
 UIImage *TBCreateImage(NSString *name)
 {

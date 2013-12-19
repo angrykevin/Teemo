@@ -23,7 +23,7 @@
   if ( self ) {
     
     _address = address;
-    _timeoutInterval = (timeoutInterval > 0) ? timeoutInterval : 10.0;
+    _timeoutInterval = (timeoutInterval > 0.0) ? timeoutInterval : 10.0;
     _cachePolicy = (cachePolicy == 0) ? NSURLRequestUseProtocolCachePolicy : cachePolicy;
     _method = @"GET";
     _headers = [[NSMutableDictionary alloc] init];

@@ -11,6 +11,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
   UIWindow *_window;
   UINavigationController *_root;
+  TBReverseGeocoder *_geocoder;
 }
 
 @property (nonatomic, strong) UIWindow *window;
