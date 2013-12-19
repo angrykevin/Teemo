@@ -77,6 +77,18 @@
   }
 }
 
+- (void)cancelAndClear
+{
+  _parameters = nil;
+  
+  [_operation clearDelegatesAndCancel];
+  _location = nil;
+  _result = nil;
+  
+  _parsing = NO;
+  
+}
+
 
 - (BOOL)parsing
 {

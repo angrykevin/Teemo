@@ -30,4 +30,6 @@
 
 - (void)reverseGeocodeLocation:(CLLocation *)location completionHandler:(TBOperationCompletionHandler)completionHandler;
 
+- (void)cancelAndClear;
+
 @end

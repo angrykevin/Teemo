@@ -41,20 +41,14 @@
 {
   TKPRINTMETHOD();
   TBLocationManager *lm = [TBLocationManager sharedObject];
-  
-  if ( _geocoder == nil ) {
-    _geocoder = [[TBReverseGeocoder alloc] init];
-  }
-  
-  [_geocoder reverseGeocodeLocation:lm.location
-                 completionHandler:^(NSDictionary *result, NSError *error) {
-                   if ( error == nil ) {
-                     NSLog(@"%@", result);
-                   } else {
-                     NSLog(@"解析出错");
-                   }
-                 }];
-  
+  NSLog(@"%f,%f", lm.location.coordinate.latitude, lm.location.coordinate.longitude);
+}
+
+- (void)didUpdateAddress:(NSNotification *)notification
+{
+  TBLocationManager *lm = [TBLocationManager sharedObject];
+  TKPRINTMETHOD();
+  NSLog(@"%@", lm.reverseGeocoder.result);
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -75,13 +69,11 @@
                                            selector:@selector(didUpdate:)
                                                name:TBLocationManagerDidUpdateNotification
                                              object:nil];
-  NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
-  NSLog(@"%@", error);
-  if ( error == nil ) {
-    NSLog(@"error is nil");
-  } else {
-    NSLog(@"error is not nil");
-  }
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(didUpdateAddress:)
+                                               name:TBLocationManagerDidUpdateAddressNotification
+                                             object:nil];
   
 //  tmp.append( string("aa") );
 //  tmp.append( string(",") );

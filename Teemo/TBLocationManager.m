@@ -16,6 +16,9 @@
 {
   _locationManager.delegate = nil;
   [_locationManager stopUpdatingLocation];
+  
+  [_reverseGeocoder cancelAndClear];
+  
 }
 
 + (TBLocationManager *)sharedObject
@@ -149,6 +152,17 @@
   _location = [locations lastObject];
   [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateNotification
                                                       object:self];
+  
+  if ( _reverseGeocoder == nil ) {
+    _reverseGeocoder = [[TBReverseGeocoder alloc] init];
+  }
+  
+  [_reverseGeocoder reverseGeocodeLocation:_location
+                         completionHandler:^(NSDictionary *result, NSError *error) {
+                           [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateAddressNotification
+                                                                               object:self];
+                         }];
+  
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -157,6 +171,9 @@
   _location = nil;
   [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateNotification
                                                       object:self];
+  
+  [_reverseGeocoder cancelAndClear];
+  
 }
 
 @end
