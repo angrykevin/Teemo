@@ -173,6 +173,8 @@
                                                       object:self];
   
   [_reverseGeocoder cancelAndClear];
+  [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateAddressNotification
+                                                      object:self];
   
 }
 
