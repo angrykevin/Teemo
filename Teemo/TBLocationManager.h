@@ -12,7 +12,7 @@
 
 #define TBLocationManagerDidStartUpdatingNotification @"TBLocationManagerDidStartUpdatingNotification"
 #define TBLocationManagerDidStopUpdatingNotification @"TBLocationManagerDidStopUpdatingNotification"
-#define TBLocationManagerDidUpdateNotification @"TBLocationManagerDidUpdateNotification"
+#define TBLocationManagerDidUpdateLocationNotification @"TBLocationManagerDidUpdateLocationNotification"
 #define TBLocationManagerDidUpdateAddressNotification @"TBLocationManagerDidUpdateAddressNotification"
 
 

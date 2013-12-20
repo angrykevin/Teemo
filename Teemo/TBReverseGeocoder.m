@@ -62,6 +62,8 @@
     };
     
     _operation.didFinishBlock = ^(id object) {
+      NSString *path = TKPathForDocumentsResource(@"abc.txt");
+      [[object responseData] writeToFile:path atomically:YES];
       id result = [NSJSONSerialization JSONObjectWithData:[object responseData]
                                                   options:0
                                                     error:NULL];
@@ -88,6 +90,148 @@
   _parsing = NO;
   
 }
+
+
+- (NSDictionary *)addressDictionary
+{
+  NSArray *results = [_result objectForKey:@"results"];
+  for ( NSDictionary *addressDictionary in results ) {
+    NSArray *types = [addressDictionary objectForKey:@"types"];
+    if ( [types hasObjectEqualTo:@"street_address"] ) {
+      return addressDictionary;
+    }
+  }
+  
+  return nil;
+}
+
+- (NSString *)formattedAddress
+{
+  NSDictionary *addressDictionary = [self addressDictionary];
+  return [addressDictionary objectForKey:@"formatted_address"];
+}
+
+
+- (NSString *)country
+{
+  NSDictionary *addressDictionary = [self addressDictionary];
+  
+  NSArray *addressComponents = [addressDictionary objectForKey:@"address_components"];
+  for ( NSDictionary *component in addressComponents ) {
+    NSArray *types = [component objectForKey:@"types"];
+    if ( [types hasObjectEqualTo:@"country"] ) {
+      return [component objectForKey:@"long_name"];
+    }
+  }
+  
+  return nil;
+}
+
+- (NSString *)administrativeArea
+{
+  NSDictionary *addressDictionary = [self addressDictionary];
+  
+  NSArray *addressComponents = [addressDictionary objectForKey:@"address_components"];
+  for ( NSDictionary *component in addressComponents ) {
+    NSArray *types = [component objectForKey:@"types"];
+    if ( [types hasObjectEqualTo:@"administrative_area_level_1"] ) {
+      return [component objectForKey:@"long_name"];
+    }
+  }
+  
+  return nil;
+}
+
+- (NSString *)subAdministrativeArea
+{
+  NSDictionary *addressDictionary = [self addressDictionary];
+  
+  NSArray *addressComponents = [addressDictionary objectForKey:@"address_components"];
+  for ( NSDictionary *component in addressComponents ) {
+    NSArray *types = [component objectForKey:@"types"];
+    if ( [types hasObjectEqualTo:@"administrative_area_level_2"] ) {
+      return [component objectForKey:@"long_name"];
+    }
+  }
+  
+  return nil;
+}
+
+- (NSString *)locality
+{
+  NSDictionary *addressDictionary = [self addressDictionary];
+  
+  NSArray *addressComponents = [addressDictionary objectForKey:@"address_components"];
+  for ( NSDictionary *component in addressComponents ) {
+    NSArray *types = [component objectForKey:@"types"];
+    if ( [types hasObjectEqualTo:@"locality"] ) {
+      return [component objectForKey:@"long_name"];
+    }
+  }
+  
+  return nil;
+}
+
+- (NSString *)subLocality
+{
+  NSDictionary *addressDictionary = [self addressDictionary];
+  
+  NSArray *addressComponents = [addressDictionary objectForKey:@"address_components"];
+  for ( NSDictionary *component in addressComponents ) {
+    NSArray *types = [component objectForKey:@"types"];
+    if ( [types hasObjectEqualTo:@"sublocality"] ) {
+      return [component objectForKey:@"long_name"];
+    }
+  }
+  
+  return nil;
+}
+
+- (NSString *)thoroughfare
+{
+  NSDictionary *addressDictionary = [self addressDictionary];
+  
+  NSArray *addressComponents = [addressDictionary objectForKey:@"address_components"];
+  for ( NSDictionary *component in addressComponents ) {
+    NSArray *types = [component objectForKey:@"types"];
+    if ( [types hasObjectEqualTo:@"route"] ) {
+      return [component objectForKey:@"long_name"];
+    }
+  }
+  
+  return nil;
+}
+
+- (NSString *)subThoroughfare
+{
+  NSDictionary *addressDictionary = [self addressDictionary];
+  
+  NSArray *addressComponents = [addressDictionary objectForKey:@"address_components"];
+  for ( NSDictionary *component in addressComponents ) {
+    NSArray *types = [component objectForKey:@"types"];
+    if ( [types hasObjectEqualTo:@"street_number"] ) {
+      return [component objectForKey:@"long_name"];
+    }
+  }
+  
+  return nil;
+}
+
+- (NSString *)postalCode
+{
+  NSDictionary *addressDictionary = [self addressDictionary];
+  
+  NSArray *addressComponents = [addressDictionary objectForKey:@"address_components"];
+  for ( NSDictionary *component in addressComponents ) {
+    NSArray *types = [component objectForKey:@"types"];
+    if ( [types hasObjectEqualTo:@"postal_code"] ) {
+      return [component objectForKey:@"long_name"];
+    }
+  }
+  
+  return nil;
+}
+
 
 
 - (BOOL)parsing

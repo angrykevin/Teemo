@@ -32,4 +32,17 @@
 
 - (void)cancelAndClear;
 
+
+- (NSDictionary *)addressDictionary;
+- (NSString *)formattedAddress;
+
+- (NSString *)country;
+- (NSString *)administrativeArea;
+- (NSString *)subAdministrativeArea;
+- (NSString *)locality;
+- (NSString *)subLocality;
+- (NSString *)thoroughfare;
+- (NSString *)subThoroughfare;
+- (NSString *)postalCode;
+
 @end

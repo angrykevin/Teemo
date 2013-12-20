@@ -95,6 +95,35 @@
 
 - (void)signinButtonClicked:(id)sender
 {
+  
+  TBLocationManager *lm = [TBLocationManager sharedObject];
+  
+//  - (NSDictionary *)addressDictionary;
+//  - (NSString *)formattedAddress;
+//  
+//  - (NSString *)country;
+//  - (NSString *)administrativeArea;
+//  - (NSString *)subAdministrativeArea;
+//  - (NSString *)locality;
+//  - (NSString *)subLocality;
+//  - (NSString *)thoroughfare;
+//  - (NSString *)subThoroughfare;
+//  - (NSString *)postalCode;
+  
+  NSLog(@"formattedAddress: H%@H", [lm.reverseGeocoder formattedAddress]);
+  
+  NSLog(@"country: H%@H", [lm.reverseGeocoder country]);
+  NSLog(@"administrativeArea: H%@H", [lm.reverseGeocoder administrativeArea]);
+  NSLog(@"subAdministrativeArea: H%@H", [lm.reverseGeocoder subAdministrativeArea]);
+  NSLog(@"locality: H%@H", [lm.reverseGeocoder locality]);
+  NSLog(@"subLocality: H%@H", [lm.reverseGeocoder subLocality]);
+  NSLog(@"thoroughfare: H%@H", [lm.reverseGeocoder thoroughfare]);
+  NSLog(@"subThoroughfare: H%@H", [lm.reverseGeocoder subThoroughfare]);
+  NSLog(@"postalCode: H%@H", [lm.reverseGeocoder postalCode]);
+  
+  return;
+  
+  
   NSString *passport = [_passportLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   NSString *password = [_passwordLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   

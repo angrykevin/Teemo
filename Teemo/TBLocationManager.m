@@ -150,7 +150,7 @@
 {
   TKPRINTMETHOD();
   _location = [locations lastObject];
-  [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateNotification
+  [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateLocationNotification
                                                       object:self];
   
   if ( _reverseGeocoder == nil ) {
@@ -169,7 +169,7 @@
 {
   TKPRINTMETHOD();
   _location = nil;
-  [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateNotification
+  [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateLocationNotification
                                                       object:self];
   
   [_reverseGeocoder cancelAndClear];

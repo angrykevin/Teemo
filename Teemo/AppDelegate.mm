@@ -67,7 +67,7 @@
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(didUpdate:)
-                                               name:TBLocationManagerDidUpdateNotification
+                                               name:TBLocationManagerDidUpdateLocationNotification
                                              object:nil];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
