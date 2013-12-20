@@ -294,10 +294,19 @@
     return nil;
   }
   
+  BOOL containsFile = NO;
+  
+  for ( NSString *name in _formFields ) {
+    id value = [_formFields objectForKey:name];
+    if ( [value isKindOfClass:[NSDictionary class]] ) {
+      containsFile = YES;
+      break;
+    }
+  }
   
   NSMutableData *body = [[NSMutableData alloc] init];
   
-  if ( [self isMultipartForm] ) {
+  if ( containsFile ) {
     
     
     NSString *boundary = [NSString UUIDString];
@@ -350,20 +359,6 @@
   
   TKPRINT(@"form-data: %d", [body length]);
   return body;
-}
-
-- (BOOL)isMultipartForm
-{
-  for ( NSString *name in _formFields ) {
-    
-    id value = [_formFields objectForKey:name];
-    
-    if ( [value isKindOfClass:[NSDictionary class]] ) {
-      return YES;
-    }
-  }
-  
-  return NO;
 }
 
 
