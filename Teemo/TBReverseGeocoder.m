@@ -63,8 +63,6 @@
     };
     
     _operation.didFinishBlock = ^(id object) {
-      NSString *path = TKPathForDocumentsResource(@"abc.txt");
-      [[object responseData] writeToFile:path atomically:YES];
       id result = [NSJSONSerialization JSONObjectWithData:[object responseData]
                                                   options:0
                                                     error:NULL];
