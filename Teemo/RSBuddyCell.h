@@ -12,11 +12,13 @@
 
 @interface RSBuddyCell : UITableViewCell {
   TBButton *_photoButton;
+  UIImageView *_statusImageView;
   UILabel *_nicknameLabel;
   UILabel *_descLabel;
 }
 
 @property (nonatomic, strong, readonly) TBButton *photoButton;
+@property (nonatomic, strong, readonly) UIImageView *statusImageView;
 @property (nonatomic, strong, readonly) UILabel *nicknameLabel;
 @property (nonatomic, strong, readonly) UILabel *descLabel;
 

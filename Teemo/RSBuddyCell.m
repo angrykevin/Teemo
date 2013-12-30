@@ -21,6 +21,11 @@
     _photoButton.clipsToBounds = YES;
     [self.contentView addSubview:_photoButton];
     
+    _statusImageView = [[UIImageView alloc] init];
+    _statusImageView.backgroundColor = [UIColor clearColor];
+    _statusImageView.contentMode = UIViewContentModeBottomRight;
+    [_photoButton addSubview:_statusImageView];
+    
     _nicknameLabel = [UILabel labelWithFont:[UIFont boldSystemFontOfSize:14.0]
                                   textColor:[UIColor blackColor]
                             backgroundColor:[UIColor clearColor]
@@ -48,6 +53,7 @@
   [super layoutSubviews];
   
   _photoButton.frame = CGRectMake(10.0, 5.0, self.contentView.height - 5.0 * 2, self.contentView.height - 5.0 * 2);
+  _statusImageView.frame = _photoButton.bounds;
   
   _nicknameLabel.frame = CGRectMake(_photoButton.rightX + 5.0, _photoButton.topY,
                                     (self.contentView.width-10.0) - (_photoButton.rightX+5.0),
@@ -69,6 +75,8 @@
   [_photoButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
   _photoButton.normalImage = nil;
   _photoButton.info = nil;
+  
+  _statusImageView.image = nil;
   
   _nicknameLabel.text = nil;
   
@@ -101,10 +109,9 @@
                          forState:UIControlStateNormal
                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                           if ( block ) {
-                            UIImage *img = block(image);
-                            [weakButton setImage:img forState:UIControlStateNormal];
+                            weakButton.normalImage = block(image);
                           } else {
-                            [weakButton setImage:image forState:UIControlStateNormal];
+                            weakButton.normalImage = image;
                           }
                         }];
   } else {

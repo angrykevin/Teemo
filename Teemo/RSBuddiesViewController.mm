@@ -28,8 +28,6 @@
     [engine vcardHandler]->addObserver((__bridge void *)self);
     [engine rosterHandler]->addObserver((__bridge void *)self);
     
-    _rosterModel = [[RSRosterModel alloc] init];
-    
   }
   return self;
 }
@@ -67,8 +65,7 @@
   [_tableView deselectAllRowsAnimated:YES];
   
   
-  [_rosterModel reloadGroups];
-  [self reloadOpenedMap];
+  [self reloadBuddies];
   [_tableView reloadData];
   [self addFooterIfNeeded];
   
@@ -83,9 +80,11 @@
 }
 
 
+
+
 - (void)addFooterIfNeeded
 {
-  if ( [_rosterModel.groups count] > 0 ) {
+  if ( [_buddies count] > 0 ) {
     _tableView.tableFooterView = nil;
   } else {
     UIView *footer = [[UIView alloc] init];
@@ -107,62 +106,18 @@
   }
 }
 
-- (void)reloadOpenedMap
+- (void)reloadBuddies
 {
-  NSString *openedGroupName = [self openedGroupName:_openedMap];
+  NSMutableString *subscriptionTypeString = [[NSMutableString alloc] init];
+  [subscriptionTypeString appendFormat:@"%d", S10nTo];
+  [subscriptionTypeString appendFormat:@",%d", S10nToIn];
+  [subscriptionTypeString appendFormat:@",%d", S10nBoth];
   
-  NSMutableDictionary *openedMap = [[NSMutableDictionary alloc] init];
-  for ( RSRosterGroup *group in _rosterModel.groups ) {
-    if ( [group.displayname isEqualToString:openedGroupName] ) {
-      [openedMap setObject:[NSNumber numberWithBool:YES] forKey:group.displayname];
-    } else {
-      [openedMap setObject:[NSNumber numberWithBool:NO] forKey:group.displayname];
-    }
-  }
-  
-  _openedMap = openedMap;
+  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
+  _buddies = [[[TMEngine sharedEngine] database] executeQuery:sql];
 }
 
 
-- (NSString *)openedGroupName:(NSDictionary *)openedMap
-{
-  for ( NSString *key in [_openedMap keyEnumerator] ) {
-    NSNumber *value = [_openedMap objectForKey:key];
-    if ( [value boolValue] ) {
-      return key;
-    }
-  }
-  return nil;
-}
-
-
-
-
-- (void)groupButtonClicked:(id)sender
-{
-  TKPRINTMETHOD();
-  
-  int section = [sender tag];
-  RSRosterGroup *group = [_rosterModel.groups objectAtIndex:section];
-  
-  NSNumber *open = [_openedMap objectForKey:group.displayname];
-  
-  if ( [open boolValue] ) {
-    [_openedMap setObject:[NSNumber numberWithBool:NO] forKey:group.displayname];
-    [_tableView reloadData];
-    //[_tableView reloadSections:[NSIndexSet indexSetWithIndex:section]
-    //          withRowAnimation:UITableViewRowAnimationFade];
-  } else {
-    
-    for ( NSString *key in [_openedMap keyEnumerator] ) {
-      [_openedMap setObject:[NSNumber numberWithBool:NO] forKey:key];
-    }
-    
-    [_openedMap setObject:[NSNumber numberWithBool:YES] forKey:group.displayname];
-    [_tableView reloadData];
-    
-  }
-}
 
 - (void)photoButtonClicked:(id)sender
 {
@@ -187,17 +142,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  return [_rosterModel.groups count];
+  return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  RSRosterGroup *group = [_rosterModel.groups objectAtIndex:section];
-  NSNumber *opened = [_openedMap objectForKey:group.displayname];
-  if ( [opened boolValue] ) {
-    return [group.buddies count];
-  }
-  return 0;
+  return [_buddies count];
 }
 
 
@@ -205,9 +155,7 @@
 {
   RSBuddyCell *cell = (RSBuddyCell *)[tableView dequeueReusableCellWithClass:[RSBuddyCell class]];
   
-  RSRosterGroup *group = [_rosterModel.groups objectAtIndex:indexPath.section];
-  RSRosterBuddy *buddy = [group.buddies objectOrNilAtIndex:indexPath.row];
-  TKDatabaseRow *row = buddy.dbObject;
+  TKDatabaseRow *row = [_buddies objectOrNilAtIndex:indexPath.row];
   if ( row ) {
     
     NSString *displayname = [row stringForName:@"displayname"];
@@ -222,48 +170,21 @@
       }
     }
     
+    
     cell.descLabel.text = [row stringForName:@"desc"];
     
-    cell.photoButton.info = row;
     
+    cell.photoButton.info = row;
     [cell.photoButton addTarget:self
                          action:@selector(photoButtonClicked:)
                forControlEvents:UIControlEventTouchUpInside];
-    
     [cell loadPhoto:[row stringForName:@"photo"] block:^UIImage *(UIImage *image) {
-      if ( buddy.presenceType == Presence::Unavailable ) {
-        
-        CGFloat originalWidth = image.size.width;
-        CGFloat originalHeight = image.size.height;
-        
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
-        CGContextRef context = CGBitmapContextCreate(NULL,
-                                                     originalWidth,
-                                                     originalHeight,
-                                                     8,
-                                                     3*originalWidth,
-                                                     colorSpace,
-                                                     kCGImageAlphaNone);
-        CGColorSpaceRelease(colorSpace);
-        
-        // Image quality
-        CGContextSetShouldAntialias(context, false);
-        CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
-        
-        // Draw the image in the bitmap context
-        CGContextDrawImage(context, CGRectMake(0.0, 0.0, originalWidth, originalHeight), image.CGImage);
-        
-        // Create an image object from the context
-        CGImageRef grayscaleImageRef = CGBitmapContextCreateImage(context);
-        CGContextRelease(context);
-        UIImage *grayscaleImage = [UIImage imageWithCGImage:grayscaleImageRef];
-        CGImageRelease(grayscaleImageRef);
-        
-        return grayscaleImage;
-        
-      }
-      return image;
+      return RSAvatarImageForPresence(image, [row intForName:@"presence"]);
     }];
+    
+    
+    cell.statusImageView.image = RSAvatarStatusImageForPresence([row intForName:@"presence"]);
+    
     
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
   }
@@ -277,55 +198,9 @@
 }
 
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-  UIView *header = [[UIView alloc] init];
-  header.frame = CGRectMake(0.0, 0.0, 320.0, 40.0);
-  
-  UILabel *nameLabel = [UILabel labelWithFont:[UIFont systemFontOfSize:12.0]
-                                    textColor:[UIColor blackColor]
-                              backgroundColor:[UIColor clearColor]
-                                textAlignment:NSTextAlignmentLeft
-                                lineBreakMode:NSLineBreakByTruncatingTail
-                    adjustsFontSizeToFitWidth:NO
-                                numberOfLines:1];
-  [header addSubview:nameLabel];
-  nameLabel.frame = CGRectMake(10.0, 0.0, 250.0, 40.0);
-  
-  UILabel *statisticsLabel = [UILabel labelWithFont:[UIFont systemFontOfSize:12.0]
-                                          textColor:[UIColor darkGrayColor]
-                                    backgroundColor:[UIColor clearColor]
-                                      textAlignment:NSTextAlignmentRight
-                                      lineBreakMode:NSLineBreakByTruncatingTail
-                          adjustsFontSizeToFitWidth:NO
-                                      numberOfLines:1];
-  [header addSubview:statisticsLabel];
-  statisticsLabel.frame = CGRectMake(260.0, 0.0, 50.0, 40.0);
-  
-  UIButton *button = [[UIButton alloc] init];
-  button.tag = section;
-  [button addTarget:self action:@selector(groupButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-  [header addSubview:button];
-  button.frame = header.bounds;
-  
-  RSRosterGroup *group = [_rosterModel.groups objectAtIndex:section];
-  nameLabel.text = group.displayname;
-  statisticsLabel.text = [NSString stringWithFormat:@"%d", [group.buddies count]];
-  
-  return header;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-  return 40.0;
-}
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  RSRosterGroup *group = [_rosterModel.groups objectAtIndex:indexPath.section];
-  RSRosterBuddy *buddy = [group.buddies objectOrNilAtIndex:indexPath.row];
-  TKDatabaseRow *row = buddy.dbObject;
+  TKDatabaseRow *row = [_buddies objectOrNilAtIndex:indexPath.row];
   if ( row ) {
     RSChatViewController *vc = [[RSChatViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
@@ -334,9 +209,7 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-  RSRosterGroup *group = [_rosterModel.groups objectAtIndex:indexPath.section];
-  RSRosterBuddy *buddy = [group.buddies objectOrNilAtIndex:indexPath.row];
-  TKDatabaseRow *row = buddy.dbObject;
+  TKDatabaseRow *row = [_buddies objectOrNilAtIndex:indexPath.row];
   if ( row ) {
     RSProfileViewController *vc = [[RSProfileViewController alloc] initWithRow:row];
     [self.navigationController pushViewController:vc animated:YES];
@@ -350,8 +223,7 @@
 {
   TKPRINTMETHOD();
   if ( _viewAppeared ) {
-    [_rosterModel reloadGroups];
-    [self reloadOpenedMap];
+    [self reloadBuddies];
     [_tableView reloadData];
     [self addFooterIfNeeded];
   }
@@ -368,8 +240,7 @@
 {
   TKPRINTMETHOD();
   if ( _viewAppeared ) {
-    [_rosterModel reloadGroups];
-    [self reloadOpenedMap];
+    [self reloadBuddies];
     [_tableView reloadData];
     [self addFooterIfNeeded];
   }
@@ -384,8 +255,7 @@
 {
   TKPRINTMETHOD();
   if ( _viewAppeared ) {
-    [_rosterModel reloadGroups];
-    [self reloadOpenedMap];
+    [self reloadBuddies];
     [_tableView reloadData];
     [self addFooterIfNeeded];
   }
@@ -395,8 +265,7 @@
 {
   TKPRINTMETHOD();
   if ( _viewAppeared ) {
-    [_rosterModel reloadGroups];
-    [self reloadOpenedMap];
+    [self reloadBuddies];
     [_tableView reloadData];
     [self addFooterIfNeeded];
   }
@@ -411,8 +280,7 @@
 {
   TKPRINTMETHOD();
   if ( _viewAppeared ) {
-    [_rosterModel reloadGroups];
-    [self reloadOpenedMap];
+    [self reloadBuddies];
     [_tableView reloadData];
     [self addFooterIfNeeded];
   }
@@ -424,6 +292,11 @@
                      msg:(const std::string &)msg
 {
   TKPRINTMETHOD();
+  if ( _viewAppeared ) {
+    [self reloadBuddies];
+    [_tableView reloadData];
+    [self addFooterIfNeeded];
+  }
 }
 
 - (void)rosterOnSelfPresence:(const RosterItem &)item

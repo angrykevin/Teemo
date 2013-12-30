@@ -14,8 +14,7 @@
     UITableViewDelegate
 > {
   UITableView *_tableView;
-  RSRosterModel *_rosterModel;
-  NSMutableDictionary *_openedMap;
+  NSArray *_buddies;
 }
 
 @end

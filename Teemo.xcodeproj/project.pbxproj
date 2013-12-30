@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC20B262184C75E90087CF9C /* UIButtonExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC20B261184C75E90087CF9C /* UIButtonExtentions.m */; };
+		BC35D8C2187196AF00300C86 /* RSRoutines.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC35D8C1187196AF00300C86 /* RSRoutines.mm */; };
 		BC403C391835B82B00B50317 /* RSChatViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C381835B82B00B50317 /* RSChatViewController.mm */; };
 		BC403C3C1835B87A00B50317 /* RSProfileViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C3B1835B87A00B50317 /* RSProfileViewController.mm */; };
 		BC403C421835C8ED00B50317 /* RSProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C411835C8ED00B50317 /* RSProfileCell.m */; };
@@ -248,6 +249,8 @@
 /* Begin PBXFileReference section */
 		BC20B260184C75E90087CF9C /* UIButtonExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonExtentions.h; sourceTree = "<group>"; };
 		BC20B261184C75E90087CF9C /* UIButtonExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonExtentions.m; sourceTree = "<group>"; };
+		BC35D8C0187196AF00300C86 /* RSRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRoutines.h; sourceTree = "<group>"; };
+		BC35D8C1187196AF00300C86 /* RSRoutines.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSRoutines.mm; sourceTree = "<group>"; };
 		BC403C371835B82B00B50317 /* RSChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSChatViewController.h; sourceTree = "<group>"; };
 		BC403C381835B82B00B50317 /* RSChatViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSChatViewController.mm; sourceTree = "<group>"; };
 		BC403C3A1835B87A00B50317 /* RSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProfileViewController.h; sourceTree = "<group>"; };
@@ -845,6 +848,8 @@
 			isa = PBXGroup;
 			children = (
 				BC47AE8F183335D000331216 /* RSCommon.h */,
+				BC35D8C0187196AF00300C86 /* RSRoutines.h */,
+				BC35D8C1187196AF00300C86 /* RSRoutines.mm */,
 				BC47AE94183340AA00331216 /* RSDefines.h */,
 				BC47AE9518334CC300331216 /* RSAccount.h */,
 				BC47AE9618334CC300331216 /* RSAccount.m */,
@@ -1858,6 +1863,7 @@
 				BC840623182CC2F00058EBDC /* gloox.cpp in Sources */,
 				BC403C4F1835F3E200B50317 /* RSEditProfileViewController.m in Sources */,
 				BCC877E31862D1FA002FE75F /* TBCommon.m in Sources */,
+				BC35D8C2187196AF00300C86 /* RSRoutines.mm in Sources */,
 				BCB44E171834E02A007D074E /* MKAnnotationView+WebCache.m in Sources */,
 				BC840680182CC2F00058EBDC /* TKNAIManager.m in Sources */,
 				BC840616182CC2F00058EBDC /* dataform.cpp in Sources */,
