@@ -17,6 +17,7 @@
  */
 + (CGContextRef)ARGBBitmapContextWithSize:(CGSize)size;
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
++ (UIImage *)imageWithBitmapContext:(CGContextRef)contextRef;
 
 /*
  * Round corner

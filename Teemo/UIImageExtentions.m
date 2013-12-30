@@ -23,7 +23,7 @@
                                                   4*size.width,
                                                   colorSpaceRef,
                                                   (CGBitmapInfo)kCGImageAlphaPremultipliedFirst);
-	CGColorSpaceRelease(colorSpaceRef);
+  CGColorSpaceRelease(colorSpaceRef);
   return contextRef;
 }
 
@@ -39,12 +39,24 @@
   
   
   CGImageRef retvalImageRef = CGBitmapContextCreateImage(contextRef);
-	UIImage *retvalImage = [UIImage imageWithCGImage:retvalImageRef];
-	CGImageRelease(retvalImageRef);
+  UIImage *retvalImage = [UIImage imageWithCGImage:retvalImageRef];
+  CGImageRelease(retvalImageRef);
   
   CGContextRelease(contextRef);
   
   return retvalImage;
+}
+
++ (UIImage *)imageWithBitmapContext:(CGContextRef)contextRef
+{
+  if ( contextRef ) {
+    CGImageRef retvalImageRef = CGBitmapContextCreateImage(contextRef);
+    UIImage *retvalImage = [UIImage imageWithCGImage:retvalImageRef];
+    CGImageRelease(retvalImageRef);
+    
+    return retvalImage;
+  }
+  return nil;
 }
 
 
@@ -80,12 +92,8 @@
     CGContextDrawImage(contextRef, CGRectMake(0.0, 0.0, self.size.width, self.size.height), self.CGImage);
     
     
-    CGImageRef retvalImageRef = CGBitmapContextCreateImage(contextRef);
-    UIImage *retvalImage = [UIImage imageWithCGImage:retvalImageRef];
-    CGImageRelease(retvalImageRef);
-    
+    UIImage *retvalImage = [UIImage imageWithBitmapContext:contextRef];
     CGContextRelease(contextRef);
-    
     return retvalImage;
     
   }
@@ -147,12 +155,8 @@
   CGContextDrawImage(contextRef, CGRectMake(0.0, 0.0, newSize.width, newSize.height), self.CGImage);
   
   
-  CGImageRef retvalImageRef = CGBitmapContextCreateImage(contextRef);
-  UIImage *retvalImage = [UIImage imageWithCGImage:retvalImageRef];
-  CGImageRelease(retvalImageRef);
-  
+  UIImage *retvalImage = [UIImage imageWithBitmapContext:contextRef];
   CGContextRelease(contextRef);
-  
   return retvalImage;
 }
 
@@ -161,7 +165,7 @@
 
 - (UIImage *)mergeWithImage:(UIImage *)image
 {
-    return [self mergeWithImage:image atPoint:CGPointZero];
+  return [self mergeWithImage:image atPoint:CGPointZero];
 }
 
 - (UIImage *)mergeWithImage:(UIImage *)image atPoint:(CGPoint)point
@@ -177,14 +181,9 @@
     CGContextDrawImage(contextRef, CGRectMake(newPoint.x, newPoint.y, image.size.width, image.size.height), image.CGImage);
     
     
-    CGImageRef retvalImageRef = CGBitmapContextCreateImage(contextRef);
-    UIImage *retvalImage = [UIImage imageWithCGImage:retvalImageRef];
-    CGImageRelease(retvalImageRef);
-    
+    UIImage *retvalImage = [UIImage imageWithBitmapContext:contextRef];
     CGContextRelease(contextRef);
-    
     return retvalImage;
-    
   }
   
   return self;
@@ -195,20 +194,20 @@
 
 - (UIImage *)maskWithImage:(UIImage *)image
 {
-	CGImageRef maskImageRef = CGImageMaskCreate(CGImageGetWidth(image.CGImage),
-                                         CGImageGetHeight(image.CGImage),
-                                         CGImageGetBitsPerComponent(image.CGImage),
-                                         CGImageGetBitsPerPixel(image.CGImage),
-                                         CGImageGetBytesPerRow(image.CGImage),
-                                         CGImageGetDataProvider(image.CGImage),
-                                         NULL,
-                                         false);
+  CGImageRef maskImageRef = CGImageMaskCreate(CGImageGetWidth(image.CGImage),
+                                              CGImageGetHeight(image.CGImage),
+                                              CGImageGetBitsPerComponent(image.CGImage),
+                                              CGImageGetBitsPerPixel(image.CGImage),
+                                              CGImageGetBytesPerRow(image.CGImage),
+                                              CGImageGetDataProvider(image.CGImage),
+                                              NULL,
+                                              false);
   
   CGImageRef retvalImageRef = NULL;
   
-	if ( CGImageGetAlphaInfo(self.CGImage) == kCGImageAlphaNone ) {
-    size_t width = CGImageGetWidth(self.CGImage);
-    size_t height = CGImageGetHeight(self.CGImage);
+  if ( CGImageGetAlphaInfo(self.CGImage) == kCGImageAlphaNone ) {
+    CGFloat width = self.size.width;
+    CGFloat height = self.size.height;
     
     CGContextRef contextRef = [UIImage ARGBBitmapContextWithSize:CGSizeMake(width, height)];
     CGContextDrawImage(contextRef, CGRectMake(0.0, 0.0, width, height), self.CGImage);
@@ -217,18 +216,16 @@
     
     retvalImageRef = CGImageCreateWithMask(alphaedImageRef, maskImageRef);
     CGImageRelease(alphaedImageRef);
-    
-	} else {
+  } else {
     retvalImageRef = CGImageCreateWithMask(self.CGImage, maskImageRef);
   }
-	
-	CGImageRelease(maskImageRef);
   
-	
-	UIImage *retvalImage = [UIImage imageWithCGImage:retvalImageRef];
-	CGImageRelease(retvalImageRef);
-	
-	return retvalImage;
+  CGImageRelease(maskImageRef);
+  
+  UIImage *retvalImage = [UIImage imageWithCGImage:retvalImageRef];
+  CGImageRelease(retvalImageRef);
+  
+  return retvalImage;
 }
 
 
@@ -236,40 +233,33 @@
 
 - (UIImage *)grayscale
 {
-	CGFloat width = self.size.width;
-	CGFloat height = self.size.height;
+  CGFloat width = self.size.width;
+  CGFloat height = self.size.height;
   
-	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
-	CGContextRef contextRef = CGBitmapContextCreate(NULL,
-                                               width,
-                                               height,
-                                               8,
-                                               3*width,
-                                               colorSpace,
-                                               (CGBitmapInfo)kCGImageAlphaNone);
-	CGColorSpaceRelease(colorSpace);
+  CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceGray();
+  CGContextRef contextRef = CGBitmapContextCreate(NULL,
+                                                  width,
+                                                  height,
+                                                  8,
+                                                  3*width,
+                                                  colorSpaceRef,
+                                                  (CGBitmapInfo)kCGImageAlphaNone);
+  CGColorSpaceRelease(colorSpaceRef);
   
-  
-	CGContextSetShouldAntialias(contextRef, false);
-	CGContextSetInterpolationQuality(contextRef, kCGInterpolationHigh);
+  CGContextSetShouldAntialias(contextRef, false);
+  CGContextSetInterpolationQuality(contextRef, kCGInterpolationHigh);
   
   CGContextDrawImage(contextRef, CGRectMake(0.0, 0.0, width, height), self.CGImage);
   
   
-  CGImageRef retvalImageRef = CGBitmapContextCreateImage(contextRef);
-	UIImage *retvalImage = [UIImage imageWithCGImage:retvalImageRef];
-	CGImageRelease(retvalImageRef);
-  
+  UIImage *retvalImage = [UIImage imageWithBitmapContext:contextRef];
   CGContextRelease(contextRef);
-  
   return retvalImage;
 }
 
 - (UIImage *)negative
 {
-  
   CGContextRef contextRef = [UIImage ARGBBitmapContextWithSize:self.size];
-  
   
   CGContextSetBlendMode(contextRef, kCGBlendModeCopy);
   CGContextDrawImage(contextRef, CGRectMake(0.0, 0.0, self.size.width, self.size.height), self.CGImage);
@@ -279,14 +269,9 @@
   CGContextFillRect(contextRef, CGRectMake(0.0, 0.0, self.size.width, self.size.height));
   
   
-  CGImageRef retvalImageRef = CGBitmapContextCreateImage(contextRef);
-	UIImage *retvalImage = [UIImage imageWithCGImage:retvalImageRef];
-	CGImageRelease(retvalImageRef);
-  
+  UIImage *retvalImage = [UIImage imageWithBitmapContext:contextRef];
   CGContextRelease(contextRef);
-  
   return retvalImage;
-  
 }
 
 
