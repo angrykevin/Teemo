@@ -99,7 +99,7 @@
 }
 
 
-- (void)loadPhoto:(NSString *)photo block:(RSImageProcessBlock)block
+- (void)loadPhoto:(NSString *)photo placeholderImage:(UIImage *)placeholderImage block:(RSImageProcessBlock)block
 {
   [_photoButton cancelCurrentImageLoad];
   
@@ -107,6 +107,7 @@
     __weak UIButton *weakButton = _photoButton;
     [_photoButton setImageWithURL:[NSURL URLWithString:photo]
                          forState:UIControlStateNormal
+                 placeholderImage:placeholderImage
                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                           if ( block ) {
                             weakButton.normalImage = block(image);

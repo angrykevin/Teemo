@@ -22,6 +22,6 @@
 @property (nonatomic, strong, readonly) UILabel *nicknameLabel;
 @property (nonatomic, strong, readonly) UILabel *descLabel;
 
-- (void)loadPhoto:(NSString *)photo block:(RSImageProcessBlock)block;
+- (void)loadPhoto:(NSString *)photo placeholderImage:(UIImage *)placeholderImage block:(RSImageProcessBlock)block;
 
 @end

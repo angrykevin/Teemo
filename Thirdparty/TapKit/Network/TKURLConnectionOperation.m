@@ -364,26 +364,26 @@
 
 + (NSOperationQueue *)operationQueue
 {
-  static NSOperationQueue *queue = nil;
+  static NSOperationQueue *OperationQueue = nil;
   static dispatch_once_t token;
   dispatch_once(&token, ^{
-    queue = [[NSOperationQueue alloc] init];
-    [queue setMaxConcurrentOperationCount:4];
+    OperationQueue = [[NSOperationQueue alloc] init];
+    [OperationQueue setMaxConcurrentOperationCount:4];
   });
-  return queue;
+  return OperationQueue;
 }
 
 + (NSThread *)operationThread
 {
-  static NSThread *thread = nil;
+  static NSThread *OperationThread = nil;
   static dispatch_once_t token;
   dispatch_once(&token, ^{
-    thread = [[NSThread alloc] initWithTarget:self
-                                     selector:@selector(threadBody:)
-                                       object:nil];
-    [thread start];
+    OperationThread = [[NSThread alloc] initWithTarget:self
+                                              selector:@selector(threadBody:)
+                                                object:nil];
+    [OperationThread start];
   });
-  return thread;
+  return OperationThread;
 }
 
 + (void)threadBody:(id)object

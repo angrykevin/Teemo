@@ -23,12 +23,12 @@
 
 + (TBLocationManager *)sharedObject
 {
-  static TBLocationManager *manager = nil;
+  static TBLocationManager *LocationManager = nil;
   static dispatch_once_t token;
   dispatch_once(&token, ^{
-    manager = [[self alloc] init];
+    LocationManager = [[self alloc] init];
   });
-  return manager;
+  return LocationManager;
 }
 
 - (void)launchLocationServiceIfNeeded

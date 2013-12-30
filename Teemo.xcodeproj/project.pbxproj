@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		BC20B262184C75E90087CF9C /* UIButtonExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC20B261184C75E90087CF9C /* UIButtonExtentions.m */; };
 		BC35D8C2187196AF00300C86 /* RSRoutines.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC35D8C1187196AF00300C86 /* RSRoutines.mm */; };
+		BC35D8C51871A21700300C86 /* default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BC35D8C31871A21700300C86 /* default_avatar.png */; };
+		BC35D8C61871A21700300C86 /* default_avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC35D8C41871A21700300C86 /* default_avatar@2x.png */; };
+		BC35D8C91871A47B00300C86 /* RSAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC35D8C81871A47B00300C86 /* RSAccountManager.m */; };
 		BC403C391835B82B00B50317 /* RSChatViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C381835B82B00B50317 /* RSChatViewController.mm */; };
 		BC403C3C1835B87A00B50317 /* RSProfileViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C3B1835B87A00B50317 /* RSProfileViewController.mm */; };
 		BC403C421835C8ED00B50317 /* RSProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C411835C8ED00B50317 /* RSProfileCell.m */; };
@@ -251,6 +254,10 @@
 		BC20B261184C75E90087CF9C /* UIButtonExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonExtentions.m; sourceTree = "<group>"; };
 		BC35D8C0187196AF00300C86 /* RSRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRoutines.h; sourceTree = "<group>"; };
 		BC35D8C1187196AF00300C86 /* RSRoutines.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSRoutines.mm; sourceTree = "<group>"; };
+		BC35D8C31871A21700300C86 /* default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_avatar.png; sourceTree = "<group>"; };
+		BC35D8C41871A21700300C86 /* default_avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_avatar@2x.png"; sourceTree = "<group>"; };
+		BC35D8C71871A47B00300C86 /* RSAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAccountManager.h; sourceTree = "<group>"; };
+		BC35D8C81871A47B00300C86 /* RSAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAccountManager.m; sourceTree = "<group>"; };
 		BC403C371835B82B00B50317 /* RSChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSChatViewController.h; sourceTree = "<group>"; };
 		BC403C381835B82B00B50317 /* RSChatViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSChatViewController.mm; sourceTree = "<group>"; };
 		BC403C3A1835B87A00B50317 /* RSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProfileViewController.h; sourceTree = "<group>"; };
@@ -850,6 +857,8 @@
 				BC47AE8F183335D000331216 /* RSCommon.h */,
 				BC35D8C0187196AF00300C86 /* RSRoutines.h */,
 				BC35D8C1187196AF00300C86 /* RSRoutines.mm */,
+				BC35D8C71871A47B00300C86 /* RSAccountManager.h */,
+				BC35D8C81871A47B00300C86 /* RSAccountManager.m */,
 				BC47AE94183340AA00331216 /* RSDefines.h */,
 				BC47AE9518334CC300331216 /* RSAccount.h */,
 				BC47AE9618334CC300331216 /* RSAccount.m */,
@@ -1401,6 +1410,8 @@
 				BC840695182CC3870058EBDC /* navbar_bt_back@2x.png */,
 				BC840696182CC3870058EBDC /* navbar_bt_normal.png */,
 				BC840697182CC3870058EBDC /* navbar_bt_normal@2x.png */,
+				BC35D8C31871A21700300C86 /* default_avatar.png */,
+				BC35D8C41871A21700300C86 /* default_avatar@2x.png */,
 				BC552DBB1839DC350078375F /* status_away.png */,
 				BC552DBC1839DC350078375F /* status_away@2x.png */,
 				BC552DBD1839DC350078375F /* status_dnd.png */,
@@ -1712,6 +1723,7 @@
 				BC552DC81839DC350078375F /* status_offline@2x.png in Resources */,
 				BC8406A2182CC3870058EBDC /* box_top.png in Resources */,
 				BCA23D4D183224E300E93718 /* tabbar_chatlog_h@2x.png in Resources */,
+				BC35D8C51871A21700300C86 /* default_avatar.png in Resources */,
 				BC552DC61839DC350078375F /* status_dnd@2x.png in Resources */,
 				BC8406B0182CC3870058EBDC /* navbar_bt_normal.png in Resources */,
 				BC8406A3182CC3870058EBDC /* box_top@2x.png in Resources */,
@@ -1724,6 +1736,7 @@
 				BC8406AA182CC3870058EBDC /* button_small_white.png in Resources */,
 				BC552DC71839DC350078375F /* status_offline.png in Resources */,
 				BCA23D52183224E300E93718 /* tabbar_setting_n.png in Resources */,
+				BC35D8C61871A21700300C86 /* default_avatar@2x.png in Resources */,
 				BC8406A4182CC3870058EBDC /* button_large_black.png in Resources */,
 				BC8406A7182CC3870058EBDC /* button_large_white@2x.png in Resources */,
 				BC552DC41839DC350078375F /* status_away@2x.png in Resources */,
@@ -1745,6 +1758,7 @@
 				BC840611182CC2F00058EBDC /* connectiontcpbase.cpp in Sources */,
 				BC84062F182CC2F00058EBDC /* jinglesessionmanager.cpp in Sources */,
 				BC840629182CC2F00058EBDC /* jid.cpp in Sources */,
+				BC35D8C91871A47B00300C86 /* RSAccountManager.m in Sources */,
 				BC840663182CC2F00058EBDC /* tlsschannel.cpp in Sources */,
 				BC840670182CC2F00058EBDC /* NSObjectAdditions.m in Sources */,
 				BC840631182CC2F00058EBDC /* linklocalclient.cpp in Sources */,

@@ -178,9 +178,11 @@
     [cell.photoButton addTarget:self
                          action:@selector(photoButtonClicked:)
                forControlEvents:UIControlEventTouchUpInside];
-    [cell loadPhoto:[row stringForName:@"photo"] block:^UIImage *(UIImage *image) {
-      return RSAvatarImageForPresence(image, [row intForName:@"presence"]);
-    }];
+    [cell loadPhoto:[row stringForName:@"photo"]
+   placeholderImage:RSDefaultAvatarImage()
+              block:^UIImage *(UIImage *image) {
+                return RSAvatarImageForPresence(image, [row intForName:@"presence"]);
+              }];
     
     
     cell.statusImageView.image = RSAvatarStatusImageForPresence([row intForName:@"presence"]);

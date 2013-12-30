@@ -18,9 +18,9 @@
 
 + (NSString *)UUIDString
 {
-	CFUUIDRef UUIDRef = CFUUIDCreate(NULL);
+  CFUUIDRef UUIDRef = CFUUIDCreate(NULL);
   
-	NSString *string = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, UUIDRef);
+  NSString *string = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, UUIDRef);
   
   if ( UUIDRef ) {
     CFRelease(UUIDRef);
@@ -108,14 +108,14 @@
   
   NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
   
-	for ( NSString *pair in pairs ) {
-		NSArray *kv = [pair componentsSeparatedByString:@"="];
+  for ( NSString *pair in pairs ) {
+    NSArray *kv = [pair componentsSeparatedByString:@"="];
     if ( [kv count] == 2 ) {
       NSString *key = [kv objectAtIndex:0];
       NSString *value = [[kv objectAtIndex:1] URLDecodedString];
       [dictionary setObject:value forKey:key];
     }
-	}
+  }
   
   if ( [dictionary count] > 0 ) {
     return dictionary;
@@ -180,8 +180,8 @@
 - (NSString *)MIMEType
 {
   CFStringRef UTIType = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension,
-                                                           (__bridge CFStringRef)[self pathExtension],
-                                                           NULL);
+                                                              (__bridge CFStringRef)[self pathExtension],
+                                                              NULL);
   
   NSString *MIMEType = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass(UTIType, kUTTagClassMIMEType);
   if ( UTIType ) {

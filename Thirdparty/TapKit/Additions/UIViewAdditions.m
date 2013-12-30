@@ -114,10 +114,10 @@
 - (UIImage *)imageRep
 {
   UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
-	[self.layer renderInContext:UIGraphicsGetCurrentContext()];
-	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	return image;
+  [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+  return image;
 }
 
 
@@ -260,17 +260,17 @@
 
 - (void)bringToFront
 {
-	[self.superview bringSubviewToFront:self];
+  [self.superview bringSubviewToFront:self];
 }
 
 - (void)sendToBack
 {
-	[self.superview sendSubviewToBack:self];
+  [self.superview sendSubviewToBack:self];
 }
 
 - (BOOL)isInFront
 {
-	return ( [self.superview.subviews lastObject] == self );
+  return ( [self.superview.subviews lastObject] == self );
 }
 
 - (BOOL)isAtBack
@@ -290,7 +290,7 @@
 {
 #ifdef DEBUG
   self.layer.borderColor = [UIColor redColor].CGColor;
-	self.layer.borderWidth = 1.0;
+  self.layer.borderWidth = 1.0;
 #endif
 }
 
@@ -298,7 +298,7 @@
 {
 #ifdef DEBUG
   self.layer.borderColor = [UIColor greenColor].CGColor;
-	self.layer.borderWidth = 1.0;
+  self.layer.borderWidth = 1.0;
 #endif
 }
 
@@ -306,7 +306,7 @@
 {
 #ifdef DEBUG
   self.layer.borderColor = [UIColor blueColor].CGColor;
-	self.layer.borderWidth = 1.0;
+  self.layer.borderWidth = 1.0;
 #endif
 }
 
@@ -314,7 +314,7 @@
 {
 #ifdef DEBUG
   self.layer.borderColor = [UIColor brownColor].CGColor;
-	self.layer.borderWidth = 1.0;
+  self.layer.borderWidth = 1.0;
 #endif
 }
 
@@ -322,7 +322,7 @@
 {
 #ifdef DEBUG
   self.layer.borderColor = [UIColor purpleColor].CGColor;
-	self.layer.borderWidth = 1.0;
+  self.layer.borderWidth = 1.0;
 #endif
 }
 
@@ -330,10 +330,10 @@
 + (void)showBorder:(UIView *)view level:(NSInteger)level
 {
 #ifdef DEBUG
-  static NSArray *colors = nil;
+  static NSArray *Colors = nil;
   static dispatch_once_t token;
   dispatch_once(&token, ^{
-    colors = [[NSArray alloc] initWithObjects:
+    Colors = [[NSArray alloc] initWithObjects:
               [UIColor redColor],
               [UIColor greenColor],
               [UIColor blueColor],
@@ -341,7 +341,7 @@
               [UIColor purpleColor], nil];
   });
   
-  UIColor *color = [colors objectAtIndex:(level%5)];
+  UIColor *color = [Colors objectAtIndex:(level%5)];
   view.layer.borderColor = color.CGColor;
   view.layer.borderWidth = 1.0;
   

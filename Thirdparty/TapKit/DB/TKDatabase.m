@@ -35,12 +35,12 @@
 
 + (TKDatabase *)sharedObject
 {
-  static TKDatabase *database = nil;
+  static TKDatabase *Database = nil;
   static dispatch_once_t token;
   dispatch_once(&token, ^{
-    database = [[self alloc] init];
+    Database = [[self alloc] init];
   });
-  return database;
+  return Database;
 }
 
 
@@ -49,22 +49,22 @@
 
 - (BOOL)open
 {
-	if ( _opened ) {
+  if ( _opened ) {
     return YES;
   }
-	
-	int code = sqlite3_open([_path fileSystemRepresentation], &_handle);
-	if ( code != SQLITE_OK ) {
+  
+  int code = sqlite3_open([_path fileSystemRepresentation], &_handle);
+  if ( code != SQLITE_OK ) {
     return NO;
   }
-	
-	_opened = YES;
-	return YES;
+  
+  _opened = YES;
+  return YES;
 }
 
 - (void)close
 {
-	if ( _handle ) {
+  if ( _handle ) {
     sqlite3_close(_handle);
     _opened = NO;
   }
@@ -97,10 +97,10 @@
 {
   [_lock lock];
   
-	if ( ![self open] ) {
+  if ( ![self open] ) {
     [_lock unlock];
     return NO;
-	}
+  }
   
   int code = 0;
   sqlite3_stmt *statement = NULL;
@@ -150,10 +150,10 @@
 {
   [_lock lock];
   
-	if ( ![self open] ) {
+  if ( ![self open] ) {
     [_lock unlock];
     return nil;
-	}
+  }
   
   int code = 0;
   sqlite3_stmt *statement = NULL;
@@ -268,37 +268,37 @@
 
 - (BOOL)bindStatement:(sqlite3_stmt *)statement toParameters:(NSArray *)parameters
 {
-	int count = sqlite3_bind_parameter_count(statement);
+  int count = sqlite3_bind_parameter_count(statement);
   for ( int i=0; i<[parameters count]; ++i ) {
     id object = [parameters objectAtIndex:i];
     [self bindObject:object toColumn:(i+1) inStatement:statement];
   }
-	return ( [parameters count] == count );
+  return ( [parameters count] == count );
 }
 
 - (void)bindObject:(id)object toColumn:(int)index inStatement:(sqlite3_stmt *)statement
 {
   if ( (object == nil) || ((NSNull *)object == [NSNull null]) ) {
-		sqlite3_bind_null(statement, index);
-	} else if ( [object isKindOfClass:[NSNumber class]] ) {
+    sqlite3_bind_null(statement, index);
+  } else if ( [object isKindOfClass:[NSNumber class]] ) {
     if ( strcmp([object objCType], @encode(BOOL)) == 0 ) {
-			sqlite3_bind_int64(statement, index, ([object boolValue] ? 1 : 0));
-		} else if ( strcmp([object objCType], @encode(int)) == 0 ) {
-			sqlite3_bind_int64(statement, index, [object intValue]);
-		} else if ( strcmp([object objCType], @encode(long long)) == 0 ) {
-			sqlite3_bind_int64(statement, index, [object longLongValue]);
-		} else if ( strcmp([object objCType], @encode(double)) == 0 ) {
-			sqlite3_bind_double(statement, index, [object doubleValue]);
-		} else {
-			sqlite3_bind_text(statement, index, [[object description] UTF8String], -1, SQLITE_STATIC);
-		}
+      sqlite3_bind_int64(statement, index, ([object boolValue] ? 1 : 0));
+    } else if ( strcmp([object objCType], @encode(int)) == 0 ) {
+      sqlite3_bind_int64(statement, index, [object intValue]);
+    } else if ( strcmp([object objCType], @encode(long long)) == 0 ) {
+      sqlite3_bind_int64(statement, index, [object longLongValue]);
+    } else if ( strcmp([object objCType], @encode(double)) == 0 ) {
+      sqlite3_bind_double(statement, index, [object doubleValue]);
+    } else {
+      sqlite3_bind_text(statement, index, [[object description] UTF8String], -1, SQLITE_STATIC);
+    }
   } else if ( [object isKindOfClass:[NSDate class]] ) {
     sqlite3_bind_text(statement, index, [TKInternetDateStringFromDate(object) UTF8String], -1, SQLITE_STATIC);
   } else if ( [object isKindOfClass:[NSString class]] ) {
     sqlite3_bind_text(statement, index, [object UTF8String], -1, SQLITE_STATIC);
   } else if ( [object isKindOfClass:[NSData class]] ) {
     sqlite3_bind_blob(statement, index, [object bytes], [object length], SQLITE_STATIC);
-	} else {
+  } else {
     sqlite3_bind_text(statement, index, [[object description] UTF8String], -1, SQLITE_STATIC);
   }
 }

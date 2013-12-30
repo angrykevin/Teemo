@@ -13,18 +13,17 @@
 
 UIImage *RSAvatarImageForPresence(UIImage *image, int presence)
 {
-  if ( image ) {
-    if ( (presence == Presence::Available) || (presence == Presence::Chat) ) {
-      return image;
-    } else if ( (presence == Presence::Away) || (presence == Presence::XA) ) {
-      return image;
-    } else if ( presence == Presence::DND ) {
-      return image;
-    } else {
-      return [image grayscale];
-    }
+  UIImage *avatarImage = (image == nil) ? RSDefaultAvatarImage() : image;
+  
+  if ( (presence == Presence::Available) || (presence == Presence::Chat) ) {
+    return avatarImage;
+  } else if ( (presence == Presence::Away) || (presence == Presence::XA) ) {
+    return avatarImage;
+  } else if ( presence == Presence::DND ) {
+    return avatarImage;
+  } else {
+    return [avatarImage grayscale];
   }
-  return nil;
 }
 
 UIImage *RSAvatarStatusImageForPresence(int presence)
@@ -37,4 +36,14 @@ UIImage *RSAvatarStatusImageForPresence(int presence)
     return TBCreateImage(@"status_dnd.png");
   }
   return nil;
+}
+
+UIImage *RSDefaultAvatarImage()
+{
+  static UIImage *DefaultAvatarImage = nil;
+  static dispatch_once_t token;
+  dispatch_once(&token, ^{
+    DefaultAvatarImage = TBCreateImage(@"default_avatar.png");
+  });
+  return DefaultAvatarImage;
 }

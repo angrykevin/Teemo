@@ -45,6 +45,10 @@
  iPad3,4    iPad 4          WiFi        Retina
  iPad3,5    iPad 4          GSM         Retina
  iPad3,6    iPad 4          GSM+CDMA    Retina
+ iPad4,1    iPad Air        WiFi        Retina
+ iPad4,2    iPad Air        Cellular    Retina
+ iPad4,4    iPad mini 2G    WiFi        Retina
+ iPad4,5    iPad mini 2G    Cellular    Retina
  
  */
 

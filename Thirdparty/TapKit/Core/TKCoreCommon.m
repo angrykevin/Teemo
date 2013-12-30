@@ -73,41 +73,41 @@ NSString *TKPathForBundleResource(NSBundle *bundle, NSString *relativePath)
 
 NSString *TKPathForDocumentsResource(NSString *relativePath)
 {
-  static NSString *documentsPath = nil;
+  static NSString *DocumentsPath = nil;
   static dispatch_once_t token;
   dispatch_once(&token, ^{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask,
                                                          YES);
-    documentsPath = [paths objectAtIndex:0];
+    DocumentsPath = [paths objectAtIndex:0];
   });
-  return [documentsPath stringByAppendingPathComponent:relativePath];
+  return [DocumentsPath stringByAppendingPathComponent:relativePath];
 }
 
 NSString *TKPathForLibraryResource(NSString *relativePath)
 {
-  static NSString *libraryPath = nil;
+  static NSString *LibraryPath = nil;
   static dispatch_once_t token;
   dispatch_once(&token, ^{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,
                                                          NSUserDomainMask,
                                                          YES);
-    libraryPath = [paths objectAtIndex:0];
+    LibraryPath = [paths objectAtIndex:0];
   });
-  return [libraryPath stringByAppendingPathComponent:relativePath];
+  return [LibraryPath stringByAppendingPathComponent:relativePath];
 }
 
 NSString *TKPathForCachesResource(NSString *relativePath)
 {
-  static NSString *cachesPath = nil;
+  static NSString *CachesPath = nil;
   static dispatch_once_t token;
   dispatch_once(&token, ^{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory,
                                                          NSUserDomainMask,
                                                          YES);
-    cachesPath = [paths objectAtIndex:0];
+    CachesPath = [paths objectAtIndex:0];
   });
-  return [cachesPath stringByAppendingPathComponent:relativePath];
+  return [CachesPath stringByAppendingPathComponent:relativePath];
 }
 
 
@@ -187,19 +187,19 @@ BOOL TKIsSetWithItems(id object)
 
 NSDateFormatter *TKInternetDateFormatter()
 {
-  static NSDateFormatter *internetDateFormatter = nil;
+  static NSDateFormatter *InternetDateFormatter = nil;
   static dispatch_once_t token;
   dispatch_once(&token, ^{
-    internetDateFormatter = [[NSDateFormatter alloc] init];
+    InternetDateFormatter = [[NSDateFormatter alloc] init];
     
     NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    [internetDateFormatter setLocale:enUSPOSIXLocale];
+    [InternetDateFormatter setLocale:enUSPOSIXLocale];
     
-    [internetDateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+    [InternetDateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
     
-    [internetDateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    [InternetDateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
   });
-  return internetDateFormatter;
+  return InternetDateFormatter;
 }
 
 NSDate *TKDateFromInternetDateString(NSString *string)

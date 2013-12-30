@@ -205,9 +205,9 @@
 - (void)reverse
 {
   int semi = floor( [self count]/2.0 );
-	for ( int i=0; i<semi; ++i ) {
+  for ( int i=0; i<semi; ++i ) {
     NSUInteger idx = [self count] - (i+1);
-		[self exchangeObjectAtIndex:i withObjectAtIndex:idx];
+    [self exchangeObjectAtIndex:i withObjectAtIndex:idx];
   }
 }
 

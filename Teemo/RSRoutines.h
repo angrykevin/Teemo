@@ -15,6 +15,7 @@ extern "C" {
 
 UIImage *RSAvatarImageForPresence(UIImage *image, int presence);
 UIImage *RSAvatarStatusImageForPresence(int presence);
+UIImage *RSDefaultAvatarImage();
 
 #ifdef __cplusplus
 }

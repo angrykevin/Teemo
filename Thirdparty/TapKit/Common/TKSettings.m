@@ -36,12 +36,12 @@
 
 + (TKSettings *)sharedObject
 {
-  static TKSettings *settings = nil;
+  static TKSettings *Settings = nil;
   static dispatch_once_t token;
   dispatch_once(&token, ^{
-    settings = [[self alloc] init];
+    Settings = [[self alloc] init];
   });
-  return settings;
+  return Settings;
 }
 
 

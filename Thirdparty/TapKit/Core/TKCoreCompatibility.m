@@ -63,6 +63,10 @@ NSString *TKDeviceModel()
   if ( [platform isEqualToString:@"iPad3,4"] ) return @"iPad 4";
   if ( [platform isEqualToString:@"iPad3,5"] ) return @"iPad 4";
   if ( [platform isEqualToString:@"iPad3,6"] ) return @"iPad 4";
+  if ( [platform isEqualToString:@"iPad4,1"] ) return @"iPad Air";
+  if ( [platform isEqualToString:@"iPad4,2"] ) return @"iPad Air";
+  if ( [platform isEqualToString:@"iPad4,4"] ) return @"iPad mini 2G";
+  if ( [platform isEqualToString:@"iPad4,5"] ) return @"iPad mini 2G";
   
   return nil;
 }
