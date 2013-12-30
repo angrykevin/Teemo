@@ -16,7 +16,7 @@ void TMPresenceHandler::handlePresence( const Presence& presence )
   TMPRINTMETHOD();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMPresenceDelegate> delegate = (__bridge id<TMPresenceDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(presenceOnReceived:)] ) {

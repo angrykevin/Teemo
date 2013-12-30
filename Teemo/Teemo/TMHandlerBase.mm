@@ -10,15 +10,19 @@
 
 void TMHandlerBase::addObserver(void *observer)
 {
-  m_observers.push_back( observer );
+  if ( observer ) {
+    m_observers.push_back( observer );
+  }
 }
 
 void TMHandlerBase::removeObserver(void *observer)
 {
-  m_observers.remove( observer );
+  if ( observer ) {
+    m_observers.remove( observer );
+  }
 }
 
 void TMHandlerBase::removeAllObservers()
 {
-  m_observers.erase( m_observers.begin(), m_observers.end() );
+  m_observers.clear();
 }

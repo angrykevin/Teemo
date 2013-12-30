@@ -40,7 +40,7 @@ void TMRosterHandler::handleItemAdded( const JID& jid )
   
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnItemAdded:)] ) {
@@ -56,7 +56,7 @@ void TMRosterHandler::handleItemSubscribed( const JID& jid )
   TMPRINTMETHOD();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnItemSubscribed:)] ) {
@@ -76,7 +76,7 @@ void TMRosterHandler::handleItemRemoved( const JID& jid )
   
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnItemRemoved:)] ) {
@@ -113,7 +113,7 @@ void TMRosterHandler::handleItemUpdated( const JID& jid )
   
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnItemUpdated:)] ) {
@@ -129,7 +129,7 @@ void TMRosterHandler::handleItemUnsubscribed( const JID& jid )
   TMPRINTMETHOD();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnItemUnsubscribed:)] ) {
@@ -184,7 +184,7 @@ void TMRosterHandler::handleRoster( const Roster& roster )
   
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnReceived:)] ) {
@@ -201,7 +201,7 @@ void TMRosterHandler::handleRosterPresence( const RosterItem& item, const std::s
   TMPRINTMETHOD();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnPresence:resource:presence:msg:)] ) {
@@ -221,7 +221,7 @@ void TMRosterHandler::handleSelfPresence( const RosterItem& item, const std::str
   TMPRINTMETHOD();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnSelfPresence:resource:presence:msg:)] ) {
@@ -240,7 +240,7 @@ bool TMRosterHandler::handleSubscriptionRequest( const JID& jid, const std::stri
   TMPRINTMETHOD();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnSubscriptionRequest:msg:)] ) {
@@ -257,7 +257,7 @@ bool TMRosterHandler::handleUnsubscriptionRequest( const JID& jid, const std::st
   TMPRINTMETHOD();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnUnsubscriptionRequest:msg:)] ) {
@@ -274,7 +274,7 @@ void TMRosterHandler::handleNonrosterPresence( const Presence& presence )
   TMPRINTMETHOD();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnNonrosterPresence:)] ) {
@@ -290,7 +290,7 @@ void TMRosterHandler::handleRosterError( const IQ& iq )
   TMPRINTMETHOD();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMRosterDelegate> delegate = (__bridge id<TMRosterDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(rosterOnError:)] ) {

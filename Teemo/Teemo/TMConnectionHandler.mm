@@ -21,7 +21,7 @@ void TMConnectionHandler::onConnect()
 #endif
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(connectionOnConnect)] ) {
@@ -80,7 +80,7 @@ void TMConnectionHandler::onDisconnect( ConnectionError e )
 #endif
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(connectionOnDisconnect:)] ) {
@@ -100,7 +100,7 @@ void TMConnectionHandler::onResourceBind( const std::string& resource )
 #endif
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(connectionOnResourceBind:)] ) {
@@ -120,7 +120,7 @@ void TMConnectionHandler::onResourceBindError( const Error* error )
 #endif
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(connectionOnResourceBindError:)] ) {
@@ -140,7 +140,7 @@ void TMConnectionHandler::onSessionCreateError( const Error* error )
 #endif
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(connectionOnSessionCreateError:)] ) {
@@ -181,7 +181,7 @@ bool TMConnectionHandler::onTLSConnect( const CertInfo& info )
 #endif
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(connectionOnTLSConnect:)] ) {
@@ -234,7 +234,7 @@ void TMConnectionHandler::onStreamEvent( StreamEvent event )
 #endif
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(connectionOnStreamEvent:)] ) {

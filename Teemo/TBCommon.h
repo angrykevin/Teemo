@@ -18,7 +18,7 @@ extern "C" {
   
 UIImage *TBCreateImage(NSString *name);
   
-void TBDisplayMessage(NSString *message);
+void TBPresentSystemMessage(NSString *message);
   
 NSString *TBFormatDate(NSDate *date);
   

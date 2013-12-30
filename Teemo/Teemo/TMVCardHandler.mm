@@ -50,7 +50,7 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
   
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMVCardDelegate> delegate = (__bridge id<TMVCardDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(vcardOnReceived:vcard:)] ) {
@@ -66,7 +66,7 @@ void TMVCardHandler::handleVCardResult( VCardContext context, const JID& jid, St
   TMPRINTMETHOD();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
-    TMObserverList::const_iterator it = m_observers.begin();
+    TMPointerList::const_iterator it = m_observers.begin();
     for( ; it != m_observers.end(); ++it ) {
       id<TMVCardDelegate> delegate = (__bridge id<TMVCardDelegate>)(*it);
       if ( [delegate respondsToSelector:@selector(vcardOnResult:context:error:)] ) {

@@ -13,67 +13,11 @@
 
 #import "Teemo.h"
 
+
 @implementation AppDelegate
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-  TKPRINTMETHOD();
-  [[TBLocationManager sharedObject] shutDownLocationServiceIfNeeded];
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-  TKPRINTMETHOD();
-  [[TBLocationManager sharedObject] launchLocationServiceIfNeeded];
-}
-
-- (void)didStart:(NSNotification *)notification
-{
-  TKPRINTMETHOD();
-}
-
-- (void)didStop:(NSNotification *)notification
-{
-  TKPRINTMETHOD();
-}
-
-- (void)didUpdate:(NSNotification *)notification
-{
-  TKPRINTMETHOD();
-  TBLocationManager *lm = [TBLocationManager sharedObject];
-  NSLog(@"%f,%f", lm.location.coordinate.latitude, lm.location.coordinate.longitude);
-}
-
-- (void)didUpdateAddress:(NSNotification *)notification
-{
-  TBLocationManager *lm = [TBLocationManager sharedObject];
-  TKPRINTMETHOD();
-  NSLog(@"%@", lm.reverseGeocoder.result);
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  
-  
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(didStart:)
-                                               name:TBLocationManagerDidStartUpdatingNotification
-                                             object:nil];
-  
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(didStop:)
-                                               name:TBLocationManagerDidStopUpdatingNotification
-                                             object:nil];
-  
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(didUpdate:)
-                                               name:TBLocationManagerDidUpdateLocationNotification
-                                             object:nil];
-  
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(didUpdateAddress:)
-                                               name:TBLocationManagerDidUpdateAddressNotification
-                                             object:nil];
   
 //  tmp.append( string("aa") );
 //  tmp.append( string(",") );
@@ -271,7 +215,7 @@
   TKPRINTMETHOD();
   
   if ( TKIsInstance([_root.viewControllers firstObject], [RSSigninViewController class]) ) {
-    TBDisplayMessage(@"Sign in failed !");
+    TBPresentSystemMessage(@"Sign in failed !");
   }
   
   //TMEngine *engine = [TMEngine sharedEngine];

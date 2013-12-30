@@ -14,7 +14,7 @@ UIImage *TBCreateImage(NSString *name)
   return [[UIImage alloc] initWithContentsOfFile:path];
 }
 
-void TBDisplayMessage(NSString *message)
+void TBPresentSystemMessage(NSString *message)
 {
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:message
                                                       message:nil
