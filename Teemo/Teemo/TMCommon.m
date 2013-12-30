@@ -16,9 +16,6 @@ NSString *TMJIDFromPassport(NSString *pspt)
     NSMutableString *jid = [[NSMutableString alloc] init];
     [jid appendString:pspt];
     [jid appendString:TMXMPPServerDomain];
-    //if ( [TMXMPPClientResource length] > 0 ) {
-    //  [jid appendFormat:@"/%@", TMXMPPServerDomain];
-    //}
     return jid;
   }
   return nil;
