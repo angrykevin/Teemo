@@ -113,17 +113,44 @@ static TMEngine *CurrentEngine = nil;
 - (void)setUpDatabase
 {
   if ( ![_database hasTableNamed:@"t_buddy"] ) {
-    NSString *sql = @"CREATE TABLE t_buddy( pk INTEGER PRIMARY KEY, bid TEXT, displayname TEXT, groupname TEXT, nickname TEXT, familyname TEXT, givenname TEXT, photo TEXT, birthday TEXT, desc TEXT, homepage TEXT, subscription INTEGER );";
+    NSString *sql =
+    @"CREATE TABLE t_buddy( "
+    @"pk INTEGER PRIMARY KEY, "
+    @"bid TEXT, "
+    @"displayedname TEXT, "
+    @"subscription INTEGER, "
+    @"presence INTEGER, "
+    
+    @"nickname TEXT, "
+    @"familyname TEXT, "
+    @"givenname TEXT, "
+    @"photo TEXT, "
+    @"birthday TEXT, "
+    @"desc TEXT, "
+    @"homepage TEXT"
+    @");";
     [_database executeUpdate:sql];
   }
   
-  if ( ![_database hasTableNamed:@"tChatlog"] ) {
-    NSString *sql = @"CREATE TABLE tChatlog( pk INTEGER PRIMARY KEY, passport TEXT, date TEXT );";
+  if ( ![_database hasTableNamed:@"t_session"] ) {
+    NSString *sql =
+    @"CREATE TABLE t_session( "
+    @"pk INTEGER PRIMARY KEY, "
+    @"jid TEXT, "
+    @"date TEXT "
+    @");";
     [_database executeUpdate:sql];
   }
   
-  if ( ![_database hasTableNamed:@"tMessage"] ) {
-    NSString *sql = @"CREATE TABLE tMessage( pk INTEGER PRIMARY KEY, passport TEXT, content TEXT, date TEXT, read INTEGER );";
+  if ( ![_database hasTableNamed:@"t_message"] ) {
+    NSString *sql =
+    @"CREATE TABLE t_message( "
+    @"pk INTEGER PRIMARY KEY, "
+    @"passport TEXT, "
+    @"content TEXT, "
+    @"date TEXT, "
+    @"read INTEGER "
+    @");";
     [_database executeUpdate:sql];
   }
 }
@@ -131,8 +158,8 @@ static TMEngine *CurrentEngine = nil;
 - (void)clearDatabase
 {
   [_database executeUpdate:@"DELETE FROM t_buddy;"];
-  [_database executeUpdate:@"DELETE FROM tChatlog;"];
-  [_database executeUpdate:@"DELETE FROM tMessage;"];
+  [_database executeUpdate:@"DELETE FROM t_session;"];
+  [_database executeUpdate:@"DELETE FROM t_message;"];
 }
 
 

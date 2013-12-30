@@ -2,8 +2,9 @@
 CREATE TABLE t_buddy(
   pk INTEGER PRIMARY KEY,
   bid TEXT,
-  displayname TEXT,
+  displayedname TEXT,
   groupname TEXT,
+  subscription INTEGER,
 
   nickname TEXT,
   familyname TEXT,
@@ -11,9 +12,7 @@ CREATE TABLE t_buddy(
   photo TEXT,
   birthday TEXT,
   desc TEXT,
-  homepage TEXT,
-  
-  subscription INTEGER
+  homepage TEXT
 );
 
 CREATE TABLE tChatlog(

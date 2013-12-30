@@ -22,18 +22,39 @@ void TMRosterHandler::handleItemAdded( const JID& jid )
   
   Roster *roster = [engine rosterManager]->roster();
   Roster::const_iterator it = roster->begin();
-  
-  for ( ; it != roster->end(); ++it ) {
+  for ( ; it!=roster->end(); ++it ) {
     
-    JID tmp( it->first );
-    RosterItem *item = it->second;
-    
-    if ( jid.bare() == tmp.bare() ) {
+    if ( jid.bare() == it->first ) {
       
-      saveRosterItemIntoDatabase(item);
+      RosterItem *item = it->second;
       
-      [engine vcardManager]->fetchVCard(JID( tmp.bare() ), [engine vcardHandler]);
+      string displayedname = item->name();
+      SubscriptionType subscription = item->subscription();
+      Presence::PresenceType highestPresence = Presence::Unavailable;
+      if ( item->highestResource() ) highestPresence = item->highestResource()->presence();
       
+      
+      TMEngine *engine = [TMEngine sharedEngine];
+      NSArray *result = [[engine database] executeQuery:@"SELECT pk FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
+      if ( [result count] > 0 ) {
+        
+        [[engine database] executeUpdate:@"UPDATE t_buddy SET displayedname=?, subscription=?, presence=? WHERE bid=?;",
+         OBJCSTR(displayedname),
+         [NSNumber numberWithInt:subscription],
+         [NSNumber numberWithInt:highestPresence],
+         OBJCSTR(jid.bare())];
+        
+      } else {
+        
+        [[engine database] executeUpdate:@"INSERT INTO t_buddy(bid, displayedname, subscription, presence) VALUES(?, ?, ?, ?);",
+         OBJCSTR(jid.bare()),
+         OBJCSTR(displayedname),
+         [NSNumber numberWithInt:subscription],
+         [NSNumber numberWithInt:highestPresence]];
+        
+      }
+      
+      [engine vcardManager]->fetchVCard(jid, [engine vcardHandler]);
     }
     
   }
@@ -95,18 +116,38 @@ void TMRosterHandler::handleItemUpdated( const JID& jid )
   
   Roster *roster = [engine rosterManager]->roster();
   Roster::const_iterator it = roster->begin();
-  
   for ( ; it!=roster->end(); ++it ) {
     
-    JID tmp( it->first );
-    RosterItem *item = it->second;
-    
-    if ( jid.bare() == tmp.bare() ) {
+    if ( jid.bare() == it->first ) {
       
-      saveRosterItemIntoDatabase(item);
+      RosterItem *item = it->second;
       
-      [engine vcardManager]->fetchVCard(JID( tmp.bare() ), [engine vcardHandler]);
+      string displayedname = item->name();
+      SubscriptionType subscription = item->subscription();
+      Presence::PresenceType highestPresence = Presence::Unavailable;
+      if ( item->highestResource() ) highestPresence = item->highestResource()->presence();
       
+      TMEngine *engine = [TMEngine sharedEngine];
+      NSArray *result = [[engine database] executeQuery:@"SELECT pk FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
+      if ( [result count] > 0 ) {
+        
+        [[engine database] executeUpdate:@"UPDATE t_buddy SET displayedname=?, subscription=?, presence=? WHERE bid=?;",
+         OBJCSTR(displayedname),
+         [NSNumber numberWithInt:subscription],
+         [NSNumber numberWithInt:highestPresence],
+         OBJCSTR(jid.bare())];
+        
+      } else {
+        
+        [[engine database] executeUpdate:@"INSERT INTO t_buddy(bid, displayedname, subscription, presence) VALUES(?, ?, ?, ?);",
+         OBJCSTR(jid.bare()),
+         OBJCSTR(displayedname),
+         [NSNumber numberWithInt:subscription],
+         [NSNumber numberWithInt:highestPresence]];
+        
+      }
+      
+      [engine vcardManager]->fetchVCard(jid, [engine vcardHandler]);
     }
     
   }
@@ -145,40 +186,26 @@ void TMRosterHandler::handleRoster( const Roster& roster )
   TMPRINTMETHOD();
   
   TMEngine *engine = [TMEngine sharedEngine];
-  
   [[engine database] executeUpdate:@"DELETE FROM t_buddy;"];
   
   Roster::const_iterator it = roster.begin();
-  
   for ( ; it!=roster.end(); ++it ) {
     
     JID jid( it->first );
     RosterItem *item = it->second;
     
-    string groupname = item->groups().front();
-    if ( item->groups().size() > 1 ) {
-      StringList::const_iterator it = item->groups().begin();
-      ++it;
-      for ( ; it!=item->groups().end(); ++it ) {
-        groupname.append( string(",") );
-        groupname.append( *it );
-      }
-    }
-    
-    string displayname = item->name();
-    
+    string displayedname = item->name();
     SubscriptionType subscription = item->subscription();
+    Presence::PresenceType highestPresence = Presence::Unavailable;
+    if ( item->highestResource() ) highestPresence = item->highestResource()->presence();
     
-    TMPRINT("BUDDY: %s %s %s %d\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str(), subscription);
-    
-    
-    [[engine database] executeUpdate:@"INSERT INTO t_buddy(bid,displayname,groupname,subscription) VALUES(?,?,?,?);",
+    [[engine database] executeUpdate:@"INSERT INTO t_buddy(bid, displayedname, subscription, presence) VALUES(?, ?, ?, ?);",
      OBJCSTR(jid.bare()),
-     OBJCSTR(displayname),
-     OBJCSTR(groupname),
-     [NSNumber numberWithInt:subscription]];
+     OBJCSTR(displayedname),
+     [NSNumber numberWithInt:subscription],
+     [NSNumber numberWithInt:highestPresence]];
     
-    [engine vcardManager]->fetchVCard(JID( jid.bare() ), [engine vcardHandler]);
+    [engine vcardManager]->fetchVCard(jid, [engine vcardHandler]);
     
   }
   
@@ -199,6 +226,25 @@ void TMRosterHandler::handleRosterPresence( const RosterItem& item, const std::s
                                             Presence::PresenceType presence, const std::string& msg )
 {
   TMPRINTMETHOD();
+  
+  string displayedname = item.name();
+  SubscriptionType subscription = item.subscription();
+  Presence::PresenceType highestPresence = Presence::Unavailable;
+  if ( item.highestResource() ) highestPresence = item.highestResource()->presence();
+  
+  
+  TMEngine *engine = [TMEngine sharedEngine];
+  NSArray *result = [[engine database] executeQuery:@"SELECT pk FROM t_buddy WHERE bid=?;", OBJCSTR(item.jidJID().bare())];
+  if ( [result count] > 0 ) {
+    
+    [[engine database] executeUpdate:@"UPDATE t_buddy SET displayedname=?, subscription=?, presence=? WHERE bid=?;",
+     OBJCSTR(displayedname),
+     [NSNumber numberWithInt:subscription],
+     [NSNumber numberWithInt:highestPresence],
+     OBJCSTR(item.jidJID().bare())];
+    
+  }
+  
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     TMPointerList::const_iterator it = m_observers.begin();
@@ -301,45 +347,3 @@ void TMRosterHandler::handleRosterError( const IQ& iq )
   
 }
 
-
-
-void TMRosterHandler::saveRosterItemIntoDatabase(RosterItem *item)
-{
-  JID jid( item->jidJID() );
-  
-  string groupname = item->groups().front();
-  if ( item->groups().size() > 1 ) {
-    StringList::const_iterator it = item->groups().begin();
-    ++it;
-    for ( ; it!=item->groups().end(); ++it ) {
-      groupname.append( string(",") );
-      groupname.append( *it );
-    }
-  }
-  
-  string displayname = item->name();
-  
-  SubscriptionType subscription = item->subscription();
-  
-  TMPRINT("BUDDY: %s %s %s %d\n", jid.bare().c_str(), groupname.c_str(), displayname.c_str(), subscription);
-  
-  TMEngine *engine = [TMEngine sharedEngine];
-  NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
-  if ( [buddies count] > 0 ) {
-    
-    [[engine database] executeUpdate:@"UPDATE t_buddy SET displayname=?, groupname=?, subscription=? WHERE bid=?;",
-     OBJCSTR(displayname),
-     OBJCSTR(groupname),
-     [NSNumber numberWithInt:subscription],
-     OBJCSTR(jid.bare())];
-    
-  } else {
-    
-    [[engine database] executeUpdate:@"INSERT INTO t_buddy(bid,displayname,groupname,subscription) VALUES(?,?,?,?);",
-     OBJCSTR(jid.bare()),
-     OBJCSTR(displayname),
-     OBJCSTR(groupname),
-     [NSNumber numberWithInt:subscription]];
-    
-  }
-}
