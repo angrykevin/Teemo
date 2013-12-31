@@ -26,10 +26,6 @@
     
     _row = row;
     
-    NSString *bid = [_row stringForName:@"bid"];
-    NSString *owner = TMJIDFromPassport(RSAccountPassport());
-    _isOwner = [owner isEqualToString:bid];
-    
   }
   return self;
 }
@@ -86,7 +82,9 @@
 
 - (void)addFooterViewIfNeeded
 {
-  if ( _isOwner ) {
+  TMEngine *engine = [TMEngine sharedEngine];
+  
+  if ( [engine isCurrentUser:[_row stringForName:@"bid"]] ) {
     
     _tableView.tableFooterView = nil;
     

@@ -14,9 +14,6 @@
 > {
   UITableView *_tableView;
   TKDatabaseRow *_row;
-  
-  BOOL _isOwner;
-  
 }
 
 - (id)initWithRow:(TKDatabaseRow *)row;

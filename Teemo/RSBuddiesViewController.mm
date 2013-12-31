@@ -108,13 +108,7 @@
 
 - (void)reloadBuddies
 {
-  NSMutableString *subscriptionTypeString = [[NSMutableString alloc] init];
-  [subscriptionTypeString appendFormat:@"%d", S10nTo];
-  [subscriptionTypeString appendFormat:@",%d", S10nToIn];
-  [subscriptionTypeString appendFormat:@",%d", S10nBoth];
-  
-  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
-  _buddies = [[[TMEngine sharedEngine] database] executeQuery:sql];
+  _buddies = [[TMEngine sharedEngine] toBuddies];
 }
 
 

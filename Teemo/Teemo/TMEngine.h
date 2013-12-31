@@ -52,8 +52,13 @@ using namespace gloox;
 - (void)setUpDatabase;
 - (void)clearDatabase;
 
-- (BOOL)isBuddyInRoster:(NSString *)bid;
 
+- (NSArray *)toBuddies;
+- (NSArray *)fromBuddies;
+- (NSArray *)inBuddies;
+- (NSArray *)outBuddies;
+
+- (BOOL)isCurrentUser:(NSString *)jid;
 
 
 - (NSString *)passport;

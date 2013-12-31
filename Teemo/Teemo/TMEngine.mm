@@ -162,30 +162,57 @@ static TMEngine *CurrentEngine = nil;
   [_database executeUpdate:@"DELETE FROM t_message;"];
 }
 
-
-- (BOOL)isBuddyInRoster:(NSString *)bid
+- (NSArray *)toBuddies
 {
-  if ( [bid length] > 0 ) {
-    
-    JID jid = JID( CPPSTR(bid) );
-    
-    Roster *roster = _client->rosterManager()->roster();
-    Roster::const_iterator it = roster->begin();
-    
-    for ( ; it != roster->end(); ++it ) {
-      
-      JID tmp( it->first );
-      
-      if ( jid.bare() == tmp.bare() ) {
-        return YES;
-      }
-      
-    }
-    
-  }
+  NSMutableString *subscriptionTypeString = [[NSMutableString alloc] init];
+  [subscriptionTypeString appendFormat:@"%d", S10nTo];
+  [subscriptionTypeString appendFormat:@",%d", S10nToIn];
+  [subscriptionTypeString appendFormat:@",%d", S10nBoth];
   
-  return NO;
+  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
+  return [_database executeQuery:sql];
 }
+
+- (NSArray *)fromBuddies
+{
+  NSMutableString *subscriptionTypeString = [[NSMutableString alloc] init];
+  [subscriptionTypeString appendFormat:@"%d", S10nFrom];
+  [subscriptionTypeString appendFormat:@",%d", S10nFromOut];
+  [subscriptionTypeString appendFormat:@",%d", S10nBoth];
+  
+  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
+  return [_database executeQuery:sql];
+}
+
+- (NSArray *)inBuddies
+{
+  NSMutableString *subscriptionTypeString = [[NSMutableString alloc] init];
+  [subscriptionTypeString appendFormat:@"%d", S10nNoneIn];
+  [subscriptionTypeString appendFormat:@",%d", S10nNoneOutIn];
+  [subscriptionTypeString appendFormat:@",%d", S10nToIn];
+  
+  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
+  return [_database executeQuery:sql];
+}
+
+- (NSArray *)outBuddies
+{
+  NSMutableString *subscriptionTypeString = [[NSMutableString alloc] init];
+  [subscriptionTypeString appendFormat:@"%d", S10nNoneOut];
+  [subscriptionTypeString appendFormat:@",%d", S10nNoneOutIn];
+  [subscriptionTypeString appendFormat:@",%d", S10nFromOut];
+  
+  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
+  return [_database executeQuery:sql];
+}
+
+
+
+- (BOOL)isCurrentUser:(NSString *)jid
+{
+  return ( ([jid length]>0) && [jid isEqualToString:TMJIDFromPassport(_passport)] );
+}
+
 
 
 
