@@ -51,10 +51,6 @@ using namespace gloox;
 - (void)addBuddyWithJID:(NSString *)jid completionHandler:(TBOperationCompletionHandler)completionHandler;
 - (void)removeBuddyWithJID:(NSString *)jid completionHandler:(TBOperationCompletionHandler)completionHandler;
 
-- (void)createDatabase;
-- (void)setUpDatabase;
-- (void)clearDatabase;
-
 
 - (NSArray *)toBuddies;
 - (NSArray *)fromBuddies;

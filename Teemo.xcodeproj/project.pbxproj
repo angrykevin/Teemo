@@ -35,7 +35,7 @@
 		BC5EE0E9182A196A007D5DE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE0E8182A196A007D5DE6 /* main.m */; };
 		BC5EE0ED182A196A007D5DE6 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE0EC182A196A007D5DE6 /* AppDelegate.mm */; };
 		BC5EE2DC182A1C6B007D5DE6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE2DB182A1C6B007D5DE6 /* libz.dylib */; };
-		BC5EE2F9182A1FAC007D5DE6 /* TMCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E0182A1FAC007D5DE6 /* TMCommon.m */; };
+		BC5EE2F9182A1FAC007D5DE6 /* TMCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */; };
 		BC5EE2FB182A1FAC007D5DE6 /* TMEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */; };
 		BC5EE2FC182A1FAC007D5DE6 /* TMIqHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */; };
 		BC5EE2FD182A1FAC007D5DE6 /* TMMessageHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */; };
@@ -293,7 +293,7 @@
 		BC5EE0EC182A196A007D5DE6 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		BC5EE2DB182A1C6B007D5DE6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMCommon.h; sourceTree = "<group>"; };
-		BC5EE2E0182A1FAC007D5DE6 /* TMCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMCommon.m; sourceTree = "<group>"; };
+		BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMCommon.mm; sourceTree = "<group>"; };
 		BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConfig.h; sourceTree = "<group>"; };
 		BC5EE2E4182A1FAC007D5DE6 /* TMMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMacro.h; sourceTree = "<group>"; };
 		BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEngine.h; sourceTree = "<group>"; };
@@ -910,7 +910,7 @@
 				BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */,
 				BC5EE2E4182A1FAC007D5DE6 /* TMMacro.h */,
 				BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */,
-				BC5EE2E0182A1FAC007D5DE6 /* TMCommon.m */,
+				BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */,
 				BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */,
 				BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */,
 				BC675C8218306E22003E1516 /* TMHandlerBase.h */,
@@ -1786,7 +1786,7 @@
 				BC840617182CC2F00058EBDC /* dataformfield.cpp in Sources */,
 				BCB44DFE1834D5B6007D074E /* RSBuddyCell.m in Sources */,
 				BC840672182CC2F00058EBDC /* UIButtonAdditions.m in Sources */,
-				BC5EE2F9182A1FAC007D5DE6 /* TMCommon.m in Sources */,
+				BC5EE2F9182A1FAC007D5DE6 /* TMCommon.mm in Sources */,
 				BC840668182CC2F00058EBDC /* vcardupdate.cpp in Sources */,
 				BC84066F182CC2F00058EBDC /* NSDictionaryAdditions.m in Sources */,
 				BC5EE2FB182A1FAC007D5DE6 /* TMEngine.mm in Sources */,

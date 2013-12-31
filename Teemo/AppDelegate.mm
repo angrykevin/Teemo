@@ -166,10 +166,9 @@
   engine = [[TMEngine alloc] init];
   [TMEngine storeEngine:engine];
   
-  [engine createDatabase];
-  [engine setUpDatabase];
+  TMSetUpDatabase();
   if ( ![pspt isEqualToString:RSAccountPassport()] ) {
-    [engine clearDatabase];
+    TMClearDatabase();
   }
   
   [engine setUpWithPassport:pspt password:pswd];

@@ -15,6 +15,9 @@ extern "C" {
 
 NSString *TMJIDFromPassport(NSString *pspt);
 
+void TMSetUpDatabase();
+void TMClearDatabase();
+
 
 #ifdef __cplusplus
 }
