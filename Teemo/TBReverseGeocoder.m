@@ -11,84 +11,39 @@
 
 @implementation TBReverseGeocoder
 
-- (void)dealloc
-{
-  [_operation clearDelegatesAndCancel];
-}
 
 - (void)reverseGeocodeLocation:(CLLocation *)location completionHandler:(TBOperationCompletionHandler)completionHandler
 {
   if ( location ) {
-    [_operation clearDelegatesAndCancel];
-    _location = location;
-    _result = nil;
     
-    _parsing = NO;
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
-    
-    NSString *address = @"http://maps.googleapis.com/maps/api/geocode/json";
-    
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-    [parameters setObject:@"true" forKey:@"sensor"];
-    [parameters setObject:@"zh-CN" forKey:@"language"];
-    
-    if ( [_parameters count] > 0 ) {
-      for ( NSString *key in [_parameters keyEnumerator] ) {
-        NSString *value = [_parameters objectForKey:key];
-        [parameters setObject:value forKey:key];
-      }
+    NSMutableDictionary *context = [[NSMutableDictionary alloc] init];
+    [context setObject:location forKey:@"location"];
+    if ( completionHandler ) {
+      [context setObject:[completionHandler copy] forKey:@"completionHandler"];
     }
     
-    NSString *latlng = [NSString stringWithFormat:@"%f,%f", location.coordinate.latitude, location.coordinate.longitude];
-    [parameters setObject:latlng forKey:@"latlng"];
-    
-    _operation = [[TKURLConnectionOperation alloc] initWithAddress:[address stringByAddingQueryDictionary:parameters]
-                                                   timeoutInterval:0.0
-                                                       cachePolicy:0];
-    
-    __weak typeof(self) weakSelf = self;
-    
-    _operation.didStartBlock = ^(id object) {
-      [weakSelf setParsing:YES];
-      [weakSelf setResult:nil];
-    };
-    
-    _operation.didFailBlock = ^(id object) {
-      [weakSelf setParsing:NO];
-      [weakSelf setResult:nil];
-      if ( completionHandler ) {
-        NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
-        completionHandler(nil, error);
-      }
-    };
-    
-    _operation.didFinishBlock = ^(id object) {
-      id result = [NSJSONSerialization JSONObjectWithData:[object responseData]
-                                                  options:0
-                                                    error:NULL];
-      [weakSelf setParsing:NO];
-      [weakSelf setResult:result];
-      if ( completionHandler ) {
-        completionHandler(result, nil);
-      }
-    };
-    
-    [_operation startAsynchronous];
+    [self performSelector:@selector(parseLocationWithContext:)
+               withObject:context
+               afterDelay:1.0];
     
   }
 }
 
 - (void)cancelAndClear
 {
+  [NSObject cancelPreviousPerformRequestsWithTarget:self];
+  
   _parameters = nil;
   
-  [_operation clearDelegatesAndCancel];
+  [_connection clearDelegatesAndCancel];
   _location = nil;
   _result = nil;
-  
   _parsing = NO;
   
 }
+
 
 
 - (NSDictionary *)addressDictionary
@@ -233,14 +188,90 @@
 
 
 
-- (BOOL)parsing
+
+- (void)parseLocationWithContext:(NSDictionary *)context
 {
-  return _parsing;
+  CLLocation *location = [context objectForKey:@"location"];
+  TBOperationCompletionHandler completionHandler = [context objectForKey:@"completionHandler"];
+  
+  
+  NSString *address = @"http://maps.googleapis.com/maps/api/geocode/json";
+  
+  NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+  [parameters setObject:@"true" forKey:@"sensor"];
+  [parameters setObject:@"zh-CN" forKey:@"language"];
+  
+  if ( [_parameters count] > 0 ) {
+    for ( NSString *key in [_parameters keyEnumerator] ) {
+      NSString *value = [_parameters objectForKey:key];
+      [parameters setObject:value forKey:key];
+    }
+  }
+  
+  NSString *latlng = [NSString stringWithFormat:@"%f,%f", location.coordinate.latitude, location.coordinate.longitude];
+  [parameters setObject:latlng forKey:@"latlng"];
+  
+  
+  [_connection clearDelegatesAndCancel];
+  
+  _connection = [[TKURLConnectionOperation alloc] initWithAddress:[address stringByAddingQueryDictionary:parameters]
+                                                  timeoutInterval:0.0
+                                                      cachePolicy:0];
+  
+  __weak typeof(self) weakSelf = self;
+  
+  _connection.didStartBlock = ^(id object) {
+    [weakSelf setParsing:YES];
+  };
+  
+  _connection.didFailBlock = ^(id object) {
+    //[weakSelf setLocation:nil];
+    //[weakSelf setResult:nil];
+    [weakSelf setParsing:NO];
+    if ( completionHandler ) {
+      NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
+      completionHandler(nil, error);
+    }
+  };
+  
+  _connection.didFinishBlock = ^(id object) {
+    id result = [NSJSONSerialization JSONObjectWithData:[object responseData]
+                                                options:0
+                                                  error:NULL];
+    [weakSelf setLocation:location];
+    [weakSelf setResult:result];
+    [weakSelf setParsing:NO];
+    if ( completionHandler ) {
+      completionHandler(result, nil);
+    }
+  };
+  
+  [_connection startAsynchronous];
+  
 }
 
-- (void)setParsing:(BOOL)parsing
+- (void)dealloc
 {
-  _parsing = parsing;
+  [NSObject cancelPreviousPerformRequestsWithTarget:self];
+  
+  _parameters = nil;
+  
+  [_connection clearDelegatesAndCancel];
+  _location = nil;
+  _result = nil;
+  _parsing = NO;
+}
+
+
+
+- (CLLocation *)location
+{
+  return _location;
+}
+
+- (void)setLocation:(CLLocation *)location
+{
+  _location = location;
 }
 
 
@@ -253,5 +284,17 @@
 {
   _result = result;
 }
+
+
+- (BOOL)parsing
+{
+  return _parsing;
+}
+
+- (void)setParsing:(BOOL)parsing
+{
+  _parsing = parsing;
+}
+
 
 @end

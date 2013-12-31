@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RSRosterModel.h"
 
 @interface RSBuddiesViewController : TBViewController<
     UITableViewDataSource,

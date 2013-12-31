@@ -13,19 +13,17 @@
   
   NSDictionary *_parameters;
   
-  TKURLConnectionOperation *_operation;
+  TKURLConnectionOperation *_connection;
   CLLocation *_location;
   NSDictionary *_result;
-  
   BOOL _parsing;
 }
 
 @property (nonatomic, strong) NSDictionary *parameters;
 
-@property (nonatomic, strong, readonly) TKURLConnectionOperation *operation;
+@property (nonatomic, strong, readonly) TKURLConnectionOperation *connection;
 @property (nonatomic, strong, readonly) CLLocation *location;
 @property (nonatomic, strong, readonly) NSDictionary *result;
-
 @property (nonatomic, readonly) BOOL parsing;
 
 - (void)reverseGeocodeLocation:(CLLocation *)location completionHandler:(TBOperationCompletionHandler)completionHandler;
