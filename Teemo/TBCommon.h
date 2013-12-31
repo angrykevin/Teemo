@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^TBOperationCompletionHandler)(NSDictionary *result, NSError *error);
+
+typedef void (^TBOperationCompletionHandler)(id result, NSError *error);
 
 
 #ifdef __cplusplus

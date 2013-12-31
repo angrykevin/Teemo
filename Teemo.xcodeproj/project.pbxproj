@@ -919,18 +919,7 @@
 				BCA23D231831C3FB00E93718 /* PresenceHandler */,
 				BCA23D261831D2BC00E93718 /* VCardHandler */,
 				BCA23D391831E21200E93718 /* RosterHandler */,
-				BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */,
-				BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */,
-				BC5EE2EB182A1FAC007D5DE6 /* TMMessageSessionHandler.h */,
-				BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */,
-				BC5EE2F1182A1FAC007D5DE6 /* TMStatisticsHandler.h */,
-				BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */,
-				BC5EE2F3182A1FAC007D5DE6 /* TMSubscriptionHandler.h */,
-				BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */,
-				BC5EE2F5182A1FAC007D5DE6 /* TMTagHandler.h */,
-				BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */,
-				BC5EE2E7182A1FAC007D5DE6 /* TMIqHandler.h */,
-				BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */,
+				BC8B22961872CB8000C08F64 /* Todo */,
 			);
 			path = Teemo;
 			sourceTree = "<group>";
@@ -1515,6 +1504,25 @@
 				BC840428182CADA40058EBDC /* RSBoxViewLine.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		BC8B22961872CB8000C08F64 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */,
+				BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */,
+				BC5EE2EB182A1FAC007D5DE6 /* TMMessageSessionHandler.h */,
+				BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */,
+				BC5EE2F1182A1FAC007D5DE6 /* TMStatisticsHandler.h */,
+				BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */,
+				BC5EE2F3182A1FAC007D5DE6 /* TMSubscriptionHandler.h */,
+				BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */,
+				BC5EE2F5182A1FAC007D5DE6 /* TMTagHandler.h */,
+				BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */,
+				BC5EE2E7182A1FAC007D5DE6 /* TMIqHandler.h */,
+				BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */,
+			);
+			name = Todo;
 			sourceTree = "<group>";
 		};
 		BCA23D221831C3EF00E93718 /* ConnectionHandler */ = {

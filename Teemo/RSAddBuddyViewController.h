@@ -15,9 +15,9 @@
   UIScrollView *_scrollView;
   
   RSBoxViewLine *_jidLine;
-  RSBoxViewLine *_displaynameLine;
-  RSBoxViewLine *_groupnameLine;
+  RSBoxViewLine *_displayednameLine;
   RSBoxViewLine *_messageLine;
+  
 }
 
 @end

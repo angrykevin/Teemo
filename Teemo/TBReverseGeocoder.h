@@ -26,7 +26,8 @@
 @property (nonatomic, strong, readonly) NSDictionary *result;
 @property (nonatomic, readonly) BOOL parsing;
 
-- (void)reverseGeocodeLocation:(CLLocation *)location completionHandler:(TBOperationCompletionHandler)completionHandler;
+- (void)reverseGeocodeLocation:(CLLocation *)location
+             completionHandler:(TBOperationCompletionHandler)completionHandler;
 
 - (void)cancelAndClear;
 

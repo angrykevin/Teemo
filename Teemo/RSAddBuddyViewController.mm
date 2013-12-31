@@ -35,21 +35,13 @@
   _jidLine.textField.returnKeyType = UIReturnKeyNext;
   [_scrollView addSubview:_jidLine];
   
-  _displaynameLine = [[RSBoxViewLine alloc] init];
-  _displaynameLine.backgroundImageView.image = TBCreateImage(@"box_middle.png");
-  _displaynameLine.label.text = NSLocalizedString(@"Displayname", @"");
-  _displaynameLine.textField.delegate = self;
-  _displaynameLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-  _displaynameLine.textField.returnKeyType = UIReturnKeyNext;
-  [_scrollView addSubview:_displaynameLine];
-  
-  _groupnameLine = [[RSBoxViewLine alloc] init];
-  _groupnameLine.backgroundImageView.image = TBCreateImage(@"box_middle.png");
-  _groupnameLine.label.text = NSLocalizedString(@"Groupname", @"");
-  _groupnameLine.textField.delegate = self;
-  _groupnameLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-  _groupnameLine.textField.returnKeyType = UIReturnKeyNext;
-  [_scrollView addSubview:_groupnameLine];
+  _displayednameLine = [[RSBoxViewLine alloc] init];
+  _displayednameLine.backgroundImageView.image = TBCreateImage(@"box_middle.png");
+  _displayednameLine.label.text = NSLocalizedString(@"Displayedname", @"");
+  _displayednameLine.textField.delegate = self;
+  _displayednameLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  _displayednameLine.textField.returnKeyType = UIReturnKeyNext;
+  [_scrollView addSubview:_displayednameLine];
   
   _messageLine = [[RSBoxViewLine alloc] init];
   _messageLine.backgroundImageView.image = TBCreateImage(@"box_bottom.png");
@@ -82,9 +74,8 @@
   [_scrollView makeVerticalScrollable];
   
   _jidLine.frame = CGRectMake(10.0, 10.0, 300.0, 44.0);
-  _displaynameLine.frame = CGRectMake(10.0, _jidLine.bottomY, 300.0, 44.0);
-  _groupnameLine.frame = CGRectMake(10.0, _displaynameLine.bottomY, 300.0, 44.0);
-  _messageLine.frame = CGRectMake(10.0, _groupnameLine.bottomY, 300.0, 44.0);
+  _displayednameLine.frame = CGRectMake(10.0, _jidLine.bottomY, 300.0, 44.0);
+  _messageLine.frame = CGRectMake(10.0, _displayednameLine.bottomY, 300.0, 44.0);
   
 }
 
@@ -103,14 +94,9 @@
   
   NSString *jid = _jidLine.textField.text;
   
-  NSString *displayname = _displaynameLine.textField.text;
-  if ( [displayname length] <= 0 ) {
-    displayname = @"";
-  }
-  
-  NSString *groupname = _groupnameLine.textField.text;
-  if ( [groupname length] <= 0 ) {
-    groupname = @"";
+  NSString *displayedname = _displayednameLine.textField.text;
+  if ( [displayedname length] <= 0 ) {
+    displayedname = @"";
   }
   
   NSString *message = _messageLine.textField.text;
@@ -120,8 +106,8 @@
   
   TMEngine *engine = [TMEngine sharedEngine];
   [engine rosterManager]->subscribe(JID( CPPSTR(jid) ),
-                                    CPPSTR(displayname),
-                                    StringList(1, CPPSTR(groupname)),
+                                    CPPSTR(@""),
+                                    StringList(1, CPPSTR(@"")),
                                     CPPSTR(message));
   
   [self.navigationController popViewControllerAnimated:YES];
@@ -147,10 +133,8 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
   if ( textField == _jidLine.textField ) {
-    [_displaynameLine.textField becomeFirstResponder];
-  } else if ( textField == _displaynameLine.textField ) {
-    [_groupnameLine.textField becomeFirstResponder];
-  } else if ( textField == _groupnameLine.textField ) {
+    [_displayednameLine.textField becomeFirstResponder];
+  } else if ( textField == _displayednameLine.textField ) {
     [_messageLine.textField becomeFirstResponder];
   } else if ( textField == _messageLine.textField ) {
     [_messageLine.textField resignFirstResponder];

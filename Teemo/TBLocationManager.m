@@ -70,7 +70,7 @@
   
   if ( _location ) {
     [_reverseGeocoder reverseGeocodeLocation:_location
-                           completionHandler:^(NSDictionary *result, NSError *error) {
+                           completionHandler:^(id result, NSError *error) {
                              [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateAddressNotification
                                                                                  object:self];
                            }];

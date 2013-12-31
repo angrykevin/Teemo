@@ -12,7 +12,8 @@
 @implementation TBReverseGeocoder
 
 
-- (void)reverseGeocodeLocation:(CLLocation *)location completionHandler:(TBOperationCompletionHandler)completionHandler
+- (void)reverseGeocodeLocation:(CLLocation *)location
+             completionHandler:(TBOperationCompletionHandler)completionHandler
 {
   if ( location ) {
     

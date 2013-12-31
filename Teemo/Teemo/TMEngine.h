@@ -48,6 +48,9 @@ using namespace gloox;
 - (void)disconnect;
 - (void)removeAllObservers;
 
+- (void)addBuddyWithJID:(NSString *)jid completionHandler:(TBOperationCompletionHandler)completionHandler;
+- (void)removeBuddyWithJID:(NSString *)jid completionHandler:(TBOperationCompletionHandler)completionHandler;
+
 - (void)createDatabase;
 - (void)setUpDatabase;
 - (void)clearDatabase;
@@ -76,3 +79,13 @@ using namespace gloox;
 - (TMRosterHandler *)rosterHandler;
 
 @end
+
+
+@protocol TMEngineDelegate <NSObject>
+
+@optional
+
+@end
+
+
+
