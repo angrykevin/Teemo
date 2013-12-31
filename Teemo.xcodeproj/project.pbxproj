@@ -11,16 +11,13 @@
 		BC35D8C2187196AF00300C86 /* RSRoutines.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC35D8C1187196AF00300C86 /* RSRoutines.mm */; };
 		BC35D8C51871A21700300C86 /* default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BC35D8C31871A21700300C86 /* default_avatar.png */; };
 		BC35D8C61871A21700300C86 /* default_avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC35D8C41871A21700300C86 /* default_avatar@2x.png */; };
-		BC35D8C91871A47B00300C86 /* RSAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC35D8C81871A47B00300C86 /* RSAccountManager.m */; };
 		BC403C391835B82B00B50317 /* RSChatViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C381835B82B00B50317 /* RSChatViewController.mm */; };
 		BC403C3C1835B87A00B50317 /* RSProfileViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C3B1835B87A00B50317 /* RSProfileViewController.mm */; };
 		BC403C421835C8ED00B50317 /* RSProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C411835C8ED00B50317 /* RSProfileCell.m */; };
 		BC403C451835D98100B50317 /* RSProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C441835D98100B50317 /* RSProfileHeaderView.m */; };
 		BC403C481835E80800B50317 /* RSProfileFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C471835E80800B50317 /* RSProfileFooterView.m */; };
 		BC403C4C1835EB0B00B50317 /* TBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C4B1835EB0B00B50317 /* TBAlertView.m */; };
-		BC403C4F1835F3E200B50317 /* RSEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C4E1835F3E200B50317 /* RSEditProfileViewController.m */; };
 		BC46D3B2183EF52F00EADAA9 /* UITableViewExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC46D3B1183EF52F00EADAA9 /* UITableViewExtentions.m */; };
-		BC47AE9718334CC300331216 /* RSAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BC47AE9618334CC300331216 /* RSAccount.m */; };
 		BC4D139D1830E77300572F67 /* TMConnectionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */; };
 		BC552DBA1839C57C0078375F /* TBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC552DB91839C57C0078375F /* TBButton.m */; };
 		BC552DC31839DC350078375F /* status_away.png in Resources */ = {isa = PBXBuildFile; fileRef = BC552DBB1839DC350078375F /* status_away.png */; };
@@ -215,7 +212,6 @@
 		BC840707182CC5200058EBDC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DD182CC5200058EBDC /* libssl.a */; };
 		BC84070C182CCB090058EBDC /* TBTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* TBTabViewController.m */; };
 		BC840710182CCCB20058EBDC /* UIViewControllerExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */; };
-		BC8B0E6C18485D2C00AFF390 /* RSRosterModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC8B0E6B18485D2C00AFF390 /* RSRosterModel.mm */; };
 		BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D351831E16B00E93718 /* TMRosterHandler.mm */; };
 		BCA23D48183224E300E93718 /* tabbar_buddies_h.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */; };
 		BCA23D49183224E300E93718 /* tabbar_buddies_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3D183224E300E93718 /* tabbar_buddies_h@2x.png */; };
@@ -256,8 +252,6 @@
 		BC35D8C1187196AF00300C86 /* RSRoutines.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSRoutines.mm; sourceTree = "<group>"; };
 		BC35D8C31871A21700300C86 /* default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_avatar.png; sourceTree = "<group>"; };
 		BC35D8C41871A21700300C86 /* default_avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_avatar@2x.png"; sourceTree = "<group>"; };
-		BC35D8C71871A47B00300C86 /* RSAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAccountManager.h; sourceTree = "<group>"; };
-		BC35D8C81871A47B00300C86 /* RSAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAccountManager.m; sourceTree = "<group>"; };
 		BC403C371835B82B00B50317 /* RSChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSChatViewController.h; sourceTree = "<group>"; };
 		BC403C381835B82B00B50317 /* RSChatViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSChatViewController.mm; sourceTree = "<group>"; };
 		BC403C3A1835B87A00B50317 /* RSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProfileViewController.h; sourceTree = "<group>"; };
@@ -270,15 +264,11 @@
 		BC403C471835E80800B50317 /* RSProfileFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSProfileFooterView.m; sourceTree = "<group>"; };
 		BC403C4A1835EB0B00B50317 /* TBAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBAlertView.h; sourceTree = "<group>"; };
 		BC403C4B1835EB0B00B50317 /* TBAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBAlertView.m; sourceTree = "<group>"; };
-		BC403C4D1835F3E200B50317 /* RSEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSEditProfileViewController.h; sourceTree = "<group>"; };
-		BC403C4E1835F3E200B50317 /* RSEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSEditProfileViewController.m; sourceTree = "<group>"; };
 		BC46D3B0183EF52F00EADAA9 /* UITableViewExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewExtentions.h; sourceTree = "<group>"; };
 		BC46D3B1183EF52F00EADAA9 /* UITableViewExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewExtentions.m; sourceTree = "<group>"; };
 		BC47AE8B183323EA00331216 /* Teemo.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Teemo.sql; sourceTree = "<group>"; };
 		BC47AE8F183335D000331216 /* RSCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCommon.h; sourceTree = "<group>"; };
 		BC47AE94183340AA00331216 /* RSDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSDefines.h; sourceTree = "<group>"; };
-		BC47AE9518334CC300331216 /* RSAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAccount.h; sourceTree = "<group>"; };
-		BC47AE9618334CC300331216 /* RSAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAccount.m; sourceTree = "<group>"; };
 		BC4D139B1830E77300572F67 /* TMConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConnectionHandler.h; sourceTree = "<group>"; };
 		BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMConnectionHandler.mm; sourceTree = "<group>"; };
 		BC552DB81839C57C0078375F /* TBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBButton.h; sourceTree = "<group>"; };
@@ -775,8 +765,6 @@
 		BC84070B182CCB090058EBDC /* TBTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTabViewController.m; sourceTree = "<group>"; };
 		BC84070E182CCCB20058EBDC /* UIViewControllerExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtentions.h; sourceTree = "<group>"; };
 		BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerExtentions.m; sourceTree = "<group>"; };
-		BC8B0E6A18485D2C00AFF390 /* RSRosterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSRosterModel.h; path = Teemo/RSRosterModel.h; sourceTree = "<group>"; };
-		BC8B0E6B18485D2C00AFF390 /* RSRosterModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RSRosterModel.mm; path = Teemo/RSRosterModel.mm; sourceTree = "<group>"; };
 		BCA23D211831C34100E93718 /* TMPresenceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMPresenceDelegate.h; sourceTree = "<group>"; };
 		BCA23D251831CC8E00E93718 /* TMVCardDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMVCardDelegate.h; sourceTree = "<group>"; };
 		BCA23D351831E16B00E93718 /* TMRosterHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRosterHandler.mm; sourceTree = "<group>"; };
@@ -857,11 +845,7 @@
 				BC47AE8F183335D000331216 /* RSCommon.h */,
 				BC35D8C0187196AF00300C86 /* RSRoutines.h */,
 				BC35D8C1187196AF00300C86 /* RSRoutines.mm */,
-				BC35D8C71871A47B00300C86 /* RSAccountManager.h */,
-				BC35D8C81871A47B00300C86 /* RSAccountManager.m */,
 				BC47AE94183340AA00331216 /* RSDefines.h */,
-				BC47AE9518334CC300331216 /* RSAccount.h */,
-				BC47AE9618334CC300331216 /* RSAccount.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1586,16 +1570,12 @@
 				BC403C381835B82B00B50317 /* RSChatViewController.mm */,
 				BC403C3A1835B87A00B50317 /* RSProfileViewController.h */,
 				BC403C3B1835B87A00B50317 /* RSProfileViewController.mm */,
-				BC403C4D1835F3E200B50317 /* RSEditProfileViewController.h */,
-				BC403C4E1835F3E200B50317 /* RSEditProfileViewController.m */,
 				BC403C431835D98100B50317 /* RSProfileHeaderView.h */,
 				BC403C441835D98100B50317 /* RSProfileHeaderView.m */,
 				BC403C461835E80800B50317 /* RSProfileFooterView.h */,
 				BC403C471835E80800B50317 /* RSProfileFooterView.m */,
 				BC403C401835C8ED00B50317 /* RSProfileCell.h */,
 				BC403C411835C8ED00B50317 /* RSProfileCell.m */,
-				BC8B0E6A18485D2C00AFF390 /* RSRosterModel.h */,
-				BC8B0E6B18485D2C00AFF390 /* RSRosterModel.mm */,
 			);
 			name = Buddies;
 			sourceTree = "<group>";
@@ -1758,7 +1738,6 @@
 				BC840611182CC2F00058EBDC /* connectiontcpbase.cpp in Sources */,
 				BC84062F182CC2F00058EBDC /* jinglesessionmanager.cpp in Sources */,
 				BC840629182CC2F00058EBDC /* jid.cpp in Sources */,
-				BC35D8C91871A47B00300C86 /* RSAccountManager.m in Sources */,
 				BC840663182CC2F00058EBDC /* tlsschannel.cpp in Sources */,
 				BC840670182CC2F00058EBDC /* NSObjectAdditions.m in Sources */,
 				BC840631182CC2F00058EBDC /* linklocalclient.cpp in Sources */,
@@ -1793,7 +1772,6 @@
 				BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */,
 				BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */,
 				BC840669182CC2F00058EBDC /* xhtmlim.cpp in Sources */,
-				BC47AE9718334CC300331216 /* RSAccount.m in Sources */,
 				BC84060C182CC2F00058EBDC /* compressiondefault.cpp in Sources */,
 				BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */,
 				BC84063C182CC2F00058EBDC /* mucroom.cpp in Sources */,
@@ -1875,7 +1853,6 @@
 				BC84067D182CC2F00058EBDC /* TKCoreUI.m in Sources */,
 				BC5EE30A182A20D7007D5DE6 /* RSMainViewController.mm in Sources */,
 				BC840623182CC2F00058EBDC /* gloox.cpp in Sources */,
-				BC403C4F1835F3E200B50317 /* RSEditProfileViewController.m in Sources */,
 				BCC877E31862D1FA002FE75F /* TBCommon.m in Sources */,
 				BC35D8C2187196AF00300C86 /* RSRoutines.mm in Sources */,
 				BCB44E171834E02A007D074E /* MKAnnotationView+WebCache.m in Sources */,
@@ -1927,7 +1904,6 @@
 				BC84067C182CC2F00058EBDC /* TKCoreCompatibility.m in Sources */,
 				BC84061A182CC2F00058EBDC /* dataformreported.cpp in Sources */,
 				BCB44E1D1834E02A007D074E /* SDWebImageManager.m in Sources */,
-				BC8B0E6C18485D2C00AFF390 /* RSRosterModel.mm in Sources */,
 				BC84065A182CC2F00058EBDC /* tag.cpp in Sources */,
 				BC840681182CC2F00058EBDC /* TKURLConnectionOperation.m in Sources */,
 				BC840647182CC2F00058EBDC /* pubsubevent.cpp in Sources */,

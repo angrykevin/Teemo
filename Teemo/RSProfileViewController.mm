@@ -13,7 +13,6 @@
 #import "RSProfileHeaderView.h"
 #import "RSProfileFooterView.h"
 #import "RSProfileCell.h"
-#import "RSEditProfileViewController.h"
 
 @implementation RSProfileViewController
 
@@ -27,17 +26,9 @@
     
     _row = row;
     
-    _editedRow = [[NSMutableDictionary alloc] init];
-    for ( NSString *name in _row.names ) {
-      NSString *value = [_row stringForName:name];
-      [_editedRow setObject:value forKeyIfNotNil:name];
-    }
-    
-    NSString *bid = [_editedRow objectForKey:@"bid"];
-    
-    JID owner = JID( CPPSTR(TMJIDFromPassport(RSAccountPassport())) );
-    JID current = JID( CPPSTR(bid) );
-    _isOwner = ( owner.bare() == current.bare() );
+    NSString *bid = [_row stringForName:@"bid"];
+    NSString *owner = TMJIDFromPassport(RSAccountPassport());
+    _isOwner = [owner isEqualToString:bid];
     
   }
   return self;
@@ -48,9 +39,7 @@
   [super viewDidLoad];
   
   [_navigationView showBackButton];
-  [_navigationView showRightButton];
-  _navigationView.rightButton.normalTitle = NSLocalizedString(@"Save", @"");
-  _navigationView.titleLabel.text = [_editedRow objectForKey:@"nickname"];
+  _navigationView.titleLabel.text = [_row stringForName:@"nickname"];
   
   
   _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
@@ -88,8 +77,8 @@
                forControlEvents:UIControlEventTouchUpInside];
   [header sizeToFit];
   
-  [header loadPhoto:[_editedRow objectForKey:@"photo"]];
-  header.jidLabel.text = [_editedRow objectForKey:@"bid"];
+  [header loadPhoto:[_row stringForName:@"photo"]];
+  header.jidLabel.text = [_row stringForName:@"bid"];
   
   _tableView.tableHeaderView = header;
   _tableView.tableHeaderView.frame = CGRectMake(0.0, 0.0, header.width, header.height);
@@ -124,11 +113,11 @@
 {
   TKPRINTMETHOD();
   
-  NSString *homepage = [[_editedRow objectForKey:@"homepage"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+  NSString *homepage = [[_row stringForName:@"homepage"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   
   if ( [homepage length] > 0 ) {
     
-    TBAlertView *alertView = [[TBAlertView alloc] initWithMessage:NSLocalizedString(@"Are you sure to open link?", @"")];
+    TBAlertView *alertView = [[TBAlertView alloc] initWithMessage:NSLocalizedString(@"Open the link?", @"")];
     
     [alertView addButtonWithTitle:NSLocalizedString(@"OK", @"") block:^{
       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:homepage]];
@@ -154,11 +143,6 @@
   [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)rightButtonClicked:(id)sender
-{
-  TKPRINTMETHOD();
-  //NSLog(@"%@", _editedRow);
-}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -176,36 +160,41 @@
 {
   RSProfileCell *cell = (RSProfileCell *)[tableView dequeueReusableCellWithClass:[RSProfileCell class]];
   
-  if ( _isOwner ) {
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-  } else {
-    cell.accessoryType = UITableViewCellAccessoryNone;
-  }
-  
   int row = indexPath.row;
+  
   if ( row == 0 ) {
+    
     cell.titleLabel.text = NSLocalizedString(@"Nickname", @"");
-    cell.valueButton.normalTitle = [_editedRow objectForKey:@"nickname"];
+    cell.valueButton.normalTitle = [_row stringForName:@"nickname"];
+    
   } else if ( row == 1 ) {
+    
     cell.titleLabel.text = NSLocalizedString(@"Name", @"");
-    NSString *family = [_editedRow objectForKey:@"familyname"];
-    NSString *given = [_editedRow objectForKey:@"givenname"];
+    NSString *family = [_row stringForName:@"familyname"];
+    NSString *given = [_row stringForName:@"givenname"];
     cell.valueButton.normalTitle = TBBuildFullname(given, family);
+    
   } else if ( row == 2 ) {
+    
     cell.titleLabel.text = NSLocalizedString(@"Birthday", @"");
-    cell.valueButton.normalTitle = [_editedRow objectForKey:@"birthday"];
+    cell.valueButton.normalTitle = [_row stringForName:@"birthday"];
+    
   } else if ( row == 3 ) {
+    
     cell.titleLabel.text = NSLocalizedString(@"Homepage", @"");
-    cell.valueButton.normalTitle = [_editedRow objectForKey:@"homepage"];
+    cell.valueButton.normalTitle = [_row stringForName:@"homepage"];
     cell.valueButton.enabled = YES;
     cell.valueButton.normalTitleColor = [UIColor blueColor];
     cell.valueButton.highlightedTitleColor = [UIColor darkGrayColor];
     [cell.valueButton addTarget:self
                          action:@selector(linkButtonClicked:)
                forControlEvents:UIControlEventTouchUpInside];
+    
   } else if ( row == 4 ) {
+    
     cell.titleLabel.text = NSLocalizedString(@"Description", @"");
-    cell.valueButton.normalTitle = [_editedRow objectForKey:@"desc"];
+    cell.valueButton.normalTitle = [_row stringForName:@"desc"];
+    
   }
   
   return cell;
@@ -218,53 +207,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if ( !_isOwner ) {
-    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
-    return;
-  }
-  
-  RSEditProfileViewController *vc = [[RSEditProfileViewController alloc] init];
-  
-  int row = indexPath.row;
-  if ( row == 0 ) {
-    vc.value = [_editedRow objectForKey:@"nickname"];
-    vc.maxLength = 12;
-    vc.completeBlock = ^(id value) {
-      [_editedRow setObject:value forKeyIfNotNil:@"nickname"];
-    };
-  } else if ( row == 1 ) {
-    NSString *family = [_editedRow objectForKey:@"familyname"];
-    NSString *given = [_editedRow objectForKey:@"givenname"];
-    vc.value = TBBuildFullname(given, family);
-    vc.maxLength = 30;
-    vc.completeBlock = ^(id value) {
-      NSArray *components = [value componentsSeparatedByString:@" "];
-      NSString *fml = [components objectOrNilAtIndex:1];
-      NSString *gvn = [components objectOrNilAtIndex:0];
-      [_editedRow setObject:fml forKeyIfNotNil:@"familyname"];
-      [_editedRow setObject:gvn forKeyIfNotNil:@"givenname"];
-    };
-  } else if ( row == 2 ) {
-    vc.value = [_editedRow objectForKey:@"birthday"];
-    vc.maxLength = 10;
-    vc.completeBlock = ^(id value) {
-      [_editedRow setObject:value forKeyIfNotNil:@"birthday"];
-    };
-  } else if ( row == 3 ) {
-    vc.value = [_editedRow objectForKey:@"homepage"];
-    vc.maxLength = 100;
-    vc.completeBlock = ^(id value) {
-      [_editedRow setObject:value forKeyIfNotNil:@"homepage"];
-    };
-  } else if ( row == 4 ) {
-    vc.value = [_editedRow objectForKey:@"desc"];
-    vc.maxLength = 30;
-    vc.completeBlock = ^(id value) {
-      [_editedRow setObject:value forKeyIfNotNil:@"desc"];
-    };
-  }
-  
-  [self.navigationController pushViewController:vc animated:YES];
+  [_tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

@@ -35,4 +35,6 @@
 - (void)launchLocationServiceIfNeeded;
 - (void)shutDownLocationServiceIfNeeded;
 
+- (void)requestAddressIfPossible;
+
 @end

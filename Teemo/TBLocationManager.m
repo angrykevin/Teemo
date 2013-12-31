@@ -62,6 +62,19 @@
   }
 }
 
+- (void)requestAddressIfPossible
+{
+  if ( _reverseGeocoder == nil ) {
+    _reverseGeocoder = [[TBReverseGeocoder alloc] init];
+  }
+  
+  [_reverseGeocoder reverseGeocodeLocation:_location
+                         completionHandler:^(NSDictionary *result, NSError *error) {
+                           [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateAddressNotification
+                                                                               object:self];
+                         }];
+}
+
 
 
 - (void)startLocationService
@@ -153,15 +166,7 @@
   [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateLocationNotification
                                                       object:self];
   
-  if ( _reverseGeocoder == nil ) {
-    _reverseGeocoder = [[TBReverseGeocoder alloc] init];
-  }
-  
-  [_reverseGeocoder reverseGeocodeLocation:_location
-                         completionHandler:^(NSDictionary *result, NSError *error) {
-                           [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateAddressNotification
-                                                                               object:self];
-                         }];
+  [self requestAddressIfPossible];
   
 }
 

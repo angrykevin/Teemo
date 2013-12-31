@@ -11,6 +11,39 @@
 #import "Teemo.h"
 
 
+BOOL RSHasAccount()
+{
+  return ( TKIsStringWithText(RSAccountPassport()) && TKIsStringWithText(RSAccountPassword()) );
+}
+
+NSString *RSAccountPassport()
+{
+  return [[TKSettings sharedObject] objectForKey:RSSavedPassportKey];
+}
+
+NSString *RSAccountPassword()
+{
+  return [[TKSettings sharedObject] objectForKey:RSSavedPasswordKey];
+}
+
+void RSSaveAccountPassport(NSString *pspt)
+{
+  [[TKSettings sharedObject] setObject:pspt forKey:RSSavedPassportKey];
+}
+
+void RSSaveAccountPassword(NSString *pswd)
+{
+  [[TKSettings sharedObject] setObject:pswd forKey:RSSavedPasswordKey];
+}
+
+void RSSynchronizeAccountInfo()
+{
+  [[TKSettings sharedObject] synchronize];
+}
+
+
+
+
 UIImage *RSAvatarImageForPresence(UIImage *image, int presence)
 {
   UIImage *avatarImage = (image == nil) ? RSDefaultAvatarImage() : image;

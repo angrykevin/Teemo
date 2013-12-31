@@ -14,7 +14,6 @@
 > {
   UITableView *_tableView;
   TKDatabaseRow *_row;
-  NSMutableDictionary *_editedRow;
   
   BOOL _isOwner;
   
