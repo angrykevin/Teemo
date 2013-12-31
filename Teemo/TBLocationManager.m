@@ -68,11 +68,13 @@
     _reverseGeocoder = [[TBReverseGeocoder alloc] init];
   }
   
-  [_reverseGeocoder reverseGeocodeLocation:_location
-                         completionHandler:^(NSDictionary *result, NSError *error) {
-                           [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateAddressNotification
-                                                                               object:self];
-                         }];
+  if ( _location ) {
+    [_reverseGeocoder reverseGeocodeLocation:_location
+                           completionHandler:^(NSDictionary *result, NSError *error) {
+                             [[NSNotificationCenter defaultCenter] postNotificationName:TBLocationManagerDidUpdateAddressNotification
+                                                                                 object:self];
+                           }];
+  }
 }
 
 
