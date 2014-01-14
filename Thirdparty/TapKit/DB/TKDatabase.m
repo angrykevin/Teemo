@@ -74,6 +74,17 @@
 
 #pragma mark - Database routines
 
+- (BOOL)hasTableNamed:(NSString *)name
+{
+  if ( [self open] ) {
+    NSString *sql = @"SELECT COUNT(*) AS count FROM sqlite_master WHERE type='table' AND name=?;";
+    NSArray *result = [self executeQuery:sql, name];
+    TKDatabaseRow *row = [result firstObject];
+    return ( [[row stringForName:@"count"] intValue] > 0 );
+  }
+  return NO;
+}
+
 - (BOOL)executeUpdate:(NSString *)sql, ...
 {
   int count = 0;
@@ -264,6 +275,42 @@
 
 
 
+#pragma mark - Transactions
+
+- (BOOL)beginTransaction
+{
+  if ( [self executeUpdate:@"BEGIN EXCLUSIVE TRANSACTION;"] ) {
+    _inTransaction = YES;
+    return YES;
+  }
+  return NO;
+}
+
+- (BOOL)commitTransaction
+{
+  if ( [self executeUpdate:@"COMMIT TRANSACTION;"] ) {
+    _inTransaction = NO;
+    return YES;
+  }
+  return NO;
+}
+
+- (BOOL)rollbackTransaction
+{
+  if ( [self executeUpdate:@"ROLLBACK TRANSACTION;"] ) {
+    _inTransaction = NO;
+    return YES;
+  }
+  return NO;
+}
+
+- (BOOL)inTransaction
+{
+  return _inTransaction;
+}
+
+
+
 #pragma mark - Private
 
 - (BOOL)bindStatement:(sqlite3_stmt *)statement toParameters:(NSArray *)parameters
@@ -321,38 +368,6 @@
 {
   int lastErrorCode = [self lastErrorCode];
   return ( (lastErrorCode > SQLITE_OK) && (lastErrorCode < SQLITE_ROW) );
-}
-
-
-
-#pragma mark - Database status
-
-+ (BOOL)isSQLiteThreadSafe
-{
-  return sqlite3_threadsafe();
-}
-
-+ (NSString *)sqliteLibVersion
-{
-  return [[NSString alloc] initWithFormat:@"%s", sqlite3_libversion()];
-}
-
-- (BOOL)hasTableNamed:(NSString *)tableName
-{
-  if ( [self open] ) {
-    NSString *sql = @"SELECT COUNT(*) AS count FROM sqlite_master WHERE type='table' AND name=?;";
-    NSArray *result = [self executeQuery:sql, tableName];
-    TKDatabaseRow *row = [result firstObject];
-    return ( [[row stringForName:@"count"] intValue] > 0 );
-  }
-  return NO;
-}
-
-- (NSUInteger)databaseFileSize
-{
-  NSFileManager *manager = [NSFileManager defaultManager];
-  NSDictionary *attributes = [manager attributesOfItemAtPath:_path error:NULL];
-  return [attributes fileSize];
 }
 
 @end

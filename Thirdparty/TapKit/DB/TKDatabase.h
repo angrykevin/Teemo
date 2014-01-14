@@ -19,6 +19,7 @@
   sqlite3 *_handle;
   
   BOOL _opened;
+  BOOL _inTransaction;
   
   NSLock *_lock;
 }
@@ -47,11 +48,23 @@
 /// Database routines
 ///-------------------------------
 
+- (BOOL)hasTableNamed:(NSString *)name;
+
 - (BOOL)executeUpdate:(NSString *)sql, ...;
 - (BOOL)executeUpdate:(NSString *)sql parameters:(NSArray *)parameters;
 
 - (NSArray *)executeQuery:(NSString *)sql, ...;
 - (NSArray *)executeQuery:(NSString *)sql parameters:(NSArray *)parameters;
+
+
+///-------------------------------
+/// Transactions
+///-------------------------------
+
+- (BOOL)beginTransaction;
+- (BOOL)commitTransaction;
+- (BOOL)rollbackTransaction;
+- (BOOL)inTransaction;
 
 
 ///-------------------------------
@@ -61,15 +74,5 @@
 - (NSString *)lastErrorMessage;
 - (int)lastErrorCode;
 - (BOOL)hadError;
-
-
-///-------------------------------
-/// Database status
-///-------------------------------
-
-+ (BOOL)isSQLiteThreadSafe;
-+ (NSString *)sqliteLibVersion;
-- (BOOL)hasTableNamed:(NSString *)tableName;
-- (NSUInteger)databaseFileSize;
 
 @end
