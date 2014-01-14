@@ -14,17 +14,20 @@
 #import "Teemo.h"
 
 
+#import "TSViewController.h"
+
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
   
-  NSString *address = @"http://maps.googleapis.com/maps/api/geocode/json?sensor=true&language=zh-CN&latlng=30.636640%2C103.974868";
-  _connection = [[TKURLConnectionOperation alloc] initWithAddress:address
-                                                  timeoutInterval:0.0
-                                                      cachePolicy:0];
-  [_connection startAsynchronous];
+//  NSString *address = @"http://maps.googleapis.com/maps/api/geocode/json?sensor=true&language=zh-CN&latlng=30.636640%2C103.974868";
+//  _connection = [[TKURLConnectionOperation alloc] initWithAddress:address
+//                                                  timeoutInterval:0.0
+//                                                      cachePolicy:0];
+//  [_connection startAsynchronous];
   
 //  tmp.append( string("aa") );
 //  tmp.append( string(",") );
@@ -132,23 +135,28 @@
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
   
   
-  if ( RSHasAccount() ) {
-    
-    [self signinWithPassport:RSAccountPassport() password:RSAccountPassword()];
-    
-    RSMainViewController *vc = [[RSMainViewController alloc] init];
-    _root = [[UINavigationController alloc] initWithRootViewController:vc];
-    _root.navigationBarHidden = YES;
-    _window.rootViewController = _root;
-    
-  } else {
-    
-    RSSigninViewController *vc = [[RSSigninViewController alloc] init];
-    _root = [[UINavigationController alloc] initWithRootViewController:vc];
-    _root.navigationBarHidden = YES;
-    _window.rootViewController = _root;
-    
-  }
+  TSViewController *vc = [[TSViewController alloc] init];
+  UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
+  nv.navigationBarHidden = YES;
+  _window.rootViewController = nv;
+  
+//  if ( RSHasAccount() ) {
+//    
+//    [self signinWithPassport:RSAccountPassport() password:RSAccountPassword()];
+//    
+//    RSMainViewController *vc = [[RSMainViewController alloc] init];
+//    _root = [[UINavigationController alloc] initWithRootViewController:vc];
+//    _root.navigationBarHidden = YES;
+//    _window.rootViewController = _root;
+//    
+//  } else {
+//    
+//    RSSigninViewController *vc = [[RSSigninViewController alloc] init];
+//    _root = [[UINavigationController alloc] initWithRootViewController:vc];
+//    _root.navigationBarHidden = YES;
+//    _window.rootViewController = _root;
+//    
+//  }
   
   
   _window.backgroundColor = [UIColor whiteColor];

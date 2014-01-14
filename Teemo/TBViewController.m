@@ -50,6 +50,40 @@
   
   [self layoutViews];
   
+  if ( self.navigationController ) {
+    if ( [self isMovingToParentViewController] ) {
+      [self appearForPresent];
+    } else {
+      [self appearForBack];
+    }
+  } else {
+    if ( [self isBeingPresented] ) {
+      [self appearForPresent];
+    } else {
+      [self appearForBack];
+    }
+  }
+  
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+  [super viewWillDisappear:animated];
+  
+  if ( self.navigationController ) {
+    if ( [self isMovingFromParentViewController] ) {
+      [self disappearForDismiss];
+    } else {
+      [self disappearForForward];
+    }
+  } else {
+    if ( [self isBeingDismissed] ) {
+      [self disappearForDismiss];
+    } else {
+      [self disappearForForward];
+    }
+  }
+  
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -97,17 +131,22 @@
 }
 
 
-- (void)disappearedForDestroy
+- (void)appearForPresent
 {
   TKPRINTMETHOD();
 }
 
-- (void)disappearedForPush
+- (void)appearForBack
 {
   TKPRINTMETHOD();
 }
 
-- (void)appearedForPop
+- (void)disappearForDismiss
+{
+  TKPRINTMETHOD();
+}
+
+- (void)disappearForForward
 {
   TKPRINTMETHOD();
 }
