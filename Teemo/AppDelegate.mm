@@ -22,7 +22,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
-  
 //  NSString *address = @"http://maps.googleapis.com/maps/api/geocode/json?sensor=true&language=zh-CN&latlng=30.636640%2C103.974868";
 //  _connection = [[TKURLConnectionOperation alloc] initWithAddress:address
 //                                                  timeoutInterval:0.0

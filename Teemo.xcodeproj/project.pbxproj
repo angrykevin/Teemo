@@ -229,6 +229,7 @@
 		BCA23D561832288B00E93718 /* RSChatlogViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D551832288B00E93718 /* RSChatlogViewController.mm */; };
 		BCA23D59183228C900E93718 /* RSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D58183228C900E93718 /* RSSettingViewController.m */; };
 		BCA23D5C1832293200E93718 /* RSBuddiesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D5B1832293200E93718 /* RSBuddiesViewController.mm */; };
+		BCA60DB61886862B00C9FA8F /* TBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA60DB51886862B00C9FA8F /* TBTextField.m */; };
 		BCB44DFE1834D5B6007D074E /* RSBuddyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44DFD1834D5B6007D074E /* RSBuddyCell.m */; };
 		BCB44E171834E02A007D074E /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E031834E02A007D074E /* MKAnnotationView+WebCache.m */; };
 		BCB44E181834E02A007D074E /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E051834E02A007D074E /* SDImageCache.m */; };
@@ -791,6 +792,8 @@
 		BCA23D58183228C900E93718 /* RSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSettingViewController.m; sourceTree = "<group>"; };
 		BCA23D5A1832293200E93718 /* RSBuddiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBuddiesViewController.h; sourceTree = "<group>"; };
 		BCA23D5B1832293200E93718 /* RSBuddiesViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSBuddiesViewController.mm; sourceTree = "<group>"; };
+		BCA60DB41886862B00C9FA8F /* TBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTextField.h; sourceTree = "<group>"; };
+		BCA60DB51886862B00C9FA8F /* TBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTextField.m; sourceTree = "<group>"; };
 		BCB44DFC1834D5B6007D074E /* RSBuddyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBuddyCell.h; sourceTree = "<group>"; };
 		BCB44DFD1834D5B6007D074E /* RSBuddyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBuddyCell.m; sourceTree = "<group>"; };
 		BCB44E021834E02A007D074E /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -939,6 +942,8 @@
 				BC403C4B1835EB0B00B50317 /* TBAlertView.m */,
 				BC552DB81839C57C0078375F /* TBButton.h */,
 				BC552DB91839C57C0078375F /* TBButton.m */,
+				BCA60DB41886862B00C9FA8F /* TBTextField.h */,
+				BCA60DB51886862B00C9FA8F /* TBTextField.m */,
 				BC5EE35F182A2429007D5DE6 /* TBViewController.h */,
 				BC5EE360182A2429007D5DE6 /* TBViewController.m */,
 				BC84070A182CCB090058EBDC /* TBTabViewController.h */,
@@ -1786,6 +1791,7 @@
 				BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */,
 				BC840669182CC2F00058EBDC /* xhtmlim.cpp in Sources */,
 				BC84060C182CC2F00058EBDC /* compressiondefault.cpp in Sources */,
+				BCA60DB61886862B00C9FA8F /* TBTextField.m in Sources */,
 				BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */,
 				BC84063C182CC2F00058EBDC /* mucroom.cpp in Sources */,
 				BC840617182CC2F00058EBDC /* dataformfield.cpp in Sources */,
