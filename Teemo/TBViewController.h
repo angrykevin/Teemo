@@ -31,7 +31,6 @@
 - (void)disappearForDismiss;
 - (void)disappearForForward;
 
-
 @end
 
 

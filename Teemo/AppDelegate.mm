@@ -158,10 +158,11 @@
 //    
 //  }
   
-  
   _window.backgroundColor = [UIColor whiteColor];
   [_window makeKeyAndVisible];
   return YES;
+    
+    
 }
 
 - (void)signinWithPassport:(NSString *)pspt password:(NSString *)pswd

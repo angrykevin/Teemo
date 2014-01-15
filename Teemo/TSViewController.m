@@ -81,36 +81,38 @@
 - (void)present:(id)sender
 {
   TSViewController *vc = [[TSViewController alloc] init];
-  [self presentViewController:vc animated:YES completion:NULL];
+  UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
+  nv.navigationBarHidden = YES;
+  [self presentViewController:nv animated:YES completion:NULL];
 }
 
 - (void)dismiss:(id)sender
 {
-  [self dismissViewControllerAnimated:YES completion:NULL];
+  [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
 
 - (void)disappearForDismiss
 {
-  TKPRINT(@"消失：按了返回当前页面消失 %d", _pid);
+  TKPRINT(@"%d消失：当前页面消失，可能是Pop或Dismiss", _pid);
 }
 
 - (void)disappearForForward
 {
-  TKPRINT(@"消失：被别的页面挡住了 %d", _pid);
+  TKPRINT(@"%d消失：当前页面消失，显示新页面，可能是Push或Present", _pid);
 }
 
 
 
 - (void)appearForBack
 {
-  TKPRINT(@"显示：因为返回显示了 %d", _pid);
+  TKPRINT(@"%d显示：其它页面消失，当前页面显示，可能是Pop或Dismiss", _pid);
 }
 
 - (void)appearForPresent
 {
-  TKPRINT(@"显示：系统准备显示 %d", _pid);
+  TKPRINT(@"%d显示：显示当前面页，可能是Push或Present", _pid);
 }
 
 @end
