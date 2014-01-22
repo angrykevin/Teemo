@@ -11,7 +11,6 @@
 		BC35D8C2187196AF00300C86 /* RSRoutines.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC35D8C1187196AF00300C86 /* RSRoutines.mm */; };
 		BC35D8C51871A21700300C86 /* default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BC35D8C31871A21700300C86 /* default_avatar.png */; };
 		BC35D8C61871A21700300C86 /* default_avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC35D8C41871A21700300C86 /* default_avatar@2x.png */; };
-		BC36446218851E2800C6AB97 /* TSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC36446118851E2800C6AB97 /* TSViewController.m */; };
 		BC403C391835B82B00B50317 /* RSChatViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C381835B82B00B50317 /* RSChatViewController.mm */; };
 		BC403C3C1835B87A00B50317 /* RSProfileViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C3B1835B87A00B50317 /* RSProfileViewController.mm */; };
 		BC403C421835C8ED00B50317 /* RSProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C411835C8ED00B50317 /* RSProfileCell.m */; };
@@ -254,8 +253,6 @@
 		BC35D8C1187196AF00300C86 /* RSRoutines.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSRoutines.mm; sourceTree = "<group>"; };
 		BC35D8C31871A21700300C86 /* default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_avatar.png; sourceTree = "<group>"; };
 		BC35D8C41871A21700300C86 /* default_avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_avatar@2x.png"; sourceTree = "<group>"; };
-		BC36446018851E2800C6AB97 /* TSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSViewController.h; sourceTree = "<group>"; };
-		BC36446118851E2800C6AB97 /* TSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSViewController.m; sourceTree = "<group>"; };
 		BC403C371835B82B00B50317 /* RSChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSChatViewController.h; sourceTree = "<group>"; };
 		BC403C381835B82B00B50317 /* RSChatViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSChatViewController.mm; sourceTree = "<group>"; };
 		BC403C3A1835B87A00B50317 /* RSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProfileViewController.h; sourceTree = "<group>"; };
@@ -894,8 +891,6 @@
 				BC5EE0E8182A196A007D5DE6 /* main.m */,
 				BC5EE0EB182A196A007D5DE6 /* AppDelegate.h */,
 				BC5EE0EC182A196A007D5DE6 /* AppDelegate.mm */,
-				BC36446018851E2800C6AB97 /* TSViewController.h */,
-				BC36446118851E2800C6AB97 /* TSViewController.m */,
 				BC5EE305182A209D007D5DE6 /* RSSigninViewController.h */,
 				BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */,
 				BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */,
@@ -1914,7 +1909,6 @@
 				BC403C391835B82B00B50317 /* RSChatViewController.mm in Sources */,
 				BC840628182CC2F00058EBDC /* iq.cpp in Sources */,
 				BC840638182CC2F00058EBDC /* messagefilter.cpp in Sources */,
-				BC36446218851E2800C6AB97 /* TSViewController.m in Sources */,
 				BC84067F182CC2F00058EBDC /* TKDatabaseRow.m in Sources */,
 				BCB44E1C1834E02A007D074E /* SDWebImageDownloaderOperation.m in Sources */,
 				BC840671182CC2F00058EBDC /* NSStringAdditions.m in Sources */,

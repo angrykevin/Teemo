@@ -14,148 +14,33 @@
 #import "Teemo.h"
 
 
-#import "TSViewController.h"
-
-
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
-//  NSString *address = @"http://maps.googleapis.com/maps/api/geocode/json?sensor=true&language=zh-CN&latlng=30.636640%2C103.974868";
-//  _connection = [[TKURLConnectionOperation alloc] initWithAddress:address
-//                                                  timeoutInterval:0.0
-//                                                      cachePolicy:0];
-//  [_connection startAsynchronous];
-  
-//  tmp.append( string("aa") );
-//  tmp.append( string(",") );
-//  tmp.append( string("bb") );
-//  tmp.append( string(",") );
-//  tmp.append( string("cc") );
-  
-  
-//  StringList *list = NULL;
-//  printf("%d", list->size());
-//  list.push_back( string("aa") );
-//  list.push_back( string("bb") );
-////  list.push_back( string("cc") );
-////  list.push_back( string("dd") );
-//  
-//  string groupname = list.front();
-//  
-//  if ( list.size() > 1 ) {
-//    StringList::const_iterator it = list.begin();
-//    ++it;
-//    for ( ; it!=list.end(); ++it ) {
-//      groupname.append( string(",") );
-//      groupname.append( *it );
-//    }
-//  }
-//  
-//  printf("H%sH", groupname.c_str());
-  
-//  TKDatabase *db = [TKDatabase sharedObject];
-//  db.path = TKPathForDocumentsResource(@"im.db");
-//  [db open];
-//
-//  [db executeUpdate:@"CREATE TABLE abc( pk INTEGER PRIMARY KEY, str TEXT );"];
-//  
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"bbb"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"ddd"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @""];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"aaa"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"ccc"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @""];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"ddd"];
-//  [db executeUpdate:@"INSERT INTO abc(str) VALUES(?);", @"ccc"];
-//
-//  NSArray *array1 = [db executeQuery:@"SELECT DISTINCT str FROM abc ORDER BY str;"];
-//  for (int i=0; i<[array1 count]; ++i ) {
-//    TKDatabaseRow *row = [array1 objectAtIndex:i];
-//    NSLog(@"H%@H", [row stringForName:@"str"]);
-//  }
-//  
-//  NSArray *array2 = [db executeQuery:@"SELECT * FROM abc WHERE str=?;", @""];
-//  for (int i=0; i<[array2 count]; ++i ) {
-//    TKDatabaseRow *row = [array2 objectAtIndex:i];
-//    NSLog(@"H%d %@H", [row intForName:@"pk"], [row stringForName:@"str"]);
-//  }
-  
-//  TKDatabase *db = [TKDatabase sharedObject];
-//  db.path = TKPathForDocumentsResource(@"im.db");
-//  [db open];
-//  
-//  [db executeUpdate:@"CREATE TABLE abc( pk INTEGER PRIMARY KEY, str TEXT, sub INTEGER );"];
-//  
-//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"aa", @1];
-//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"", @1];
-//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"bb", @2];
-//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"cc", @2];
-//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"aa,cc", @3];
-//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"cc,bb", @2];
-//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"aa,bb,cc", @1];
-//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"aaaa", @2];
-//  [db executeUpdate:@"INSERT INTO abc(str,sub) VALUES(?,?);", @"aaaa,aa", @3];
-//  
-//  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM abc WHERE (str LIKE '%@' OR str LIKE '%@,%%' OR str LIKE '%%,%@' OR str LIKE '%%,%@,%%') AND (sub IN (%@));", @"aa", @"aa", @"aa", @"aa", @"1,2"];
-//  NSArray *array1 = [db executeQuery:sql];
-//  for (int i=0; i<[array1 count]; ++i ) {
-//    TKDatabaseRow *row = [array1 objectAtIndex:i];
-//    NSLog(@"H%dH", [row intForName:@"pk"]);
-//  }
-//
-//  NSArray *array2 = [db executeQuery:@"SELECT * FROM abc WHERE str=?;", @""];
-//  for (int i=0; i<[array2 count]; ++i ) {
-//    TKDatabaseRow *row = [array2 objectAtIndex:i];
-//    NSLog(@"H%d %@H", [row intForName:@"pk"], [row stringForName:@"str"]);
-//  }
-  
-  
-//  NSArray *ary = @[ @"b", @"a", @"d", @"c" ];
-//  
-//  NSArray *tmp = [ary sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-//    return [obj1 compare:obj2];
-////    NSNumber *n1 = obj1;
-////    NSNumber *n2 = obj2;
-////    if ( [n1 intValue] < [n2 intValue] ) {
-////      return NSOrderedAscending;
-////    } else if ( [n1 intValue] > [n2 intValue] ) {
-////      return NSOrderedDescending;
-////    }
-////    return NSOrderedSame;
-//  }];
-//  NSLog(@"%@", tmp);
-  
-  
-  
+  //@"SELECT * FROM abc WHERE (str LIKE '%@' OR str LIKE '%@,%%' OR str LIKE '%%,%@' OR str LIKE '%%,%@,%%') AND (sub IN (%@));"
   
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
   
-  
-  TSViewController *vc = [[TSViewController alloc] init];
-  UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
-  nv.navigationBarHidden = YES;
-  _window.rootViewController = nv;
-  
-//  if ( RSHasAccount() ) {
-//    
-//    [self signinWithPassport:RSAccountPassport() password:RSAccountPassword()];
-//    
-//    RSMainViewController *vc = [[RSMainViewController alloc] init];
-//    _root = [[UINavigationController alloc] initWithRootViewController:vc];
-//    _root.navigationBarHidden = YES;
-//    _window.rootViewController = _root;
-//    
-//  } else {
-//    
-//    RSSigninViewController *vc = [[RSSigninViewController alloc] init];
-//    _root = [[UINavigationController alloc] initWithRootViewController:vc];
-//    _root.navigationBarHidden = YES;
-//    _window.rootViewController = _root;
-//    
-//  }
+  if ( RSHasAccount() ) {
+    
+    [self signinWithPassport:RSAccountPassport() password:RSAccountPassword()];
+    
+    RSMainViewController *vc = [[RSMainViewController alloc] init];
+    _root = [[UINavigationController alloc] initWithRootViewController:vc];
+    _root.navigationBarHidden = YES;
+    _window.rootViewController = _root;
+    
+  } else {
+    
+    RSSigninViewController *vc = [[RSSigninViewController alloc] init];
+    _root = [[UINavigationController alloc] initWithRootViewController:vc];
+    _root.navigationBarHidden = YES;
+    _window.rootViewController = _root;
+    
+  }
   
   _window.backgroundColor = [UIColor whiteColor];
   [_window makeKeyAndVisible];
