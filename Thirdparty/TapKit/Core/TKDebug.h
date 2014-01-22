@@ -26,7 +26,7 @@ extern "C" {
 
 
 #ifdef DEBUG
-#define TKTESTVALUE(__value, __info) { id __result = (__value) ? @"YES" : @"NO"; NSLog(@"%s: %@ is %@", __PRETTY_FUNCTION__, __info, __result); }
+#define TKTESTVALUE(__value, __info) NSLog(@"%s: %@ is %@", __PRETTY_FUNCTION__, __info, (__value) ? @"YES" : @"NO")
 #else
 #define TKTESTVALUE(__value, __info) ((void)0)
 #endif // #ifdef DEBUG
