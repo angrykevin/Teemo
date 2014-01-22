@@ -18,6 +18,7 @@
             cancelButtonTitle:nil
             otherButtonTitles:nil];
   if (self) {
+    
     self.delegate = self;
     
     _blockDictionary = [[NSMutableDictionary alloc] init];
@@ -30,13 +31,17 @@
 {
   if ( [title length] > 0 ) {
     
-    int index = [self addButtonWithTitle:title];
-    
-    if ( block ) {
-      [_blockDictionary setObject:[block copy] forKey:title];
+    if ( ![_blockDictionary hasKeyEqualTo:title] ) {
+      int index = [self addButtonWithTitle:title];
+      
+      if ( block ) {
+        [_blockDictionary setObject:[block copy] forKey:title];
+      } else {
+        [_blockDictionary setObject:[NSNull null] forKey:title];
+      }
+      
+      return index;
     }
-    
-    return index;
     
   }
   
@@ -46,20 +51,18 @@
 - (NSInteger)addCancelButtonWithTitle:(NSString *)title block:(TBAlertViewBlock)block
 {
   int index = [self addButtonWithTitle:title block:block];
-  
   if ( index >= 0 ) {
     [self setCancelButtonIndex:index];
   }
-  
   return index;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
   NSString *title = [self buttonTitleAtIndex:buttonIndex];
-  TBAlertViewBlock block = [_blockDictionary objectForKey:title];
-  if ( block ) {
-    block();
+  id block = [_blockDictionary objectForKey:title];
+  if ( block != [NSNull null] ) {
+    ((TBAlertViewBlock)block)();
   }
 }
 

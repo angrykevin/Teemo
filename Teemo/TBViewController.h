@@ -26,11 +26,6 @@
 - (void)leftButtonClicked:(id)sender;
 - (void)rightButtonClicked:(id)sender;
 
-- (void)appearForPresent;
-- (void)appearForBack;
-- (void)disappearForDismiss;
-- (void)disappearForForward;
-
 @end
 
 

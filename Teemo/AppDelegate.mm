@@ -13,6 +13,9 @@
 
 #import "Teemo.h"
 
+#import "TSViewController.h"
+#import "TSTabViewController.h"
+
 
 @implementation AppDelegate
 
@@ -24,23 +27,36 @@
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
   
-  if ( RSHasAccount() ) {
-    
-    [self signinWithPassport:RSAccountPassport() password:RSAccountPassword()];
-    
-    RSMainViewController *vc = [[RSMainViewController alloc] init];
-    _root = [[UINavigationController alloc] initWithRootViewController:vc];
-    _root.navigationBarHidden = YES;
-    _window.rootViewController = _root;
-    
-  } else {
-    
-    RSSigninViewController *vc = [[RSSigninViewController alloc] init];
-    _root = [[UINavigationController alloc] initWithRootViewController:vc];
-    _root.navigationBarHidden = YES;
-    _window.rootViewController = _root;
-    
+//  TSViewController *vc = [[TSViewController alloc] init];
+//  UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
+//  nv.navigationBarHidden = YES;
+//  _window.rootViewController = nv;
+  
+  if ( [NSNull null] == [NSNull null] ) {
+    NSLog(@"EQUAL");
   }
+  
+  TSTabViewController *vc = [[TSTabViewController alloc] init];
+  _window.rootViewController = vc;
+  
+  
+//  if ( RSHasAccount() ) {
+//    
+//    [self signinWithPassport:RSAccountPassport() password:RSAccountPassword()];
+//    
+//    RSMainViewController *vc = [[RSMainViewController alloc] init];
+//    _root = [[UINavigationController alloc] initWithRootViewController:vc];
+//    _root.navigationBarHidden = YES;
+//    _window.rootViewController = _root;
+//    
+//  } else {
+//    
+//    RSSigninViewController *vc = [[RSSigninViewController alloc] init];
+//    _root = [[UINavigationController alloc] initWithRootViewController:vc];
+//    _root.navigationBarHidden = YES;
+//    _window.rootViewController = _root;
+//    
+//  }
   
   _window.backgroundColor = [UIColor whiteColor];
   [_window makeKeyAndVisible];
