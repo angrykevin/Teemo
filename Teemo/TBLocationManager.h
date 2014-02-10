@@ -33,7 +33,7 @@
 + (TBLocationManager *)sharedObject;
 
 - (void)launchLocationServiceIfNeeded;
-- (void)shutDownLocationServiceIfNeeded;
+- (void)shutdownLocationServiceIfNeeded;
 
 - (void)requestAddressIfPossible;
 

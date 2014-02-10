@@ -32,7 +32,7 @@
   if ( [title length] > 0 ) {
     
     if ( ![_blockDictionary hasKeyEqualTo:title] ) {
-      int index = [self addButtonWithTitle:title];
+      NSInteger index = [self addButtonWithTitle:title];
       
       if ( block ) {
         [_blockDictionary setObject:[block copy] forKey:title];
@@ -50,7 +50,7 @@
 
 - (NSInteger)addCancelButtonWithTitle:(NSString *)title block:(TBAlertViewBlock)block
 {
-  int index = [self addButtonWithTitle:title block:block];
+  NSInteger index = [self addButtonWithTitle:title block:block];
   if ( index >= 0 ) {
     [self setCancelButtonIndex:index];
   }

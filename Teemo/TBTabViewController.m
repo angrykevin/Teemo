@@ -184,7 +184,7 @@
 
 - (void)buttonClicked:(id)sender
 {
-  int tag = [(UIButton *)sender tag];
+  NSInteger tag = [(UIButton *)sender tag];
   if ( _selectedIndex == tag ) {
     if ( !_repeatedlyNotify ) {
       return;

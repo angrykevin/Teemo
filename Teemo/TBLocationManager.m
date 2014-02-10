@@ -47,7 +47,7 @@
   }
 }
 
-- (void)shutDownLocationServiceIfNeeded
+- (void)shutdownLocationServiceIfNeeded
 {
   CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
   if ( status == kCLAuthorizationStatusAuthorized ) {
