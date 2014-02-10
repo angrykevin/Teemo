@@ -10,9 +10,7 @@
 
 
 #define OBJCSTR(__str) [NSString stringWithUTF8String:__str.c_str()]
-
-#define CPPSTR(__str) string( [__str UTF8String] )
-
+#define CPPSTR(__str) string([__str UTF8String])
 
 
 #ifdef __cplusplus

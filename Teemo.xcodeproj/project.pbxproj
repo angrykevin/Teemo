@@ -220,6 +220,7 @@
 		BCA23D59183228C900E93718 /* RSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D58183228C900E93718 /* RSSettingViewController.m */; };
 		BCA23D5C1832293200E93718 /* RSBuddiesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D5B1832293200E93718 /* RSBuddiesViewController.mm */; };
 		BCA60DB61886862B00C9FA8F /* TBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA60DB51886862B00C9FA8F /* TBTextField.m */; };
+		BCA67F6A18A8DE2C00D7E459 /* TMAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA67F6918A8DE2C00D7E459 /* TMAccountManager.m */; };
 		BCB44DFE1834D5B6007D074E /* RSBuddyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44DFD1834D5B6007D074E /* RSBuddyCell.m */; };
 		BCB44E171834E02A007D074E /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E031834E02A007D074E /* MKAnnotationView+WebCache.m */; };
 		BCB44E181834E02A007D074E /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E051834E02A007D074E /* SDImageCache.m */; };
@@ -759,6 +760,8 @@
 		BCA23D5B1832293200E93718 /* RSBuddiesViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSBuddiesViewController.mm; sourceTree = "<group>"; };
 		BCA60DB41886862B00C9FA8F /* TBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTextField.h; sourceTree = "<group>"; };
 		BCA60DB51886862B00C9FA8F /* TBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTextField.m; sourceTree = "<group>"; };
+		BCA67F6818A8DE2C00D7E459 /* TMAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAccountManager.h; sourceTree = "<group>"; };
+		BCA67F6918A8DE2C00D7E459 /* TMAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAccountManager.m; sourceTree = "<group>"; };
 		BCB44DFC1834D5B6007D074E /* RSBuddyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBuddyCell.h; sourceTree = "<group>"; };
 		BCB44DFD1834D5B6007D074E /* RSBuddyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBuddyCell.m; sourceTree = "<group>"; };
 		BCB44E021834E02A007D074E /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -881,6 +884,8 @@
 				BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */,
 				BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */,
 				BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */,
+				BCA67F6818A8DE2C00D7E459 /* TMAccountManager.h */,
+				BCA67F6918A8DE2C00D7E459 /* TMAccountManager.m */,
 				BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */,
 				BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */,
 				BC675C8218306E22003E1516 /* TMHandlerBase.h */,
@@ -1711,6 +1716,7 @@
 				BC84063E182CC2F00058EBDC /* nickname.cpp in Sources */,
 				BC840639182CC2F00058EBDC /* messagesession.cpp in Sources */,
 				BC84063B182CC2F00058EBDC /* mucmessagesession.cpp in Sources */,
+				BCA67F6A18A8DE2C00D7E459 /* TMAccountManager.m in Sources */,
 				BC84060A182CC2F00058EBDC /* clientbase.cpp in Sources */,
 				BC840646182CC2F00058EBDC /* privatexml.cpp in Sources */,
 				BC840656182CC2F00058EBDC /* softwareversion.cpp in Sources */,
