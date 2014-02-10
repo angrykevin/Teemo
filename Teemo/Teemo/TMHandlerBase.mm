@@ -9,9 +9,10 @@
 #include "TMHandlerBase.h"
 
 TMHandlerBase::TMHandlerBase()
+    : m_engine(NULL)
 {
-  m_engine = NULL;
 }
+
 
 void TMHandlerBase::setEngine(void *engine)
 {

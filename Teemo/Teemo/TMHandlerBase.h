@@ -16,6 +16,7 @@ class TMHandlerBase {
   
 public:
   TMHandlerBase();
+  
   void setEngine(void *engine);
   void *getEngine();
   
