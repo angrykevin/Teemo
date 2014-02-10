@@ -46,6 +46,8 @@ using namespace std;
 
 - (NSArray *)buddiesForSubscriptions:(NSArray *)subscriptions;
 
+
+
 - (NSString *)passport;
 - (NSString *)password;
 
@@ -56,6 +58,7 @@ using namespace std;
 - (TMConnectionHandler *)connectionHandler;
 
 @end
+
 
 
 @protocol TMEngineDelegate <NSObject>

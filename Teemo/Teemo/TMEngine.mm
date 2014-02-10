@@ -104,6 +104,9 @@ static TMEngine *CurrentEngine = nil;
 }
 
 
+
+#pragma mark - Accessors
+
 - (NSString *)passport
 {
   return _passport;
@@ -136,8 +139,6 @@ static TMEngine *CurrentEngine = nil;
 {
   return _connectionHandler;
 }
-
-
 
 
 #pragma mark - TKObserverProtocol
