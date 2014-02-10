@@ -11,14 +11,14 @@
 #include <gloox/client.h>
 
 #include "TMConnectionHandler.h"
-#include "TMPresenceHandler.h"
-#include "TMVCardHandler.h"
-#include "TMRosterHandler.h"
 
 using namespace gloox;
+using namespace std;
 
 
-@interface TMEngine : NSObject {
+@interface TMEngine : NSObject<
+    TKObserverProtocol
+> {
   
   NSString *_passport;
   NSString *_password;
@@ -26,14 +26,11 @@ using namespace gloox;
   TKDatabase *_database;
   
   Client *_client;
-  VCardManager *_vcardManager;
-  //RosterManager *_rosterManager;
   
   TMConnectionHandler *_connectionHandler;
-  TMPresenceHandler *_presenceHandler;
-  TMVCardHandler *_vcardHandler;
-  TMRosterHandler *_rosterHandler;
   
+  
+  NSMutableArray *_observers;
   
   BOOL _cancelled;
 }
@@ -46,19 +43,8 @@ using namespace gloox;
 - (void)setUpWithPassport:(NSString *)passport password:(NSString *)password;
 - (BOOL)connect;
 - (void)disconnect;
-- (void)removeAllObservers;
 
-- (void)addBuddyWithJID:(NSString *)jid completionHandler:(TBOperationCompletionHandler)completionHandler;
-- (void)removeBuddyWithJID:(NSString *)jid completionHandler:(TBOperationCompletionHandler)completionHandler;
-
-
-- (NSArray *)toBuddies;
-- (NSArray *)fromBuddies;
-- (NSArray *)inBuddies;
-- (NSArray *)outBuddies;
-
-- (BOOL)isCurrentUser:(NSString *)jid;
-
+- (NSArray *)buddiesForSubscriptions:(NSArray *)subscriptions;
 
 - (NSString *)passport;
 - (NSString *)password;
@@ -66,13 +52,8 @@ using namespace gloox;
 - (TKDatabase *)database;
 
 - (Client *)client;
-- (VCardManager *)vcardManager;
-- (RosterManager *)rosterManager;
 
 - (TMConnectionHandler *)connectionHandler;
-- (TMPresenceHandler *)presenceHandler;
-- (TMVCardHandler *)vcardHandler;
-- (TMRosterHandler *)rosterHandler;
 
 @end
 
@@ -80,6 +61,15 @@ using namespace gloox;
 @protocol TMEngineDelegate <NSObject>
 
 @optional
+
+// ConnectionHandler
+- (void)engineConnectionOnConnect:(TMEngine *)engine;
+- (void)engine:(TMEngine *)engine connectionOnDisconnect:(ConnectionError)error;
+- (void)engine:(TMEngine *)engine connectionOnResourceBind:(NSString *)resource;
+- (void)engine:(TMEngine *)engine connectionOnResourceBindError:(const Error *)error;
+- (void)engine:(TMEngine *)engine connectionOnSessionCreateError:(const Error *)error;
+- (bool)engine:(TMEngine *)engine connectionOnTLSConnect:(const CertInfo &)info;
+- (void)engine:(TMEngine *)engine connectionOnStreamEvent:(StreamEvent)event;
 
 @end
 

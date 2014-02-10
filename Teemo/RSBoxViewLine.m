@@ -33,7 +33,7 @@
                       numberOfLines:1];
     [self addSubview:_label];
     
-    _textField = [[UITextField alloc] init];
+    _textField = [[TBTextField alloc] init];
     _textField.font = [UIFont systemFontOfSize:14.0];
     _textField.adjustsFontSizeToFitWidth = NO;
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;

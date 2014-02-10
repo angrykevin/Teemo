@@ -37,14 +37,6 @@
 		BC5EE2DC182A1C6B007D5DE6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE2DB182A1C6B007D5DE6 /* libz.dylib */; };
 		BC5EE2F9182A1FAC007D5DE6 /* TMCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */; };
 		BC5EE2FB182A1FAC007D5DE6 /* TMEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */; };
-		BC5EE2FC182A1FAC007D5DE6 /* TMIqHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */; };
-		BC5EE2FD182A1FAC007D5DE6 /* TMMessageHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */; };
-		BC5EE2FE182A1FAC007D5DE6 /* TMMessageSessionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */; };
-		BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2EE182A1FAC007D5DE6 /* TMPresenceHandler.mm */; };
-		BC5EE301182A1FAC007D5DE6 /* TMStatisticsHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */; };
-		BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */; };
-		BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */; };
-		BC5EE304182A1FAC007D5DE6 /* TMVCardHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */; };
 		BC5EE307182A209D007D5DE6 /* RSSigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */; };
 		BC5EE30A182A20D7007D5DE6 /* RSMainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE309182A20D7007D5DE6 /* RSMainViewController.mm */; };
 		BC5EE35E182A230E007D5DE6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */; };
@@ -212,9 +204,6 @@
 		BC840707182CC5200058EBDC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DD182CC5200058EBDC /* libssl.a */; };
 		BC84070C182CCB090058EBDC /* TBTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* TBTabViewController.m */; };
 		BC840710182CCCB20058EBDC /* UIViewControllerExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */; };
-		BC996A77188F62A100112247 /* TSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC996A76188F62A100112247 /* TSViewController.m */; };
-		BC996A7A188F630600112247 /* TSTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC996A79188F630600112247 /* TSTabViewController.m */; };
-		BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D351831E16B00E93718 /* TMRosterHandler.mm */; };
 		BCA23D48183224E300E93718 /* tabbar_buddies_h.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */; };
 		BCA23D49183224E300E93718 /* tabbar_buddies_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3D183224E300E93718 /* tabbar_buddies_h@2x.png */; };
 		BCA23D4A183224E300E93718 /* tabbar_buddies_n.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3E183224E300E93718 /* tabbar_buddies_n.png */; };
@@ -298,25 +287,8 @@
 		BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMCommon.h; sourceTree = "<group>"; };
 		BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMCommon.mm; sourceTree = "<group>"; };
 		BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMConfig.h; sourceTree = "<group>"; };
-		BC5EE2E4182A1FAC007D5DE6 /* TMMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMacro.h; sourceTree = "<group>"; };
 		BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEngine.h; sourceTree = "<group>"; };
 		BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMEngine.mm; sourceTree = "<group>"; };
-		BC5EE2E7182A1FAC007D5DE6 /* TMIqHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMIqHandler.h; sourceTree = "<group>"; };
-		BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMIqHandler.mm; sourceTree = "<group>"; };
-		BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMessageHandler.h; sourceTree = "<group>"; };
-		BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMMessageHandler.mm; sourceTree = "<group>"; };
-		BC5EE2EB182A1FAC007D5DE6 /* TMMessageSessionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMessageSessionHandler.h; sourceTree = "<group>"; };
-		BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMMessageSessionHandler.mm; sourceTree = "<group>"; };
-		BC5EE2ED182A1FAC007D5DE6 /* TMPresenceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPresenceHandler.h; sourceTree = "<group>"; };
-		BC5EE2EE182A1FAC007D5DE6 /* TMPresenceHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMPresenceHandler.mm; sourceTree = "<group>"; };
-		BC5EE2F1182A1FAC007D5DE6 /* TMStatisticsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMStatisticsHandler.h; sourceTree = "<group>"; };
-		BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMStatisticsHandler.mm; sourceTree = "<group>"; };
-		BC5EE2F3182A1FAC007D5DE6 /* TMSubscriptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSubscriptionHandler.h; sourceTree = "<group>"; };
-		BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMSubscriptionHandler.mm; sourceTree = "<group>"; };
-		BC5EE2F5182A1FAC007D5DE6 /* TMTagHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTagHandler.h; sourceTree = "<group>"; };
-		BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMTagHandler.mm; sourceTree = "<group>"; };
-		BC5EE2F7182A1FAC007D5DE6 /* TMVCardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVCardHandler.h; sourceTree = "<group>"; };
-		BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMVCardHandler.mm; sourceTree = "<group>"; };
 		BC5EE305182A209D007D5DE6 /* RSSigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSigninViewController.h; sourceTree = "<group>"; };
 		BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSigninViewController.m; sourceTree = "<group>"; };
 		BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMainViewController.h; sourceTree = "<group>"; };
@@ -331,7 +303,6 @@
 		BC675CC818308252003E1516 /* TMHandlerBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMHandlerBase.mm; sourceTree = "<group>"; };
 		BC675D48183093E3003E1516 /* CATransitionExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATransitionExtentions.h; sourceTree = "<group>"; };
 		BC675D49183093E3003E1516 /* CATransitionExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATransitionExtentions.m; sourceTree = "<group>"; };
-		BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMConnectionDelegate.h; sourceTree = "<group>"; };
 		BC840427182CADA40058EBDC /* RSBoxViewLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoxViewLine.h; sourceTree = "<group>"; };
 		BC840428182CADA40058EBDC /* RSBoxViewLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBoxViewLine.m; sourceTree = "<group>"; };
 		BC84042D182CB30B0058EBDC /* Toolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toolbox.h; sourceTree = "<group>"; };
@@ -768,15 +739,6 @@
 		BC84070B182CCB090058EBDC /* TBTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTabViewController.m; sourceTree = "<group>"; };
 		BC84070E182CCCB20058EBDC /* UIViewControllerExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtentions.h; sourceTree = "<group>"; };
 		BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerExtentions.m; sourceTree = "<group>"; };
-		BC996A75188F62A100112247 /* TSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSViewController.h; sourceTree = "<group>"; };
-		BC996A76188F62A100112247 /* TSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSViewController.m; sourceTree = "<group>"; };
-		BC996A78188F630600112247 /* TSTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTabViewController.h; sourceTree = "<group>"; };
-		BC996A79188F630600112247 /* TSTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTabViewController.m; sourceTree = "<group>"; };
-		BCA23D211831C34100E93718 /* TMPresenceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMPresenceDelegate.h; sourceTree = "<group>"; };
-		BCA23D251831CC8E00E93718 /* TMVCardDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMVCardDelegate.h; sourceTree = "<group>"; };
-		BCA23D351831E16B00E93718 /* TMRosterHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRosterHandler.mm; sourceTree = "<group>"; };
-		BCA23D361831E16B00E93718 /* TMRosterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMRosterHandler.h; sourceTree = "<group>"; };
-		BCA23D381831E1E800E93718 /* TMRosterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMRosterDelegate.h; sourceTree = "<group>"; };
 		BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_buddies_h.png; sourceTree = "<group>"; };
 		BCA23D3D183224E300E93718 /* tabbar_buddies_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_buddies_h@2x.png"; sourceTree = "<group>"; };
 		BCA23D3E183224E300E93718 /* tabbar_buddies_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_buddies_n.png; sourceTree = "<group>"; };
@@ -897,7 +859,6 @@
 				BC5EE0E8182A196A007D5DE6 /* main.m */,
 				BC5EE0EB182A196A007D5DE6 /* AppDelegate.h */,
 				BC5EE0EC182A196A007D5DE6 /* AppDelegate.mm */,
-				BC996A74188F628A00112247 /* Test */,
 				BC5EE305182A209D007D5DE6 /* RSSigninViewController.h */,
 				BC5EE306182A209D007D5DE6 /* RSSigninViewController.m */,
 				BC5EE308182A20D7007D5DE6 /* RSMainViewController.h */,
@@ -906,9 +867,9 @@
 				BCA23D5D1832293700E93718 /* Buddies */,
 				BCA23D5F1832294800E93718 /* Setting */,
 				BC47AE8E183335AE00331216 /* Common */,
+				BC840708182CC6FF0058EBDC /* Views */,
 				BC5EE2DE182A1FAC007D5DE6 /* Teemo */,
 				BC5EE368182A3E17007D5DE6 /* Toolbox */,
-				BC840708182CC6FF0058EBDC /* Views */,
 			);
 			path = Teemo;
 			sourceTree = "<group>";
@@ -918,7 +879,6 @@
 			children = (
 				BC5EE367182A3C8F007D5DE6 /* Teemo.h */,
 				BC5EE2E1182A1FAC007D5DE6 /* TMConfig.h */,
-				BC5EE2E4182A1FAC007D5DE6 /* TMMacro.h */,
 				BC5EE2DF182A1FAC007D5DE6 /* TMCommon.h */,
 				BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */,
 				BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */,
@@ -926,10 +886,6 @@
 				BC675C8218306E22003E1516 /* TMHandlerBase.h */,
 				BC675CC818308252003E1516 /* TMHandlerBase.mm */,
 				BCA23D221831C3EF00E93718 /* ConnectionHandler */,
-				BCA23D231831C3FB00E93718 /* PresenceHandler */,
-				BCA23D261831D2BC00E93718 /* VCardHandler */,
-				BCA23D391831E21200E93718 /* RosterHandler */,
-				BC8B22961872CB8000C08F64 /* Todo */,
 			);
 			path = Teemo;
 			sourceTree = "<group>";
@@ -1518,74 +1474,13 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		BC8B22961872CB8000C08F64 /* Todo */ = {
-			isa = PBXGroup;
-			children = (
-				BC5EE2E9182A1FAC007D5DE6 /* TMMessageHandler.h */,
-				BC5EE2EA182A1FAC007D5DE6 /* TMMessageHandler.mm */,
-				BC5EE2EB182A1FAC007D5DE6 /* TMMessageSessionHandler.h */,
-				BC5EE2EC182A1FAC007D5DE6 /* TMMessageSessionHandler.mm */,
-				BC5EE2F1182A1FAC007D5DE6 /* TMStatisticsHandler.h */,
-				BC5EE2F2182A1FAC007D5DE6 /* TMStatisticsHandler.mm */,
-				BC5EE2F3182A1FAC007D5DE6 /* TMSubscriptionHandler.h */,
-				BC5EE2F4182A1FAC007D5DE6 /* TMSubscriptionHandler.mm */,
-				BC5EE2F5182A1FAC007D5DE6 /* TMTagHandler.h */,
-				BC5EE2F6182A1FAC007D5DE6 /* TMTagHandler.mm */,
-				BC5EE2E7182A1FAC007D5DE6 /* TMIqHandler.h */,
-				BC5EE2E8182A1FAC007D5DE6 /* TMIqHandler.mm */,
-			);
-			name = Todo;
-			sourceTree = "<group>";
-		};
-		BC996A74188F628A00112247 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				BC996A75188F62A100112247 /* TSViewController.h */,
-				BC996A76188F62A100112247 /* TSViewController.m */,
-				BC996A78188F630600112247 /* TSTabViewController.h */,
-				BC996A79188F630600112247 /* TSTabViewController.m */,
-			);
-			name = Test;
-			sourceTree = "<group>";
-		};
 		BCA23D221831C3EF00E93718 /* ConnectionHandler */ = {
 			isa = PBXGroup;
 			children = (
 				BC4D139B1830E77300572F67 /* TMConnectionHandler.h */,
 				BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */,
-				BC675D4B1830B8D6003E1516 /* TMConnectionDelegate.h */,
 			);
 			name = ConnectionHandler;
-			sourceTree = "<group>";
-		};
-		BCA23D231831C3FB00E93718 /* PresenceHandler */ = {
-			isa = PBXGroup;
-			children = (
-				BC5EE2ED182A1FAC007D5DE6 /* TMPresenceHandler.h */,
-				BC5EE2EE182A1FAC007D5DE6 /* TMPresenceHandler.mm */,
-				BCA23D211831C34100E93718 /* TMPresenceDelegate.h */,
-			);
-			name = PresenceHandler;
-			sourceTree = "<group>";
-		};
-		BCA23D261831D2BC00E93718 /* VCardHandler */ = {
-			isa = PBXGroup;
-			children = (
-				BC5EE2F7182A1FAC007D5DE6 /* TMVCardHandler.h */,
-				BC5EE2F8182A1FAC007D5DE6 /* TMVCardHandler.mm */,
-				BCA23D251831CC8E00E93718 /* TMVCardDelegate.h */,
-			);
-			name = VCardHandler;
-			sourceTree = "<group>";
-		};
-		BCA23D391831E21200E93718 /* RosterHandler */ = {
-			isa = PBXGroup;
-			children = (
-				BCA23D361831E16B00E93718 /* TMRosterHandler.h */,
-				BCA23D351831E16B00E93718 /* TMRosterHandler.mm */,
-				BCA23D381831E1E800E93718 /* TMRosterDelegate.h */,
-			);
-			name = RosterHandler;
 			sourceTree = "<group>";
 		};
 		BCA23D5D1832293700E93718 /* Buddies */ = {
@@ -1791,7 +1686,6 @@
 				BC840666182CC2F00058EBDC /* vcard.cpp in Sources */,
 				BC403C421835C8ED00B50317 /* RSProfileCell.m in Sources */,
 				BC84064F182CC2F00058EBDC /* sha.cpp in Sources */,
-				BC5EE304182A1FAC007D5DE6 /* TMVCardHandler.mm in Sources */,
 				BCB44E191834E02A007D074E /* SDWebImageCompat.m in Sources */,
 				BC552DCF1839FF400078375F /* RSAddBuddyViewController.mm in Sources */,
 				BC84060D182CC2F00058EBDC /* compressionzlib.cpp in Sources */,
@@ -1800,24 +1694,19 @@
 				BC840655182CC2F00058EBDC /* socks5bytestreamserver.cpp in Sources */,
 				BC4D139D1830E77300572F67 /* TMConnectionHandler.mm in Sources */,
 				BCC877DC18629DDA002FE75F /* TBLocationManager.m in Sources */,
-				BC5EE302182A1FAC007D5DE6 /* TMSubscriptionHandler.mm in Sources */,
-				BC5EE2FF182A1FAC007D5DE6 /* TMPresenceHandler.mm in Sources */,
 				BC840669182CC2F00058EBDC /* xhtmlim.cpp in Sources */,
 				BC84060C182CC2F00058EBDC /* compressiondefault.cpp in Sources */,
 				BCA60DB61886862B00C9FA8F /* TBTextField.m in Sources */,
-				BC5EE303182A1FAC007D5DE6 /* TMTagHandler.mm in Sources */,
 				BC84063C182CC2F00058EBDC /* mucroom.cpp in Sources */,
 				BC840617182CC2F00058EBDC /* dataformfield.cpp in Sources */,
 				BCB44DFE1834D5B6007D074E /* RSBuddyCell.m in Sources */,
 				BC840672182CC2F00058EBDC /* UIButtonAdditions.m in Sources */,
-				BC996A7A188F630600112247 /* TSTabViewController.m in Sources */,
 				BC5EE2F9182A1FAC007D5DE6 /* TMCommon.mm in Sources */,
 				BC840668182CC2F00058EBDC /* vcardupdate.cpp in Sources */,
 				BC84066F182CC2F00058EBDC /* NSDictionaryAdditions.m in Sources */,
 				BC5EE2FB182A1FAC007D5DE6 /* TMEngine.mm in Sources */,
 				BC84060E182CC2F00058EBDC /* connectionbosh.cpp in Sources */,
 				BC84064A182CC2F00058EBDC /* receipt.cpp in Sources */,
-				BC996A77188F62A100112247 /* TSViewController.m in Sources */,
 				BC84064B182CC2F00058EBDC /* registration.cpp in Sources */,
 				BC84063E182CC2F00058EBDC /* nickname.cpp in Sources */,
 				BC840639182CC2F00058EBDC /* messagesession.cpp in Sources */,
@@ -1825,7 +1714,6 @@
 				BC84060A182CC2F00058EBDC /* clientbase.cpp in Sources */,
 				BC840646182CC2F00058EBDC /* privatexml.cpp in Sources */,
 				BC840656182CC2F00058EBDC /* softwareversion.cpp in Sources */,
-				BC5EE2FD182A1FAC007D5DE6 /* TMMessageHandler.mm in Sources */,
 				BC84067A182CC2F00058EBDC /* TKCoreBase64.m in Sources */,
 				BC20B262184C75E90087CF9C /* UIButtonExtentions.m in Sources */,
 				BC840605182CC2F00058EBDC /* capabilities.cpp in Sources */,
@@ -1878,8 +1766,6 @@
 				BC84065E182CC2F00058EBDC /* tlsgnutlsclientanon.cpp in Sources */,
 				BC840650182CC2F00058EBDC /* shim.cpp in Sources */,
 				BC84064C182CC2F00058EBDC /* rosteritem.cpp in Sources */,
-				BC5EE2FC182A1FAC007D5DE6 /* TMIqHandler.mm in Sources */,
-				BC5EE2FE182A1FAC007D5DE6 /* TMMessageSessionHandler.mm in Sources */,
 				BC840642182CC2F00058EBDC /* prep.cpp in Sources */,
 				BC84064E182CC2F00058EBDC /* search.cpp in Sources */,
 				BC840660182CC2F00058EBDC /* tlsopensslbase.cpp in Sources */,
@@ -1914,14 +1800,12 @@
 				BC84062D182CC2F00058EBDC /* jinglepluginfactory.cpp in Sources */,
 				BC84066E182CC2F00058EBDC /* NSDateAdditions.m in Sources */,
 				BC840619182CC2F00058EBDC /* dataformitem.cpp in Sources */,
-				BC5EE301182A1FAC007D5DE6 /* TMStatisticsHandler.mm in Sources */,
 				BC840645182CC2F00058EBDC /* privacymanager.cpp in Sources */,
 				BC840654182CC2F00058EBDC /* socks5bytestreammanager.cpp in Sources */,
 				BC675D4A183093E3003E1516 /* CATransitionExtentions.m in Sources */,
 				BC403C3C1835B87A00B50317 /* RSProfileViewController.mm in Sources */,
 				BC840644182CC2F00058EBDC /* privacyitem.cpp in Sources */,
 				BC840640182CC2F00058EBDC /* oob.cpp in Sources */,
-				BCA23D371831E16B00E93718 /* TMRosterHandler.mm in Sources */,
 				BC84063D182CC2F00058EBDC /* mutex.cpp in Sources */,
 				BC84062B182CC2F00058EBDC /* jinglefiletransfer.cpp in Sources */,
 				BC840710182CCCB20058EBDC /* UIViewControllerExtentions.m in Sources */,

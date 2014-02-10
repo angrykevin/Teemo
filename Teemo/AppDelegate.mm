@@ -13,9 +13,6 @@
 
 #import "Teemo.h"
 
-#import "TSViewController.h"
-#import "TSTabViewController.h"
-
 
 @implementation AppDelegate
 
@@ -27,36 +24,24 @@
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
   
-//  TSViewController *vc = [[TSViewController alloc] init];
-//  UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
-//  nv.navigationBarHidden = YES;
-//  _window.rootViewController = nv;
   
-  if ( [NSNull null] == [NSNull null] ) {
-    NSLog(@"EQUAL");
+  if ( RSHasAccount() ) {
+    
+    [self signinWithPassport:RSAccountPassport() password:RSAccountPassword()];
+    
+    RSMainViewController *vc = [[RSMainViewController alloc] init];
+    _root = [[UINavigationController alloc] initWithRootViewController:vc];
+    _root.navigationBarHidden = YES;
+    _window.rootViewController = _root;
+    
+  } else {
+    
+    RSSigninViewController *vc = [[RSSigninViewController alloc] init];
+    _root = [[UINavigationController alloc] initWithRootViewController:vc];
+    _root.navigationBarHidden = YES;
+    _window.rootViewController = _root;
+    
   }
-  
-  TSTabViewController *vc = [[TSTabViewController alloc] init];
-  _window.rootViewController = vc;
-  
-  
-//  if ( RSHasAccount() ) {
-//    
-//    [self signinWithPassport:RSAccountPassport() password:RSAccountPassword()];
-//    
-//    RSMainViewController *vc = [[RSMainViewController alloc] init];
-//    _root = [[UINavigationController alloc] initWithRootViewController:vc];
-//    _root.navigationBarHidden = YES;
-//    _window.rootViewController = _root;
-//    
-//  } else {
-//    
-//    RSSigninViewController *vc = [[RSSigninViewController alloc] init];
-//    _root = [[UINavigationController alloc] initWithRootViewController:vc];
-//    _root.navigationBarHidden = YES;
-//    _window.rootViewController = _root;
-//    
-//  }
   
   _window.backgroundColor = [UIColor whiteColor];
   [_window makeKeyAndVisible];
@@ -81,7 +66,7 @@
   }
   
   [engine setUpWithPassport:pspt password:pswd];
-  [engine connectionHandler]->addObserver((__bridge void *)self);
+  [engine addObserver:self];
   [engine connect];
 }
 
@@ -106,11 +91,9 @@
 
 
 
-- (void)connectionOnConnect
+- (void)engineConnectionOnConnect:(TMEngine *)engine
 {
   TKPRINTMETHOD();
-  
-  TMEngine *engine = [TMEngine sharedEngine];
   
   RSSaveAccountPassport( [engine passport] );
   RSSaveAccountPassword( [engine password] );
@@ -122,10 +105,9 @@
     [_root.view.layer addAnimation:transition forKey:nil];
     [_root setViewControllers:@[ vc ] animated:NO];
   }
-  
 }
 
-- (void)connectionOnDisconnect:(ConnectionError)error
+- (void)engine:(TMEngine *)engine connectionOnDisconnect:(ConnectionError)error
 {
   TKPRINTMETHOD();
   
@@ -133,36 +115,8 @@
     TBPresentSystemMessage(@"Sign in failed !");
   }
   
-  //TMEngine *engine = [TMEngine sharedEngine];
-  //[engine removeAllObservers];
+  [engine removeAllObservers];
   [TMEngine clearStoredEngine];
-  
 }
-
-//- (void)connectionOnResourceBind:(const std::string &)resource
-//{
-//  TKPRINTMETHOD();
-//}
-//
-//- (void)connectionOnResourceBindError:(const Error *)error
-//{
-//  TKPRINTMETHOD();
-//}
-//
-//- (void)connectionOnSessionCreateError:(const Error *)error
-//{
-//  TKPRINTMETHOD();
-//}
-//
-//- (bool)connectionOnTLSConnect:(const CertInfo &)info
-//{
-//  TKPRINTMETHOD();
-//  return true;
-//}
-//
-//- (void)connectionOnStreamEvent:(StreamEvent)event
-//{
-//  TKPRINTMETHOD();
-//}
 
 @end

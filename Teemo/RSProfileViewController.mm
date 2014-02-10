@@ -82,9 +82,9 @@
 
 - (void)addFooterViewIfNeeded
 {
-  TMEngine *engine = [TMEngine sharedEngine];
+  //TMEngine *engine = [TMEngine sharedEngine];
   
-  if ( [engine isCurrentUser:[_row stringForName:@"bid"]] ) {
+  if ( NO ) { //[engine isCurrentUser:[_row stringForName:@"bid"]] ) {
     
     _tableView.tableFooterView = nil;
     
@@ -136,7 +136,7 @@
   
   NSString *jid = [_row stringForName:@"bid"];
   
-  [engine rosterManager]->remove(JID( CPPSTR(jid) ));
+  //[engine rosterManager]->remove(JID( CPPSTR(jid) ));
   
   [self.navigationController popViewControllerAnimated:YES];
 }

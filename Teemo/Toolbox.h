@@ -12,6 +12,7 @@
 
 #import "TBAlertView.h"
 #import "TBButton.h"
+#import "TBTextField.h"
 #import "TBViewController.h"
 #import "TBTabViewController.h"
 #import "TBLocationManager.h"

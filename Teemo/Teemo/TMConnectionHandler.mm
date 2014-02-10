@@ -7,10 +7,8 @@
 //
 
 #include "TMConnectionHandler.h"
-#import "TMConnectionDelegate.h"
-
-#import "TMMacro.h"
-
+#import "TMEngine.h"
+#import "TMCommon.h"
 
 void TMConnectionHandler::onConnect()
 {
@@ -20,15 +18,17 @@ void TMConnectionHandler::onConnect()
   printf("==================================================>>\n\n");
 #endif
   
-  dispatch_sync(dispatch_get_main_queue(), ^{
-    TMPointerList::const_iterator it = m_observers.begin();
-    for( ; it != m_observers.end(); ++it ) {
-      id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
-      if ( [delegate respondsToSelector:@selector(connectionOnConnect)] ) {
-        [delegate connectionOnConnect];
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  NSArray *observers = [engine observers];
+  if ( [observers count] > 0 ) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      for ( id<TMEngineDelegate> observer in observers ) {
+        if ( [observer respondsToSelector:@selector(engineConnectionOnConnect:)] ) {
+          [observer engineConnectionOnConnect:engine];
+        }
       }
-    }
-  });
+    });
+  }
   
 }
 
@@ -79,15 +79,17 @@ void TMConnectionHandler::onDisconnect( ConnectionError e )
   
 #endif
   
-  dispatch_sync(dispatch_get_main_queue(), ^{
-    TMPointerList::const_iterator it = m_observers.begin();
-    for( ; it != m_observers.end(); ++it ) {
-      id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
-      if ( [delegate respondsToSelector:@selector(connectionOnDisconnect:)] ) {
-        [delegate connectionOnDisconnect:e];
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  NSArray *observers = [engine observers];
+  if ( [observers count] > 0 ) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      for ( id<TMEngineDelegate> observer in observers ) {
+        if ( [observer respondsToSelector:@selector(engine:connectionOnDisconnect:)] ) {
+          [observer engine:engine connectionOnDisconnect:e];
+        }
       }
-    }
-  });
+    });
+  }
   
 }
 
@@ -99,15 +101,17 @@ void TMConnectionHandler::onResourceBind( const std::string& resource )
   printf("==================================================>>\n\n");
 #endif
   
-  dispatch_sync(dispatch_get_main_queue(), ^{
-    TMPointerList::const_iterator it = m_observers.begin();
-    for( ; it != m_observers.end(); ++it ) {
-      id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
-      if ( [delegate respondsToSelector:@selector(connectionOnResourceBind:)] ) {
-        [delegate connectionOnResourceBind:resource];
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  NSArray *observers = [engine observers];
+  if ( [observers count] > 0 ) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      for ( id<TMEngineDelegate> observer in observers ) {
+        if ( [observer respondsToSelector:@selector(engine:connectionOnResourceBind:)] ) {
+          [observer engine:engine connectionOnResourceBind:OBJCSTR(resource)];
+        }
       }
-    }
-  });
+    });
+  }
   
 }
 
@@ -119,15 +123,17 @@ void TMConnectionHandler::onResourceBindError( const Error* error )
   printf("==================================================>>\n\n");
 #endif
   
-  dispatch_sync(dispatch_get_main_queue(), ^{
-    TMPointerList::const_iterator it = m_observers.begin();
-    for( ; it != m_observers.end(); ++it ) {
-      id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
-      if ( [delegate respondsToSelector:@selector(connectionOnResourceBindError:)] ) {
-        [delegate connectionOnResourceBindError:error];
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  NSArray *observers = [engine observers];
+  if ( [observers count] > 0 ) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      for ( id<TMEngineDelegate> observer in observers ) {
+        if ( [observer respondsToSelector:@selector(engine:connectionOnResourceBindError:)] ) {
+          [observer engine:engine connectionOnResourceBindError:error];
+        }
       }
-    }
-  });
+    });
+  }
   
 }
 
@@ -139,15 +145,17 @@ void TMConnectionHandler::onSessionCreateError( const Error* error )
   printf("==================================================>>\n\n");
 #endif
   
-  dispatch_sync(dispatch_get_main_queue(), ^{
-    TMPointerList::const_iterator it = m_observers.begin();
-    for( ; it != m_observers.end(); ++it ) {
-      id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
-      if ( [delegate respondsToSelector:@selector(connectionOnSessionCreateError:)] ) {
-        [delegate connectionOnSessionCreateError:error];
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  NSArray *observers = [engine observers];
+  if ( [observers count] > 0 ) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      for ( id<TMEngineDelegate> observer in observers ) {
+        if ( [observer respondsToSelector:@selector(engine:connectionOnSessionCreateError:)] ) {
+          [observer engine:engine connectionOnSessionCreateError:error];
+        }
       }
-    }
-  });
+    });
+  }
   
 }
 
@@ -180,15 +188,17 @@ bool TMConnectionHandler::onTLSConnect( const CertInfo& info )
   printf("==================================================>>\n\n");
 #endif
   
-  dispatch_sync(dispatch_get_main_queue(), ^{
-    TMPointerList::const_iterator it = m_observers.begin();
-    for( ; it != m_observers.end(); ++it ) {
-      id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
-      if ( [delegate respondsToSelector:@selector(connectionOnTLSConnect:)] ) {
-        [delegate connectionOnTLSConnect:info];
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  NSArray *observers = [engine observers];
+  if ( [observers count] > 0 ) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      for ( id<TMEngineDelegate> observer in observers ) {
+        if ( [observer respondsToSelector:@selector(engine:connectionOnTLSConnect:)] ) {
+          [observer engine:engine connectionOnTLSConnect:info];
+        }
       }
-    }
-  });
+    });
+  }
   
   return true;
 }
@@ -233,14 +243,16 @@ void TMConnectionHandler::onStreamEvent( StreamEvent event )
   
 #endif
   
-  dispatch_sync(dispatch_get_main_queue(), ^{
-    TMPointerList::const_iterator it = m_observers.begin();
-    for( ; it != m_observers.end(); ++it ) {
-      id<TMConnectionDelegate> delegate = (__bridge id<TMConnectionDelegate>)(*it);
-      if ( [delegate respondsToSelector:@selector(connectionOnStreamEvent:)] ) {
-        [delegate connectionOnStreamEvent:event];
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  NSArray *observers = [engine observers];
+  if ( [observers count] > 0 ) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      for ( id<TMEngineDelegate> observer in observers ) {
+        if ( [observer respondsToSelector:@selector(engine:connectionOnStreamEvent:)] ) {
+          [observer engine:engine connectionOnStreamEvent:event];
+        }
       }
-    }
-  });
+    });
+  }
   
 }

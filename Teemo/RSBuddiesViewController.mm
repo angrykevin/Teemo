@@ -24,9 +24,9 @@
   self = [super init];
   if (self) {
     
-    TMEngine *engine = [TMEngine sharedEngine];
-    [engine vcardHandler]->addObserver((__bridge void *)self);
-    [engine rosterHandler]->addObserver((__bridge void *)self);
+//    TMEngine *engine = [TMEngine sharedEngine];
+//    [engine vcardHandler]->addObserver((__bridge void *)self);
+//    [engine rosterHandler]->addObserver((__bridge void *)self);
     
   }
   return self;
@@ -35,8 +35,8 @@
 - (void)dealloc
 {
   TMEngine *engine = [TMEngine sharedEngine];
-  [engine vcardHandler]->removeObserver((__bridge void *)self);
-  [engine rosterHandler]->removeObserver((__bridge void *)self);
+//  [engine vcardHandler]->removeObserver((__bridge void *)self);
+//  [engine rosterHandler]->removeObserver((__bridge void *)self);
 }
 
 - (void)viewDidLoad
@@ -108,7 +108,7 @@
 
 - (void)reloadBuddies
 {
-  _buddies = [[TMEngine sharedEngine] toBuddies];
+  //_buddies = [[TMEngine sharedEngine] toBuddies];
 }
 
 
@@ -215,15 +215,15 @@
 
 
 
-- (void)vcardOnReceived:(const JID &)jid vcard:(const VCard *)vcard
-{
-  TKPRINTMETHOD();
-  if ( _viewAppeared ) {
-    [self reloadBuddies];
-    [_tableView reloadData];
-    [self addFooterIfNeeded];
-  }
-}
+//- (void)vcardOnReceived:(const JID &)jid vcard:(const VCard *)vcard
+//{
+//  TKPRINTMETHOD();
+//  if ( _viewAppeared ) {
+//    [self reloadBuddies];
+//    [_tableView reloadData];
+//    [self addFooterIfNeeded];
+//  }
+//}
 
 //- (void)vcardOnResult:(const JID &)jid context:(VCardHandler::VCardContext)context error:(StanzaError)se
 //{
@@ -272,36 +272,36 @@
   TKPRINTMETHOD();
 }
 
-- (void)rosterOnReceived:(const Roster &)roster
-{
-  TKPRINTMETHOD();
-  if ( _viewAppeared ) {
-    [self reloadBuddies];
-    [_tableView reloadData];
-    [self addFooterIfNeeded];
-  }
-}
-
-- (void)rosterOnPresence:(const RosterItem &)item
-                resource:(const std::string &)resource
-                presence:(Presence::PresenceType)presence
-                     msg:(const std::string &)msg
-{
-  TKPRINTMETHOD();
-  if ( _viewAppeared ) {
-    [self reloadBuddies];
-    [_tableView reloadData];
-    [self addFooterIfNeeded];
-  }
-}
-
-- (void)rosterOnSelfPresence:(const RosterItem &)item
-                    resource:(const std::string &)resource
-                    presence:(Presence::PresenceType)presence
-                         msg:(const std::string &)msg
-{
-  TKPRINTMETHOD();
-}
+//- (void)rosterOnReceived:(const Roster &)roster
+//{
+//  TKPRINTMETHOD();
+//  if ( _viewAppeared ) {
+//    [self reloadBuddies];
+//    [_tableView reloadData];
+//    [self addFooterIfNeeded];
+//  }
+//}
+//
+//- (void)rosterOnPresence:(const RosterItem &)item
+//                resource:(const std::string &)resource
+//                presence:(Presence::PresenceType)presence
+//                     msg:(const std::string &)msg
+//{
+//  TKPRINTMETHOD();
+//  if ( _viewAppeared ) {
+//    [self reloadBuddies];
+//    [_tableView reloadData];
+//    [self addFooterIfNeeded];
+//  }
+//}
+//
+//- (void)rosterOnSelfPresence:(const RosterItem &)item
+//                    resource:(const std::string &)resource
+//                    presence:(Presence::PresenceType)presence
+//                         msg:(const std::string &)msg
+//{
+//  TKPRINTMETHOD();
+//}
 
 - (bool)rosterOnSubscriptionRequest:(const JID &)jid msg:(const std::string &)msg
 {

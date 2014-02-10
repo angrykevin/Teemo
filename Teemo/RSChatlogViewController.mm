@@ -88,18 +88,18 @@
   NSString *desc = [NSString stringWithFormat:@"I'm %@!", name];
   NSString *url = [NSString stringWithFormat:@"http://%@.com/", [name lowercaseString]];
   
-  TMEngine *engine = [TMEngine sharedEngine];
-  VCardManager *manager = [engine vcardManager];
-  
-  VCard *card = new VCard();
-  card->setNickname( CPPSTR(nickname) );
-  card->setName( "Wu", CPPSTR(name));
-  card->setPhotoUri( CPPSTR(uri) );
-  card->setBday( "1988-03-08" );
-  card->setDesc( CPPSTR(desc) );
-  card->setUrl( CPPSTR(url) );
-  
-  manager->storeVCard(card, [engine vcardHandler]);
+//  TMEngine *engine = [TMEngine sharedEngine];
+//  VCardManager *manager = [engine vcardManager];
+//  
+//  VCard *card = new VCard();
+//  card->setNickname( CPPSTR(nickname) );
+//  card->setName( "Wu", CPPSTR(name));
+//  card->setPhotoUri( CPPSTR(uri) );
+//  card->setBday( "1988-03-08" );
+//  card->setDesc( CPPSTR(desc) );
+//  card->setUrl( CPPSTR(url) );
+//  
+//  manager->storeVCard(card, [engine vcardHandler]);
   
   
 //  TMEngine *engine = [TMEngine sharedEngine];
@@ -120,9 +120,9 @@
 
 - (void)fetch:(id)sender
 {
-  TMEngine *engine = [TMEngine sharedEngine];
-  VCardManager *manager = [engine vcardManager];
-  manager->fetchVCard(JID( CPPSTR(TMJIDFromPassport(engine.passport)) ), [engine vcardHandler]);
+//  TMEngine *engine = [TMEngine sharedEngine];
+//  VCardManager *manager = [engine vcardManager];
+//  manager->fetchVCard(JID( CPPSTR(TMJIDFromPassport(engine.passport)) ), [engine vcardHandler]);
 }
 
 @end

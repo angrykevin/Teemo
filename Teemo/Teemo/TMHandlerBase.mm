@@ -8,21 +8,18 @@
 
 #include "TMHandlerBase.h"
 
-void TMHandlerBase::addObserver(void *observer)
+TMHandlerBase::TMHandlerBase()
 {
-  if ( observer ) {
-    m_observers.push_back( observer );
-  }
+  m_engine = NULL;
 }
 
-void TMHandlerBase::removeObserver(void *observer)
+void TMHandlerBase::setEngine(void *engine)
 {
-  if ( observer ) {
-    m_observers.remove( observer );
-  }
+  m_engine = engine;
 }
 
-void TMHandlerBase::removeAllObservers()
+void *TMHandlerBase::getEngine()
 {
-  m_observers.clear();
+  return m_engine;
 }
+

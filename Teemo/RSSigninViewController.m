@@ -38,6 +38,7 @@
   _passportLine.backgroundImageView.image = TBCreateImage(@"box_top.png");
   _passportLine.label.text = NSLocalizedString(@"Passport", @"");
   _passportLine.textField.delegate = self;
+  _passportLine.textField.maxLength = 50;
   _passportLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   _passportLine.textField.returnKeyType = UIReturnKeyNext;
   [_scrollView addSubview:_passportLine];
@@ -47,6 +48,7 @@
   _passwordLine.label.text = NSLocalizedString(@"Password", @"");
   _passwordLine.textField.secureTextEntry = YES;
   _passwordLine.textField.delegate = self;
+  _passwordLine.textField.maxLength = 50;
   _passwordLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   _passwordLine.textField.returnKeyType = UIReturnKeyDone;
   [_scrollView addSubview:_passwordLine];
@@ -96,34 +98,6 @@
 - (void)signinButtonClicked:(id)sender
 {
   
-//  TBLocationManager *lm = [TBLocationManager sharedObject];
-//  
-////  - (NSDictionary *)addressDictionary;
-////  - (NSString *)formattedAddress;
-////  
-////  - (NSString *)country;
-////  - (NSString *)administrativeArea;
-////  - (NSString *)subAdministrativeArea;
-////  - (NSString *)locality;
-////  - (NSString *)subLocality;
-////  - (NSString *)thoroughfare;
-////  - (NSString *)subThoroughfare;
-////  - (NSString *)postalCode;
-//  
-//  NSLog(@"formattedAddress: H%@H", [lm.reverseGeocoder formattedAddress]);
-//  
-//  NSLog(@"country: H%@H", [lm.reverseGeocoder country]);
-//  NSLog(@"administrativeArea: H%@H", [lm.reverseGeocoder administrativeArea]);
-//  NSLog(@"subAdministrativeArea: H%@H", [lm.reverseGeocoder subAdministrativeArea]);
-//  NSLog(@"locality: H%@H", [lm.reverseGeocoder locality]);
-//  NSLog(@"subLocality: H%@H", [lm.reverseGeocoder subLocality]);
-//  NSLog(@"thoroughfare: H%@H", [lm.reverseGeocoder thoroughfare]);
-//  NSLog(@"subThoroughfare: H%@H", [lm.reverseGeocoder subThoroughfare]);
-//  NSLog(@"postalCode: H%@H", [lm.reverseGeocoder postalCode]);
-//  
-//  return;
-  
-  
   NSString *passport = [_passportLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   NSString *password = [_passwordLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   
@@ -141,21 +115,6 @@
   AppDelegate *delegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
   [delegate signinWithPassport:passport password:password];
   
-}
-
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-  if ( range.length == 1 ) {
-    return YES;
-  }
-  
-  NSString *result = [textField.text stringByReplacingCharactersInRange:range withString:string];
-  
-  if ( [result length] <= 50 ) {
-    return YES;
-  }
-  return NO;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

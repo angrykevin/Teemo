@@ -104,11 +104,11 @@
     message = @"";
   }
   
-  TMEngine *engine = [TMEngine sharedEngine];
-  [engine rosterManager]->subscribe(JID( CPPSTR(jid) ),
-                                    CPPSTR(@""),
-                                    StringList(1, CPPSTR(@"")),
-                                    CPPSTR(message));
+//  TMEngine *engine = [TMEngine sharedEngine];
+//  [engine rosterManager]->subscribe(JID( CPPSTR(jid) ),
+//                                    CPPSTR(@""),
+//                                    StringList(1, CPPSTR(@"")),
+//                                    CPPSTR(message));
   
   [self.navigationController popViewControllerAnimated:YES];
   

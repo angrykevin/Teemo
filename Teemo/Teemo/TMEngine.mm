@@ -9,7 +9,6 @@
 #import "TMEngine.h"
 
 #import "TMConfig.h"
-#import "TMMacro.h"
 #import "TMCommon.h"
 
 
@@ -57,16 +56,8 @@ static TMEngine *CurrentEngine = nil;
   
   
   _connectionHandler = new TMConnectionHandler;
+  _connectionHandler->setEngine((__bridge void *)self);
   _client->registerConnectionListener( _connectionHandler );
-  
-  _presenceHandler = new TMPresenceHandler;
-  _client->registerPresenceHandler( _presenceHandler );
-  
-  _vcardManager = new VCardManager( _client );
-  _vcardHandler = new TMVCardHandler;
-  
-  _rosterHandler = new TMRosterHandler;
-  _client->rosterManager()->registerRosterListener( _rosterHandler );
   
 }
 
@@ -97,64 +88,20 @@ static TMEngine *CurrentEngine = nil;
   
 }
 
-- (void)removeAllObservers
+
+- (NSArray *)buddiesForSubscriptions:(NSArray *)subscriptions
 {
-  _connectionHandler->removeAllObservers();
+  if ( [subscriptions count]>0 ) {
+    
+    NSString *subscriptionString = [subscriptions componentsJoinedByString:@","];
+    
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionString];
+    
+    return [_database executeQuery:sql];
+    
+  }
+  return nil;
 }
-
-
-- (NSArray *)toBuddies
-{
-  NSMutableString *subscriptionTypeString = [[NSMutableString alloc] init];
-  [subscriptionTypeString appendFormat:@"%d", S10nTo];
-  [subscriptionTypeString appendFormat:@",%d", S10nToIn];
-  [subscriptionTypeString appendFormat:@",%d", S10nBoth];
-  
-  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
-  return [_database executeQuery:sql];
-}
-
-- (NSArray *)fromBuddies
-{
-  NSMutableString *subscriptionTypeString = [[NSMutableString alloc] init];
-  [subscriptionTypeString appendFormat:@"%d", S10nFrom];
-  [subscriptionTypeString appendFormat:@",%d", S10nFromOut];
-  [subscriptionTypeString appendFormat:@",%d", S10nBoth];
-  
-  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
-  return [_database executeQuery:sql];
-}
-
-- (NSArray *)inBuddies
-{
-  NSMutableString *subscriptionTypeString = [[NSMutableString alloc] init];
-  [subscriptionTypeString appendFormat:@"%d", S10nNoneIn];
-  [subscriptionTypeString appendFormat:@",%d", S10nNoneOutIn];
-  [subscriptionTypeString appendFormat:@",%d", S10nToIn];
-  
-  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
-  return [_database executeQuery:sql];
-}
-
-- (NSArray *)outBuddies
-{
-  NSMutableString *subscriptionTypeString = [[NSMutableString alloc] init];
-  [subscriptionTypeString appendFormat:@"%d", S10nNoneOut];
-  [subscriptionTypeString appendFormat:@",%d", S10nNoneOutIn];
-  [subscriptionTypeString appendFormat:@",%d", S10nFromOut];
-  
-  NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionTypeString];
-  return [_database executeQuery:sql];
-}
-
-
-
-- (BOOL)isCurrentUser:(NSString *)jid
-{
-  return ( ([jid length]>0) && [jid isEqualToString:TMJIDFromPassport(_passport)] );
-}
-
-
 
 
 - (NSString *)passport
@@ -172,7 +119,7 @@ static TMEngine *CurrentEngine = nil;
 {
   if ( _database == nil ) {
     _database = [[TKDatabase alloc] init];
-    _database.path = TKPathForDocumentsResource(@"imdb.db");
+    _database.path = TKPathForDocumentsResource(@"Teemo/imdb.db");
     [_database open];
   }
   return _database;
@@ -184,41 +131,46 @@ static TMEngine *CurrentEngine = nil;
   return _client;
 }
 
-- (VCardManager *)vcardManager
-{
-  return _vcardManager;
-}
-
-- (RosterManager *)rosterManager
-{
-  return _client->rosterManager();
-}
-
 
 - (TMConnectionHandler *)connectionHandler
 {
   return _connectionHandler;
 }
 
-- (TMPresenceHandler *)presenceHandler
+
+
+
+#pragma mark - TKObserverProtocol
+
+- (NSArray *)observers
 {
-  return _presenceHandler;
+  if ( _observers == nil ) {
+    _observers = TKCreateWeakMutableArray();
+  }
+  return _observers;
 }
 
-- (TMVCardHandler *)vcardHandler
+- (id)addObserver:(id)observer
 {
-  return _vcardHandler;
+  if ( _observers == nil ) {
+    _observers = TKCreateWeakMutableArray();
+  }
+  return [_observers addUnidenticalObjectIfNotNil:observer];
 }
 
-- (TMRosterHandler *)rosterHandler
+- (void)removeObserver:(id)observer
 {
-  return _rosterHandler;
+  [_observers removeObjectIdenticalTo:observer];
+}
+
+- (void)removeAllObservers
+{
+  [_observers removeAllObjects];
 }
 
 
 
-
-
+#pragma mark - Connection routines
 
 - (void)connectionBody:(NSValue *)value
 {
@@ -236,8 +188,6 @@ static TMEngine *CurrentEngine = nil;
     
   }
 }
-
-
 
 + (NSThread *)engineThread
 {

@@ -14,13 +14,13 @@
   
   UIImageView *_imageView;
   UILabel *_label;
-  UITextField *_textField;
+  TBTextField *_textField;
 }
 
 @property (nonatomic, strong, readonly) UIImageView *backgroundImageView;
 
 @property (nonatomic, strong, readonly) UIImageView *imageView;
 @property (nonatomic, strong, readonly) UILabel *label;
-@property (nonatomic, strong, readonly) UITextField *textField;
+@property (nonatomic, strong, readonly) TBTextField *textField;
 
 @end

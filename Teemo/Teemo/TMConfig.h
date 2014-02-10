@@ -11,7 +11,7 @@
 //#define TMXMPPServerDomain @"@gmail.com"
 //#define TMXMPPClientResource @"Teemo"
 
-#define TMXMPPServerHost @"192.168.1.96"
+#define TMXMPPServerHost @"192.168.1.77"
 #define TMXMPPServerPort @"5222"
 #define TMXMPPServerDomain @"@batoo.com"
 #define TMXMPPClientResource @"Teemo"

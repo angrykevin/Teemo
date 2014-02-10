@@ -10,24 +10,18 @@
 #define __TMHandlerBase__
 
 #include <iostream>
-#include <list>
-
-using namespace std;
-
-typedef list<void *> TMPointerList;
 
 
 class TMHandlerBase {
   
 public:
-  void addObserver(void *observer);
-  
-  void removeObserver(void *observer);
-  
-  void removeAllObservers();
+  TMHandlerBase();
+  void setEngine(void *engine);
+  void *getEngine();
   
 protected:
-  TMPointerList m_observers;
+  void *m_engine;
+  
 };
 
 #endif

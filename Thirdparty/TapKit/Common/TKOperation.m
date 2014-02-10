@@ -222,6 +222,14 @@
 
 #pragma mark - TKObserverProtocol
 
+- (NSArray *)observers
+{
+  if ( _observers == nil ) {
+    _observers = TKCreateWeakMutableArray();
+  }
+  return _observers;
+}
+
 - (id)addObserver:(id)observer
 {
   if ( _observers == nil ) {

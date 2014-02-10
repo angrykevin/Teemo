@@ -11,9 +11,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
   UIWindow *_window;
   UINavigationController *_root;
-  
-  TKURLConnectionOperation *_connection;
-  
 }
 
 @property (nonatomic, strong) UIWindow *window;
