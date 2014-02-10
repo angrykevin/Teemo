@@ -24,11 +24,10 @@ NSString *TMJIDFromPassport(NSString *pspt)
 
 
 
-void TMSetUpDatabase()
+void TMSetUpDatabase(TKDatabase *db)
 {
-  TKDatabase *database = [[TMEngine sharedEngine] database];
   
-  if ( ![database hasTableNamed:@"t_buddy"] ) {
+  if ( ![db hasTableNamed:@"t_buddy"] ) {
     NSString *sql =
     @"CREATE TABLE t_buddy( "
     @"pk INTEGER PRIMARY KEY, "
@@ -45,20 +44,20 @@ void TMSetUpDatabase()
     @"desc TEXT, "
     @"homepage TEXT"
     @");";
-    [database executeUpdate:sql];
+    [db executeUpdate:sql];
   }
   
-  if ( ![database hasTableNamed:@"t_session"] ) {
+  if ( ![db hasTableNamed:@"t_session"] ) {
     NSString *sql =
     @"CREATE TABLE t_session( "
     @"pk INTEGER PRIMARY KEY, "
     @"jid TEXT, "
     @"date TEXT "
     @");";
-    [database executeUpdate:sql];
+    [db executeUpdate:sql];
   }
   
-  if ( ![database hasTableNamed:@"t_message"] ) {
+  if ( ![db hasTableNamed:@"t_message"] ) {
     NSString *sql =
     @"CREATE TABLE t_message( "
     @"pk INTEGER PRIMARY KEY, "
@@ -67,17 +66,14 @@ void TMSetUpDatabase()
     @"date TEXT, "
     @"read INTEGER "
     @");";
-    [database executeUpdate:sql];
+    [db executeUpdate:sql];
   }
 }
 
-void TMClearDatabase()
+void TMClearDatabase(TKDatabase *db)
 {
-  TKDatabase *database = [[TMEngine sharedEngine] database];
-  
-  [database executeUpdate:@"DELETE FROM t_buddy;"];
-  [database executeUpdate:@"DELETE FROM t_session;"];
-  [database executeUpdate:@"DELETE FROM t_message;"];
-  
+  [db executeUpdate:@"DELETE FROM t_buddy;"];
+  [db executeUpdate:@"DELETE FROM t_session;"];
+  [db executeUpdate:@"DELETE FROM t_message;"];
 }
 
