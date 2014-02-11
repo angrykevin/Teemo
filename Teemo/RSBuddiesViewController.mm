@@ -23,20 +23,14 @@
 {
   self = [super init];
   if (self) {
-    
-//    TMEngine *engine = [TMEngine sharedEngine];
-//    [engine vcardHandler]->addObserver((__bridge void *)self);
-//    [engine rosterHandler]->addObserver((__bridge void *)self);
-    
+    [[TMEngine sharedEngine] addObserver:self];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  TMEngine *engine = [TMEngine sharedEngine];
-//  [engine vcardHandler]->removeObserver((__bridge void *)self);
-//  [engine rosterHandler]->removeObserver((__bridge void *)self);
+  [[TMEngine sharedEngine] removeObserver:self];
 }
 
 - (void)viewDidLoad
@@ -108,7 +102,11 @@
 
 - (void)reloadBuddies
 {
-  //_buddies = [[TMEngine sharedEngine] toBuddies];
+  NSMutableArray *toSubscriptions = [[NSMutableArray alloc] init];
+  [toSubscriptions addObject:[NSString stringWithFormat:@"%d", S10nTo]];
+  [toSubscriptions addObject:[NSString stringWithFormat:@"%d", S10nToIn]];
+  [toSubscriptions addObject:[NSString stringWithFormat:@"%d", S10nBoth]];
+  _buddies = [[TMEngine sharedEngine] buddiesForSubscriptions:toSubscriptions];
 }
 
 

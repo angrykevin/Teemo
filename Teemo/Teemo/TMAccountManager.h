@@ -19,7 +19,7 @@
 
 + (TMAccountManager *)shareObject;
 
-- (void)addAccountWithPassport:(NSString *)pspt pswd:(NSString *)pswd info:(id)info;
+- (void)addAccountWithPassport:(NSString *)pspt password:(NSString *)pswd info:(id)info;
 - (void)removeAccountByPassport:(NSString *)pspt;
 - (TMAccountItem *)accountForPassport:(NSString *)pspt;
 - (BOOL)hasAccount;

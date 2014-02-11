@@ -137,7 +137,10 @@ static TMEngine *CurrentEngine = nil;
 
 - (RosterManager *)rosterManager
 {
-  return _client->rosterManager();
+  if ( _client ) {
+    return _client->rosterManager();
+  }
+  return NULL;
 }
 
 

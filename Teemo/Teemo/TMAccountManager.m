@@ -36,7 +36,7 @@
 }
 
 
-- (void)addAccountWithPassport:(NSString *)pspt pswd:(NSString *)pswd info:(id)info
+- (void)addAccountWithPassport:(NSString *)pspt password:(NSString *)pswd info:(id)info
 {
   if ( [pspt length] <= 0 ) {
     return;

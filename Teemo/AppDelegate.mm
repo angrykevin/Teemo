@@ -104,7 +104,7 @@
   TKPRINTMETHOD();
   
   TMAccountManager *am = [TMAccountManager shareObject];
-  [am addAccountWithPassport:[engine passport] pswd:[engine password] info:nil];
+  [am addAccountWithPassport:[engine passport] password:[engine password] info:nil];
   [am synchronize];
   
   
