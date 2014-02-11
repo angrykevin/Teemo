@@ -14,8 +14,7 @@
 		BC403C391835B82B00B50317 /* RSChatViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C381835B82B00B50317 /* RSChatViewController.mm */; };
 		BC403C3C1835B87A00B50317 /* RSProfileViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC403C3B1835B87A00B50317 /* RSProfileViewController.mm */; };
 		BC403C421835C8ED00B50317 /* RSProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C411835C8ED00B50317 /* RSProfileCell.m */; };
-		BC403C451835D98100B50317 /* RSProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C441835D98100B50317 /* RSProfileHeaderView.m */; };
-		BC403C481835E80800B50317 /* RSProfileFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C471835E80800B50317 /* RSProfileFooterView.m */; };
+		BC403C451835D98100B50317 /* RSProfileAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C441835D98100B50317 /* RSProfileAccessoryView.m */; };
 		BC403C4C1835EB0B00B50317 /* TBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC403C4B1835EB0B00B50317 /* TBAlertView.m */; };
 		BC46D3B2183EF52F00EADAA9 /* UITableViewExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC46D3B1183EF52F00EADAA9 /* UITableViewExtentions.m */; };
 		BC4D139D1830E77300572F67 /* TMConnectionHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */; };
@@ -252,10 +251,8 @@
 		BC403C3B1835B87A00B50317 /* RSProfileViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RSProfileViewController.mm; sourceTree = "<group>"; };
 		BC403C401835C8ED00B50317 /* RSProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProfileCell.h; sourceTree = "<group>"; };
 		BC403C411835C8ED00B50317 /* RSProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSProfileCell.m; sourceTree = "<group>"; };
-		BC403C431835D98100B50317 /* RSProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProfileHeaderView.h; sourceTree = "<group>"; };
-		BC403C441835D98100B50317 /* RSProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSProfileHeaderView.m; sourceTree = "<group>"; };
-		BC403C461835E80800B50317 /* RSProfileFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProfileFooterView.h; sourceTree = "<group>"; };
-		BC403C471835E80800B50317 /* RSProfileFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSProfileFooterView.m; sourceTree = "<group>"; };
+		BC403C431835D98100B50317 /* RSProfileAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSProfileAccessoryView.h; sourceTree = "<group>"; };
+		BC403C441835D98100B50317 /* RSProfileAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSProfileAccessoryView.m; sourceTree = "<group>"; };
 		BC403C4A1835EB0B00B50317 /* TBAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBAlertView.h; sourceTree = "<group>"; };
 		BC403C4B1835EB0B00B50317 /* TBAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBAlertView.m; sourceTree = "<group>"; };
 		BC46D3B0183EF52F00EADAA9 /* UITableViewExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewExtentions.h; sourceTree = "<group>"; };
@@ -1506,10 +1503,8 @@
 				BC403C381835B82B00B50317 /* RSChatViewController.mm */,
 				BC403C3A1835B87A00B50317 /* RSProfileViewController.h */,
 				BC403C3B1835B87A00B50317 /* RSProfileViewController.mm */,
-				BC403C431835D98100B50317 /* RSProfileHeaderView.h */,
-				BC403C441835D98100B50317 /* RSProfileHeaderView.m */,
-				BC403C461835E80800B50317 /* RSProfileFooterView.h */,
-				BC403C471835E80800B50317 /* RSProfileFooterView.m */,
+				BC403C431835D98100B50317 /* RSProfileAccessoryView.h */,
+				BC403C441835D98100B50317 /* RSProfileAccessoryView.m */,
 				BC403C401835C8ED00B50317 /* RSProfileCell.h */,
 				BC403C411835C8ED00B50317 /* RSProfileCell.m */,
 			);
@@ -1802,7 +1797,6 @@
 				BC840618182CC2F00058EBDC /* dataformfieldcontainer.cpp in Sources */,
 				BCB44E1B1834E02A007D074E /* SDWebImageDownloader.m in Sources */,
 				BC840664182CC2F00058EBDC /* uniquemucroom.cpp in Sources */,
-				BC403C481835E80800B50317 /* RSProfileFooterView.m in Sources */,
 				BC840621182CC2F00058EBDC /* flexoff.cpp in Sources */,
 				BC840649182CC2F00058EBDC /* pubsubmanager.cpp in Sources */,
 				BC84067E182CC2F00058EBDC /* TKDatabase.m in Sources */,
@@ -1844,7 +1838,7 @@
 				BC840635182CC2F00058EBDC /* message.cpp in Sources */,
 				BC675CC918308252003E1516 /* TMHandlerBase.mm in Sources */,
 				BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */,
-				BC403C451835D98100B50317 /* RSProfileHeaderView.m in Sources */,
+				BC403C451835D98100B50317 /* RSProfileAccessoryView.m in Sources */,
 				BC84061D182CC2F00058EBDC /* dns.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

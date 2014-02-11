@@ -10,8 +10,7 @@
 #import "RSCommon.h"
 #import "Teemo.h"
 
-#import "RSProfileHeaderView.h"
-#import "RSProfileFooterView.h"
+#import "RSProfileAccessoryView.h"
 #import "RSProfileCell.h"
 
 @implementation RSProfileViewController

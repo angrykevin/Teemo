@@ -1,5 +1,5 @@
 //
-//  RSProfileHeaderView.h
+//  RSProfileAccessoryView.h
 //  Teemo
 //
 //  Created by Wu Kevin on 11/15/13.
@@ -17,5 +17,14 @@
 @property (nonatomic, strong, readonly) UILabel *jidLabel;
 
 - (void)loadPhoto:(NSString *)photo;
+
+@end
+
+
+@interface RSProfileFooterView : UIView {
+  UIButton *_deleteButton;
+}
+
+@property (nonatomic, strong, readonly) UIButton *deleteButton;
 
 @end

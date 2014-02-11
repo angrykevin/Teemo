@@ -20,6 +20,8 @@
   NSUInteger _appearedTimes;
 }
 
+@property (nonatomic, strong, readonly) NSArray *viewControllers;
+
 - (void)layoutViews;
 
 - (void)setUpWithItems:(NSArray *)items viewControllers:(NSArray *)viewControllers;
