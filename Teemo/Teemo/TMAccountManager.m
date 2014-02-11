@@ -83,6 +83,11 @@
   return [_accountList firstObjectForKeyPath:@"passport" equalToValue:pspt];
 }
 
+- (BOOL)hasAccount
+{
+  return ( [_accountList count] > 0 );
+}
+
 - (void)synchronize
 {
   NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_accountList];
@@ -117,6 +122,11 @@
   [encoder encodeObject:_passport forKey:@"kPassport"];
   [encoder encodeObject:_password forKey:@"kPassword"];
   [encoder encodeObject:_info forKey:@"kInfo"];
+}
+
+- (BOOL)isComplete
+{
+  return (([_passport length] > 0) && ([_password length] > 0));
 }
 
 @end

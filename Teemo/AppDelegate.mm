@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "RSSigninViewController.h"
 #import "RSMainViewController.h"
-#import "RSCommon.h"
 
 #import "Teemo.h"
 
@@ -25,9 +24,14 @@
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
   
   
-  if ( RSHasAccount() ) {
+  TMSetUpTeemo();
+  TMAccountManager *am = [TMAccountManager shareObject];
+  
+  if ( [[am.accountList firstObject] isComplete] ) {
     
-    [self signinWithPassport:RSAccountPassport() password:RSAccountPassword()];
+    TMAccountItem *item = [am.accountList firstObject];
+    
+    [self signinWithPassport:item.passport password:item.password];
     
     RSMainViewController *vc = [[RSMainViewController alloc] init];
     _root = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -42,8 +46,6 @@
     _window.rootViewController = _root;
     
   }
-  
-  TMSetUpTeemo();
   
   
   _window.backgroundColor = [UIColor whiteColor];
@@ -63,8 +65,12 @@
   engine = [[TMEngine alloc] init];
   [TMEngine storeEngine:engine];
   
+  
+  TMAccountManager *am = [TMAccountManager shareObject];
+  TMAccountItem *item = [am.accountList firstObject];
+  
   TMSetUpDatabase( [engine database] );
-  if ( ![pspt isEqualToString:RSAccountPassport()] ) {
+  if ( ![pspt isEqualToString:item.passport] ) {
     TMClearDatabase( [engine database] );
   }
   
@@ -75,9 +81,10 @@
 
 - (void)signout
 {
-  
-  RSSaveAccountPassport(nil);
-  RSSaveAccountPassword(nil);
+  TMAccountManager *am = [TMAccountManager shareObject];
+  TMAccountItem *item = [am.accountList firstObject];
+  item.password = nil;
+  [am synchronize];
   
   TMEngine *engine = [TMEngine sharedEngine];
   [engine removeAllObservers];
@@ -98,8 +105,9 @@
 {
   TKPRINTMETHOD();
   
-  RSSaveAccountPassport( [engine passport] );
-  RSSaveAccountPassword( [engine password] );
+  TMAccountManager *am = [TMAccountManager shareObject];
+  [am addAccountWithPassport:[engine passport] pswd:[engine password] info:nil];
+  [am synchronize];
   
   
   if ( !TKIsInstance([_root.viewControllers firstObject], [RSMainViewController class]) ) {

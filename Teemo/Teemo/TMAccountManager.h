@@ -22,6 +22,7 @@
 - (void)addAccountWithPassport:(NSString *)pspt pswd:(NSString *)pswd info:(id)info;
 - (void)removeAccountByPassport:(NSString *)pspt;
 - (TMAccountItem *)accountForPassport:(NSString *)pspt;
+- (BOOL)hasAccount;
 - (void)synchronize;
 
 @end
@@ -36,5 +37,7 @@
 @property (nonatomic, copy) NSString *passport;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, strong) id info;
+
+- (BOOL)isComplete;
 
 @end
