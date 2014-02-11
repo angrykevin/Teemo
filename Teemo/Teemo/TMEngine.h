@@ -11,6 +11,8 @@
 #include <gloox/client.h>
 #include <gloox/rostermanager.h>
 
+#import "TMAccountContext.h"
+
 #include "TMConnectionHandler.h"
 #include "TMRosterHandler.h"
 
@@ -24,8 +26,8 @@ using namespace std;
   
   NSString *_passport;
   NSString *_password;
-  
-  TKDatabase *_database;
+  TMAccountContext *_context;
+  //TKDatabase *_database;
   
   Client *_client;
   //RosterManager *_rosterManager;
@@ -44,7 +46,7 @@ using namespace std;
 + (void)clearStoredEngine;
 
 
-- (void)setUpWithPassport:(NSString *)passport password:(NSString *)password;
+- (void)setupWithPassport:(NSString *)passport password:(NSString *)password;
 - (BOOL)connect;
 - (void)disconnect;
 
@@ -54,7 +56,7 @@ using namespace std;
 
 - (NSString *)passport;
 - (NSString *)password;
-
+- (TMAccountContext *)context;
 - (TKDatabase *)database;
 
 - (Client *)client;

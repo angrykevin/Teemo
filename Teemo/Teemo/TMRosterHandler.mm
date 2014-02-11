@@ -247,7 +247,6 @@ void TMRosterHandler::handleSelfPresence( const RosterItem& item, const std::str
   TKPRINTMETHOD();
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  
   NSArray *observers = [engine observers];
   if ( [observers count] > 0 ) {
     dispatch_sync(dispatch_get_main_queue(), ^{
@@ -268,7 +267,6 @@ void TMRosterHandler::handleSelfPresence( const RosterItem& item, const std::str
 void TMRosterHandler::handleNonrosterPresence( const Presence& presence )
 {
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  
   NSArray *observers = [engine observers];
   if ( [observers count] > 0 ) {
     dispatch_sync(dispatch_get_main_queue(), ^{
@@ -286,7 +284,6 @@ bool TMRosterHandler::handleSubscriptionRequest( const JID& jid, const std::stri
   TKPRINTMETHOD();
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  
   NSArray *observers = [engine observers];
   if ( [observers count] > 0 ) {
     dispatch_sync(dispatch_get_main_queue(), ^{
@@ -308,7 +305,6 @@ bool TMRosterHandler::handleUnsubscriptionRequest( const JID& jid, const std::st
   TKPRINTMETHOD();
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  
   NSArray *observers = [engine observers];
   if ( [observers count] > 0 ) {
     dispatch_sync(dispatch_get_main_queue(), ^{
@@ -328,7 +324,6 @@ handleUnsubscriptionRequest:jid
 void TMRosterHandler::handleRosterError( const IQ& iq )
 {
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  
   NSArray *observers = [engine observers];
   if ( [observers count] > 0 ) {
     dispatch_sync(dispatch_get_main_queue(), ^{

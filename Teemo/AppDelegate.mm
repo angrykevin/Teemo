@@ -23,8 +23,8 @@
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
   
+  TMInitiateTeemo();
   
-  TMSetUpTeemo();
   TMAccountManager *am = [TMAccountManager shareObject];
   
   if ( [[am.accountList firstObject] isComplete] ) {
@@ -66,14 +66,7 @@
   engine = [[TMEngine alloc] init];
   [TMEngine storeEngine:engine];
   
-  [engine setUpWithPassport:pspt password:pswd];
-  
-  TMAccountItem *item = [[[TMAccountManager shareObject] accountList] firstObject];
-  TMSetUpDatabase( [engine database] );
-  if ( ![pspt isEqualToString:item.passport] ) {
-    TMClearDatabase( [engine database] );
-  }
-  
+  [engine setupWithPassport:pspt password:pswd];
   [engine addObserver:self];
   [engine connect];
 }

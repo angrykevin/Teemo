@@ -22,7 +22,7 @@ NSString *TMJIDFromPassport(NSString *pspt)
 }
 
 
-void TMSetUpTeemo()
+void TMInitiateTeemo()
 {
   // Root directory
   NSString *teemoRoot = TKPathForDocumentsResource(@"Teemo");
@@ -35,12 +35,43 @@ void TMSetUpTeemo()
   
 }
 
-TKDatabase *TMCreateDatabase()
+
+
+void TMSetupContextForAccount(NSString *pspt)
 {
+  // Account root directory
+  NSString *accountRoot = TKPathForDocumentsResource(pspt);
+  if ( ![[NSFileManager defaultManager] fileExistsAtPath:accountRoot isDirectory:NULL] ) {
+    [[NSFileManager defaultManager] createDirectoryAtPath:accountRoot
+                              withIntermediateDirectories:YES
+                                               attributes:nil
+                                                    error:NULL];
+  }
+}
+
+void TMDeleteContextByAccount(NSString *pspt)
+{
+}
+
+TKDatabase *TMCreateDatabaseForAccount(NSString *pspt)
+{
+  return nil;
+}
+
+
+TKDatabase *TMCreateDatabase(NSString *name)
+{
+  NSString *relativePath = [NSString stringWithFormat:@"Teemo/%@.db", name];
   TKDatabase *db = [[TKDatabase alloc] init];
-  db.path = TKPathForDocumentsResource(@"Teemo/imdb.db");
+  db.path = TKPathForDocumentsResource(relativePath);
   [db open];
   return db;
+}
+
+void TMDeleteDatabase(NSString *name)
+{
+  NSString *relativePath = [NSString stringWithFormat:@"Teemo/%@.db", name];
+  NSString *path = TKPathForDocumentsResource(relativePath);
 }
 
 void TMSetUpDatabase(TKDatabase *db)

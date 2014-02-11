@@ -24,7 +24,7 @@
 
 - (void)layoutViews;
 
-- (void)setUpWithItems:(NSArray *)items viewControllers:(NSArray *)viewControllers;
+- (void)setupWithItems:(NSArray *)items viewControllers:(NSArray *)viewControllers;
 
 @end
 

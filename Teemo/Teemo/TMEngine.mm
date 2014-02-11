@@ -34,15 +34,14 @@ static TMEngine *CurrentEngine = nil;
 
 
 
-- (void)setUpWithPassport:(NSString *)passport password:(NSString *)password
+- (void)setupWithPassport:(NSString *)passport password:(NSString *)password
 {
   NSAssert([passport length]>0, @"passport error");
   NSAssert([password length]>0, @"password error");
   
   _passport = [passport copy];
   _password = [password copy];
-  
-  _database = TMCreateDatabase();
+  _context = [[TMAccountContext alloc] initWithPassport:_passport];
   
   _cancelled = NO;
   
@@ -103,7 +102,7 @@ static TMEngine *CurrentEngine = nil;
     
     NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_buddy WHERE subscription IN (%@);", subscriptionString];
     
-    return [_database executeQuery:sql];
+    return [[self database] executeQuery:sql];
     
   }
   return nil;
@@ -112,6 +111,11 @@ static TMEngine *CurrentEngine = nil;
 
 
 #pragma mark - Accessors
+
+- (TMAccountContext *)context
+{
+  return _context;
+}
 
 - (NSString *)passport
 {
@@ -123,10 +127,9 @@ static TMEngine *CurrentEngine = nil;
   return _password;
 }
 
-
 - (TKDatabase *)database
 {
-  return _database;
+  return _context.database;
 }
 
 

@@ -62,7 +62,7 @@
   
   
   
-  [self setUpWithItems:@[ it1, it2, it3 ] viewControllers:@[ vc1, vc2, vc3 ]];
+  [self setupWithItems:@[ it1, it2, it3 ] viewControllers:@[ vc1, vc2, vc3 ]];
   
 }
 

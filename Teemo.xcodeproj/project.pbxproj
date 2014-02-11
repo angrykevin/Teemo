@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC0DFC1518AA26C2006B86CD /* TMAccountContext.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0DFC1418AA26C2006B86CD /* TMAccountContext.m */; };
 		BC20B262184C75E90087CF9C /* UIButtonExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC20B261184C75E90087CF9C /* UIButtonExtentions.m */; };
 		BC35D8C2187196AF00300C86 /* RSRoutines.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC35D8C1187196AF00300C86 /* RSRoutines.mm */; };
 		BC35D8C51871A21700300C86 /* default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BC35D8C31871A21700300C86 /* default_avatar.png */; };
@@ -239,6 +240,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC0DFC1318AA26C2006B86CD /* TMAccountContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAccountContext.h; sourceTree = "<group>"; };
+		BC0DFC1418AA26C2006B86CD /* TMAccountContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAccountContext.m; sourceTree = "<group>"; };
 		BC20B260184C75E90087CF9C /* UIButtonExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonExtentions.h; sourceTree = "<group>"; };
 		BC20B261184C75E90087CF9C /* UIButtonExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonExtentions.m; sourceTree = "<group>"; };
 		BC35D8C0187196AF00300C86 /* RSRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRoutines.h; sourceTree = "<group>"; };
@@ -886,6 +889,8 @@
 				BC5EE2E0182A1FAC007D5DE6 /* TMCommon.mm */,
 				BCA67F6818A8DE2C00D7E459 /* TMAccountManager.h */,
 				BCA67F6918A8DE2C00D7E459 /* TMAccountManager.m */,
+				BC0DFC1318AA26C2006B86CD /* TMAccountContext.h */,
+				BC0DFC1418AA26C2006B86CD /* TMAccountContext.m */,
 				BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */,
 				BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */,
 				BCA23D221831C3EF00E93718 /* Handlers */,
@@ -1665,6 +1670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC0DFC1518AA26C2006B86CD /* TMAccountContext.m in Sources */,
 				BCB44E1A1834E02A007D074E /* SDWebImageDecoder.m in Sources */,
 				BC840611182CC2F00058EBDC /* connectiontcpbase.cpp in Sources */,
 				BC84062F182CC2F00058EBDC /* jinglesessionmanager.cpp in Sources */,

@@ -20,11 +20,11 @@ extern "C" {
 
 NSString *TMJIDFromPassport(NSString *pspt);
 
-void TMSetUpTeemo();
+void TMInitiateTeemo();
 
-TKDatabase *TMCreateDatabase();
-void TMSetUpDatabase(TKDatabase *db);
-void TMClearDatabase(TKDatabase *db);
+void TMSetupContextForAccount(NSString *pspt);
+void TMDeleteContextByAccount(NSString *pspt);
+TKDatabase *TMCreateDatabaseForAccount(NSString *pspt);
 
 
 #ifdef __cplusplus

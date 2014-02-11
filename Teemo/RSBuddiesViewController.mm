@@ -109,6 +109,15 @@
   _buddies = [[TMEngine sharedEngine] buddiesForSubscriptions:toSubscriptions];
 }
 
+- (void)refreshTableView
+{
+  if ( _viewAppeared ) {
+    [self reloadBuddies];
+    [_tableView reloadData];
+    [self addFooterIfNeeded];
+  }
+}
+
 
 
 - (void)photoButtonClicked:(id)sender
@@ -213,114 +222,68 @@
 
 
 
-//- (void)vcardOnReceived:(const JID &)jid vcard:(const VCard *)vcard
-//{
-//  TKPRINTMETHOD();
-//  if ( _viewAppeared ) {
-//    [self reloadBuddies];
-//    [_tableView reloadData];
-//    [self addFooterIfNeeded];
-//  }
-//}
 
-//- (void)vcardOnResult:(const JID &)jid context:(VCardHandler::VCardContext)context error:(StanzaError)se
-//{
-//  TKPRINTMETHOD();
-//}
-
-
-
-- (void)rosterOnItemAdded:(const JID &)jid
+- (void)engine:(TMEngine *)engine handleItemAdded:(const JID &)jid
 {
-  TKPRINTMETHOD();
-  if ( _viewAppeared ) {
-    [self reloadBuddies];
-    [_tableView reloadData];
-    [self addFooterIfNeeded];
-  }
+  [self refreshTableView];
 }
 
-- (void)rosterOnItemSubscribed:(const JID &)jid
+- (void)engine:(TMEngine *)engine handleItemRemoved:(const JID &)jid
 {
-  TKPRINTMETHOD();
+  [self refreshTableView];
 }
 
-- (void)rosterOnItemRemoved:(const JID &)jid
+- (void)engine:(TMEngine *)engine handleItemUpdated:(const JID &)jid
 {
-  TKPRINTMETHOD();
-  if ( _viewAppeared ) {
-    [self reloadBuddies];
-    [_tableView reloadData];
-    [self addFooterIfNeeded];
-  }
+  [self refreshTableView];
 }
 
-- (void)rosterOnItemUpdated:(const JID &)jid
+- (void)engine:(TMEngine *)engine handleItemSubscribed:(const JID &)jid
 {
-  TKPRINTMETHOD();
-  if ( _viewAppeared ) {
-    [self reloadBuddies];
-    [_tableView reloadData];
-    [self addFooterIfNeeded];
-  }
 }
 
-- (void)rosterOnItemUnsubscribed:(const JID &)jid
+- (void)engine:(TMEngine *)engine handleItemUnsubscribed:(const JID &)jid
 {
-  TKPRINTMETHOD();
 }
 
-//- (void)rosterOnReceived:(const Roster &)roster
-//{
-//  TKPRINTMETHOD();
-//  if ( _viewAppeared ) {
-//    [self reloadBuddies];
-//    [_tableView reloadData];
-//    [self addFooterIfNeeded];
-//  }
-//}
-//
-//- (void)rosterOnPresence:(const RosterItem &)item
-//                resource:(const std::string &)resource
-//                presence:(Presence::PresenceType)presence
-//                     msg:(const std::string &)msg
-//{
-//  TKPRINTMETHOD();
-//  if ( _viewAppeared ) {
-//    [self reloadBuddies];
-//    [_tableView reloadData];
-//    [self addFooterIfNeeded];
-//  }
-//}
-//
-//- (void)rosterOnSelfPresence:(const RosterItem &)item
-//                    resource:(const std::string &)resource
-//                    presence:(Presence::PresenceType)presence
-//                         msg:(const std::string &)msg
-//{
-//  TKPRINTMETHOD();
-//}
-
-- (bool)rosterOnSubscriptionRequest:(const JID &)jid msg:(const std::string &)msg
+- (void)engine:(TMEngine *)engine handleRoster:(const Roster &)roster
 {
-  TKPRINTMETHOD();
+  [self refreshTableView];
+}
+
+- (void)engine:(TMEngine *)engine
+handleRosterPresence:(const RosterItem &)item
+      resource:(const std::string &)resource
+      presence:(Presence::PresenceType)presence
+           msg:(const std::string &)msg
+{
+  [self refreshTableView];
+}
+
+- (void)engine:(TMEngine *)engine
+handleSelfPresence:(const RosterItem &)item
+      resource:(const std::string &)resource
+      presence:(Presence::PresenceType)presence
+           msg:(const std::string &)msg
+{
+}
+
+- (void)engine:(TMEngine *)engine handleNonrosterPresence:(const Presence &)presence
+{
+}
+
+- (bool)engine:(TMEngine *)engine handleSubscriptionRequest:(const JID &)jid msg:(const std::string &)msg
+{
   return true;
 }
 
-- (bool)rosterOnUnsubscriptionRequest:(const JID &)jid msg:(const std::string &)msg
+- (bool)engine:(TMEngine *)engine handleUnsubscriptionRequest:(const JID &)jid msg:(const std::string &)msg
 {
-  TKPRINTMETHOD();
   return true;
 }
 
-- (void)rosterOnNonrosterPresence:(const Presence &)presence
+- (void)engine:(TMEngine *)engine handleRosterError:(const IQ &)iq
 {
-  TKPRINTMETHOD();
-}
-
-- (void)rosterOnError:(const IQ &)iq
-{
-  TKPRINTMETHOD();
 }
 
 @end
