@@ -65,16 +65,14 @@
   engine = [[TMEngine alloc] init];
   [TMEngine storeEngine:engine];
   
+  [engine setUpWithPassport:pspt password:pswd];
   
-  TMAccountManager *am = [TMAccountManager shareObject];
-  TMAccountItem *item = [am.accountList firstObject];
-  
+  TMAccountItem *item = [[[TMAccountManager shareObject] accountList] firstObject];
   TMSetUpDatabase( [engine database] );
   if ( ![pspt isEqualToString:item.passport] ) {
     TMClearDatabase( [engine database] );
   }
   
-  [engine setUpWithPassport:pspt password:pswd];
   [engine addObserver:self];
   [engine connect];
 }

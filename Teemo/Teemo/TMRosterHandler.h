@@ -33,13 +33,6 @@ public:
   virtual void handleItemAdded( const JID& jid );
   
   /**
-   * Reimplement this function if you want to be notified about items
-   * which authorised subscription.
-   * @param jid The authorising item's full address.
-   */
-  virtual void handleItemSubscribed( const JID& jid );
-  
-  /**
    * Reimplement this function if you want to be notified about items that
    * were removed from the server-side roster (items subject to a so-called Roster Push).
    * This function will be called regardless who deleted the item, either this resource or
@@ -59,6 +52,13 @@ public:
    * @param jid The modified item's full address.
    */
   virtual void handleItemUpdated( const JID& jid );
+  
+  /**
+   * Reimplement this function if you want to be notified about items
+   * which authorised subscription.
+   * @param jid The authorising item's full address.
+   */
+  virtual void handleItemSubscribed( const JID& jid );
   
   /**
    * Reimplement this function if you want to be notified about items which
@@ -105,6 +105,13 @@ public:
                                   Presence::PresenceType presence, const std::string& msg );
   
   /**
+   * This function is called whenever presence from an entity is received which is not in
+   * the roster.
+   * @param presence The full presence stanza.
+   */
+  virtual void handleNonrosterPresence( const Presence& presence );
+  
+  /**
    * This function is called when an entity wishes to subscribe to this entity's presence.
    * If the handler is registered as a asynchronous handler for subscription requests,
    * the return value of this function is ignored. In this case you should use
@@ -127,13 +134,6 @@ public:
    * @return Return @b true to unsubscribe from the remote entity, @b false to ignore.
    */
   virtual bool handleUnsubscriptionRequest( const JID& jid, const std::string& msg );
-  
-  /**
-   * This function is called whenever presence from an entity is received which is not in
-   * the roster.
-   * @param presence The full presence stanza.
-   */
-  virtual void handleNonrosterPresence( const Presence& presence );
   
   /**
    * This function is called if the server returned an error.

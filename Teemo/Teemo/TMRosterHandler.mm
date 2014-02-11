@@ -57,24 +57,6 @@ void TMRosterHandler::handleItemAdded( const JID& jid )
   
 }
 
-void TMRosterHandler::handleItemSubscribed( const JID& jid )
-{
-  TKPRINTMETHOD();
-  
-  TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleItemSubscribed:)] ) {
-          [observer engine:engine handleItemSubscribed:jid];
-        }
-      }
-    });
-  }
-  
-}
-
 void TMRosterHandler::handleItemRemoved( const JID& jid )
 {
   TKPRINTMETHOD();
@@ -135,6 +117,24 @@ void TMRosterHandler::handleItemUpdated( const JID& jid )
       for ( id<TMEngineDelegate> observer in observers ) {
         if ( [observer respondsToSelector:@selector(engine:handleItemUpdated:)] ) {
           [observer engine:engine handleItemUpdated:jid];
+        }
+      }
+    });
+  }
+  
+}
+
+void TMRosterHandler::handleItemSubscribed( const JID& jid )
+{
+  TKPRINTMETHOD();
+  
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  NSArray *observers = [engine observers];
+  if ( [observers count] > 0 ) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      for ( id<TMEngineDelegate> observer in observers ) {
+        if ( [observer respondsToSelector:@selector(engine:handleItemSubscribed:)] ) {
+          [observer engine:engine handleItemSubscribed:jid];
         }
       }
     });
@@ -265,6 +265,22 @@ void TMRosterHandler::handleSelfPresence( const RosterItem& item, const std::str
   
 }
 
+void TMRosterHandler::handleNonrosterPresence( const Presence& presence )
+{
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  
+  NSArray *observers = [engine observers];
+  if ( [observers count] > 0 ) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      for ( id<TMEngineDelegate> observer in observers ) {
+        if ( [observer respondsToSelector:@selector(engine:handleNonrosterPresence:)] ) {
+          [observer engine:engine handleNonrosterPresence:presence];
+        }
+      }
+    });
+  }
+}
+
 bool TMRosterHandler::handleSubscriptionRequest( const JID& jid, const std::string& msg )
 {
   TKPRINTMETHOD();
@@ -307,22 +323,6 @@ handleUnsubscriptionRequest:jid
   }
   
   return true;
-}
-
-void TMRosterHandler::handleNonrosterPresence( const Presence& presence )
-{
-  TMEngine *engine = (__bridge TMEngine *)getEngine();
-  
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleNonrosterPresence:)] ) {
-          [observer engine:engine handleNonrosterPresence:presence];
-        }
-      }
-    });
-  }
 }
 
 void TMRosterHandler::handleRosterError( const IQ& iq )
