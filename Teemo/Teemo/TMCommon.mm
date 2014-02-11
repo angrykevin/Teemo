@@ -35,6 +35,14 @@ void TMSetUpTeemo()
   
 }
 
+TKDatabase *TMCreateDatabase()
+{
+  TKDatabase *db = [[TKDatabase alloc] init];
+  db.path = TKPathForDocumentsResource(@"Teemo/imdb.db");
+  [db open];
+  return db;
+}
+
 void TMSetUpDatabase(TKDatabase *db)
 {
   

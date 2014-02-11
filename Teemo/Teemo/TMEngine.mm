@@ -42,6 +42,8 @@ static TMEngine *CurrentEngine = nil;
   _passport = [passport copy];
   _password = [password copy];
   
+  _database = TMCreateDatabase();
+  
   _cancelled = NO;
   
   string jid = CPPSTR(TMJIDFromPassport(passport));
@@ -120,11 +122,6 @@ static TMEngine *CurrentEngine = nil;
 
 - (TKDatabase *)database
 {
-  if ( _database == nil ) {
-    _database = [[TKDatabase alloc] init];
-    _database.path = TKPathForDocumentsResource(@"Teemo/imdb.db");
-    [_database open];
-  }
   return _database;
 }
 

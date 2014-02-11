@@ -22,6 +22,7 @@ NSString *TMJIDFromPassport(NSString *pspt);
 
 void TMSetUpTeemo();
 
+TKDatabase *TMCreateDatabase();
 void TMSetUpDatabase(TKDatabase *db);
 void TMClearDatabase(TKDatabase *db);
 

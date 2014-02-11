@@ -126,7 +126,7 @@
 
 - (BOOL)isComplete
 {
-  return (([_passport length] > 0) && ([_password length] > 0));
+  return ( ([_passport length]>0) && ([_password length]>0) );
 }
 
 @end
