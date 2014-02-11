@@ -8,14 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+@class TMAccountItem;
+
+
 @interface TMAccountManager : NSObject {
-  NSMutableArray *_accountList;
+  NSArray *_accountList;
 }
 
-@property (nonatomic, strong, readonly) NSMutableArray *accountList;
+@property (nonatomic, strong, readonly) NSArray *accountList;
 
 + (TMAccountManager *)shareObject;
 
+- (void)addAccountWithPassport:(NSString *)pspt pswd:(NSString *)pswd info:(id)info;
+- (void)removeAccountByPassport:(NSString *)pspt;
+- (TMAccountItem *)accountForPassport:(NSString *)pspt;
+- (void)synchronize;
 
 @end
 

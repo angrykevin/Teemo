@@ -8,6 +8,7 @@
 
 #import "TMConfig.h"
 #import "TMCommon.h"
+#import "TMAccountManager.h"
 
 #import "TMEngine.h"
 

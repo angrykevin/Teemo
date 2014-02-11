@@ -22,6 +22,18 @@ NSString *TMJIDFromPassport(NSString *pspt)
 }
 
 
+void TMSetUpTeemo()
+{
+  // Root directory
+  NSString *teemoRoot = TKPathForDocumentsResource(@"Teemo");
+  if ( ![[NSFileManager defaultManager] fileExistsAtPath:teemoRoot isDirectory:NULL] ) {
+    [[NSFileManager defaultManager] createDirectoryAtPath:teemoRoot
+                              withIntermediateDirectories:YES
+                                               attributes:nil
+                                                    error:NULL];
+  }
+  
+}
 
 void TMSetUpDatabase(TKDatabase *db)
 {

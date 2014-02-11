@@ -20,6 +20,8 @@ extern "C" {
 
 NSString *TMJIDFromPassport(NSString *pspt);
 
+void TMSetUpTeemo();
+
 void TMSetUpDatabase(TKDatabase *db);
 void TMClearDatabase(TKDatabase *db);
 

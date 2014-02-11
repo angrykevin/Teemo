@@ -43,6 +43,9 @@
     
   }
   
+  TMSetUpTeemo();
+  
+  
   _window.backgroundColor = [UIColor whiteColor];
   [_window makeKeyAndVisible];
   return YES;
