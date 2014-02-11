@@ -233,6 +233,7 @@
 		BCB44E1F1834E02A007D074E /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E141834E02A007D074E /* UIButton+WebCache.m */; };
 		BCB44E201834E02A007D074E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E161834E02A007D074E /* UIImageView+WebCache.m */; };
 		BCB653DD185C416200556C10 /* UIImageExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB653DC185C416200556C10 /* UIImageExtentions.m */; };
+		BCBA5CEE18A9D87C00F50A41 /* TMRosterHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCBA5CED18A9D87C00F50A41 /* TMRosterHandler.mm */; };
 		BCC877DC18629DDA002FE75F /* TBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC877DB18629DDA002FE75F /* TBLocationManager.m */; };
 		BCC877DF1862C3C4002FE75F /* TBReverseGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC877DE1862C3C4002FE75F /* TBReverseGeocoder.m */; };
 		BCC877E31862D1FA002FE75F /* TBCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC877E21862D1FA002FE75F /* TBCommon.m */; };
@@ -787,6 +788,8 @@
 		BCB44E161834E02A007D074E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		BCB653DB185C416200556C10 /* UIImageExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtentions.h; sourceTree = "<group>"; };
 		BCB653DC185C416200556C10 /* UIImageExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtentions.m; sourceTree = "<group>"; };
+		BCBA5CEC18A9D87C00F50A41 /* TMRosterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMRosterHandler.h; sourceTree = "<group>"; };
+		BCBA5CED18A9D87C00F50A41 /* TMRosterHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRosterHandler.mm; sourceTree = "<group>"; };
 		BCC877DA18629DDA002FE75F /* TBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLocationManager.h; sourceTree = "<group>"; };
 		BCC877DB18629DDA002FE75F /* TBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLocationManager.m; sourceTree = "<group>"; };
 		BCC877DD1862C3C4002FE75F /* TBReverseGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBReverseGeocoder.h; sourceTree = "<group>"; };
@@ -888,9 +891,7 @@
 				BCA67F6918A8DE2C00D7E459 /* TMAccountManager.m */,
 				BC5EE2E5182A1FAC007D5DE6 /* TMEngine.h */,
 				BC5EE2E6182A1FAC007D5DE6 /* TMEngine.mm */,
-				BC675C8218306E22003E1516 /* TMHandlerBase.h */,
-				BC675CC818308252003E1516 /* TMHandlerBase.mm */,
-				BCA23D221831C3EF00E93718 /* ConnectionHandler */,
+				BCA23D221831C3EF00E93718 /* Handlers */,
 			);
 			path = Teemo;
 			sourceTree = "<group>";
@@ -1479,13 +1480,17 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		BCA23D221831C3EF00E93718 /* ConnectionHandler */ = {
+		BCA23D221831C3EF00E93718 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				BC675C8218306E22003E1516 /* TMHandlerBase.h */,
+				BC675CC818308252003E1516 /* TMHandlerBase.mm */,
 				BC4D139B1830E77300572F67 /* TMConnectionHandler.h */,
 				BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */,
+				BCBA5CEC18A9D87C00F50A41 /* TMRosterHandler.h */,
+				BCBA5CED18A9D87C00F50A41 /* TMRosterHandler.mm */,
 			);
-			name = ConnectionHandler;
+			name = Handlers;
 			sourceTree = "<group>";
 		};
 		BCA23D5D1832293700E93718 /* Buddies */ = {
@@ -1769,6 +1774,7 @@
 				BC840637182CC2F00058EBDC /* messageeventfilter.cpp in Sources */,
 				BC84066D182CC2F00058EBDC /* NSDataAdditions.m in Sources */,
 				BC840662182CC2F00058EBDC /* tlsopensslserver.cpp in Sources */,
+				BCBA5CEE18A9D87C00F50A41 /* TMRosterHandler.mm in Sources */,
 				BC84065E182CC2F00058EBDC /* tlsgnutlsclientanon.cpp in Sources */,
 				BC840650182CC2F00058EBDC /* shim.cpp in Sources */,
 				BC84064C182CC2F00058EBDC /* rosteritem.cpp in Sources */,

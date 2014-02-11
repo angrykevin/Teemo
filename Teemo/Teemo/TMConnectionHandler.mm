@@ -107,7 +107,7 @@ void TMConnectionHandler::onResourceBind( const std::string& resource )
     dispatch_sync(dispatch_get_main_queue(), ^{
       for ( id<TMEngineDelegate> observer in observers ) {
         if ( [observer respondsToSelector:@selector(engine:connectionOnResourceBind:)] ) {
-          [observer engine:engine connectionOnResourceBind:OBJCSTR(resource)];
+          [observer engine:engine connectionOnResourceBind:resource];
         }
       }
     });

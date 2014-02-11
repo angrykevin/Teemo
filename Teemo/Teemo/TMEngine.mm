@@ -59,7 +59,11 @@ static TMEngine *CurrentEngine = nil;
   
   _connectionHandler = new TMConnectionHandler;
   _connectionHandler->setEngine((__bridge void *)self);
-  _client->registerConnectionListener( _connectionHandler );
+  _client->registerConnectionListener(_connectionHandler);
+  
+  _rosterHandler = new TMRosterHandler;
+  _rosterHandler->setEngine((__bridge void *)self);
+  _client->rosterManager()->registerRosterListener(_rosterHandler);
   
 }
 
@@ -131,10 +135,20 @@ static TMEngine *CurrentEngine = nil;
   return _client;
 }
 
+- (RosterManager *)rosterManager
+{
+  return _client->rosterManager();
+}
+
 
 - (TMConnectionHandler *)connectionHandler
 {
   return _connectionHandler;
+}
+
+- (TMRosterHandler *)rosterHandler
+{
+  return _rosterHandler;
 }
 
 

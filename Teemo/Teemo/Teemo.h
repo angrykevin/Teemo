@@ -13,5 +13,6 @@
 #import "TMEngine.h"
 
 
+#include "TMHandlerBase.h"
 #include "TMConnectionHandler.h"
 
