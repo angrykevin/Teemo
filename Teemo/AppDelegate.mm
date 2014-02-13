@@ -92,7 +92,6 @@
 }
 
 
-
 - (void)engineConnectionOnConnect:(TMEngine *)engine
 {
   TKPRINTMETHOD();
@@ -110,7 +109,7 @@
   }
 }
 
-- (void)engine:(TMEngine *)engine connectionOnDisconnect:(ConnectionError)error
+- (void)engineConnectionOnDisconnect:(TMEngine *)engine
 {
   TKPRINTMETHOD();
   

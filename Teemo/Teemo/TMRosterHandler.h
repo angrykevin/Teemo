@@ -13,6 +13,7 @@
 
 #include <gloox/rosterlistener.h>
 #include <gloox/rostermanager.h>
+#include <gloox/error.h>
 
 #include "TMHandlerBase.h"
 
@@ -22,6 +23,22 @@ using namespace gloox;
 class TMRosterHandler : public RosterListener, public TMHandlerBase {
   
 public:
+  /**
+   * Reimplement this function if you want to receive the whole server-side roster
+   * on the initial roster push. After successful authentication, RosterManager asks the
+   * server for the full server-side roster. Invocation of this method announces its arrival.
+   * Roster item status is set to 'unavailable' until incoming presence info updates it. A full
+   * roster push only happens once per connection.
+   * @param roster The full roster.
+   */
+  virtual void handleRoster( const Roster& roster );
+  
+  /**
+   * This function is called if the server returned an error.
+   * @param iq The error stanza.
+   */
+  virtual void handleRosterError( const IQ& iq );
+  
   /**
    * Reimplement this function if you want to be notified about new items
    * on the server-side roster (items subject to a so-called Roster Push).
@@ -68,14 +85,28 @@ public:
   virtual void handleItemUnsubscribed( const JID& jid );
   
   /**
-   * Reimplement this function if you want to receive the whole server-side roster
-   * on the initial roster push. After successful authentication, RosterManager asks the
-   * server for the full server-side roster. Invocation of this method announces its arrival.
-   * Roster item status is set to 'unavailable' until incoming presence info updates it. A full
-   * roster push only happens once per connection.
-   * @param roster The full roster.
+   * This function is called when an entity wishes to subscribe to this entity's presence.
+   * If the handler is registered as a asynchronous handler for subscription requests,
+   * the return value of this function is ignored. In this case you should use
+   * RosterManager::ackSubscriptionRequest() to answer the request.
+   * @param jid The requesting item's address.
+   * @param msg A message sent along with the request.
+   * @return Return @b true to allow subscription and subscribe to the remote entity's
+   * presence, @b false to ignore the request.
    */
-  virtual void handleRoster( const Roster& roster );
+  virtual bool handleSubscriptionRequest( const JID& jid, const std::string& msg );
+  
+  /**
+   * This function is called when an entity unsubscribes from this entity's presence.
+   * If the handler is registered as a asynchronous handler for subscription requests,
+   * the return value of this function is ignored. In this case you should use
+   * RosterManager::unsubscribe() if you want to unsubscribe yourself from the contct's
+   * presence and to remove the contact from the roster.
+   * @param jid The item's address.
+   * @param msg A message sent along with the request.
+   * @return Return @b true to unsubscribe from the remote entity, @b false to ignore.
+   */
+  virtual bool handleUnsubscriptionRequest( const JID& jid, const std::string& msg );
   
   /**
    * This function is called on every status change of an item in the roster.
@@ -110,36 +141,6 @@ public:
    * @param presence The full presence stanza.
    */
   virtual void handleNonrosterPresence( const Presence& presence );
-  
-  /**
-   * This function is called when an entity wishes to subscribe to this entity's presence.
-   * If the handler is registered as a asynchronous handler for subscription requests,
-   * the return value of this function is ignored. In this case you should use
-   * RosterManager::ackSubscriptionRequest() to answer the request.
-   * @param jid The requesting item's address.
-   * @param msg A message sent along with the request.
-   * @return Return @b true to allow subscription and subscribe to the remote entity's
-   * presence, @b false to ignore the request.
-   */
-  virtual bool handleSubscriptionRequest( const JID& jid, const std::string& msg );
-  
-  /**
-   * This function is called when an entity unsubscribes from this entity's presence.
-   * If the handler is registered as a asynchronous handler for subscription requests,
-   * the return value of this function is ignored. In this case you should use
-   * RosterManager::unsubscribe() if you want to unsubscribe yourself from the contct's
-   * presence and to remove the contact from the roster.
-   * @param jid The item's address.
-   * @param msg A message sent along with the request.
-   * @return Return @b true to unsubscribe from the remote entity, @b false to ignore.
-   */
-  virtual bool handleUnsubscriptionRequest( const JID& jid, const std::string& msg );
-  
-  /**
-   * This function is called if the server returned an error.
-   * @param iq The error stanza.
-   */
-  virtual void handleRosterError( const IQ& iq );
   
 };
 

@@ -44,6 +44,7 @@
 		BC5EE364182A2600007D5DE6 /* UILabelExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE363182A2600007D5DE6 /* UILabelExtentions.m */; };
 		BC675CC918308252003E1516 /* TMHandlerBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC675CC818308252003E1516 /* TMHandlerBase.mm */; };
 		BC675D4A183093E3003E1516 /* CATransitionExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC675D49183093E3003E1516 /* CATransitionExtentions.m */; };
+		BC7DC31118AC67A40021CD27 /* TMVCardHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC7DC31018AC67A40021CD27 /* TMVCardHandler.mm */; };
 		BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */ = {isa = PBXBuildFile; fileRef = BC840428182CADA40058EBDC /* RSBoxViewLine.m */; };
 		BC8405FE182CC2F00058EBDC /* adhoc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840461182CC2EF0058EBDC /* adhoc.cpp */; };
 		BC8405FF182CC2F00058EBDC /* amp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840465182CC2EF0058EBDC /* amp.cpp */; };
@@ -305,6 +306,8 @@
 		BC675CC818308252003E1516 /* TMHandlerBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMHandlerBase.mm; sourceTree = "<group>"; };
 		BC675D48183093E3003E1516 /* CATransitionExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATransitionExtentions.h; sourceTree = "<group>"; };
 		BC675D49183093E3003E1516 /* CATransitionExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATransitionExtentions.m; sourceTree = "<group>"; };
+		BC7DC30F18AC67A40021CD27 /* TMVCardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVCardHandler.h; sourceTree = "<group>"; };
+		BC7DC31018AC67A40021CD27 /* TMVCardHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMVCardHandler.mm; sourceTree = "<group>"; };
 		BC840427182CADA40058EBDC /* RSBoxViewLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoxViewLine.h; sourceTree = "<group>"; };
 		BC840428182CADA40058EBDC /* RSBoxViewLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBoxViewLine.m; sourceTree = "<group>"; };
 		BC84042D182CB30B0058EBDC /* Toolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toolbox.h; sourceTree = "<group>"; };
@@ -1491,6 +1494,8 @@
 				BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */,
 				BCBA5CEC18A9D87C00F50A41 /* TMRosterHandler.h */,
 				BCBA5CED18A9D87C00F50A41 /* TMRosterHandler.mm */,
+				BC7DC30F18AC67A40021CD27 /* TMVCardHandler.h */,
+				BC7DC31018AC67A40021CD27 /* TMVCardHandler.mm */,
 			);
 			name = Handlers;
 			sourceTree = "<group>";
@@ -1830,6 +1835,7 @@
 				BC840671182CC2F00058EBDC /* NSStringAdditions.m in Sources */,
 				BC840675182CC2F00058EBDC /* UITableViewAdditions.m in Sources */,
 				BC840615182CC2F00058EBDC /* connectiontlsserver.cpp in Sources */,
+				BC7DC31118AC67A40021CD27 /* TMVCardHandler.mm in Sources */,
 				BC840658182CC2F00058EBDC /* stanzaextensionfactory.cpp in Sources */,
 				BC84067C182CC2F00058EBDC /* TKCoreCompatibility.m in Sources */,
 				BC84061A182CC2F00058EBDC /* dataformreported.cpp in Sources */,

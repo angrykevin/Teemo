@@ -12,6 +12,7 @@
 #include <iostream>
 
 #include <gloox/connectionlistener.h>
+#include <gloox/error.h>
 
 #include "TMHandlerBase.h"
 

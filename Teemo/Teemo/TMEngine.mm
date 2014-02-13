@@ -64,6 +64,10 @@ static TMEngine *CurrentEngine = nil;
   _rosterHandler->setEngine((__bridge void *)self);
   _client->rosterManager()->registerRosterListener(_rosterHandler);
   
+  _vcardManager = new VCardManager( _client );
+  _vcardHandler = new TMVCardHandler;
+  _vcardHandler->setEngine((__bridge void *)self);
+  
 }
 
 - (BOOL)connect
@@ -112,11 +116,6 @@ static TMEngine *CurrentEngine = nil;
 
 #pragma mark - Accessors
 
-- (TMAccountContext *)context
-{
-  return _context;
-}
-
 - (NSString *)passport
 {
   return _passport;
@@ -125,6 +124,11 @@ static TMEngine *CurrentEngine = nil;
 - (NSString *)password
 {
   return _password;
+}
+
+- (TMAccountContext *)context
+{
+  return _context;
 }
 
 - (TKDatabase *)database
@@ -146,6 +150,11 @@ static TMEngine *CurrentEngine = nil;
   return NULL;
 }
 
+- (VCardManager *)vcardManager
+{
+  return _vcardManager;
+}
+
 
 - (TMConnectionHandler *)connectionHandler
 {
@@ -155,6 +164,11 @@ static TMEngine *CurrentEngine = nil;
 - (TMRosterHandler *)rosterHandler
 {
   return _rosterHandler;
+}
+
+- (TMVCardHandler *)vcardHandler
+{
+  return _vcardHandler;
 }
 
 

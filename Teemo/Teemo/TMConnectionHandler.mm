@@ -84,8 +84,8 @@ void TMConnectionHandler::onDisconnect( ConnectionError e )
   if ( [observers count] > 0 ) {
     dispatch_sync(dispatch_get_main_queue(), ^{
       for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:connectionOnDisconnect:)] ) {
-          [observer engine:engine connectionOnDisconnect:e];
+        if ( [observer respondsToSelector:@selector(engineConnectionOnDisconnect:)] ) {
+          [observer engineConnectionOnDisconnect:engine];
         }
       }
     });
@@ -107,7 +107,7 @@ void TMConnectionHandler::onResourceBind( const std::string& resource )
     dispatch_sync(dispatch_get_main_queue(), ^{
       for ( id<TMEngineDelegate> observer in observers ) {
         if ( [observer respondsToSelector:@selector(engine:connectionOnResourceBind:)] ) {
-          [observer engine:engine connectionOnResourceBind:resource];
+          [observer engine:engine connectionOnResourceBind:OBJCSTR(resource)];
         }
       }
     });
@@ -127,9 +127,12 @@ void TMConnectionHandler::onResourceBindError( const Error* error )
   NSArray *observers = [engine observers];
   if ( [observers count] > 0 ) {
     dispatch_sync(dispatch_get_main_queue(), ^{
+      
+      NSError *err = [[NSError alloc] initWithDomain:@"Connection" code:error->error() userInfo:nil];
+      
       for ( id<TMEngineDelegate> observer in observers ) {
         if ( [observer respondsToSelector:@selector(engine:connectionOnResourceBindError:)] ) {
-          [observer engine:engine connectionOnResourceBindError:error];
+          [observer engine:engine connectionOnResourceBindError:err];
         }
       }
     });
@@ -149,9 +152,12 @@ void TMConnectionHandler::onSessionCreateError( const Error* error )
   NSArray *observers = [engine observers];
   if ( [observers count] > 0 ) {
     dispatch_sync(dispatch_get_main_queue(), ^{
+      
+      NSError *err = [[NSError alloc] initWithDomain:@"Connection" code:error->error() userInfo:nil];
+      
       for ( id<TMEngineDelegate> observer in observers ) {
         if ( [observer respondsToSelector:@selector(engine:connectionOnSessionCreateError:)] ) {
-          [observer engine:engine connectionOnSessionCreateError:error];
+          [observer engine:engine connectionOnSessionCreateError:err];
         }
       }
     });
@@ -187,18 +193,6 @@ bool TMConnectionHandler::onTLSConnect( const CertInfo& info )
   
   printf("==================================================>>\n\n");
 #endif
-  
-  TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:connectionOnTLSConnect:)] ) {
-          [observer engine:engine connectionOnTLSConnect:info];
-        }
-      }
-    });
-  }
   
   return true;
 }
@@ -242,17 +236,5 @@ void TMConnectionHandler::onStreamEvent( StreamEvent event )
   printf("==================================================>>\n\n");
   
 #endif
-  
-  TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:connectionOnStreamEvent:)] ) {
-          [observer engine:engine connectionOnStreamEvent:event];
-        }
-      }
-    });
-  }
   
 }

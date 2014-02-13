@@ -222,68 +222,50 @@
 
 
 
-
-- (void)engine:(TMEngine *)engine handleItemAdded:(const JID &)jid
+- (void)engineHandleRoster:(TMEngine *)engine
 {
   [self refreshTableView];
 }
 
-- (void)engine:(TMEngine *)engine handleItemRemoved:(const JID &)jid
+- (void)engine:(TMEngine *)engine handleRosterError:(NSError *)error
+{
+}
+
+- (void)engine:(TMEngine *)engine handleItemAdded:(NSString *)jid
 {
   [self refreshTableView];
 }
 
-- (void)engine:(TMEngine *)engine handleItemUpdated:(const JID &)jid
+- (void)engine:(TMEngine *)engine handleItemRemoved:(NSString *)jid
 {
   [self refreshTableView];
 }
 
-- (void)engine:(TMEngine *)engine handleItemSubscribed:(const JID &)jid
-{
-}
-
-- (void)engine:(TMEngine *)engine handleItemUnsubscribed:(const JID &)jid
-{
-}
-
-- (void)engine:(TMEngine *)engine handleRoster:(const Roster &)roster
+- (void)engine:(TMEngine *)engine handleItemUpdated:(NSString *)jid
 {
   [self refreshTableView];
 }
 
-- (void)engine:(TMEngine *)engine
-handleRosterPresence:(const RosterItem &)item
-      resource:(const std::string &)resource
-      presence:(Presence::PresenceType)presence
-           msg:(const std::string &)msg
+- (void)engine:(TMEngine *)engine handleItemSubscribed:(NSString *)jid
+{
+}
+
+- (void)engine:(TMEngine *)engine handleItemUnsubscribed:(NSString *)jid
+{
+}
+
+- (void)engine:(TMEngine *)engine handleSubscriptionRequest:(NSString *)jid msg:(NSString *)msg
+{
+}
+
+- (void)engine:(TMEngine *)engine handleUnsubscriptionRequest:(NSString *)jid msg:(NSString *)msg
+{
+}
+
+
+- (void)engine:(TMEngine *)engine handleVCard:(NSString *)jid
 {
   [self refreshTableView];
-}
-
-- (void)engine:(TMEngine *)engine
-handleSelfPresence:(const RosterItem &)item
-      resource:(const std::string &)resource
-      presence:(Presence::PresenceType)presence
-           msg:(const std::string &)msg
-{
-}
-
-- (void)engine:(TMEngine *)engine handleNonrosterPresence:(const Presence &)presence
-{
-}
-
-- (bool)engine:(TMEngine *)engine handleSubscriptionRequest:(const JID &)jid msg:(const std::string &)msg
-{
-  return true;
-}
-
-- (bool)engine:(TMEngine *)engine handleUnsubscriptionRequest:(const JID &)jid msg:(const std::string &)msg
-{
-  return true;
-}
-
-- (void)engine:(TMEngine *)engine handleRosterError:(const IQ &)iq
-{
 }
 
 @end

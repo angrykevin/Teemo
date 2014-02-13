@@ -15,6 +15,7 @@
 
 #include "TMConnectionHandler.h"
 #include "TMRosterHandler.h"
+#include "TMVCardHandler.h"
 
 using namespace gloox;
 using namespace std;
@@ -31,9 +32,11 @@ using namespace std;
   
   Client *_client;
   //RosterManager *_rosterManager;
+  VCardManager *_vcardManager;
   
   TMConnectionHandler *_connectionHandler;
   TMRosterHandler *_rosterHandler;
+  TMVCardHandler *_vcardHandler;
   
   
   NSMutableArray *_observers;
@@ -61,9 +64,11 @@ using namespace std;
 
 - (Client *)client;
 - (RosterManager *)rosterManager;
+- (VCardManager *)vcardManager;
 
 - (TMConnectionHandler *)connectionHandler;
 - (TMRosterHandler *)rosterHandler;
+- (TMVCardHandler *)vcardHandler;
 
 @end
 
@@ -75,34 +80,37 @@ using namespace std;
 
 // ConnectionHandler
 - (void)engineConnectionOnConnect:(TMEngine *)engine;
-- (void)engine:(TMEngine *)engine connectionOnDisconnect:(ConnectionError)error;
-- (void)engine:(TMEngine *)engine connectionOnResourceBind:(const std::string &)resource;
-- (void)engine:(TMEngine *)engine connectionOnResourceBindError:(const Error *)error;
-- (void)engine:(TMEngine *)engine connectionOnSessionCreateError:(const Error *)error;
-- (bool)engine:(TMEngine *)engine connectionOnTLSConnect:(const CertInfo &)info;
-- (void)engine:(TMEngine *)engine connectionOnStreamEvent:(StreamEvent)event;
+- (void)engineConnectionOnDisconnect:(TMEngine *)engine;
+- (void)engine:(TMEngine *)engine connectionOnResourceBind:(NSString *)resource;
+- (void)engine:(TMEngine *)engine connectionOnResourceBindError:(NSError *)error;
+- (void)engine:(TMEngine *)engine connectionOnSessionCreateError:(NSError *)error;
 
 // Roster
-- (void)engine:(TMEngine *)engine handleItemAdded:(const JID &)jid;
-- (void)engine:(TMEngine *)engine handleItemRemoved:(const JID &)jid;
-- (void)engine:(TMEngine *)engine handleItemUpdated:(const JID &)jid;
-- (void)engine:(TMEngine *)engine handleItemSubscribed:(const JID &)jid;
-- (void)engine:(TMEngine *)engine handleItemUnsubscribed:(const JID &)jid;
-- (void)engine:(TMEngine *)engine handleRoster:(const Roster &)roster;
-- (void)engine:(TMEngine *)engine
-    handleRosterPresence:(const RosterItem &)item
-    resource:(const std::string &)resource
-    presence:(Presence::PresenceType)presence
-    msg:(const std::string &)msg;
-- (void)engine:(TMEngine *)engine
-    handleSelfPresence:(const RosterItem &)item
-    resource:(const std::string &)resource
-    presence:(Presence::PresenceType)presence
-    msg:(const std::string &)msg;
-- (void)engine:(TMEngine *)engine handleNonrosterPresence:(const Presence &)presence;
-- (bool)engine:(TMEngine *)engine handleSubscriptionRequest:(const JID &)jid msg:(const std::string &)msg;
-- (bool)engine:(TMEngine *)engine handleUnsubscriptionRequest:(const JID &)jid msg:(const std::string &)msg;
-- (void)engine:(TMEngine *)engine handleRosterError:(const IQ &)iq;
+- (void)engineHandleRoster:(TMEngine *)engine;
+- (void)engine:(TMEngine *)engine handleRosterError:(NSError *)error;
+- (void)engine:(TMEngine *)engine handleItemAdded:(NSString *)jid;
+- (void)engine:(TMEngine *)engine handleItemRemoved:(NSString *)jid;
+- (void)engine:(TMEngine *)engine handleItemUpdated:(NSString *)jid;
+- (void)engine:(TMEngine *)engine handleItemSubscribed:(NSString *)jid;
+- (void)engine:(TMEngine *)engine handleItemUnsubscribed:(NSString *)jid;
+- (void)engine:(TMEngine *)engine handleSubscriptionRequest:(NSString *)jid msg:(NSString *)msg;
+- (void)engine:(TMEngine *)engine handleUnsubscriptionRequest:(NSString *)jid msg:(NSString *)msg;
+//- (void)engine:(TMEngine *)engine
+//    handleRosterPresence:(const RosterItem &)item
+//    resource:(const std::string &)resource
+//    presence:(Presence::PresenceType)presence
+//    msg:(const std::string &)msg;
+//- (void)engine:(TMEngine *)engine
+//    handleSelfPresence:(const RosterItem &)item
+//    resource:(const std::string &)resource
+//    presence:(Presence::PresenceType)presence
+//    msg:(const std::string &)msg;
+//- (void)engine:(TMEngine *)engine handleNonrosterPresence:(const Presence &)presence;
+
+// Vcard
+- (void)engine:(TMEngine *)engine handleVCard:(NSString *)jid;
+- (void)engine:(TMEngine *)engine handleFetchVCardResult:(NSString *)jid error:(NSError *)error;
+- (void)engine:(TMEngine *)engine handleStoreVCardResult:(NSString *)jid error:(NSError *)error;
 
 @end
 

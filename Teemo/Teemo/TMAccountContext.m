@@ -139,7 +139,8 @@
     @"photo TEXT, "
     @"birthday TEXT, "
     @"desc TEXT, "
-    @"homepage TEXT"
+    @"homepage TEXT, "
+    @"note TEXT"
     @");";
     [_database executeUpdate:sql];
   }
