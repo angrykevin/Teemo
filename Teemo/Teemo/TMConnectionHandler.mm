@@ -80,9 +80,13 @@ void TMConnectionHandler::onDisconnect( ConnectionError e )
   TMEngine *engine = (__bridge TMEngine *)getEngine();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
+    NSError *error = nil;
+    if ( e != ConnNoError ) {
+      error = [[NSError alloc] initWithDomain:@"Connection" code:e userInfo:nil];
+    }
     for ( id<TMEngineDelegate> observer in [engine observers] ) {
-      if ( [observer respondsToSelector:@selector(engineConnectionOnDisconnect:)] ) {
-        [observer engineConnectionOnDisconnect:engine];
+      if ( [observer respondsToSelector:@selector(engine:connectionOnDisconnect:)] ) {
+        [observer engine:engine connectionOnDisconnect:error];
       }
     }
   });

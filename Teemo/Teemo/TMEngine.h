@@ -81,7 +81,7 @@ using namespace std;
 
 // ConnectionHandler
 - (void)engineConnectionOnConnect:(TMEngine *)engine;
-- (void)engineConnectionOnDisconnect:(TMEngine *)engine;
+- (void)engine:(TMEngine *)engine connectionOnDisconnect:(NSError *)error;
 - (void)engine:(TMEngine *)engine connectionOnResourceBind:(NSString *)resource;
 - (void)engine:(TMEngine *)engine connectionOnResourceBindError:(NSError *)error;
 - (void)engine:(TMEngine *)engine connectionOnSessionCreateError:(NSError *)error;
