@@ -47,16 +47,13 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
     }
   }
   
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleVCard:)] ) {
-          [observer engine:engine handleVCard:OBJCSTR(jid.bare())];
-        }
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handleVCard:)] ) {
+        [observer engine:engine handleVCard:OBJCSTR(jid.bare())];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -66,31 +63,25 @@ void TMVCardHandler::handleVCardResult( VCardContext context, const JID& jid, St
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
   
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    
-    NSError *error = nil;
-    if ( se != StanzaErrorUndefined ) {
-      error = [[NSError alloc] initWithDomain:@"VCard" code:se userInfo:nil];
-    }
-    
-    if ( context == FetchVCard ) {
-      dispatch_sync(dispatch_get_main_queue(), ^{
-        for ( id<TMEngineDelegate> observer in observers ) {
-          if ( [observer respondsToSelector:@selector(engine:handleFetchVCardResult:error:)] ) {
-            [observer engine:engine handleFetchVCardResult:OBJCSTR(jid.bare()) error:error];
-          }
-        }
-      });
-    } else if ( context == StoreVCard ) {
-      dispatch_sync(dispatch_get_main_queue(), ^{
-        for ( id<TMEngineDelegate> observer in observers ) {
-          if ( [observer respondsToSelector:@selector(engine:handleStoreVCardResult:error:)] ) {
-            [observer engine:engine handleStoreVCardResult:OBJCSTR(jid.bare()) error:error];
-          }
-        }
-      });
-    }
-    
+  NSError *error = nil;
+  if ( se != StanzaErrorUndefined ) {
+    error = [[NSError alloc] initWithDomain:@"VCard" code:se userInfo:nil];
   }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    if ( context == FetchVCard ) {
+      for ( id<TMEngineDelegate> observer in [engine observers] ) {
+        if ( [observer respondsToSelector:@selector(engine:handleFetchVCardResult:error:)] ) {
+          [observer engine:engine handleFetchVCardResult:OBJCSTR(jid.bare()) error:error];
+        }
+      }
+    } else if ( context == StoreVCard ) {
+      for ( id<TMEngineDelegate> observer in [engine observers] ) {
+        if ( [observer respondsToSelector:@selector(engine:handleStoreVCardResult:error:)] ) {
+          [observer engine:engine handleStoreVCardResult:OBJCSTR(jid.bare()) error:error];
+        }
+      }
+    }
+  });
+  
 }

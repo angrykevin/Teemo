@@ -19,16 +19,14 @@ void TMConnectionHandler::onConnect()
 #endif
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engineConnectionOnConnect:)] ) {
-          [observer engineConnectionOnConnect:engine];
-        }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engineConnectionOnConnect:)] ) {
+        [observer engineConnectionOnConnect:engine];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -80,16 +78,14 @@ void TMConnectionHandler::onDisconnect( ConnectionError e )
 #endif
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engineConnectionOnDisconnect:)] ) {
-          [observer engineConnectionOnDisconnect:engine];
-        }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engineConnectionOnDisconnect:)] ) {
+        [observer engineConnectionOnDisconnect:engine];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -102,16 +98,14 @@ void TMConnectionHandler::onResourceBind( const std::string& resource )
 #endif
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:connectionOnResourceBind:)] ) {
-          [observer engine:engine connectionOnResourceBind:OBJCSTR(resource)];
-        }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:connectionOnResourceBind:)] ) {
+        [observer engine:engine connectionOnResourceBind:OBJCSTR(resource)];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -124,19 +118,15 @@ void TMConnectionHandler::onResourceBindError( const Error* error )
 #endif
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      
-      NSError *err = [[NSError alloc] initWithDomain:@"Connection" code:error->error() userInfo:nil];
-      
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:connectionOnResourceBindError:)] ) {
-          [observer engine:engine connectionOnResourceBindError:err];
-        }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    NSError *err = [[NSError alloc] initWithDomain:@"Connection" code:error->error() userInfo:nil];
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:connectionOnResourceBindError:)] ) {
+        [observer engine:engine connectionOnResourceBindError:err];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -149,19 +139,15 @@ void TMConnectionHandler::onSessionCreateError( const Error* error )
 #endif
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      
-      NSError *err = [[NSError alloc] initWithDomain:@"Connection" code:error->error() userInfo:nil];
-      
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:connectionOnSessionCreateError:)] ) {
-          [observer engine:engine connectionOnSessionCreateError:err];
-        }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    NSError *err = [[NSError alloc] initWithDomain:@"Connection" code:error->error() userInfo:nil];
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:connectionOnSessionCreateError:)] ) {
+        [observer engine:engine connectionOnSessionCreateError:err];
       }
-    });
-  }
+    }
+  });
   
 }
 

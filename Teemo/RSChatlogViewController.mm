@@ -9,6 +9,7 @@
 #import "RSChatlogViewController.h"
 #import "Teemo.h"
 #import "RSCommon.h"
+#include <gloox/message.h>
 
 
 @implementation RSChatlogViewController
@@ -123,6 +124,13 @@
 //  TMEngine *engine = [TMEngine sharedEngine];
 //  VCardManager *manager = [engine vcardManager];
 //  manager->fetchVCard(JID( CPPSTR(TMJIDFromPassport(engine.passport)) ), [engine vcardHandler]);
+  
+  
+  TMEngine *engine = [TMEngine sharedEngine];
+  
+  
+  Message msg(Message::Chat, JID("kevin@batoo.com"), "bbc");
+  [engine client]->send(msg);
 }
 
 @end

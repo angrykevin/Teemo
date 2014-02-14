@@ -17,6 +17,7 @@
 #include "TMRosterHandler.h"
 #include "TMVCardHandler.h"
 
+
 using namespace gloox;
 using namespace std;
 
@@ -95,17 +96,7 @@ using namespace std;
 - (void)engine:(TMEngine *)engine handleItemUnsubscribed:(NSString *)jid;
 - (void)engine:(TMEngine *)engine handleSubscriptionRequest:(NSString *)jid msg:(NSString *)msg;
 - (void)engine:(TMEngine *)engine handleUnsubscriptionRequest:(NSString *)jid msg:(NSString *)msg;
-//- (void)engine:(TMEngine *)engine
-//    handleRosterPresence:(const RosterItem &)item
-//    resource:(const std::string &)resource
-//    presence:(Presence::PresenceType)presence
-//    msg:(const std::string &)msg;
-//- (void)engine:(TMEngine *)engine
-//    handleSelfPresence:(const RosterItem &)item
-//    resource:(const std::string &)resource
-//    presence:(Presence::PresenceType)presence
-//    msg:(const std::string &)msg;
-//- (void)engine:(TMEngine *)engine handleNonrosterPresence:(const Presence &)presence;
+- (void)engine:(TMEngine *)engine handlePresence:(NSString *)jid resource:(NSString *)resource;
 
 // Vcard
 - (void)engine:(TMEngine *)engine handleVCard:(NSString *)jid;

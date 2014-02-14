@@ -40,16 +40,13 @@ void TMRosterHandler::handleRoster( const Roster& roster )
     
   }
   
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engineHandleRoster:)] ) {
-          [observer engineHandleRoster:engine];
-        }
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engineHandleRoster:)] ) {
+        [observer engineHandleRoster:engine];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -57,19 +54,16 @@ void TMRosterHandler::handleRosterError( const IQ& iq )
 {
   TKPRINTMETHOD();
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      
-      NSError *error = [[NSError alloc] initWithDomain:@"Roster" code:iq.error()->error() userInfo:nil];
-      
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleRosterError:)] ) {
-          [observer engine:engine handleRosterError:error];
-        }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    NSError *error = [[NSError alloc] initWithDomain:@"Roster" code:iq.error()->error() userInfo:nil];
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handleRosterError:)] ) {
+        [observer engine:engine handleRosterError:error];
       }
-    });
-  }
+    }
+  });
+  
 }
 
 void TMRosterHandler::handleItemAdded( const JID& jid )
@@ -104,16 +98,13 @@ void TMRosterHandler::handleItemAdded( const JID& jid )
   [engine vcardManager]->fetchVCard(jid, [engine vcardHandler]);
   
   
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleItemAdded:)] ) {
-          [observer engine:engine handleItemAdded:OBJCSTR(jid.bare())];
-        }
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handleItemAdded:)] ) {
+        [observer engine:engine handleItemAdded:OBJCSTR(jid.bare())];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -126,16 +117,13 @@ void TMRosterHandler::handleItemRemoved( const JID& jid )
   [[engine database] executeUpdate:@"DELETE FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
   
   
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleItemRemoved:)] ) {
-          [observer engine:engine handleItemRemoved:OBJCSTR(jid.bare())];
-        }
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handleItemRemoved:)] ) {
+        [observer engine:engine handleItemRemoved:OBJCSTR(jid.bare())];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -171,16 +159,13 @@ void TMRosterHandler::handleItemUpdated( const JID& jid )
   [engine vcardManager]->fetchVCard(jid, [engine vcardHandler]);
   
   
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleItemUpdated:)] ) {
-          [observer engine:engine handleItemUpdated:OBJCSTR(jid.bare())];
-        }
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handleItemUpdated:)] ) {
+        [observer engine:engine handleItemUpdated:OBJCSTR(jid.bare())];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -189,16 +174,14 @@ void TMRosterHandler::handleItemSubscribed( const JID& jid )
   TKPRINTMETHOD();
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleItemSubscribed:)] ) {
-          [observer engine:engine handleItemSubscribed:OBJCSTR(jid.bare())];
-        }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handleItemSubscribed:)] ) {
+        [observer engine:engine handleItemSubscribed:OBJCSTR(jid.bare())];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -207,16 +190,14 @@ void TMRosterHandler::handleItemUnsubscribed( const JID& jid )
   TKPRINTMETHOD();
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleItemUnsubscribed:)] ) {
-          [observer engine:engine handleItemUnsubscribed:OBJCSTR(jid.bare())];
-        }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handleItemUnsubscribed:)] ) {
+        [observer engine:engine handleItemUnsubscribed:OBJCSTR(jid.bare())];
       }
-    });
-  }
+    }
+  });
   
 }
 
@@ -225,16 +206,14 @@ bool TMRosterHandler::handleSubscriptionRequest( const JID& jid, const std::stri
   TKPRINTMETHOD();
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleSubscriptionRequest:msg:)] ) {
-          [observer engine:engine handleSubscriptionRequest:OBJCSTR(jid.bare()) msg:OBJCSTR(msg)];
-        }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handleSubscriptionRequest:msg:)] ) {
+        [observer engine:engine handleSubscriptionRequest:OBJCSTR(jid.bare()) msg:OBJCSTR(msg)];
       }
-    });
-  }
+    }
+  });
   
   return true;
 }
@@ -244,16 +223,14 @@ bool TMRosterHandler::handleUnsubscriptionRequest( const JID& jid, const std::st
   TKPRINTMETHOD();
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
-  NSArray *observers = [engine observers];
-  if ( [observers count] > 0 ) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      for ( id<TMEngineDelegate> observer in observers ) {
-        if ( [observer respondsToSelector:@selector(engine:handleUnsubscriptionRequest:msg:)] ) {
-          [observer engine:engine handleUnsubscriptionRequest:OBJCSTR(jid.bare()) msg:OBJCSTR(msg)];
-        }
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handleUnsubscriptionRequest:msg:)] ) {
+        [observer engine:engine handleUnsubscriptionRequest:OBJCSTR(jid.bare()) msg:OBJCSTR(msg)];
       }
-    });
-  }
+    }
+  });
   
   return true;
 }
@@ -280,20 +257,13 @@ void TMRosterHandler::handleRosterPresence( const RosterItem& item, const std::s
   }
   
   
-//  NSArray *observers = [engine observers];
-//  if ( [observers count] > 0 ) {
-//    dispatch_sync(dispatch_get_main_queue(), ^{
-//      for ( id<TMEngineDelegate> observer in observers ) {
-//        if ( [observer respondsToSelector:@selector(engine:handleRosterPresence:resource:presence:msg:)] ) {
-//          [observer engine:engine
-//      handleRosterPresence:item
-//                  resource:resource
-//                  presence:presence
-//                       msg:msg];
-//        }
-//      }
-//    });
-//  }
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handlePresence:resource:)] ) {
+        [observer engine:engine handlePresence:OBJCSTR(item.jidJID().bare()) resource:OBJCSTR(resource)];
+      }
+    }
+  });
   
 }
 
@@ -302,21 +272,30 @@ void TMRosterHandler::handleSelfPresence( const RosterItem& item, const std::str
 {
   TKPRINTMETHOD();
   
-//  TMEngine *engine = (__bridge TMEngine *)getEngine();
-//  NSArray *observers = [engine observers];
-//  if ( [observers count] > 0 ) {
-//    dispatch_sync(dispatch_get_main_queue(), ^{
-//      for ( id<TMEngineDelegate> observer in observers ) {
-//        if ( [observer respondsToSelector:@selector(engine:handleSelfPresence:resource:presence:msg:)] ) {
-//          [observer engine:engine
-//        handleSelfPresence:item
-//                  resource:resource
-//                  presence:presence
-//                       msg:msg];
-//        }
-//      }
-//    });
-//  }
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  
+  string displayedname = item.name();
+  SubscriptionType subscription = item.subscription();
+  Presence::PresenceType highestPresence = Presence::Unavailable;
+  if ( item.highestResource() ) highestPresence = item.highestResource()->presence();
+  
+  NSArray *result = [[engine database] executeQuery:@"SELECT pk FROM t_buddy WHERE bid=?;", OBJCSTR(item.jidJID().bare())];
+  if ( [result count] > 0 ) {
+    [[engine database] executeUpdate:@"UPDATE t_buddy SET displayedname=?, subscription=?, presence=? WHERE bid=?;",
+     OBJCSTR(displayedname),
+     [NSNumber numberWithInt:subscription],
+     [NSNumber numberWithInt:highestPresence],
+     OBJCSTR(item.jidJID().bare())];
+  }
+  
+  
+  dispatch_sync(dispatch_get_main_queue(), ^{
+    for ( id<TMEngineDelegate> observer in [engine observers] ) {
+      if ( [observer respondsToSelector:@selector(engine:handlePresence:resource:)] ) {
+        [observer engine:engine handlePresence:OBJCSTR(item.jidJID().bare()) resource:OBJCSTR(resource)];
+      }
+    }
+  });
   
 }
 
