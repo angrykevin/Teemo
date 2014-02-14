@@ -86,7 +86,7 @@ using namespace std;
 - (void)engine:(TMEngine *)engine connectionOnResourceBindError:(NSError *)error;
 - (void)engine:(TMEngine *)engine connectionOnSessionCreateError:(NSError *)error;
 
-// Roster
+// RosterHandler
 - (void)engineHandleRoster:(TMEngine *)engine;
 - (void)engine:(TMEngine *)engine handleRosterError:(NSError *)error;
 - (void)engine:(TMEngine *)engine handleItemAdded:(NSString *)jid;
@@ -98,7 +98,7 @@ using namespace std;
 - (void)engine:(TMEngine *)engine handleUnsubscriptionRequest:(NSString *)jid msg:(NSString *)msg;
 - (void)engine:(TMEngine *)engine handlePresence:(NSString *)jid resource:(NSString *)resource;
 
-// Vcard
+// VcardHandler
 - (void)engine:(TMEngine *)engine handleVCard:(NSString *)jid;
 - (void)engine:(TMEngine *)engine handleFetchVCardResult:(NSString *)jid error:(NSError *)error;
 - (void)engine:(TMEngine *)engine handleStoreVCardResult:(NSString *)jid error:(NSError *)error;
