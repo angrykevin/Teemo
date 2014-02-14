@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RSCommon.h"
 
 
 @interface RSBuddyCell : UITableViewCell {
@@ -22,6 +21,6 @@
 @property (nonatomic, strong, readonly) UILabel *nicknameLabel;
 @property (nonatomic, strong, readonly) UILabel *descLabel;
 
-- (void)loadPhoto:(NSString *)photo placeholderImage:(UIImage *)placeholderImage block:(RSImageProcessBlock)block;
+- (void)loadPhoto:(NSString *)photo placeholderImage:(UIImage *)placeholderImage;
 
 @end

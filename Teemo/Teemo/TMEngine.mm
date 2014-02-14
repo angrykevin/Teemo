@@ -11,6 +11,8 @@
 #import "TMConfig.h"
 #import "TMCommon.h"
 
+#include <gloox/message.h>
+
 
 static TMEngine *CurrentEngine = nil;
 
@@ -110,6 +112,29 @@ static TMEngine *CurrentEngine = nil;
     
   }
   return nil;
+}
+
+- (void)sendTextMessage:(NSString *)jid message:(NSString *)message
+{
+  if ( ([jid length]<=0) || ([message length]<=0)) {
+    return;
+  }
+  
+  Message msg(Message::Chat, JID(CPPSTR(jid)), CPPSTR(message));
+  _client->send(msg);
+}
+
+- (void)addBuddy:(NSString *)jid message:(NSString *)message
+{
+  if ( ([jid length]<=0) || ([message length]<=0)) {
+    return;
+  }
+  
+  [self rosterManager]->subscribe(JID(CPPSTR(jid)));
+  
+  Message msg(Message::Chat, JID(CPPSTR(jid)), CPPSTR(message));
+  _client->send(msg);
+  
 }
 
 

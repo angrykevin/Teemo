@@ -99,24 +99,16 @@
 }
 
 
-- (void)loadPhoto:(NSString *)photo placeholderImage:(UIImage *)placeholderImage block:(RSImageProcessBlock)block
+- (void)loadPhoto:(NSString *)photo placeholderImage:(UIImage *)placeholderImage
 {
   [_photoButton cancelCurrentImageLoad];
   
   if ( [photo length] > 0 ) {
-    __weak UIButton *weakButton = _photoButton;
     [_photoButton setImageWithURL:[NSURL URLWithString:photo]
                          forState:UIControlStateNormal
-                 placeholderImage:placeholderImage
-                        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                          if ( block ) {
-                            weakButton.normalImage = block(image);
-                          } else {
-                            weakButton.normalImage = image;
-                          }
-                        }];
+                 placeholderImage:placeholderImage];
   } else {
-    _photoButton.normalImage = nil;
+    _photoButton.normalImage = placeholderImage;
   }
 }
 

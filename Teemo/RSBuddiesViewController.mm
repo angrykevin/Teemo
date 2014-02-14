@@ -7,7 +7,7 @@
 //
 
 #import "RSBuddiesViewController.h"
-#import "RSCommon.h"
+
 #import "Teemo.h"
 
 #import "RSBuddyCell.h"
@@ -45,7 +45,7 @@
   _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
   _tableView.dataSource = self;
   _tableView.delegate = self;
-  _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+  //_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   [_contentView addSubview:_tableView];
   
   [self addFooterIfNeeded];
@@ -180,14 +180,16 @@
                          action:@selector(photoButtonClicked:)
                forControlEvents:UIControlEventTouchUpInside];
     [cell loadPhoto:[row stringForName:@"photo"]
-   placeholderImage:RSDefaultAvatarImage()
-              block:^UIImage *(UIImage *image) {
-                return RSAvatarImageForPresence(image, [row intForName:@"presence"]);
-              }];
+   placeholderImage:[UIImage imageNamed:@"default_avatar.png"]];
     
-    
-    cell.statusImageView.image = RSAvatarStatusImageForPresence([row intForName:@"presence"]);
-    
+    Presence::PresenceType presence = (Presence::PresenceType)[row intForName:@"presence"];
+    if ( (presence == Presence::Available) || (presence == Presence::Chat) ) {
+      cell.statusImageView.image = [UIImage imageNamed:@"status_online.png"];
+    } else if ( (presence == Presence::Away) || (presence == Presence::XA) ) {
+      cell.statusImageView.image = [UIImage imageNamed:@"status_away.png"];
+    } else if ( presence == Presence::DND ) {
+      cell.statusImageView.image = [UIImage imageNamed:@"status_dnd.png"];
+    }
     
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
   }
@@ -254,11 +256,11 @@
 {
 }
 
-- (void)engine:(TMEngine *)engine handleSubscriptionRequest:(NSString *)jid msg:(NSString *)msg
+- (void)engine:(TMEngine *)engine handleSubscriptionRequest:(NSString *)jid message:(NSString *)message
 {
 }
 
-- (void)engine:(TMEngine *)engine handleUnsubscriptionRequest:(NSString *)jid msg:(NSString *)msg
+- (void)engine:(TMEngine *)engine handleUnsubscriptionRequest:(NSString *)jid message:(NSString *)message
 {
 }
 

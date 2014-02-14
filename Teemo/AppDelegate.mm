@@ -109,7 +109,8 @@
   }
 }
 
-- (void)engineConnectionOnDisconnect:(TMEngine *)engine
+
+- (void)engine:(TMEngine *)engine connectionOnDisconnect:(NSError *)error
 {
   TKPRINTMETHOD();
   

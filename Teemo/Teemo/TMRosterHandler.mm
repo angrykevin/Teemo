@@ -209,8 +209,8 @@ bool TMRosterHandler::handleSubscriptionRequest( const JID& jid, const std::stri
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     for ( id<TMEngineDelegate> observer in [engine observers] ) {
-      if ( [observer respondsToSelector:@selector(engine:handleSubscriptionRequest:msg:)] ) {
-        [observer engine:engine handleSubscriptionRequest:OBJCSTR(jid.bare()) msg:OBJCSTR(msg)];
+      if ( [observer respondsToSelector:@selector(engine:handleSubscriptionRequest:message:)] ) {
+        [observer engine:engine handleSubscriptionRequest:OBJCSTR(jid.bare()) message:OBJCSTR(msg)];
       }
     }
   });
@@ -226,8 +226,8 @@ bool TMRosterHandler::handleUnsubscriptionRequest( const JID& jid, const std::st
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     for ( id<TMEngineDelegate> observer in [engine observers] ) {
-      if ( [observer respondsToSelector:@selector(engine:handleUnsubscriptionRequest:msg:)] ) {
-        [observer engine:engine handleUnsubscriptionRequest:OBJCSTR(jid.bare()) msg:OBJCSTR(msg)];
+      if ( [observer respondsToSelector:@selector(engine:handleUnsubscriptionRequest:message:)] ) {
+        [observer engine:engine handleUnsubscriptionRequest:OBJCSTR(jid.bare()) message:OBJCSTR(msg)];
       }
     }
   });

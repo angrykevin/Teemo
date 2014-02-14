@@ -11,6 +11,7 @@
 #include <gloox/client.h>
 #include <gloox/rostermanager.h>
 
+
 #import "TMAccountContext.h"
 
 #include "TMConnectionHandler.h"
@@ -55,7 +56,8 @@ using namespace std;
 - (void)disconnect;
 
 - (NSArray *)buddiesForSubscriptions:(NSArray *)subscriptions;
-
+- (void)sendTextMessage:(NSString *)jid message:(NSString *)message;
+- (void)addBuddy:(NSString *)jid message:(NSString *)message;
 
 
 - (NSString *)passport;
@@ -94,8 +96,8 @@ using namespace std;
 - (void)engine:(TMEngine *)engine handleItemUpdated:(NSString *)jid;
 - (void)engine:(TMEngine *)engine handleItemSubscribed:(NSString *)jid;
 - (void)engine:(TMEngine *)engine handleItemUnsubscribed:(NSString *)jid;
-- (void)engine:(TMEngine *)engine handleSubscriptionRequest:(NSString *)jid msg:(NSString *)msg;
-- (void)engine:(TMEngine *)engine handleUnsubscriptionRequest:(NSString *)jid msg:(NSString *)msg;
+- (void)engine:(TMEngine *)engine handleSubscriptionRequest:(NSString *)jid message:(NSString *)message;
+- (void)engine:(TMEngine *)engine handleUnsubscriptionRequest:(NSString *)jid message:(NSString *)message;
 - (void)engine:(TMEngine *)engine handlePresence:(NSString *)jid resource:(NSString *)resource;
 
 // VcardHandler
