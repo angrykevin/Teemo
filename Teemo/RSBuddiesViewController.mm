@@ -45,7 +45,6 @@
   _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
   _tableView.dataSource = self;
   _tableView.delegate = self;
-  //_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   [_contentView addSubview:_tableView];
   
   [self addFooterIfNeeded];
