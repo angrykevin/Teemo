@@ -115,13 +115,10 @@
   if ( [homepage length] > 0 ) {
     
     TBAlertView *alertView = [[TBAlertView alloc] initWithMessage:NSLocalizedString(@"Open the link?", @"")];
-    
     [alertView addButtonWithTitle:NSLocalizedString(@"OK", @"") block:^{
       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:homepage]];
     }];
-    
     [alertView addCancelButtonWithTitle:NSLocalizedString(@"Cancel", @"") block:NULL];
-    
     [alertView show];
     
   }
@@ -158,26 +155,26 @@
 {
   RSProfileCell *cell = (RSProfileCell *)[tableView dequeueReusableCellWithClass:[RSProfileCell class]];
   
-  int row = indexPath.row;
+  cell.selectionStyle = UITableViewCellSelectionStyleNone;
   
-  if ( row == 0 ) {
+  if ( indexPath.row == 0 ) {
     
     cell.titleLabel.text = NSLocalizedString(@"Nickname", @"");
     cell.valueButton.normalTitle = [_row stringForName:@"nickname"];
     
-  } else if ( row == 1 ) {
+  } else if ( indexPath.row == 1 ) {
     
     cell.titleLabel.text = NSLocalizedString(@"Name", @"");
     NSString *family = [_row stringForName:@"familyname"];
     NSString *given = [_row stringForName:@"givenname"];
     cell.valueButton.normalTitle = TBBuildFullname(given, family);
     
-  } else if ( row == 2 ) {
+  } else if ( indexPath.row == 2 ) {
     
     cell.titleLabel.text = NSLocalizedString(@"Birthday", @"");
     cell.valueButton.normalTitle = [_row stringForName:@"birthday"];
     
-  } else if ( row == 3 ) {
+  } else if ( indexPath.row == 3 ) {
     
     cell.titleLabel.text = NSLocalizedString(@"Homepage", @"");
     cell.valueButton.normalTitle = [_row stringForName:@"homepage"];
@@ -188,7 +185,7 @@
                          action:@selector(linkButtonClicked:)
                forControlEvents:UIControlEventTouchUpInside];
     
-  } else if ( row == 4 ) {
+  } else if ( indexPath.row == 4 ) {
     
     cell.titleLabel.text = NSLocalizedString(@"Description", @"");
     cell.valueButton.normalTitle = [_row stringForName:@"desc"];
@@ -202,11 +199,5 @@
 {
   return [RSProfileCell heightForTableView:tableView object:nil];
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  [_tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
 
 @end

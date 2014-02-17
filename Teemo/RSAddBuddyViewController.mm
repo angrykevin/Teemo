@@ -83,7 +83,7 @@
 - (void)rightButtonClicked:(id)sender
 {
   if ( [_jidLine.textField.text length] <= 0 ) {
-    TBPresentSystemMessage(NSLocalizedString(@"JID invalid !", @""));
+    TBPresentSystemMessage(NSLocalizedString(@"JID invalid!", @""));
     return;
   }
   
@@ -97,7 +97,11 @@
   TMEngine *engine = [TMEngine sharedEngine];
   [engine addBuddy:jid message:message];
   
-  //[self.navigationController popViewControllerAnimated:YES];
+  TBAlertView *alertView = [[TBAlertView alloc] initWithMessage:NSLocalizedString(@"Request has been send.", @"")];
+  [alertView addButtonWithTitle:NSLocalizedString(@"OK", @"") block:^{
+    [self.navigationController popViewControllerAnimated:YES];
+  }];
+  [alertView show];
   
 }
 
