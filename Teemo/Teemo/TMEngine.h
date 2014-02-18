@@ -56,8 +56,16 @@ using namespace std;
 - (void)disconnect;
 
 - (NSArray *)buddiesForSubscriptions:(NSArray *)subscriptions;
-- (void)sendTextMessage:(NSString *)jid message:(NSString *)message;
+
+- (void)requestVCard:(NSString *)jid;
+- (void)storeVCard:(NSDictionary *)vcard;
+
 - (void)addBuddy:(NSString *)jid message:(NSString *)message;
+- (void)removeBuddy:(NSString *)jid;
+- (void)authorizeBuddy:(NSString *)jid;
+- (void)declineBuddy:(NSString *)jid;
+
+- (void)sendTextMessage:(NSString *)jid message:(NSString *)message;
 
 
 - (NSString *)passport;

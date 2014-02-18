@@ -97,7 +97,6 @@
 
 - (void)signinButtonClicked:(id)sender
 {
-  
   NSString *passport = [_passportLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   NSString *password = [_passwordLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   

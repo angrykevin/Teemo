@@ -207,6 +207,17 @@ bool TMRosterHandler::handleSubscriptionRequest( const JID& jid, const std::stri
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
   
+  NSArray *result = [[engine database] executeQuery:@"SELECT pk FROM t_request WHERE bid=?;", OBJCSTR(jid.bare())];
+  if ( [result count] > 0 ) {
+    [[engine database] executeUpdate:@"UPDATE t_request SET date=? WHERE bid=?;",
+     TKInternetDateStringFromDate([NSDate date]),
+     OBJCSTR(jid.bare())];
+  } else {
+    [[engine database] executeUpdate:@"INSERT INTO t_request(bid, date) VALUES(?, ?);",
+     OBJCSTR(jid.bare()),
+     TKInternetDateStringFromDate([NSDate date])];
+  }
+  
   dispatch_sync(dispatch_get_main_queue(), ^{
     for ( id<TMEngineDelegate> observer in [engine observers] ) {
       if ( [observer respondsToSelector:@selector(engine:handleSubscriptionRequest:message:)] ) {
@@ -223,6 +234,9 @@ bool TMRosterHandler::handleUnsubscriptionRequest( const JID& jid, const std::st
   TKPRINTMETHOD();
   
   TMEngine *engine = (__bridge TMEngine *)getEngine();
+  
+  [[engine database] executeUpdate:@"DELETE FROM t_request WHERE bid=?;", OBJCSTR(jid.bare())];
+  [[engine database] executeUpdate:@"DELETE FROM t_request_message WHERE bid=?;", OBJCSTR(jid.bare())];
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     for ( id<TMEngineDelegate> observer in [engine observers] ) {

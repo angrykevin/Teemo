@@ -44,6 +44,9 @@
 		BC5EE364182A2600007D5DE6 /* UILabelExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE363182A2600007D5DE6 /* UILabelExtentions.m */; };
 		BC675CC918308252003E1516 /* TMHandlerBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC675CC818308252003E1516 /* TMHandlerBase.mm */; };
 		BC675D4A183093E3003E1516 /* CATransitionExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC675D49183093E3003E1516 /* CATransitionExtentions.m */; };
+		BC6B3EF818B20F8200E7939E /* RSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6B3EF718B20F8200E7939E /* RSBadgeView.m */; };
+		BC6B3EFB18B212C700E7939E /* badge.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6B3EF918B212C700E7939E /* badge.png */; };
+		BC6B3EFC18B212C700E7939E /* badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6B3EFA18B212C700E7939E /* badge@2x.png */; };
 		BC7DC31118AC67A40021CD27 /* TMVCardHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC7DC31018AC67A40021CD27 /* TMVCardHandler.mm */; };
 		BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */ = {isa = PBXBuildFile; fileRef = BC840428182CADA40058EBDC /* RSBoxViewLine.m */; };
 		BC8405FE182CC2F00058EBDC /* adhoc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC840461182CC2EF0058EBDC /* adhoc.cpp */; };
@@ -306,6 +309,10 @@
 		BC675CC818308252003E1516 /* TMHandlerBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMHandlerBase.mm; sourceTree = "<group>"; };
 		BC675D48183093E3003E1516 /* CATransitionExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATransitionExtentions.h; sourceTree = "<group>"; };
 		BC675D49183093E3003E1516 /* CATransitionExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATransitionExtentions.m; sourceTree = "<group>"; };
+		BC6B3EF618B20F8200E7939E /* RSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBadgeView.h; sourceTree = "<group>"; };
+		BC6B3EF718B20F8200E7939E /* RSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBadgeView.m; sourceTree = "<group>"; };
+		BC6B3EF918B212C700E7939E /* badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge.png; sourceTree = "<group>"; };
+		BC6B3EFA18B212C700E7939E /* badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "badge@2x.png"; sourceTree = "<group>"; };
 		BC7DC30F18AC67A40021CD27 /* TMVCardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVCardHandler.h; sourceTree = "<group>"; };
 		BC7DC31018AC67A40021CD27 /* TMVCardHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMVCardHandler.mm; sourceTree = "<group>"; };
 		BC840427182CADA40058EBDC /* RSBoxViewLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBoxViewLine.h; sourceTree = "<group>"; };
@@ -1342,6 +1349,8 @@
 		BC840683182CC3870058EBDC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BC6B3EF918B212C700E7939E /* badge.png */,
+				BC6B3EFA18B212C700E7939E /* badge@2x.png */,
 				BC840684182CC3870058EBDC /* box_bottom.png */,
 				BC840685182CC3870058EBDC /* box_bottom@2x.png */,
 				BC840686182CC3870058EBDC /* box_middle.png */,
@@ -1481,6 +1490,8 @@
 			children = (
 				BC840427182CADA40058EBDC /* RSBoxViewLine.h */,
 				BC840428182CADA40058EBDC /* RSBoxViewLine.m */,
+				BC6B3EF618B20F8200E7939E /* RSBadgeView.h */,
+				BC6B3EF718B20F8200E7939E /* RSBadgeView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1633,6 +1644,7 @@
 				BCA23D4A183224E300E93718 /* tabbar_buddies_n.png in Resources */,
 				BC84069E182CC3870058EBDC /* box_bottom.png in Resources */,
 				BC8406A9182CC3870058EBDC /* button_small_black@2x.png in Resources */,
+				BC6B3EFB18B212C700E7939E /* badge.png in Resources */,
 				BC8406B4182CC3870058EBDC /* toolbar_bg.png in Resources */,
 				BC552DC31839DC350078375F /* status_away.png in Resources */,
 				BC552DCA1839DC350078375F /* status_online@2x.png in Resources */,
@@ -1647,6 +1659,7 @@
 				BC35D8C51871A21700300C86 /* default_avatar.png in Resources */,
 				BC552DC61839DC350078375F /* status_dnd@2x.png in Resources */,
 				BC8406B0182CC3870058EBDC /* navbar_bt_normal.png in Resources */,
+				BC6B3EFC18B212C700E7939E /* badge@2x.png in Resources */,
 				BC8406A3182CC3870058EBDC /* box_top@2x.png in Resources */,
 				BC8406B3182CC3870058EBDC /* tabbar_bg@2x.png in Resources */,
 				BC8406B5182CC3870058EBDC /* toolbar_bg@2x.png in Resources */,
@@ -1802,6 +1815,7 @@
 				BC46D3B2183EF52F00EADAA9 /* UITableViewExtentions.m in Sources */,
 				BC840651182CC2F00058EBDC /* simanager.cpp in Sources */,
 				BC840624182CC2F00058EBDC /* gpgencrypted.cpp in Sources */,
+				BC6B3EF818B20F8200E7939E /* RSBadgeView.m in Sources */,
 				BCA23D5C1832293200E93718 /* RSBuddiesViewController.mm in Sources */,
 				BC840614182CC2F00058EBDC /* connectiontls.cpp in Sources */,
 				BC840630182CC2F00058EBDC /* lastactivity.cpp in Sources */,

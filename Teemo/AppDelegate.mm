@@ -18,6 +18,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
+  [self doit];
+  
+  
   //@"SELECT * FROM abc WHERE (str LIKE '%@' OR str LIKE '%@,%%' OR str LIKE '%%,%@' OR str LIKE '%%,%@,%%') AND (sub IN (%@));"
   
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -55,6 +58,12 @@
     
 }
 
+
+- (void)doit
+{
+  TMEngine *engine = [[TMEngine alloc] init];
+  [engine requestVCard:@""];
+}
 
 - (void)signinWithPassport:(NSString *)pspt password:(NSString *)pswd
 {

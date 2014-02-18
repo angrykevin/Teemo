@@ -22,7 +22,7 @@
 
 
 ///-------------------------------
-/// Getting values
+/// Getting column value
 ///-------------------------------
 
 - (BOOL)boolForName:(NSString *)name;
@@ -32,5 +32,12 @@
 - (NSDate *)dateForName:(NSString *)name;
 - (NSString *)stringForName:(NSString *)name;
 - (NSData *)dataForName:(NSString *)name;
+
+
+///-------------------------------
+/// Getting values
+///-------------------------------
+
+- (NSDictionary *)columnDictionary;
 
 @end

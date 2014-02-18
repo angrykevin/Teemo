@@ -114,27 +114,133 @@ static TMEngine *CurrentEngine = nil;
   return nil;
 }
 
+
+- (void)requestVCard:(NSString *)jid
+{
+  if ( [jid length]<=0 ) {
+    return;
+  }
+  
+  if ( _vcardManager ) {
+    _vcardManager->fetchVCard(JID(CPPSTR(jid)), _vcardHandler);
+  }
+}
+
+- (void)storeVCard:(NSDictionary *)vcard
+{
+  if ( [vcard count]<=0 ) {
+    return;
+  }
+  
+  NSString *value = nil;
+  
+  value = [vcard objectForKey:@"nickname"];
+  NSString *nickname = ([value length]>0) ? value : @"";
+  
+  value = [vcard objectForKey:@"familyname"];
+  NSString *familyname = ([value length]>0) ? value : @"";
+  
+  value = [vcard objectForKey:@"givenname"];
+  NSString *givenname = ([value length]>0) ? value : @"";
+  
+  value = [vcard objectForKey:@"photo"];
+  NSString *photo = ([value length]>0) ? value : @"";
+  
+  value = [vcard objectForKey:@"birthday"];
+  NSString *birthday = ([value length]>0) ? value : @"";
+  
+  value = [vcard objectForKey:@"desc"];
+  NSString *desc = ([value length]>0) ? value : @"";
+  
+  value = [vcard objectForKey:@"homepage"];
+  NSString *homepage = ([value length]>0) ? value : @"";
+  
+  value = [vcard objectForKey:@"note"];
+  NSString *note = ([value length]>0) ? value : @"";
+  
+  
+  VCard *tmp = new VCard;
+  tmp->setNickname(CPPSTR(nickname));
+  tmp->setName(CPPSTR(familyname), CPPSTR(givenname));
+  tmp->setPhotoUri(CPPSTR(photo));
+  tmp->setBday(CPPSTR(birthday));
+  tmp->setDesc(CPPSTR(desc));
+  tmp->setUrl(CPPSTR(homepage));
+  tmp->setNote(CPPSTR(note));
+  
+  if ( _vcardManager) {
+    _vcardManager->storeVCard(tmp, _vcardHandler);
+  }
+  
+}
+
+
+
+- (void)addBuddy:(NSString *)jid message:(NSString *)message
+{
+  if ( [jid length]<=0 ) {
+    return;
+  }
+  
+  if ( [self rosterManager] ) {
+    [self rosterManager]->subscribe(JID(CPPSTR(jid)));
+  }
+  
+  if ( _client ) {
+    if ( [message length]>0 ) {
+      Message msg(Message::Chat, JID(CPPSTR(jid)), CPPSTR(message));
+      _client->send(msg);
+    }
+  }
+  
+}
+
+- (void)removeBuddy:(NSString *)jid
+{
+  if ( [jid length]<=0 ) {
+    return;
+  }
+  
+  if ( [self rosterManager] ) {
+    [self rosterManager]->remove(JID(CPPSTR(jid)));
+    [self rosterManager]->unsubscribe(JID(CPPSTR(jid)));
+  }
+  
+}
+
+- (void)authorizeBuddy:(NSString *)jid
+{
+  if ( [jid length]<=0 ) {
+    return;
+  }
+  
+  if ( [self rosterManager] ) {
+    [self rosterManager]->ackSubscriptionRequest(JID(CPPSTR(jid)), YES);
+  }
+}
+
+- (void)declineBuddy:(NSString *)jid
+{
+  if ( [jid length]<=0 ) {
+    return;
+  }
+  
+  if ( [self rosterManager] ) {
+    [self rosterManager]->ackSubscriptionRequest(JID(CPPSTR(jid)), YES);
+  }
+}
+
+
 - (void)sendTextMessage:(NSString *)jid message:(NSString *)message
 {
   if ( ([jid length]<=0) || ([message length]<=0)) {
     return;
   }
   
-  Message msg(Message::Chat, JID(CPPSTR(jid)), CPPSTR(message));
-  _client->send(msg);
-}
-
-- (void)addBuddy:(NSString *)jid message:(NSString *)message
-{
-  if ( ([jid length]<=0) || ([message length]<=0)) {
-    return;
+  if ( _client ) {
+    Message msg(Message::Chat, JID(CPPSTR(jid)), CPPSTR(message));
+    _client->send(msg);
   }
-  
-  [self rosterManager]->subscribe(JID(CPPSTR(jid)));
-  
-  Message msg(Message::Chat, JID(CPPSTR(jid)), CPPSTR(message));
-  _client->send(msg);
-  
 }
 
 

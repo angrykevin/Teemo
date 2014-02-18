@@ -126,7 +126,7 @@
   // Create database tables
   if ( ![_database hasTableNamed:@"t_buddy"] ) {
     NSString *sql =
-    @"CREATE TABLE t_buddy( "
+    @"CREATE TABLE t_buddy("
     @"pk INTEGER PRIMARY KEY, "
     @"bid TEXT, "
     @"displayedname TEXT, "
@@ -145,24 +145,46 @@
     [_database executeUpdate:sql];
   }
   
+  if ( ![_database hasTableNamed:@"t_request"] ) {
+    NSString *sql =
+    @"CREATE TABLE t_request("
+    @"pk INTEGER PRIMARY KEY, "
+    @"bid TEXT, "
+    @"date TEXT"
+    @");";
+    [_database executeUpdate:sql];
+  }
+  
+  if ( ![_database hasTableNamed:@"t_request_message"] ) {
+    NSString *sql =
+    @"CREATE TABLE t_request_message("
+    @"pk INTEGER PRIMARY KEY, "
+    @"bid TEXT, "
+    @"content TEXT, "
+    @"read INTEGER, "
+    @"date TEXT"
+    @");";
+    [_database executeUpdate:sql];
+  }
+  
   if ( ![_database hasTableNamed:@"t_session"] ) {
     NSString *sql =
-    @"CREATE TABLE t_session( "
+    @"CREATE TABLE t_session("
     @"pk INTEGER PRIMARY KEY, "
-    @"jid TEXT, "
-    @"date TEXT "
+    @"bid TEXT, "
+    @"date TEXT"
     @");";
     [_database executeUpdate:sql];
   }
   
   if ( ![_database hasTableNamed:@"t_message"] ) {
     NSString *sql =
-    @"CREATE TABLE t_message( "
+    @"CREATE TABLE t_message("
     @"pk INTEGER PRIMARY KEY, "
-    @"passport TEXT, "
+    @"bid TEXT, "
     @"content TEXT, "
     @"date TEXT, "
-    @"read INTEGER "
+    @"read INTEGER"
     @");";
     [_database executeUpdate:sql];
   }

@@ -11,7 +11,7 @@
 @implementation TKDatabaseRow
 
 
-#pragma mark - Getting values
+#pragma mark - Getting column value
 
 - (BOOL)boolForName:(NSString *)name
 {
@@ -80,6 +80,29 @@
   if ( TKIsInstance(object, [NSData class]) ) {
     return object;
   }
+  return nil;
+}
+
+
+
+#pragma mark - Getting values
+
+- (NSDictionary *)columnDictionary
+{
+  NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+  
+  for ( int i=0; i<[_names count]; ++i ) {
+    NSString *name = [_names objectOrNilAtIndex:i];
+    id column = [_columns objectOrNilAtIndex:i];
+    if ( column != [NSNull null] ) {
+      [dictionary setObject:column forKeyIfNotNil:name];
+    }
+  }
+  
+  if ( [dictionary count] > 0 ) {
+    return dictionary;
+  }
+  
   return nil;
 }
 
