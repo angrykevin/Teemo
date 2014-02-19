@@ -31,8 +31,8 @@ void TMVCardHandler::handleVCard( const JID& jid, const VCard* vcard )
   TMEngine *engine = (__bridge TMEngine *)getEngine();
   
   if ( jid.bare().length() > 0 ) {
-    NSArray *buddies = [[engine database] executeQuery:@"SELECT pk FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
-    if ( [buddies count] > 0 ) {
+    NSString *sql = [[NSString alloc] initWithFormat:@"SELECT pk FROM t_buddy WHERE bid='%@';", OBJCSTR(jid.bare())];
+    if ( [[engine database] hasRowForSQLStatement:sql] ) {
       [[engine database] executeUpdate:@"UPDATE t_buddy SET nickname=?, familyname=?, givenname=?, photo=?, birthday=?, desc=?, homepage=?, note=? WHERE bid=?;",
        OBJCSTR(vcard->nickname()),
        OBJCSTR(vcard->name().family),

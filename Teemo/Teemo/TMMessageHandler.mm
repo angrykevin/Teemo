@@ -7,6 +7,8 @@
 //
 
 #import "TMMessageHandler.h"
+#import "TMEngine.h"
+
 
 
 void TMMessageHandler::handleMessage( const Message& msg, MessageSession* session )

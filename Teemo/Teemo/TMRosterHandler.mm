@@ -35,7 +35,7 @@ void TMRosterHandler::handleRoster( const Roster& roster )
      [NSNumber numberWithInt:subscription],
      [NSNumber numberWithInt:highestPresence]];
     
-    [engine vcardManager]->fetchVCard(jid, [engine vcardHandler]);
+    [engine requestVCard:OBJCSTR(jid.bare())];
     
   }
   
@@ -52,6 +52,7 @@ void TMRosterHandler::handleRoster( const Roster& roster )
 void TMRosterHandler::handleRosterError( const IQ& iq )
 {
   TKPRINTMETHOD();
+  
   TMEngine *engine = (__bridge TMEngine *)getEngine();
   
   dispatch_sync(dispatch_get_main_queue(), ^{
@@ -79,8 +80,8 @@ void TMRosterHandler::handleItemAdded( const JID& jid )
   Presence::PresenceType highestPresence = Presence::Unavailable;
   if ( item->highestResource() ) highestPresence = item->highestResource()->presence();
   
-  NSArray *result = [[engine database] executeQuery:@"SELECT pk FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
-  if ( [result count] > 0 ) {
+  NSString *sql = [[NSString alloc] initWithFormat:@"SELECT pk FROM t_buddy WHERE bid='%@';", OBJCSTR(jid.bare())];
+  if ( [[engine database] hasRowForSQLStatement:sql] ) {
     [[engine database] executeUpdate:@"UPDATE t_buddy SET displayedname=?, subscription=?, presence=? WHERE bid=?;",
      OBJCSTR(displayedname),
      [NSNumber numberWithInt:subscription],
@@ -94,7 +95,7 @@ void TMRosterHandler::handleItemAdded( const JID& jid )
      [NSNumber numberWithInt:highestPresence]];
   }
   
-  [engine vcardManager]->fetchVCard(jid, [engine vcardHandler]);
+  [engine requestVCard:OBJCSTR(jid.bare())];
   
   
   dispatch_sync(dispatch_get_main_queue(), ^{
@@ -114,6 +115,8 @@ void TMRosterHandler::handleItemRemoved( const JID& jid )
   TMEngine *engine = (__bridge TMEngine *)getEngine();
   
   [[engine database] executeUpdate:@"DELETE FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
+  [[engine database] executeUpdate:@"DELETE FROM t_message WHERE bid=?;", OBJCSTR(jid.bare())];
+  // TODO: 删除其它的东西
   
   
   dispatch_sync(dispatch_get_main_queue(), ^{
@@ -140,8 +143,8 @@ void TMRosterHandler::handleItemUpdated( const JID& jid )
   Presence::PresenceType highestPresence = Presence::Unavailable;
   if ( item->highestResource() ) highestPresence = item->highestResource()->presence();
   
-  NSArray *result = [[engine database] executeQuery:@"SELECT pk FROM t_buddy WHERE bid=?;", OBJCSTR(jid.bare())];
-  if ( [result count] > 0 ) {
+  NSString *sql = [[NSString alloc] initWithFormat:@"SELECT pk FROM t_buddy WHERE bid='%@';", OBJCSTR(jid.bare())];
+  if ( [[engine database] hasRowForSQLStatement:sql] ) {
     [[engine database] executeUpdate:@"UPDATE t_buddy SET displayedname=?, subscription=?, presence=? WHERE bid=?;",
      OBJCSTR(displayedname),
      [NSNumber numberWithInt:subscription],
@@ -155,7 +158,7 @@ void TMRosterHandler::handleItemUpdated( const JID& jid )
      [NSNumber numberWithInt:highestPresence]];
   }
   
-  [engine vcardManager]->fetchVCard(jid, [engine vcardHandler]);
+  [engine requestVCard:OBJCSTR(jid.bare())];
   
   
   dispatch_sync(dispatch_get_main_queue(), ^{

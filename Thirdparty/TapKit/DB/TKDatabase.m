@@ -85,6 +85,16 @@
   return NO;
 }
 
+- (BOOL)hasRowForSQLStatement:(NSString *)sql
+{
+  if ( [self open] ) {
+    if ( [sql length] > 0 ) {
+      return ( [[self executeQuery:sql] count] > 0 );
+    }
+  }
+  return NO;
+}
+
 - (BOOL)executeUpdate:(NSString *)sql, ...
 {
   int count = 0;

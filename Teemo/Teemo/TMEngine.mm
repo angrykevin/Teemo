@@ -71,6 +71,8 @@ static TMEngine *CurrentEngine = nil;
   _messageSessionHandler->setEngine((__bridge void *)self);
   _client->registerMessageSessionHandler(_messageSessionHandler);
   
+  _messageHandlerDictionary = [[NSMutableDictionary alloc] init];
+  
 }
 
 - (BOOL)connect
@@ -308,17 +310,13 @@ static TMEngine *CurrentEngine = nil;
   return _messageSessionHandler;
 }
 
-
-
-- (void)doit
+- (TMMessageHandler *)messageHandlerForJid:(NSString *)jid
 {
-  MessageSession *ms = new MessageSession(_client, JID("kevin@batoo.com"));
-  
-  TMMessageHandler *handler = new TMMessageHandler(ms);
-  
-  _client->registerMessageSession(ms);
-  
-  ms->send( "abcdefg" );
+  NSValue *value = [_messageHandlerDictionary objectForKey:jid];
+  if ( value ) {
+    return (TMMessageHandler *)[value pointerValue];
+  }
+  return NULL;
 }
 
 

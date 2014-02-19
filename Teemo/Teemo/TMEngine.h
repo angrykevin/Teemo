@@ -39,6 +39,7 @@ using namespace std;
   TMRosterHandler *_rosterHandler;
   TMVCardHandler *_vcardHandler;
   TMMessageSessionHandler *_messageSessionHandler;
+  NSMutableDictionary *_messageHandlerDictionary;
   
   
   NSMutableArray *_observers;
@@ -81,8 +82,15 @@ using namespace std;
 - (TMRosterHandler *)rosterHandler;
 - (TMVCardHandler *)vcardHandler;
 - (TMMessageSessionHandler *)messageSessionHandler;
+- (TMMessageHandler *)messageHandlerForJid:(NSString *)jid;
 
-- (void)doit;
+@end
+
+
+@interface TMEngine (PrivateMethods)
+
+- (void)addMessageHandler:(TMMessageHandler *)mh forJid:(NSString *)jid;
+- (void)removeMessageHandlerForJid:(NSString *)jid;
 
 @end
 

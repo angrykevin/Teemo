@@ -49,6 +49,7 @@
 ///-------------------------------
 
 - (BOOL)hasTableNamed:(NSString *)name;
+- (BOOL)hasRowForSQLStatement:(NSString *)sql;
 
 - (BOOL)executeUpdate:(NSString *)sql, ...;
 - (BOOL)executeUpdate:(NSString *)sql parameters:(NSArray *)parameters;
