@@ -9,6 +9,17 @@
 #import "TMEngine.h"
 #import "TMConfig.h"
 #import "TMCommon.h"
+#include <gloox/client.h>
+
+#include "TMConnectionHandler.h"
+#include "TMRosterHandler.h"
+#include "TMVCardHandler.h"
+#include "TMMessageHandler.h"
+
+
+using namespace gloox;
+using namespace std;
+
 
 
 static TMEngine *CurrentEngine = nil;
@@ -49,27 +60,32 @@ static TMEngine *CurrentEngine = nil;
   string svr = CPPSTR(TMXMPPServerHost);
   int prt = [TMXMPPServerPort intValue];
   
-  _client = new Client( JID( jid ), pwd );
-  _client->setServer( svr );
-  _client->setPort( prt );
-  _client->setResource( CPPSTR(TMXMPPClientResource) );
+  Client *client = new Client( JID( jid ), pwd );
+  client->setServer( svr );
+  client->setPort( prt );
+  client->setResource( CPPSTR(TMXMPPClientResource) );
+  _client = client;
   
+  TMConnectionHandler *connectionHandler = new TMConnectionHandler;
+  connectionHandler->setEngine((__bridge void *)self);
+  client->registerConnectionListener(connectionHandler);
+  _connectionHandler = connectionHandler;
   
-  _connectionHandler = new TMConnectionHandler;
-  _connectionHandler->setEngine((__bridge void *)self);
-  _client->registerConnectionListener(_connectionHandler);
+  TMRosterHandler *rosterHandler = new TMRosterHandler;
+  rosterHandler->setEngine((__bridge void *)self);
+  client->rosterManager()->registerRosterListener(rosterHandler);
+  _rosterHandler = rosterHandler;
   
-  _rosterHandler = new TMRosterHandler;
-  _rosterHandler->setEngine((__bridge void *)self);
-  _client->rosterManager()->registerRosterListener(_rosterHandler);
+  VCardManager *vcardManager = new VCardManager( client );
+  TMVCardHandler *vcardHandler = new TMVCardHandler;
+  vcardHandler->setEngine((__bridge void *)self);
+  _vcardHandler = vcardHandler;
+  _vcardManager = vcardManager;
   
-  _vcardManager = new VCardManager( _client );
-  _vcardHandler = new TMVCardHandler;
-  _vcardHandler->setEngine((__bridge void *)self);
-  
-  _messageSessionHandler = new TMMessageSessionHandler;
-  _messageSessionHandler->setEngine((__bridge void *)self);
-  _client->registerMessageSessionHandler(_messageSessionHandler);
+  TMMessageSessionHandler *messageSessionHandler = new TMMessageSessionHandler;
+  messageSessionHandler->setEngine((__bridge void *)self);
+  client->registerMessageSessionHandler(messageSessionHandler);
+  _messageSessionHandler = messageSessionHandler;
   
   _messageHandlerDictionary = [[NSMutableDictionary alloc] init];
   
@@ -125,7 +141,9 @@ static TMEngine *CurrentEngine = nil;
   }
   
   if ( _vcardManager ) {
-    _vcardManager->fetchVCard(JID(CPPSTR(jid)), _vcardHandler);
+    VCardManager *vcardManager = (VCardManager *)_vcardManager;
+    VCardHandler *vcardHandler = (VCardHandler *)_vcardHandler;
+    vcardManager->fetchVCard(JID(CPPSTR(jid)), vcardHandler);
   }
 }
 
@@ -172,7 +190,9 @@ static TMEngine *CurrentEngine = nil;
   tmp->setNote(CPPSTR(note));
   
   if ( _vcardManager) {
-    _vcardManager->storeVCard(tmp, _vcardHandler);
+    VCardManager *vcardManager = (VCardManager *)_vcardManager;
+    VCardHandler *vcardHandler = (VCardHandler *)_vcardHandler;
+    vcardManager->storeVCard(tmp, vcardHandler);
   }
   
 }
@@ -186,13 +206,15 @@ static TMEngine *CurrentEngine = nil;
   }
   
   if ( [self rosterManager] ) {
-    [self rosterManager]->subscribe(JID(CPPSTR(jid)));
+    RosterManager *rosterManager = (RosterManager *)[self rosterManager];
+    rosterManager->subscribe(JID(CPPSTR(jid)));
   }
   
   if ( _client ) {
     if ( [message length]>0 ) {
+      Client *client = (Client *)_client;
       Message msg(Message::Chat, JID(CPPSTR(jid)), CPPSTR(message));
-      _client->send(msg);
+      client->send(msg);
     }
   }
   
@@ -205,8 +227,9 @@ static TMEngine *CurrentEngine = nil;
   }
   
   if ( [self rosterManager] ) {
-    [self rosterManager]->remove(JID(CPPSTR(jid)));
-    [self rosterManager]->unsubscribe(JID(CPPSTR(jid)));
+    RosterManager *rosterManager = (RosterManager *)[self rosterManager];
+    rosterManager->remove(JID(CPPSTR(jid)));
+    rosterManager->unsubscribe(JID(CPPSTR(jid)));
   }
   
 }
@@ -218,7 +241,8 @@ static TMEngine *CurrentEngine = nil;
   }
   
   if ( [self rosterManager] ) {
-    [self rosterManager]->ackSubscriptionRequest(JID(CPPSTR(jid)), YES);
+    RosterManager *rosterManager = (RosterManager *)[self rosterManager];
+    rosterManager->ackSubscriptionRequest(JID(CPPSTR(jid)), YES);
   }
 }
 
@@ -229,7 +253,8 @@ static TMEngine *CurrentEngine = nil;
   }
   
   if ( [self rosterManager] ) {
-    [self rosterManager]->ackSubscriptionRequest(JID(CPPSTR(jid)), YES);
+    RosterManager *rosterManager = (RosterManager *)[self rosterManager];
+    rosterManager->ackSubscriptionRequest(JID(CPPSTR(jid)), YES);
   }
 }
 
@@ -241,8 +266,9 @@ static TMEngine *CurrentEngine = nil;
   }
   
   if ( _client ) {
+    Client *client = (Client *)_client;
     Message msg(Message::Chat, JID(CPPSTR(jid)), CPPSTR(message));
-    _client->send(msg);
+    client->send(msg);
   }
 }
 
@@ -271,50 +297,51 @@ static TMEngine *CurrentEngine = nil;
 }
 
 
-- (Client *)client
+- (void *)client
 {
   return _client;
 }
 
-- (RosterManager *)rosterManager
+- (void *)rosterManager
 {
   if ( _client ) {
-    return _client->rosterManager();
+    Client *client = (Client *)_client;
+    return client->rosterManager();
   }
   return NULL;
 }
 
-- (VCardManager *)vcardManager
+- (void *)vcardManager
 {
   return _vcardManager;
 }
 
 
-- (TMConnectionHandler *)connectionHandler
+- (void *)connectionHandler
 {
   return _connectionHandler;
 }
 
-- (TMRosterHandler *)rosterHandler
+- (void *)rosterHandler
 {
   return _rosterHandler;
 }
 
-- (TMVCardHandler *)vcardHandler
+- (void *)vcardHandler
 {
   return _vcardHandler;
 }
 
-- (TMMessageSessionHandler *)messageSessionHandler
+- (void *)messageSessionHandler
 {
   return _messageSessionHandler;
 }
 
-- (TMMessageHandler *)messageHandlerForJid:(NSString *)jid
+- (void *)messageHandlerForJid:(NSString *)jid
 {
   NSValue *value = [_messageHandlerDictionary objectForKey:jid];
   if ( value ) {
-    return (TMMessageHandler *)[value pointerValue];
+    return [value pointerValue];
   }
   return NULL;
 }

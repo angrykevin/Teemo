@@ -8,6 +8,7 @@
 
 #import "TMMessageHandler.h"
 #import "TMEngine.h"
+#import "TMCommon.h"
 
 
 
@@ -35,5 +36,9 @@ void TMMessageSessionHandler::handleMessageSession( MessageSession* session )
   TKPRINTMETHOD();
   
   TMMessageHandler *mh = new TMMessageHandler( session );
+  
+  TMEngine *engine = (__bridge TMEngine *)getEngine();
+  
+  [engine addMessageHandler:mh forJid:OBJCSTR(session->target().bare())];
   
 }

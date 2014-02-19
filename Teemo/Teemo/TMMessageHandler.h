@@ -77,6 +77,7 @@ public:
   
   ~TMMessageHandler()
   {
+    m_messageSession = NULL;
     delete m_chatStateFilter;
     delete m_messageEventFilter;
   }

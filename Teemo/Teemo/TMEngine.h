@@ -8,18 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#include <gloox/client.h>
-
 #import "TMAccountContext.h"
-
-#include "TMConnectionHandler.h"
-#include "TMRosterHandler.h"
-#include "TMVCardHandler.h"
-#include "TMMessageHandler.h"
-
-
-using namespace gloox;
-using namespace std;
 
 
 @interface TMEngine : NSObject<
@@ -31,14 +20,14 @@ using namespace std;
   TMAccountContext *_context;
   //TKDatabase *_database;
   
-  Client *_client;
-  //RosterManager *_rosterManager;
-  VCardManager *_vcardManager;
+  void *_client;
+  //void *_rosterManager;
+  void *_vcardManager;
   
-  TMConnectionHandler *_connectionHandler;
-  TMRosterHandler *_rosterHandler;
-  TMVCardHandler *_vcardHandler;
-  TMMessageSessionHandler *_messageSessionHandler;
+  void *_connectionHandler;
+  void *_rosterHandler;
+  void *_vcardHandler;
+  void *_messageSessionHandler;
   NSMutableDictionary *_messageHandlerDictionary;
   
   
@@ -74,22 +63,22 @@ using namespace std;
 - (TMAccountContext *)context;
 - (TKDatabase *)database;
 
-- (Client *)client;
-- (RosterManager *)rosterManager;
-- (VCardManager *)vcardManager;
+- (void *)client;
+- (void *)rosterManager;
+- (void *)vcardManager;
 
-- (TMConnectionHandler *)connectionHandler;
-- (TMRosterHandler *)rosterHandler;
-- (TMVCardHandler *)vcardHandler;
-- (TMMessageSessionHandler *)messageSessionHandler;
-- (TMMessageHandler *)messageHandlerForJid:(NSString *)jid;
+- (void *)connectionHandler;
+- (void *)rosterHandler;
+- (void *)vcardHandler;
+- (void *)messageSessionHandler;
+- (void *)messageHandlerForJid:(NSString *)jid;
 
 @end
 
 
 @interface TMEngine (PrivateMethods)
 
-- (void)addMessageHandler:(TMMessageHandler *)mh forJid:(NSString *)jid;
+- (void)addMessageHandler:(void *)mh forJid:(NSString *)jid;
 - (void)removeMessageHandlerForJid:(NSString *)jid;
 
 @end
