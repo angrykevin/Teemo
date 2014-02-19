@@ -10,16 +10,14 @@
 #define __TMConnectionHandler__
 
 #include <iostream>
-
 #include <gloox/connectionlistener.h>
 #include <gloox/error.h>
-
-#include "TMHandlerBase.h"
+#include "TMBaseHandler.h"
 
 using namespace gloox;
 
 
-class TMConnectionHandler : public ConnectionListener, public TMHandlerBase {
+class TMConnectionHandler : public TMBaseHandler, public ConnectionListener {
   
 public:
   

@@ -9,6 +9,8 @@
 #import "RSChatlogViewController.h"
 #import "Teemo.h"
 
+#include "TMMessageHandler.h"
+
 
 @implementation RSChatlogViewController
 
@@ -118,6 +120,12 @@
 //  TMEngine *engine = [TMEngine sharedEngine];
 //  NSArray *ary = [[engine database] executeQuery:sql];
 //  NSLog(@"%@", ary);
+  
+  
+  TMEngine *engine = [TMEngine sharedEngine];
+  
+  TMMessageSessionHandler *msh = new TMMessageSessionHandler;
+  [engine client]->registerMessageSessionHandler(msh);
   
 }
 

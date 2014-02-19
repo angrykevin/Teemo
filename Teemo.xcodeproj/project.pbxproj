@@ -42,7 +42,7 @@
 		BC5EE35E182A230E007D5DE6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */; };
 		BC5EE361182A2429007D5DE6 /* TBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE360182A2429007D5DE6 /* TBViewController.m */; };
 		BC5EE364182A2600007D5DE6 /* UILabelExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5EE363182A2600007D5DE6 /* UILabelExtentions.m */; };
-		BC675CC918308252003E1516 /* TMHandlerBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC675CC818308252003E1516 /* TMHandlerBase.mm */; };
+		BC675CC918308252003E1516 /* TMBaseHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC675CC818308252003E1516 /* TMBaseHandler.mm */; };
 		BC675D4A183093E3003E1516 /* CATransitionExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC675D49183093E3003E1516 /* CATransitionExtentions.m */; };
 		BC6B3EF818B20F8200E7939E /* RSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6B3EF718B20F8200E7939E /* RSBadgeView.m */; };
 		BC6B3EFB18B212C700E7939E /* badge.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6B3EF918B212C700E7939E /* badge.png */; };
@@ -208,6 +208,7 @@
 		BC840707182CC5200058EBDC /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8406DD182CC5200058EBDC /* libssl.a */; };
 		BC84070C182CCB090058EBDC /* TBTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070B182CCB090058EBDC /* TBTabViewController.m */; };
 		BC840710182CCCB20058EBDC /* UIViewControllerExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */; };
+		BC8DA3BC18B357E900BFB0D7 /* TMMessageHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC8DA3BB18B357E900BFB0D7 /* TMMessageHandler.mm */; };
 		BCA23D48183224E300E93718 /* tabbar_buddies_h.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */; };
 		BCA23D49183224E300E93718 /* tabbar_buddies_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3D183224E300E93718 /* tabbar_buddies_h@2x.png */; };
 		BCA23D4A183224E300E93718 /* tabbar_buddies_n.png in Resources */ = {isa = PBXBuildFile; fileRef = BCA23D3E183224E300E93718 /* tabbar_buddies_n.png */; };
@@ -305,8 +306,8 @@
 		BC5EE362182A2600007D5DE6 /* UILabelExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelExtentions.h; sourceTree = "<group>"; };
 		BC5EE363182A2600007D5DE6 /* UILabelExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelExtentions.m; sourceTree = "<group>"; };
 		BC5EE367182A3C8F007D5DE6 /* Teemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Teemo.h; sourceTree = "<group>"; };
-		BC675C8218306E22003E1516 /* TMHandlerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMHandlerBase.h; sourceTree = "<group>"; };
-		BC675CC818308252003E1516 /* TMHandlerBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMHandlerBase.mm; sourceTree = "<group>"; };
+		BC675C8218306E22003E1516 /* TMBaseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMBaseHandler.h; sourceTree = "<group>"; };
+		BC675CC818308252003E1516 /* TMBaseHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMBaseHandler.mm; sourceTree = "<group>"; };
 		BC675D48183093E3003E1516 /* CATransitionExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATransitionExtentions.h; sourceTree = "<group>"; };
 		BC675D49183093E3003E1516 /* CATransitionExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATransitionExtentions.m; sourceTree = "<group>"; };
 		BC6B3EF618B20F8200E7939E /* RSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBadgeView.h; sourceTree = "<group>"; };
@@ -751,6 +752,8 @@
 		BC84070B182CCB090058EBDC /* TBTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTabViewController.m; sourceTree = "<group>"; };
 		BC84070E182CCCB20058EBDC /* UIViewControllerExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtentions.h; sourceTree = "<group>"; };
 		BC84070F182CCCB20058EBDC /* UIViewControllerExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerExtentions.m; sourceTree = "<group>"; };
+		BC8DA3BA18B357E900BFB0D7 /* TMMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMessageHandler.h; sourceTree = "<group>"; };
+		BC8DA3BB18B357E900BFB0D7 /* TMMessageHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMMessageHandler.mm; sourceTree = "<group>"; };
 		BCA23D3C183224E300E93718 /* tabbar_buddies_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_buddies_h.png; sourceTree = "<group>"; };
 		BCA23D3D183224E300E93718 /* tabbar_buddies_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_buddies_h@2x.png"; sourceTree = "<group>"; };
 		BCA23D3E183224E300E93718 /* tabbar_buddies_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_buddies_n.png; sourceTree = "<group>"; };
@@ -1499,14 +1502,16 @@
 		BCA23D221831C3EF00E93718 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				BC675C8218306E22003E1516 /* TMHandlerBase.h */,
-				BC675CC818308252003E1516 /* TMHandlerBase.mm */,
+				BC675C8218306E22003E1516 /* TMBaseHandler.h */,
+				BC675CC818308252003E1516 /* TMBaseHandler.mm */,
 				BC4D139B1830E77300572F67 /* TMConnectionHandler.h */,
 				BC4D139C1830E77300572F67 /* TMConnectionHandler.mm */,
 				BCBA5CEC18A9D87C00F50A41 /* TMRosterHandler.h */,
 				BCBA5CED18A9D87C00F50A41 /* TMRosterHandler.mm */,
 				BC7DC30F18AC67A40021CD27 /* TMVCardHandler.h */,
 				BC7DC31018AC67A40021CD27 /* TMVCardHandler.mm */,
+				BC8DA3BA18B357E900BFB0D7 /* TMMessageHandler.h */,
+				BC8DA3BB18B357E900BFB0D7 /* TMMessageHandler.mm */,
 			);
 			name = Handlers;
 			sourceTree = "<group>";
@@ -1780,6 +1785,7 @@
 				BC840626182CC2F00058EBDC /* inbandbytestream.cpp in Sources */,
 				BC84064D182CC2F00058EBDC /* rostermanager.cpp in Sources */,
 				BC84063A182CC2F00058EBDC /* mucinvitationhandler.cpp in Sources */,
+				BC8DA3BC18B357E900BFB0D7 /* TMMessageHandler.mm in Sources */,
 				BC8405FE182CC2F00058EBDC /* adhoc.cpp in Sources */,
 				BC5EE307182A209D007D5DE6 /* RSSigninViewController.m in Sources */,
 				BC840657182CC2F00058EBDC /* stanza.cpp in Sources */,
@@ -1862,7 +1868,7 @@
 				BC84062A182CC2F00058EBDC /* jinglecontent.cpp in Sources */,
 				BC840677182CC2F00058EBDC /* TKCache.m in Sources */,
 				BC840635182CC2F00058EBDC /* message.cpp in Sources */,
-				BC675CC918308252003E1516 /* TMHandlerBase.mm in Sources */,
+				BC675CC918308252003E1516 /* TMBaseHandler.mm in Sources */,
 				BC840429182CADA40058EBDC /* RSBoxViewLine.m in Sources */,
 				BC403C451835D98100B50317 /* RSProfileAccessoryView.m in Sources */,
 				BC84061D182CC2F00058EBDC /* dns.cpp in Sources */,

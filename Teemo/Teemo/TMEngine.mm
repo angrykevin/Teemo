@@ -7,11 +7,8 @@
 //
 
 #import "TMEngine.h"
-
 #import "TMConfig.h"
 #import "TMCommon.h"
-
-#include <gloox/message.h>
 
 
 static TMEngine *CurrentEngine = nil;
@@ -69,6 +66,10 @@ static TMEngine *CurrentEngine = nil;
   _vcardManager = new VCardManager( _client );
   _vcardHandler = new TMVCardHandler;
   _vcardHandler->setEngine((__bridge void *)self);
+  
+  _messageSessionHandler = new TMMessageSessionHandler;
+  _messageSessionHandler->setEngine((__bridge void *)self);
+  _client->registerMessageSessionHandler(_messageSessionHandler);
   
 }
 
@@ -300,6 +301,11 @@ static TMEngine *CurrentEngine = nil;
 - (TMVCardHandler *)vcardHandler
 {
   return _vcardHandler;
+}
+
+- (TMMessageSessionHandler *)messageSessionHandler
+{
+  return _messageSessionHandler;
 }
 
 

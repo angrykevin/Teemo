@@ -9,14 +9,13 @@
 #import <Foundation/Foundation.h>
 
 #include <gloox/client.h>
-#include <gloox/rostermanager.h>
-
 
 #import "TMAccountContext.h"
 
 #include "TMConnectionHandler.h"
 #include "TMRosterHandler.h"
 #include "TMVCardHandler.h"
+#include "TMMessageHandler.h"
 
 
 using namespace gloox;
@@ -39,6 +38,7 @@ using namespace std;
   TMConnectionHandler *_connectionHandler;
   TMRosterHandler *_rosterHandler;
   TMVCardHandler *_vcardHandler;
+  TMMessageSessionHandler *_messageSessionHandler;
   
   
   NSMutableArray *_observers;
@@ -80,6 +80,7 @@ using namespace std;
 - (TMConnectionHandler *)connectionHandler;
 - (TMRosterHandler *)rosterHandler;
 - (TMVCardHandler *)vcardHandler;
+- (TMMessageSessionHandler *)messageSessionHandler;
 
 @end
 

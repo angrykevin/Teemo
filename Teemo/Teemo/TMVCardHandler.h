@@ -10,16 +10,14 @@
 #define __TMVCardHandler__
 
 #include <iostream>
-
 #include <gloox/vcardhandler.h>
 #include <gloox/vcardmanager.h>
-
-#include "TMHandlerBase.h"
+#include "TMBaseHandler.h"
 
 using namespace gloox;
 
 
-class TMVCardHandler : public VCardHandler, public TMHandlerBase {
+class TMVCardHandler : public TMBaseHandler, public VCardHandler {
   
 public:
   /**

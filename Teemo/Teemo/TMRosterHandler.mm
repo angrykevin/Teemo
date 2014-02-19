@@ -7,7 +7,6 @@
 //
 
 #include "TMRosterHandler.h"
-
 #import "TMEngine.h"
 #import "TMCommon.h"
 

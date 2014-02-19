@@ -10,17 +10,15 @@
 #define __TMRosterHandler__
 
 #include <iostream>
-
 #include <gloox/rosterlistener.h>
 #include <gloox/rostermanager.h>
 #include <gloox/error.h>
-
-#include "TMHandlerBase.h"
+#include "TMBaseHandler.h"
 
 using namespace gloox;
 
 
-class TMRosterHandler : public RosterListener, public TMHandlerBase {
+class TMRosterHandler : public TMBaseHandler, public RosterListener {
   
 public:
   /**
