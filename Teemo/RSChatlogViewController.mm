@@ -123,9 +123,10 @@
   
   
   TMEngine *engine = [TMEngine sharedEngine];
+  [engine requestVCard:@"kevin@batoo.com"];
   
-  TMMessageSessionHandler *msh = new TMMessageSessionHandler;
-  [engine client]->registerMessageSessionHandler(msh);
+//  TMMessageSessionHandler *msh = new TMMessageSessionHandler;
+//  [engine client]->registerMessageSessionHandler(msh);
   
 }
 

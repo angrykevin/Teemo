@@ -219,8 +219,8 @@ bool TMRosterHandler::handleSubscriptionRequest( const JID& jid, const std::stri
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     for ( id<TMEngineDelegate> observer in [engine observers] ) {
-      if ( [observer respondsToSelector:@selector(engine:handleSubscriptionRequest:message:)] ) {
-        [observer engine:engine handleSubscriptionRequest:OBJCSTR(jid.bare()) message:OBJCSTR(msg)];
+      if ( [observer respondsToSelector:@selector(engine:handleSubscriptionRequest:)] ) {
+        [observer engine:engine handleSubscriptionRequest:OBJCSTR(jid.bare())];
       }
     }
   });
@@ -239,8 +239,8 @@ bool TMRosterHandler::handleUnsubscriptionRequest( const JID& jid, const std::st
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     for ( id<TMEngineDelegate> observer in [engine observers] ) {
-      if ( [observer respondsToSelector:@selector(engine:handleUnsubscriptionRequest:message:)] ) {
-        [observer engine:engine handleUnsubscriptionRequest:OBJCSTR(jid.bare()) message:OBJCSTR(msg)];
+      if ( [observer respondsToSelector:@selector(engine:handleUnsubscriptionRequest:)] ) {
+        [observer engine:engine handleUnsubscriptionRequest:OBJCSTR(jid.bare())];
       }
     }
   });
@@ -272,8 +272,8 @@ void TMRosterHandler::handleRosterPresence( const RosterItem& item, const std::s
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     for ( id<TMEngineDelegate> observer in [engine observers] ) {
-      if ( [observer respondsToSelector:@selector(engine:handlePresence:resource:)] ) {
-        [observer engine:engine handlePresence:OBJCSTR(item.jidJID().bare()) resource:OBJCSTR(resource)];
+      if ( [observer respondsToSelector:@selector(engine:handlePresence:)] ) {
+        [observer engine:engine handlePresence:OBJCSTR(item.jidJID().bare())];
       }
     }
   });
@@ -304,8 +304,8 @@ void TMRosterHandler::handleSelfPresence( const RosterItem& item, const std::str
   
   dispatch_sync(dispatch_get_main_queue(), ^{
     for ( id<TMEngineDelegate> observer in [engine observers] ) {
-      if ( [observer respondsToSelector:@selector(engine:handlePresence:resource:)] ) {
-        [observer engine:engine handlePresence:OBJCSTR(item.jidJID().bare()) resource:OBJCSTR(resource)];
+      if ( [observer respondsToSelector:@selector(engine:handlePresence:)] ) {
+        [observer engine:engine handlePresence:OBJCSTR(item.jidJID().bare())];
       }
     }
   });

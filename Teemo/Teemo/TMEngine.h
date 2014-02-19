@@ -82,6 +82,8 @@ using namespace std;
 - (TMVCardHandler *)vcardHandler;
 - (TMMessageSessionHandler *)messageSessionHandler;
 
+- (void)doit;
+
 @end
 
 
@@ -105,9 +107,9 @@ using namespace std;
 - (void)engine:(TMEngine *)engine handleItemUpdated:(NSString *)jid;
 - (void)engine:(TMEngine *)engine handleItemSubscribed:(NSString *)jid;
 - (void)engine:(TMEngine *)engine handleItemUnsubscribed:(NSString *)jid;
-- (void)engine:(TMEngine *)engine handleSubscriptionRequest:(NSString *)jid message:(NSString *)message;
-- (void)engine:(TMEngine *)engine handleUnsubscriptionRequest:(NSString *)jid message:(NSString *)message;
-- (void)engine:(TMEngine *)engine handlePresence:(NSString *)jid resource:(NSString *)resource;
+- (void)engine:(TMEngine *)engine handleSubscriptionRequest:(NSString *)jid;
+- (void)engine:(TMEngine *)engine handleUnsubscriptionRequest:(NSString *)jid;
+- (void)engine:(TMEngine *)engine handlePresence:(NSString *)jid;
 
 // VcardHandler
 - (void)engine:(TMEngine *)engine handleVCard:(NSString *)jid;

@@ -68,11 +68,17 @@ public:
   {
     m_messageSession->registerMessageHandler( this );
     
-    m_messageEventFilter = new MessageEventFilter( m_messageSession );
-    m_messageEventFilter->registerMessageEventHandler( this );
-    
     m_chatStateFilter = new ChatStateFilter( m_messageSession );
     m_chatStateFilter->registerChatStateHandler( this );
+    
+    m_messageEventFilter = new MessageEventFilter( m_messageSession );
+    m_messageEventFilter->registerMessageEventHandler( this );
+  }
+  
+  ~TMMessageHandler()
+  {
+    delete m_chatStateFilter;
+    delete m_messageEventFilter;
   }
   
   MessageSession *getMessageSession()

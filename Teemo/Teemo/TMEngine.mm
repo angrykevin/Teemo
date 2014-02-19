@@ -310,6 +310,19 @@ static TMEngine *CurrentEngine = nil;
 
 
 
+- (void)doit
+{
+  MessageSession *ms = new MessageSession(_client, JID("kevin@batoo.com"));
+  
+  TMMessageHandler *handler = new TMMessageHandler(ms);
+  
+  _client->registerMessageSession(ms);
+  
+  ms->send( "abcdefg" );
+}
+
+
+
 #pragma mark - TKObserverProtocol
 
 - (NSArray *)observers
