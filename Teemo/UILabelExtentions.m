@@ -10,22 +10,33 @@
 
 @implementation UILabel (Extentions)
 
++ (id)simpleLabelWithFont:(UIFont *)font
+                textColor:(UIColor *)textColor
+            textAlignment:(NSTextAlignment)textAlignment
+{
+  return [self labelWithFont:font
+                   textColor:textColor
+               textAlignment:textAlignment
+               numberOfLines:1
+             backgroundColor:[UIColor clearColor]
+               lineBreakMode:NSLineBreakByTruncatingTail];
+}
+
 + (id)labelWithFont:(UIFont *)font
           textColor:(UIColor *)textColor
-    backgroundColor:(UIColor *)backgroundColor
       textAlignment:(NSTextAlignment)textAlignment
-      lineBreakMode:(NSLineBreakMode)lineBreakMode
-adjustsFontSizeToFitWidth:(BOOL)adjustsFontSizeToFitWidth
       numberOfLines:(NSInteger)numberOfLines
+    backgroundColor:(UIColor *)backgroundColor
+      lineBreakMode:(NSLineBreakMode)lineBreakMode
 {
   UILabel *label = [[UILabel alloc] init];
   label.font = font;
   label.textColor = textColor;
-  label.backgroundColor = backgroundColor;
   label.textAlignment = textAlignment;
-  label.lineBreakMode = lineBreakMode;
-  label.adjustsFontSizeToFitWidth = adjustsFontSizeToFitWidth;
   label.numberOfLines = numberOfLines;
+  label.backgroundColor = backgroundColor;
+  label.lineBreakMode = lineBreakMode;
+  label.adjustsFontSizeToFitWidth = NO;
   return label;
 }
 

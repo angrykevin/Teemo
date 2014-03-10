@@ -18,6 +18,7 @@
 - (BOOL)hasObjectIdenticalTo:(id)object;
 - (BOOL)hasKeyEqualTo:(id)key;
 - (BOOL)hasKeyIdenticalTo:(id)key;
+- (id)objectOrNilForKey:(id)key;
 
 
 ///-------------------------------

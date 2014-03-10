@@ -36,9 +36,8 @@
     [_tabView selectItemAtIndex:0];
   }
   
-  [self layoutViews];
-  
 }
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -53,6 +52,13 @@
   _viewAppeared = NO;
 }
 
+
+- (void)viewWillLayoutSubviews
+{
+  [super viewWillLayoutSubviews];
+  
+  [self layoutViews];
+}
 
 - (void)layoutViews
 {

@@ -73,7 +73,8 @@ void TMRosterHandler::handleItemAdded( const JID& jid )
   TMEngine *engine = (__bridge TMEngine *)getEngine();
   
   
-  RosterItem *item = [engine rosterManager]->getRosterItem(jid);
+  RosterManager *rosterManager = (RosterManager *)[engine rosterManager];
+  RosterItem *item = rosterManager->getRosterItem(jid);
   
   string displayedname = item->name();
   SubscriptionType subscription = item->subscription();
@@ -136,7 +137,8 @@ void TMRosterHandler::handleItemUpdated( const JID& jid )
   TMEngine *engine = (__bridge TMEngine *)getEngine();
   
   
-  RosterItem *item = [engine rosterManager]->getRosterItem(jid);
+  RosterManager *rosterManager = (RosterManager *)[engine rosterManager];
+  RosterItem *item = rosterManager->getRosterItem(jid);
   
   string displayedname = item->name();
   SubscriptionType subscription = item->subscription();

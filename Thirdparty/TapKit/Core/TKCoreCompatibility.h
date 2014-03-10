@@ -78,6 +78,8 @@ BOOL TKIsPad();
 
 BOOL TKIsPhone();
 
+CGFloat TKSystemVersion();
+
 
 #ifdef __cplusplus
 }

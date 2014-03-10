@@ -34,6 +34,15 @@
   return ( [[self allKeys] indexOfObjectIdenticalTo:key] != NSNotFound );
 }
 
+- (id)objectOrNilForKey:(id)key
+{
+  id object = [self objectForKey:key];
+  if ( object != [NSNull null] ) {
+    return object;
+  }
+  return nil;
+}
+
 
 
 #pragma mark - URL

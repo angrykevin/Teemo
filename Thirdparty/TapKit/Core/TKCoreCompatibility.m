@@ -103,3 +103,8 @@ BOOL TKIsPhone()
   UIDevice *device = [UIDevice currentDevice];
   return ( device.userInterfaceIdiom == UIUserInterfaceIdiomPhone );
 }
+
+CGFloat TKSystemVersion()
+{
+  return [[[UIDevice currentDevice] systemVersion] floatValue];
+}

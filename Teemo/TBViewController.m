@@ -44,19 +44,6 @@
   
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-  [super viewWillAppear:animated];
-  
-  [self layoutViews];
-  
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-  [super viewWillDisappear:animated];
-  
-}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -71,6 +58,13 @@
   _viewAppeared = NO;
 }
 
+
+- (void)viewWillLayoutSubviews
+{
+  [super viewWillLayoutSubviews];
+  
+  [self layoutViews];
+}
 
 - (void)layoutViews
 {

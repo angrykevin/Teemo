@@ -10,12 +10,15 @@
 
 @interface UILabel (Extentions)
 
++ (id)simpleLabelWithFont:(UIFont *)font
+                textColor:(UIColor *)textColor
+            textAlignment:(NSTextAlignment)textAlignment;
+
 + (id)labelWithFont:(UIFont *)font
           textColor:(UIColor *)textColor
-    backgroundColor:(UIColor *)backgroundColor
       textAlignment:(NSTextAlignment)textAlignment
-      lineBreakMode:(NSLineBreakMode)lineBreakMode
-adjustsFontSizeToFitWidth:(BOOL)adjustsFontSizeToFitWidth
-      numberOfLines:(NSInteger)numberOfLines;
+      numberOfLines:(NSInteger)numberOfLines
+    backgroundColor:(UIColor *)backgroundColor
+      lineBreakMode:(NSLineBreakMode)lineBreakMode;
 
 @end

@@ -15,6 +15,7 @@
 #include <gloox/error.h>
 #include "TMBaseHandler.h"
 
+using namespace std;
 using namespace gloox;
 
 
