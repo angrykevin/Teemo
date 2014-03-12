@@ -8,19 +8,18 @@
 
 #import "TBCommon.h"
 
+
 UIImage *TBCreateImage(NSString *name)
 {
   NSString *path = TKPathForBundleResource(nil, name);
   return [[UIImage alloc] initWithContentsOfFile:path];
 }
 
-UIColor *TBColorWithRGBA(CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha)
+UIImage *TBCachedImage(NSString *name)
 {
-  return [UIColor colorWithRed:red/255.0
-                         green:green/255.0
-                          blue:blue/255.0
-                         alpha:alpha/255.0];
+  return [UIImage imageNamed:name];
 }
+
 
 void TBPresentSystemMessage(NSString *message)
 {
@@ -31,6 +30,7 @@ void TBPresentSystemMessage(NSString *message)
                                             otherButtonTitles:nil];
   [alertView show];
 }
+
 
 NSString *TBFormatDate(NSDate *date)
 {
@@ -67,22 +67,23 @@ NSString *TBFormatDate(NSDate *date)
   return nil;
 }
 
-NSString *TBBuildFullname(NSString *givenname, NSString *familyname)
+
+NSString *TBMergeString(NSString *first, NSString *second)
 {
-  NSMutableString *name = [[NSMutableString alloc] init];
-  if ( [givenname length] > 0 ) {
-    [name appendString:givenname];
-    if ( [familyname length]>0 ) {
-      [name appendString:@" "];
-      [name appendString:familyname];
+  NSMutableString *string = [[NSMutableString alloc] init];
+  if ( [first length] > 0 ) {
+    [string appendString:first];
+    if ( [second length]>0 ) {
+      [string appendString:@" "];
+      [string appendString:second];
     }
   } else {
-    if ( [familyname length]>0 ) {
-      [name appendString:familyname];
+    if ( [second length]>0 ) {
+      [string appendString:second];
     }
   }
-  if ( [name length] > 0 ) {
-    return name;
+  if ( [string length] > 0 ) {
+    return string;
   }
   return nil;
 }
