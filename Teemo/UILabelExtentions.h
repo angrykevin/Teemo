@@ -10,10 +10,6 @@
 
 @interface UILabel (Extentions)
 
-+ (id)simpleLabelWithFont:(UIFont *)font
-                textColor:(UIColor *)textColor
-            textAlignment:(NSTextAlignment)textAlignment;
-
 + (id)labelWithFont:(UIFont *)font
           textColor:(UIColor *)textColor
       textAlignment:(NSTextAlignment)textAlignment

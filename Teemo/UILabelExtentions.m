@@ -10,18 +10,6 @@
 
 @implementation UILabel (Extentions)
 
-+ (id)simpleLabelWithFont:(UIFont *)font
-                textColor:(UIColor *)textColor
-            textAlignment:(NSTextAlignment)textAlignment
-{
-  return [self labelWithFont:font
-                   textColor:textColor
-               textAlignment:textAlignment
-               numberOfLines:1
-             backgroundColor:[UIColor clearColor]
-               lineBreakMode:NSLineBreakByTruncatingTail];
-}
-
 + (id)labelWithFont:(UIFont *)font
           textColor:(UIColor *)textColor
       textAlignment:(NSTextAlignment)textAlignment
