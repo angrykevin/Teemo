@@ -14,6 +14,14 @@ UIImage *TBCreateImage(NSString *name)
   return [[UIImage alloc] initWithContentsOfFile:path];
 }
 
+UIColor *TBColorWithRGBA(CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha)
+{
+  return [UIColor colorWithRed:red/255.0
+                         green:green/255.0
+                          blue:blue/255.0
+                         alpha:alpha/255.0];
+}
+
 void TBPresentSystemMessage(NSString *message)
 {
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:message

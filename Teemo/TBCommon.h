@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 typedef void (^TBOperationCompletionHandler)(id result, NSError *error);
@@ -15,17 +16,18 @@ typedef void (^TBOperationCompletionHandler)(id result, NSError *error);
 #ifdef __cplusplus
 extern "C" {
 #endif
-  
-  
+
+
 UIImage *TBCreateImage(NSString *name);
-  
+UIColor *TBColorWithRGBA(CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha);
+
 void TBPresentSystemMessage(NSString *message);
-  
+
 NSString *TBFormatDate(NSDate *date);
-  
+
 NSString *TBBuildFullname(NSString *givenname, NSString *familyname);
-  
-  
+
+
 #ifdef __cplusplus
 }
 #endif
