@@ -240,6 +240,8 @@
 		BCB653DD185C416200556C10 /* UIImageExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB653DC185C416200556C10 /* UIImageExtentions.m */; };
 		BCB9EE7B18D041470015DD78 /* TBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB9EE7A18D041470015DD78 /* TBActionSheet.m */; };
 		BCBA5CEE18A9D87C00F50A41 /* TMRosterHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCBA5CED18A9D87C00F50A41 /* TMRosterHandler.mm */; };
+		BCBE2D9918D83EA6003C0562 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBE2D9818D83EA6003C0562 /* MBProgressHUD.m */; };
+		BCBE2D9C18D83F93003C0562 /* MBProgressHUDExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBE2D9B18D83F92003C0562 /* MBProgressHUDExtentions.m */; };
 		BCC877DC18629DDA002FE75F /* TBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC877DB18629DDA002FE75F /* TBLocationManager.m */; };
 		BCC877DF1862C3C4002FE75F /* TBReverseGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC877DE1862C3C4002FE75F /* TBReverseGeocoder.m */; };
 		BCC877E31862D1FA002FE75F /* TBCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC877E21862D1FA002FE75F /* TBCommon.m */; };
@@ -806,6 +808,10 @@
 		BCB9EE7A18D041470015DD78 /* TBActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBActionSheet.m; sourceTree = "<group>"; };
 		BCBA5CEC18A9D87C00F50A41 /* TMRosterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMRosterHandler.h; sourceTree = "<group>"; };
 		BCBA5CED18A9D87C00F50A41 /* TMRosterHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRosterHandler.mm; sourceTree = "<group>"; };
+		BCBE2D9718D83EA6003C0562 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		BCBE2D9818D83EA6003C0562 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		BCBE2D9A18D83F92003C0562 /* MBProgressHUDExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUDExtentions.h; sourceTree = "<group>"; };
+		BCBE2D9B18D83F92003C0562 /* MBProgressHUDExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUDExtentions.m; sourceTree = "<group>"; };
 		BCC877DA18629DDA002FE75F /* TBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLocationManager.h; sourceTree = "<group>"; };
 		BCC877DB18629DDA002FE75F /* TBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLocationManager.m; sourceTree = "<group>"; };
 		BCC877DD1862C3C4002FE75F /* TBReverseGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBReverseGeocoder.h; sourceTree = "<group>"; };
@@ -955,6 +961,7 @@
 		BC84045F182CC2EF0058EBDC /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				BCBE2D9618D83EA6003C0562 /* MBProgressHUD */,
 				BC840460182CC2EF0058EBDC /* gloox */,
 				BC8406B8182CC5200058EBDC /* openssl */,
 				BCB44E011834E02A007D074E /* SDWebImage */,
@@ -1588,6 +1595,17 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		BCBE2D9618D83EA6003C0562 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				BCBE2D9718D83EA6003C0562 /* MBProgressHUD.h */,
+				BCBE2D9818D83EA6003C0562 /* MBProgressHUD.m */,
+				BCBE2D9A18D83F92003C0562 /* MBProgressHUDExtentions.h */,
+				BCBE2D9B18D83F92003C0562 /* MBProgressHUDExtentions.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1710,6 +1728,7 @@
 				BC840612182CC2F00058EBDC /* connectiontcpclient.cpp in Sources */,
 				BCB44E1F1834E02A007D074E /* UIButton+WebCache.m in Sources */,
 				BC84066C182CC2F00058EBDC /* NSArrayAdditions.m in Sources */,
+				BCBE2D9C18D83F93003C0562 /* MBProgressHUDExtentions.m in Sources */,
 				BCB653DD185C416200556C10 /* UIImageExtentions.m in Sources */,
 				BC84067B182CC2F00058EBDC /* TKCoreCommon.m in Sources */,
 				BC840627182CC2F00058EBDC /* instantmucroom.cpp in Sources */,
@@ -1800,6 +1819,7 @@
 				BC840632182CC2F00058EBDC /* linklocalmanager.cpp in Sources */,
 				BCB44E181834E02A007D074E /* SDImageCache.m in Sources */,
 				BC84060B182CC2F00058EBDC /* component.cpp in Sources */,
+				BCBE2D9918D83EA6003C0562 /* MBProgressHUD.m in Sources */,
 				BC5EE0E9182A196A007D5DE6 /* main.m in Sources */,
 				BC840613182CC2F00058EBDC /* connectiontcpserver.cpp in Sources */,
 				BC840637182CC2F00058EBDC /* messageeventfilter.cpp in Sources */,
