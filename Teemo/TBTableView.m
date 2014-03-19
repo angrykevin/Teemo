@@ -23,32 +23,22 @@
   [super layoutSubviews];
   
   [_refreshControl sizeToFit];
-  _refreshControl.frame = CGRectMake(0.0,
-                                     MIN( self.contentOffset.y, 0.0-_refreshControl.height ),
-                                     self.width,
-                                     _refreshControl.height);
+  
+  CGFloat maxY = 0.0 - _refreshControl.height;
+  CGFloat offsetY = self.contentOffset.y;
+  
+  // At top
+  _refreshControl.frame = CGRectMake(0.0, MIN( offsetY, maxY ), self.width, _refreshControl.height);
+  
+  // At middle
+//  if ( offsetY<maxY ) {
+//    _refreshControl.frame = CGRectMake(0.0, (offsetY+maxY)/2.0, self.width, _refreshControl.height);
+//  } else {
+//    _refreshControl.frame = CGRectMake(0.0, maxY, self.width, _refreshControl.height);
+//  }
   
 }
 
-//- (void)setContentOffset:(CGPoint)contentOffset
-//{
-//  if ( [self isDragging] ) {
-//    if ( abs(contentOffset.y - self.contentOffset.y)>20 ) {
-//      return;
-//    }
-//  }
-//  [super setContentOffset:contentOffset];
-//}
-//
-//- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated
-//{
-//  if ( [self isDragging] ) {
-//    if ( abs(contentOffset.y - self.contentOffset.y)>20 ) {
-//      return;
-//    }
-//  }
-//  [super setContentOffset:contentOffset animated:animated];
-//}
 
 - (void)setShowsRefreshControl:(BOOL)showsRefreshControl
 {
@@ -61,6 +51,10 @@
       [_refreshControl removeFromSuperview];
       [self addSubview:_refreshControl];
     }
+    [_refreshControl sendToBack];
+    UITableViewController *tvc = [[UITableViewController alloc] init];
+    tvc.tableView = self;
+    tvc.refreshControl = _refreshControl;
   } else {
     [_refreshControl removeFromSuperview];
     _refreshControl = nil;
