@@ -226,6 +226,7 @@
 		BCA23D5C1832293200E93718 /* RSBuddiesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCA23D5B1832293200E93718 /* RSBuddiesViewController.mm */; };
 		BCA60DB61886862B00C9FA8F /* TBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA60DB51886862B00C9FA8F /* TBTextField.m */; };
 		BCA67F6A18A8DE2C00D7E459 /* TMAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA67F6918A8DE2C00D7E459 /* TMAccountManager.m */; };
+		BCA7FB1518D9924600164554 /* TBTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA7FB1418D9924600164554 /* TBTableView.m */; };
 		BCB44DFE1834D5B6007D074E /* RSBuddyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44DFD1834D5B6007D074E /* RSBuddyCell.m */; };
 		BCB44E171834E02A007D074E /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E031834E02A007D074E /* MKAnnotationView+WebCache.m */; };
 		BCB44E181834E02A007D074E /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB44E051834E02A007D074E /* SDImageCache.m */; };
@@ -779,6 +780,8 @@
 		BCA60DB51886862B00C9FA8F /* TBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTextField.m; sourceTree = "<group>"; };
 		BCA67F6818A8DE2C00D7E459 /* TMAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAccountManager.h; sourceTree = "<group>"; };
 		BCA67F6918A8DE2C00D7E459 /* TMAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAccountManager.m; sourceTree = "<group>"; };
+		BCA7FB1318D9924600164554 /* TBTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTableView.h; sourceTree = "<group>"; };
+		BCA7FB1418D9924600164554 /* TBTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTableView.m; sourceTree = "<group>"; };
 		BCB44DFC1834D5B6007D074E /* RSBuddyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBuddyCell.h; sourceTree = "<group>"; };
 		BCB44DFD1834D5B6007D074E /* RSBuddyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBuddyCell.m; sourceTree = "<group>"; };
 		BCB44E021834E02A007D074E /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -934,6 +937,8 @@
 				BC552DB91839C57C0078375F /* TBButton.m */,
 				BCA60DB41886862B00C9FA8F /* TBTextField.h */,
 				BCA60DB51886862B00C9FA8F /* TBTextField.m */,
+				BCA7FB1318D9924600164554 /* TBTableView.h */,
+				BCA7FB1418D9924600164554 /* TBTableView.m */,
 				BC5EE35F182A2429007D5DE6 /* TBViewController.h */,
 				BC5EE360182A2429007D5DE6 /* TBViewController.m */,
 				BC84070A182CCB090058EBDC /* TBTabViewController.h */,
@@ -1838,6 +1843,7 @@
 				BC840623182CC2F00058EBDC /* gloox.cpp in Sources */,
 				BCC877E31862D1FA002FE75F /* TBCommon.m in Sources */,
 				BC35D8C2187196AF00300C86 /* RSRoutines.mm in Sources */,
+				BCA7FB1518D9924600164554 /* TBTableView.m in Sources */,
 				BCB44E171834E02A007D074E /* MKAnnotationView+WebCache.m in Sources */,
 				BC840680182CC2F00058EBDC /* TKNAIManager.m in Sources */,
 				BC840616182CC2F00058EBDC /* dataform.cpp in Sources */,
