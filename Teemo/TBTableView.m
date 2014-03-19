@@ -30,6 +30,26 @@
   
 }
 
+//- (void)setContentOffset:(CGPoint)contentOffset
+//{
+//  if ( [self isDragging] ) {
+//    if ( abs(contentOffset.y - self.contentOffset.y)>20 ) {
+//      return;
+//    }
+//  }
+//  [super setContentOffset:contentOffset];
+//}
+//
+//- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated
+//{
+//  if ( [self isDragging] ) {
+//    if ( abs(contentOffset.y - self.contentOffset.y)>20 ) {
+//      return;
+//    }
+//  }
+//  [super setContentOffset:contentOffset animated:animated];
+//}
+
 - (void)setShowsRefreshControl:(BOOL)showsRefreshControl
 {
   _showsRefreshControl = showsRefreshControl;
