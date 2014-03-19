@@ -21,7 +21,7 @@ UIImage *TBCachedImage(NSString *name)
 }
 
 
-void TBPresentSystemMessage(NSString *message)
+void TBPresentMessage(NSString *message)
 {
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:message
                                                       message:nil

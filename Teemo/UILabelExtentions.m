@@ -13,17 +13,17 @@
 + (id)labelWithFont:(UIFont *)font
           textColor:(UIColor *)textColor
       textAlignment:(NSTextAlignment)textAlignment
+      lineBreakMode:(NSLineBreakMode)lineBreakMode
       numberOfLines:(NSInteger)numberOfLines
     backgroundColor:(UIColor *)backgroundColor
-      lineBreakMode:(NSLineBreakMode)lineBreakMode
 {
   UILabel *label = [[UILabel alloc] init];
   label.font = font;
   label.textColor = textColor;
   label.textAlignment = textAlignment;
-  label.numberOfLines = numberOfLines;
-  label.backgroundColor = backgroundColor;
   label.lineBreakMode = lineBreakMode;
+  label.numberOfLines = (numberOfLines<=0) ? 0 : numberOfLines;
+  label.backgroundColor = (backgroundColor==nil) ? [UIColor clearColor] : backgroundColor;
   label.adjustsFontSizeToFitWidth = NO;
   return label;
 }

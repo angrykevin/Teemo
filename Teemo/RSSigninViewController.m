@@ -101,12 +101,12 @@
   NSString *password = [_passwordLine.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   
   if ( !TKIsStringWithText(passport) ) {
-    TBPresentSystemMessage(@"Passport invalid !");
+    TBPresentMessage(@"Passport invalid !");
     return;
   }
   
   if ( !TKIsStringWithText(password) ) {
-    TBPresentSystemMessage(@"Password invalid !");
+    TBPresentMessage(@"Password invalid !");
     return;
   }
   

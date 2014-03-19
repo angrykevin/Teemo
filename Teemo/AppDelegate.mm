@@ -124,7 +124,7 @@
   TKPRINTMETHOD();
   
   if ( TKIsInstance([_root.viewControllers firstObject], [RSSigninViewController class]) ) {
-    TBPresentSystemMessage(@"Sign in failed !");
+    TBPresentMessage(@"Sign in failed !");
   }
   
   [engine removeAllObservers];

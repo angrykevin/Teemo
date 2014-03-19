@@ -22,20 +22,22 @@
 {
   [super layoutSubviews];
   
-  [_refreshControl sizeToFit];
-  
-  CGFloat maxY = 0.0 - _refreshControl.height;
-  CGFloat offsetY = self.contentOffset.y;
-  
-  // At top
-  _refreshControl.frame = CGRectMake(0.0, MIN( offsetY, maxY ), self.width, _refreshControl.height);
-  
-  // At middle
-//  if ( offsetY<maxY ) {
-//    _refreshControl.frame = CGRectMake(0.0, (offsetY+maxY)/2.0, self.width, _refreshControl.height);
-//  } else {
-//    _refreshControl.frame = CGRectMake(0.0, maxY, self.width, _refreshControl.height);
-//  }
+  if ( _showsRefreshControl ) {
+    [_refreshControl sizeToFit];
+    
+    CGFloat maxY = 0.0 - _refreshControl.height;
+    CGFloat offsetY = self.contentOffset.y;
+    
+    // At top
+    _refreshControl.frame = CGRectMake(0.0, MIN( offsetY, maxY ), self.width, _refreshControl.height);
+    
+    // At middle
+//    if ( offsetY<maxY ) {
+//      _refreshControl.frame = CGRectMake(0.0, (offsetY+maxY)/2.0, self.width, _refreshControl.height);
+//    } else {
+//      _refreshControl.frame = CGRectMake(0.0, maxY, self.width, _refreshControl.height);
+//    }
+  }
   
 }
 

@@ -13,6 +13,7 @@
 
 - (void)updateTableWithNewRowCount:(int)rowCount
 {
+  // TODO: 可能还应该考虑下拉刷新的时候contentInset.top为正值这种情况。
   CGPoint offset = [self contentOffset];
   
   [UIView setAnimationsEnabled:NO];

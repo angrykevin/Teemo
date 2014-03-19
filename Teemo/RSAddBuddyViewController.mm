@@ -83,7 +83,7 @@
 - (void)rightButtonClicked:(id)sender
 {
   if ( [_jidLine.textField.text length] <= 0 ) {
-    TBPresentSystemMessage(NSLocalizedString(@"JID invalid!", @""));
+    TBPresentMessage(NSLocalizedString(@"JID invalid!", @""));
     return;
   }
   

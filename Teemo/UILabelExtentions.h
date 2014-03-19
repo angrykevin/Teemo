@@ -13,8 +13,8 @@
 + (id)labelWithFont:(UIFont *)font
           textColor:(UIColor *)textColor
       textAlignment:(NSTextAlignment)textAlignment
+      lineBreakMode:(NSLineBreakMode)lineBreakMode
       numberOfLines:(NSInteger)numberOfLines
-    backgroundColor:(UIColor *)backgroundColor
-      lineBreakMode:(NSLineBreakMode)lineBreakMode;
+    backgroundColor:(UIColor *)backgroundColor;
 
 @end
