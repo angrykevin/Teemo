@@ -13,7 +13,6 @@
 
 - (void)updateTableWithNewRowCount:(int)rowCount
 {
-  // TODO: 可能还应该考虑下拉刷新的时候contentInset.top为正值这种情况。
   CGPoint offset = [self contentOffset];
   
   [UIView setAnimationsEnabled:NO];
@@ -37,7 +36,14 @@
   
   [self insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationNone];
   
-  offset.y += height;
+  CGFloat contentHeight = self.contentSize.height;
+  CGFloat newContentHeight = contentHeight + height;
+  CGFloat maxOffsetY = newContentHeight - self.height;
+  if ( maxOffsetY<0.0 ) {
+    maxOffsetY = 0.0;
+  }
+  CGFloat offsetY = offset.y + height;
+  offset.y = MIN(offsetY, maxOffsetY);
   
   [self endUpdates];
   
