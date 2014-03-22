@@ -14,6 +14,7 @@
 #import "TBActionSheet.h"
 #import "TBButton.h"
 #import "TBTableView.h"
+#import "TBGIFLayer.h"
 #import "TBLocationManager.h"
 #import "TBReverseGeocoder.h"
 
