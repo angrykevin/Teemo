@@ -17,11 +17,10 @@
     
     _textLabel = [UILabel labelWithFont:[UIFont systemFontOfSize:8.0]
                               textColor:[UIColor blackColor]
-                        backgroundColor:[UIColor clearColor]
                           textAlignment:NSTextAlignmentCenter
                           lineBreakMode:NSLineBreakByTruncatingTail
-              adjustsFontSizeToFitWidth:NO
-                          numberOfLines:1];
+                          numberOfLines:1
+                        backgroundColor:[UIColor clearColor]];
     [self addSubview:_textLabel];
     
     _edgeInsets = UIEdgeInsetsMake(2.0, 4.0, 3.0, 4.0);
