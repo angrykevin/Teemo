@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A2C410D18DE1A6300E7959A /* TBGIFLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C410C18DE1A6300E7959A /* TBGIFLayer.m */; };
+		0A190AAF18DEDA0E00675252 /* TBGIFLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A190AAC18DEDA0E00675252 /* TBGIFLayer.m */; };
+		0A190AB018DEDA0E00675252 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A190AAE18DEDA0E00675252 /* TTTAttributedLabel.m */; };
+		0A58E5E918DEE1E100EA29FD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A58E5E818DEE1E100EA29FD /* MobileCoreServices.framework */; };
+		0A58E5EB18DEE1F200EA29FD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A58E5EA18DEE1F200EA29FD /* QuartzCore.framework */; };
+		0A58E5ED18DEE1FB00EA29FD /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A58E5EC18DEE1FB00EA29FD /* CoreText.framework */; };
+		0A58E5EF18DEE20900EA29FD /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A58E5EE18DEE20900EA29FD /* ImageIO.framework */; };
+		0A58E5F318DEE21F00EA29FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A58E5F218DEE21F00EA29FD /* CoreLocation.framework */; };
 		BC0DFC1518AA26C2006B86CD /* TMAccountContext.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0DFC1418AA26C2006B86CD /* TMAccountContext.m */; };
 		BC20B262184C75E90087CF9C /* UIButtonExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC20B261184C75E90087CF9C /* UIButtonExtentions.m */; };
 		BC35D8C2187196AF00300C86 /* RSRoutines.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC35D8C1187196AF00300C86 /* RSRoutines.mm */; };
@@ -249,8 +255,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A2C410B18DE1A6300E7959A /* TBGIFLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBGIFLayer.h; sourceTree = "<group>"; };
-		0A2C410C18DE1A6300E7959A /* TBGIFLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGIFLayer.m; sourceTree = "<group>"; };
+		0A190AAB18DEDA0E00675252 /* TBGIFLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBGIFLayer.h; sourceTree = "<group>"; };
+		0A190AAC18DEDA0E00675252 /* TBGIFLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGIFLayer.m; sourceTree = "<group>"; };
+		0A190AAD18DEDA0E00675252 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
+		0A190AAE18DEDA0E00675252 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		0A58E5E818DEE1E100EA29FD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		0A58E5EA18DEE1F200EA29FD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0A58E5EC18DEE1FB00EA29FD /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		0A58E5EE18DEE20900EA29FD /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		0A58E5F218DEE21F00EA29FD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BC0DFC1318AA26C2006B86CD /* TMAccountContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAccountContext.h; sourceTree = "<group>"; };
 		BC0DFC1418AA26C2006B86CD /* TMAccountContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAccountContext.m; sourceTree = "<group>"; };
 		BC20B260184C75E90087CF9C /* UIButtonExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonExtentions.h; sourceTree = "<group>"; };
@@ -828,6 +841,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A58E5F318DEE21F00EA29FD /* CoreLocation.framework in Frameworks */,
+				0A58E5EF18DEE20900EA29FD /* ImageIO.framework in Frameworks */,
+				0A58E5ED18DEE1FB00EA29FD /* CoreText.framework in Frameworks */,
+				0A58E5EB18DEE1F200EA29FD /* QuartzCore.framework in Frameworks */,
+				0A58E5E918DEE1E100EA29FD /* MobileCoreServices.framework in Frameworks */,
 				BC5EE35E182A230E007D5DE6 /* libsqlite3.dylib in Frameworks */,
 				BC5EE2DC182A1C6B007D5DE6 /* libz.dylib in Frameworks */,
 				BC840707182CC5200058EBDC /* libssl.a in Frameworks */,
@@ -841,6 +859,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A190AAA18DEDA0E00675252 /* TTTAttributedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				0A190AAB18DEDA0E00675252 /* TBGIFLayer.h */,
+				0A190AAC18DEDA0E00675252 /* TBGIFLayer.m */,
+				0A190AAD18DEDA0E00675252 /* TTTAttributedLabel.h */,
+				0A190AAE18DEDA0E00675252 /* TTTAttributedLabel.m */,
+			);
+			path = TTTAttributedLabel;
+			sourceTree = "<group>";
+		};
 		BC47AE8E183335AE00331216 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,11 +903,16 @@
 		BC5EE0DB182A196A007D5DE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC5EE0E0182A196A007D5DE6 /* UIKit.framework */,
+				BC5EE0DC182A196A007D5DE6 /* Foundation.framework */,
+				0A58E5F218DEE21F00EA29FD /* CoreLocation.framework */,
+				0A58E5EE18DEE20900EA29FD /* ImageIO.framework */,
+				0A58E5EC18DEE1FB00EA29FD /* CoreText.framework */,
+				0A58E5EA18DEE1F200EA29FD /* QuartzCore.framework */,
+				BC5EE0DE182A196A007D5DE6 /* CoreGraphics.framework */,
+				0A58E5E818DEE1E100EA29FD /* MobileCoreServices.framework */,
 				BC5EE35D182A230E007D5DE6 /* libsqlite3.dylib */,
 				BC5EE2DB182A1C6B007D5DE6 /* libz.dylib */,
-				BC5EE0DC182A196A007D5DE6 /* Foundation.framework */,
-				BC5EE0DE182A196A007D5DE6 /* CoreGraphics.framework */,
-				BC5EE0E0182A196A007D5DE6 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -937,8 +971,6 @@
 				BC552DB91839C57C0078375F /* TBButton.m */,
 				BCA7FB1318D9924600164554 /* TBTableView.h */,
 				BCA7FB1418D9924600164554 /* TBTableView.m */,
-				0A2C410B18DE1A6300E7959A /* TBGIFLayer.h */,
-				0A2C410C18DE1A6300E7959A /* TBGIFLayer.m */,
 				BCC877DA18629DDA002FE75F /* TBLocationManager.h */,
 				BCC877DB18629DDA002FE75F /* TBLocationManager.m */,
 				BCC877DD1862C3C4002FE75F /* TBReverseGeocoder.h */,
@@ -966,6 +998,7 @@
 		BC84045F182CC2EF0058EBDC /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				0A190AAA18DEDA0E00675252 /* TTTAttributedLabel */,
 				BCBE2D9618D83EA6003C0562 /* MBProgressHUD */,
 				BC840460182CC2EF0058EBDC /* gloox */,
 				BC8406B8182CC5200058EBDC /* openssl */,
@@ -1762,7 +1795,6 @@
 				BC84060C182CC2F00058EBDC /* compressiondefault.cpp in Sources */,
 				BC84063C182CC2F00058EBDC /* mucroom.cpp in Sources */,
 				BC840617182CC2F00058EBDC /* dataformfield.cpp in Sources */,
-				0A2C410D18DE1A6300E7959A /* TBGIFLayer.m in Sources */,
 				BCB44DFE1834D5B6007D074E /* RSBuddyCell.m in Sources */,
 				BC840672182CC2F00058EBDC /* UIButtonAdditions.m in Sources */,
 				BC5EE2F9182A1FAC007D5DE6 /* TMCommon.mm in Sources */,
@@ -1790,6 +1822,7 @@
 				BC840674182CC2F00058EBDC /* UIScrollViewAdditions.m in Sources */,
 				BC840653182CC2F00058EBDC /* socks5bytestream.cpp in Sources */,
 				BC840609182CC2F00058EBDC /* client.cpp in Sources */,
+				0A190AB018DEDA0E00675252 /* TTTAttributedLabel.m in Sources */,
 				BC840673182CC2F00058EBDC /* UIImageViewAdditions.m in Sources */,
 				BC840610182CC2F00058EBDC /* connectionsocks5proxy.cpp in Sources */,
 				BC840601182CC2F00058EBDC /* atomicrefcount.cpp in Sources */,
@@ -1833,6 +1866,7 @@
 				BCBA5CEE18A9D87C00F50A41 /* TMRosterHandler.mm in Sources */,
 				BC84065E182CC2F00058EBDC /* tlsgnutlsclientanon.cpp in Sources */,
 				BC840650182CC2F00058EBDC /* shim.cpp in Sources */,
+				0A190AAF18DEDA0E00675252 /* TBGIFLayer.m in Sources */,
 				BC84064C182CC2F00058EBDC /* rosteritem.cpp in Sources */,
 				BC840642182CC2F00058EBDC /* prep.cpp in Sources */,
 				BC84064E182CC2F00058EBDC /* search.cpp in Sources */,

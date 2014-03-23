@@ -15,13 +15,13 @@
 {
   self = [super init];
   if (self) {
+    
     _titleLabel = [UILabel labelWithFont:[UIFont boldSystemFontOfSize:14.0]
                                textColor:[UIColor blackColor]
-                         backgroundColor:[UIColor clearColor]
                            textAlignment:NSTextAlignmentLeft
                            lineBreakMode:NSLineBreakByTruncatingTail
-               adjustsFontSizeToFitWidth:NO
-                           numberOfLines:1];
+                           numberOfLines:1
+                         backgroundColor:[UIColor clearColor]];
     [self.contentView addSubview:_titleLabel];
     
     _valueButton = [[UIButton alloc] init];

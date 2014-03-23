@@ -131,11 +131,10 @@
     
     _titleLabel = [UILabel labelWithFont:[UIFont boldSystemFontOfSize:20.0]
                                textColor:[UIColor whiteColor]
-                         backgroundColor:[UIColor clearColor]
                            textAlignment:NSTextAlignmentCenter
                            lineBreakMode:NSLineBreakByTruncatingMiddle
-               adjustsFontSizeToFitWidth:NO
-                           numberOfLines:1];
+                           numberOfLines:1
+                         backgroundColor:[UIColor clearColor]];
     [self addSubview:_titleLabel];
     
     

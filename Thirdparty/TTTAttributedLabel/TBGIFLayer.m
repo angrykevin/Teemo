@@ -1,6 +1,6 @@
 //
 //  TBGIFLayer.m
-//  Teemo
+//  TestGif
 //
 //  Created by Kevin on 3/23/14.
 //  Copyright (c) 2014 Telligenty. All rights reserved.

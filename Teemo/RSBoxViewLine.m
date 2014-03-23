@@ -26,14 +26,13 @@
     
     _label = [UILabel labelWithFont:[UIFont boldSystemFontOfSize:14.0]
                           textColor:[UIColor blackColor]
-                    backgroundColor:[UIColor clearColor]
                       textAlignment:NSTextAlignmentRight
                       lineBreakMode:NSLineBreakByClipping
-          adjustsFontSizeToFitWidth:NO
-                      numberOfLines:1];
+                      numberOfLines:1
+                    backgroundColor:[UIColor clearColor]];
     [self addSubview:_label];
     
-    _textField = [[TBTextField alloc] init];
+    _textField = [[UITextField alloc] init];
     _textField.font = [UIFont systemFontOfSize:14.0];
     _textField.adjustsFontSizeToFitWidth = NO;
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;

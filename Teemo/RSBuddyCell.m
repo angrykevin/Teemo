@@ -28,20 +28,18 @@
     
     _nicknameLabel = [UILabel labelWithFont:[UIFont boldSystemFontOfSize:14.0]
                                   textColor:[UIColor blackColor]
-                            backgroundColor:[UIColor clearColor]
                               textAlignment:NSTextAlignmentLeft
                               lineBreakMode:NSLineBreakByTruncatingTail
-                  adjustsFontSizeToFitWidth:NO
-                              numberOfLines:1];
+                              numberOfLines:1
+                            backgroundColor:[UIColor clearColor]];
     [self.contentView addSubview:_nicknameLabel];
     
     _descLabel = [UILabel labelWithFont:[UIFont systemFontOfSize:12.0]
-                              textColor:[UIColor darkGrayColor]
-                        backgroundColor:[UIColor clearColor]
-                          textAlignment:NSTextAlignmentLeft
-                          lineBreakMode:NSLineBreakByWordWrapping
-              adjustsFontSizeToFitWidth:NO
-                          numberOfLines:0];
+                                  textColor:[UIColor darkGrayColor]
+                              textAlignment:NSTextAlignmentLeft
+                              lineBreakMode:NSLineBreakByWordWrapping
+                              numberOfLines:0
+                            backgroundColor:[UIColor clearColor]];
     [self.contentView addSubview:_descLabel];
     
   }

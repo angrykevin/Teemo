@@ -30,7 +30,6 @@
   _jidLine = [[RSBoxViewLine alloc] init];
   _jidLine.backgroundImageView.image = TBCreateImage(@"box_top.png");
   _jidLine.label.text = NSLocalizedString(@"JID", @"");
-  _jidLine.textField.maxLength = 50;
   _jidLine.textField.delegate = self;
   _jidLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   _jidLine.textField.returnKeyType = UIReturnKeyNext;
@@ -39,7 +38,6 @@
   _messageLine = [[RSBoxViewLine alloc] init];
   _messageLine.backgroundImageView.image = TBCreateImage(@"box_bottom.png");
   _messageLine.label.text = NSLocalizedString(@"Message", @"");
-  _messageLine.textField.maxLength = 50;
   _messageLine.textField.delegate = self;
   _messageLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   _messageLine.textField.returnKeyType = UIReturnKeyDone;

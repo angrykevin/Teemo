@@ -25,12 +25,11 @@
   
   
   _titleLabel = [UILabel labelWithFont:[UIFont boldSystemFontOfSize:64.0]
-                             textColor:[UIColor brownColor]
-                       backgroundColor:[UIColor clearColor]
-                         textAlignment:NSTextAlignmentCenter
-                         lineBreakMode:NSLineBreakByClipping
-             adjustsFontSizeToFitWidth:NO
-                         numberOfLines:1];
+                                textColor:[UIColor brownColor]
+                            textAlignment:NSTextAlignmentCenter
+                            lineBreakMode:NSLineBreakByClipping
+                            numberOfLines:1
+                          backgroundColor:[UIColor clearColor]];
   _titleLabel.text = @"Teemo";
   [_scrollView addSubview:_titleLabel];
   
@@ -38,7 +37,6 @@
   _passportLine.backgroundImageView.image = TBCreateImage(@"box_top.png");
   _passportLine.label.text = NSLocalizedString(@"Passport", @"");
   _passportLine.textField.delegate = self;
-  _passportLine.textField.maxLength = 50;
   _passportLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   _passportLine.textField.returnKeyType = UIReturnKeyNext;
   [_scrollView addSubview:_passportLine];
@@ -48,7 +46,6 @@
   _passwordLine.label.text = NSLocalizedString(@"Password", @"");
   _passwordLine.textField.secureTextEntry = YES;
   _passwordLine.textField.delegate = self;
-  _passwordLine.textField.maxLength = 50;
   _passwordLine.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   _passwordLine.textField.returnKeyType = UIReturnKeyDone;
   [_scrollView addSubview:_passwordLine];
