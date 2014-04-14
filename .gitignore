@@ -1,5 +1,15 @@
-Teemo.xcodeproj/project.xcworkspace/
-
-Teemo.xcodeproj/xcuserdata/
 
 .DS_Store
+
+
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+
+Pods/*.xcodeproj/*
+!Pods/*.xcodeproj/project.pbxproj
+
+
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+
+
